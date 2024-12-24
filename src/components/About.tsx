@@ -5,6 +5,11 @@ const About = () => {
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-8">About My Approach</h2>
           <p className="text-lg mb-6">
+            CANDID CAPTURE is not just about what your eyes see. it's more about what your soul feels, 
+            capturing memories of present happiness to cherish in the future. We aim to make you feel 
+            free and happy through our photography.
+          </p>
+          <p className="text-lg mb-6">
             I believe in capturing authentic moments that tell genuine stories. My candid photography
             style focuses on the natural, unposed moments that make life beautiful.
           </p>
