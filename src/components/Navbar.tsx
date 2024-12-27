@@ -1,8 +1,28 @@
 import { useState } from 'react';
-import { Menu, X, Home, LogIn, DollarSign } from 'lucide-react';
+import { Menu, X, Home, LogIn, DollarSign, Camera, Heart, Users, ShoppingBag } from 'lucide-react';
+import {
+  Menubar,
+  MenubarContent,
+  MenubarItem,
+  MenubarMenu,
+  MenubarTrigger,
+} from "@/components/ui/menubar";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const services = [
+    { name: 'Wedding Photography', icon: <Heart className="w-4 h-4" /> },
+    { name: 'Pre-wedding photoshoot', icon: <Heart className="w-4 h-4" /> },
+    { name: 'E-commerce shoot', icon: <ShoppingBag className="w-4 h-4" /> },
+    { name: 'Model shoot', icon: <Users className="w-4 h-4" /> },
+    { name: 'Product shoot', icon: <ShoppingBag className="w-4 h-4" /> },
+    { name: 'Makeup shoot', icon: <Camera className="w-4 h-4" /> },
+    { name: 'Concept shoot', icon: <Camera className="w-4 h-4" /> },
+    { name: 'Maternity shoot', icon: <Heart className="w-4 h-4" /> },
+    { name: 'Newborn shoot', icon: <Heart className="w-4 h-4" /> },
+    { name: 'Naming Ceremony', icon: <Heart className="w-4 h-4" /> },
+  ];
 
   const navItems = [
     { name: 'Home', href: '#home', icon: <Home className="w-4 h-4" /> },
@@ -22,7 +42,27 @@ const Navbar = () => {
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex items-center space-x-8">
+            {/* Services Dropdown */}
+            <Menubar className="border-none bg-transparent">
+              <MenubarMenu>
+                <MenubarTrigger className="font-normal cursor-pointer">
+                  Services
+                </MenubarTrigger>
+                <MenubarContent>
+                  {services.map((service) => (
+                    <MenubarItem
+                      key={service.name}
+                      className="flex items-center gap-2 cursor-pointer"
+                    >
+                      {service.icon}
+                      {service.name}
+                    </MenubarItem>
+                  ))}
+                </MenubarContent>
+              </MenubarMenu>
+            </Menubar>
+
             {navItems.map((item) => (
               <a
                 key={item.name}
@@ -48,6 +88,21 @@ const Navbar = () => {
         {/* Mobile Navigation Menu */}
         {isOpen && (
           <div className="md:hidden pb-4 animate-fadeIn">
+            {/* Mobile Services Menu */}
+            <div className="py-2">
+              <div className="font-medium mb-2">Services</div>
+              {services.map((service) => (
+                <a
+                  key={service.name}
+                  href="#"
+                  className="flex items-center gap-2 py-1 pl-4 text-secondary-foreground hover:text-primary transition-colors"
+                >
+                  {service.icon}
+                  {service.name}
+                </a>
+              ))}
+            </div>
+            {/* Regular Navigation Items */}
             {navItems.map((item) => (
               <a
                 key={item.name}
