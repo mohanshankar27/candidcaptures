@@ -4,10 +4,10 @@ const Hero = () => {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: 'url("https://images.unsplash.com/photo-1469041797191-50ace28483c3")',
+          backgroundImage: 'url("https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4")',
         }}
       >
-        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-black/40" />
       </div>
       <div className="relative text-center text-white z-10 animate-fadeIn">
         <h1 className="text-4xl md:text-6xl font-bold mb-4">Capturing Life's Genuine Moments</h1>
