@@ -1,14 +1,16 @@
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Home, LogIn, DollarSign } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { name: 'Home', href: '#home' },
+    { name: 'Home', href: '#home', icon: <Home className="w-4 h-4" /> },
     { name: 'Gallery', href: '#gallery' },
     { name: 'About', href: '#about' },
     { name: 'Contact', href: '#contact' },
+    { name: 'Pricing', href: '#pricing', icon: <DollarSign className="w-4 h-4" /> },
+    { name: 'Login', href: '#login', icon: <LogIn className="w-4 h-4" /> },
   ];
 
   return (
@@ -25,8 +27,9 @@ const Navbar = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-secondary-foreground hover:text-primary transition-colors"
+                className="flex items-center gap-2 text-secondary-foreground hover:text-primary transition-colors"
               >
+                {item.icon && item.icon}
                 {item.name}
               </a>
             ))}
@@ -44,14 +47,15 @@ const Navbar = () => {
 
         {/* Mobile Navigation Menu */}
         {isOpen && (
-          <div className="md:hidden pb-4">
+          <div className="md:hidden pb-4 animate-fadeIn">
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="block py-2 text-secondary-foreground hover:text-primary transition-colors"
+                className="flex items-center gap-2 py-2 text-secondary-foreground hover:text-primary transition-colors"
                 onClick={() => setIsOpen(false)}
               >
+                {item.icon && item.icon}
                 {item.name}
               </a>
             ))}
