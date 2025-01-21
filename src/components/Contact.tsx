@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useToast } from "@/components/ui/use-toast";
+import { Mail, Phone, MapPin } from 'lucide-react';
 
 const Contact = () => {
   const { toast } = useToast();
@@ -19,56 +20,107 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-white">
+    <section id="contact" className="py-24 bg-gradient-to-b from-white to-secondary/30">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">Get in Touch</h2>
-        <form onSubmit={handleSubmit} className="max-w-lg mx-auto space-y-6">
-          <div>
-            <label htmlFor="name" className="block text-sm font-medium mb-2">
-              Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-              required
-            />
+        <div className="text-center space-y-4 mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60">
+            Get in Touch
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Ready to capture your special moments? Let's discuss how we can create beautiful memories together.
+          </p>
+          <div className="h-1 w-24 bg-primary mx-auto rounded-full"></div>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="col-span-2">
+            <form onSubmit={handleSubmit} className="space-y-6 bg-white p-8 rounded-2xl shadow-lg animate-fadeIn">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all"
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all"
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  rows={4}
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all resize-none"
+                  required
+                />
+              </div>
+              <button
+                type="submit"
+                className="w-full bg-primary text-white py-3 px-6 rounded-lg hover:bg-primary/90 transition-colors font-medium text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all"
+              >
+                Send Message
+              </button>
+            </form>
           </div>
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium mb-2">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-              required
-            />
+
+          <div className="space-y-6">
+            <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all">
+              <div className="flex items-center space-x-4">
+                <div className="p-3 bg-primary/10 rounded-full">
+                  <Mail className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-medium text-gray-900">Email Us</h3>
+                  <p className="text-gray-600">info@candidcapture.com</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all">
+              <div className="flex items-center space-x-4">
+                <div className="p-3 bg-primary/10 rounded-full">
+                  <Phone className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-medium text-gray-900">Call Us</h3>
+                  <p className="text-gray-600">+1 (555) 123-4567</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all">
+              <div className="flex items-center space-x-4">
+                <div className="p-3 bg-primary/10 rounded-full">
+                  <MapPin className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-medium text-gray-900">Visit Us</h3>
+                  <p className="text-gray-600">123 Photography St, NY 10001</p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div>
-            <label htmlFor="message" className="block text-sm font-medium mb-2">
-              Message
-            </label>
-            <textarea
-              id="message"
-              value={formData.message}
-              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-              rows={4}
-              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-              required
-            />
-          </div>
-          <button
-            type="submit"
-            className="w-full bg-primary text-white py-2 px-4 rounded-md hover:bg-primary/90 transition-colors"
-          >
-            Send Message
-          </button>
-        </form>
+        </div>
       </div>
     </section>
   );
