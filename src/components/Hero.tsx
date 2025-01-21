@@ -24,6 +24,11 @@ const Hero = () => {
       description: "Adorable themed photoshoots for your little ones",
     },
     {
+      title: "Haldi Ceremony",
+      image: "/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png",
+      description: "Capturing the vibrant traditions and joyous moments of the Haldi ceremony",
+    },
+    {
       title: "Wedding Photography",
       image: "https://images.unsplash.com/photo-1583939003579-730e3918a45a",
       description: "Capturing your special moments with elegance",
