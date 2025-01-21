@@ -9,7 +9,7 @@ import {
 const Hero = () => {
   const slides = [
     {
-      title: "Pre-wedding Concept",
+      title: "Concept",
       image: "/lovable-uploads/e612e8f7-3f32-4c0d-a920-b83e95752820.png",
       description: "Creating magical moments with creative lighting and props",
     },
