@@ -90,7 +90,7 @@ const Contact = () => {
                   <Mail className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-medium text-gray-900">Email Us</h3>
+                  <h3 className="font-medium text-gray-900 underline">Email Us</h3>
                   <p className="text-gray-600">candidcapture4@gmail.com</p>
                 </div>
               </div>
@@ -102,7 +102,7 @@ const Contact = () => {
                   <Phone className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-medium text-gray-900">Call Us</h3>
+                  <h3 className="font-medium text-gray-900 underline">Call Us</h3>
                   <p className="text-gray-600">+91 9663659888, +91 9632288815</p>
                 </div>
               </div>
@@ -114,7 +114,7 @@ const Contact = () => {
                   <MapPin className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-medium text-gray-900">Visit Us</h3>
+                  <h3 className="font-medium text-gray-900 underline">Visit Us</h3>
                   <p className="text-gray-600">Uttarahalli<br />Bangalore, Karnataka, 560061<br />India</p>
                 </div>
               </div>
