@@ -115,7 +115,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-medium text-gray-900">Visit Us</h3>
-                  <p className="text-gray-600">Candid Capture<br />Uttarahalli<br />Bangalore, Karnataka, 560061<br />India</p>
+                  <p className="text-gray-600">Uttarahalli<br />Bangalore, Karnataka, 560061<br />India</p>
                 </div>
               </div>
             </div>
