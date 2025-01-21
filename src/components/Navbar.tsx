@@ -7,6 +7,7 @@ import {
   MenubarMenu,
   MenubarTrigger,
 } from "@/components/ui/menubar";
+import { ThemeToggle } from './ThemeToggle';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,7 +42,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed w-full bg-white/90 backdrop-blur-sm z-50 shadow-sm">
+    <nav className="fixed w-full bg-background/90 backdrop-blur-sm z-50 shadow-sm border-b">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           <a href="#" className="text-xl font-semibold text-primary">
@@ -56,11 +57,11 @@ const Navbar = () => {
                 <MenubarTrigger className="font-normal cursor-pointer">
                   Services
                 </MenubarTrigger>
-                <MenubarContent className="bg-white">
+                <MenubarContent className="bg-background border">
                   {services.map((service) => (
                     <MenubarItem
                       key={service.name}
-                      className="flex items-center gap-2 cursor-pointer text-gray-800 hover:text-primary hover:bg-secondary"
+                      className="flex items-center gap-2 cursor-pointer hover:text-primary hover:bg-secondary"
                       onClick={handleServiceClick}
                     >
                       {service.icon}
@@ -75,35 +76,39 @@ const Navbar = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="flex items-center gap-2 text-gray-800 hover:text-primary transition-colors"
+                className="flex items-center gap-2 hover:text-primary transition-colors"
               >
                 {item.icon && item.icon}
                 {item.name}
               </a>
             ))}
+            
+            <ThemeToggle />
           </div>
 
           {/* Mobile Navigation Button */}
-          <button
-            className="md:hidden"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="md:hidden flex items-center gap-4">
+            <ThemeToggle />
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation Menu */}
         {isOpen && (
-          <div className="md:hidden pb-4 animate-fadeIn">
+          <div className="md:hidden pb-4 animate-fadeIn bg-background">
             {/* Mobile Services Menu */}
             <div className="py-2">
-              <div className="font-medium mb-2 text-gray-800">Services</div>
+              <div className="font-medium mb-2">Services</div>
               {services.map((service) => (
                 <a
                   key={service.name}
                   href="#contact"
-                  className="flex items-center gap-2 py-1 pl-4 text-gray-800 hover:text-primary transition-colors"
+                  className="flex items-center gap-2 py-1 pl-4 hover:text-primary transition-colors"
                   onClick={handleServiceClick}
                 >
                   {service.icon}
@@ -116,7 +121,7 @@ const Navbar = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="flex items-center gap-2 py-2 text-gray-800 hover:text-primary transition-colors"
+                className="flex items-center gap-2 py-2 hover:text-primary transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {item.icon && item.icon}
