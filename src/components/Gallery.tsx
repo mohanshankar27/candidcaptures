@@ -1,12 +1,12 @@
 const Gallery = () => {
   const images = [
     {
-      url: "/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png",
-      alt: "Romantic beach bonfire photoshoot with fairy lights and colorful flags",
+      url: "/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png",
+      alt: "Studio portrait with dramatic lighting against dark background",
     },
     {
-      url: "/lovable-uploads/1e8e3b73-0675-48f7-a578-9f204a21062c.png",
-      alt: "Traditional ceremony with floral garlands and festive lighting",
+      url: "/lovable-uploads/a6d35b17-76d1-4a77-89b4-5760943e213b.png",
+      alt: "Black and white portrait with dramatic lighting",
     },
     {
       url: "/lovable-uploads/44fdad37-1724-4cad-a878-bb2baf05b83b.png",
