@@ -45,9 +45,9 @@ const Hero = () => {
                 >
                   <div className="absolute inset-0 bg-black/40" />
                 </div>
-                <div className="relative h-full flex flex-col items-center justify-center text-white z-10 animate-fadeIn">
-                  <h2 className="text-4xl md:text-6xl font-bold mb-4">{slide.title}</h2>
-                  <p className="text-xl md:text-2xl max-w-2xl mx-auto text-center">
+                <div className="relative h-full flex flex-col items-center justify-between text-white z-10 animate-fadeIn py-20">
+                  <h2 className="text-4xl md:text-6xl font-bold">{slide.title}</h2>
+                  <p className="text-xl md:text-2xl max-w-2xl mx-auto text-center bg-black/30 p-4 rounded-lg">
                     {slide.description}
                   </p>
                 </div>
