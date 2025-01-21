@@ -32,22 +32,24 @@ const Hero = () => {
 
   return (
     <section id="home" className="min-h-screen relative">
-      <Carousel className="w-full h-screen">
+      <Carousel className="w-full">
         <CarouselContent>
           {slides.map((slide, index) => (
             <CarouselItem key={index}>
-              <div className="relative h-screen w-full">
+              <div className="relative">
                 <div
-                  className="absolute inset-0 bg-cover bg-center"
+                  className="h-screen w-full bg-cover bg-center"
                   style={{
                     backgroundImage: `url("${slide.image}")`,
                   }}
                 >
                   <div className="absolute inset-0 bg-black/40" />
+                  <div className="relative h-full flex flex-col items-center justify-center text-white z-10 animate-fadeIn">
+                    <h2 className="text-4xl md:text-6xl font-bold">{slide.title}</h2>
+                  </div>
                 </div>
-                <div className="relative h-full flex flex-col items-center justify-between text-white z-10 animate-fadeIn py-20">
-                  <h2 className="text-4xl md:text-6xl font-bold">{slide.title}</h2>
-                  <p className="text-xl md:text-2xl max-w-2xl mx-auto text-center bg-black/30 p-4 rounded-lg">
+                <div className="absolute bottom-0 left-0 right-0 bg-black/60 p-6 text-white">
+                  <p className="text-xl md:text-2xl max-w-2xl mx-auto text-center">
                     {slide.description}
                   </p>
                 </div>
