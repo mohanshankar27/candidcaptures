@@ -9,22 +9,22 @@ import {
 const Hero = () => {
   const slides = [
     {
-      title: "Concept",
+      title: "",
       image: "/lovable-uploads/e612e8f7-3f32-4c0d-a920-b83e95752820.png",
       description: "Creating magical moments with creative lighting and props",
     },
     {
-      title: "Family Photography",
+      title: "",
       image: "/lovable-uploads/f981f530-98b4-46e6-8063-68406ae598e1.png",
       description: "Capturing precious family moments and celebrations",
     },
     {
-      title: "Baby Chef Photography",
+      title: "",
       image: "/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png",
       description: "Adorable themed photoshoots for your little ones",
     },
     {
-      title: "Haldi Ceremony",
+      title: "",
       image: "/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png",
       description: "Capturing the vibrant traditions and joyous moments of the Haldi ceremony",
     }
