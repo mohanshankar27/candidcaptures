@@ -49,11 +49,11 @@ const Navbar = () => {
                 <MenubarTrigger className="font-normal cursor-pointer">
                   Services
                 </MenubarTrigger>
-                <MenubarContent>
+                <MenubarContent className="bg-white">
                   {services.map((service) => (
                     <MenubarItem
                       key={service.name}
-                      className="flex items-center gap-2 cursor-pointer"
+                      className="flex items-center gap-2 cursor-pointer text-gray-800 hover:text-primary hover:bg-secondary"
                     >
                       {service.icon}
                       {service.name}
@@ -67,7 +67,7 @@ const Navbar = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="flex items-center gap-2 text-secondary-foreground hover:text-primary transition-colors"
+                className="flex items-center gap-2 text-gray-800 hover:text-primary transition-colors"
               >
                 {item.icon && item.icon}
                 {item.name}
@@ -90,12 +90,12 @@ const Navbar = () => {
           <div className="md:hidden pb-4 animate-fadeIn">
             {/* Mobile Services Menu */}
             <div className="py-2">
-              <div className="font-medium mb-2">Services</div>
+              <div className="font-medium mb-2 text-gray-800">Services</div>
               {services.map((service) => (
                 <a
                   key={service.name}
                   href="#"
-                  className="flex items-center gap-2 py-1 pl-4 text-secondary-foreground hover:text-primary transition-colors"
+                  className="flex items-center gap-2 py-1 pl-4 text-gray-800 hover:text-primary transition-colors"
                 >
                   {service.icon}
                   {service.name}
@@ -107,7 +107,7 @@ const Navbar = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="flex items-center gap-2 py-2 text-secondary-foreground hover:text-primary transition-colors"
+                className="flex items-center gap-2 py-2 text-gray-800 hover:text-primary transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {item.icon && item.icon}
