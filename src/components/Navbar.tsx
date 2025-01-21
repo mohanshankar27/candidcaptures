@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Menu, X, Home, LogIn, DollarSign, Camera, Heart, Users, ShoppingBag } from 'lucide-react';
+import { Menu, X, Home, Camera, Heart, Users, ShoppingBag } from 'lucide-react';
 import {
   Menubar,
   MenubarContent,
@@ -29,8 +29,6 @@ const Navbar = () => {
     { name: 'Gallery', href: '#gallery' },
     { name: 'About', href: '#about' },
     { name: 'Contact', href: '#contact' },
-    { name: 'Pricing', href: '#pricing', icon: <DollarSign className="w-4 h-4" /> },
-    { name: 'Login', href: '#login', icon: <LogIn className="w-4 h-4" /> },
   ];
 
   const handleServiceClick = () => {
