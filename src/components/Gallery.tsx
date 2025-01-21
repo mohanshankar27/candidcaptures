@@ -20,6 +20,10 @@ const Gallery = () => {
       url: "/lovable-uploads/8d5e6443-143d-4c94-be94-b1e0b3cc76b2.png",
       alt: "Traditional ceremony with floral garlands and festive lighting",
     },
+    {
+      url: "/lovable-uploads/53584cdb-e83c-4e6f-8b99-37ba6c8fc6b8.png",
+      alt: "Elegant portrait with traditional jewelry and attire in dramatic lighting",
+    },
   ];
 
   return (
