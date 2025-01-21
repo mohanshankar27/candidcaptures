@@ -29,7 +29,6 @@ const Navbar = () => {
     { name: 'Home', href: '#home', icon: <Home className="w-4 h-4" /> },
     { name: 'Gallery', href: '#gallery' },
     { name: 'About', href: '#about' },
-    { name: 'Services', href: '#services' },
     { name: 'Contact Us', href: '#contact' },
   ];
 
