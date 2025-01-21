@@ -19,6 +19,11 @@ const Hero = () => {
       description: "Capturing precious family moments and celebrations",
     },
     {
+      title: "Baby Chef Photography",
+      image: "/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png",
+      description: "Adorable themed photoshoots for your little ones",
+    },
+    {
       title: "Wedding Photography",
       image: "https://images.unsplash.com/photo-1583939003579-730e3918a45a",
       description: "Capturing your special moments with elegance",
