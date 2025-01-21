@@ -14,6 +14,11 @@ const Hero = () => {
       description: "Creating magical moments with creative lighting and props",
     },
     {
+      title: "Family Photography",
+      image: "/lovable-uploads/f981f530-98b4-46e6-8063-68406ae598e1.png",
+      description: "Capturing precious family moments and celebrations",
+    },
+    {
       title: "Wedding Photography",
       image: "https://images.unsplash.com/photo-1583939003579-730e3918a45a",
       description: "Capturing your special moments with elegance",
