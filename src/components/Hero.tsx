@@ -77,11 +77,6 @@ const Hero = () => {
       title: "Newborn Shoot",
       image: "https://images.unsplash.com/photo-1519689680058-324335c77eba",
       description: "Capturing precious first moments",
-    },
-    {
-      title: "Naming Ceremony",
-      image: "https://images.unsplash.com/photo-1587614298171-a331d8a8a766",
-      description: "Documenting traditional celebrations",
     }
   ];
 
