@@ -27,46 +27,6 @@ const Hero = () => {
       title: "Haldi Ceremony",
       image: "/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png",
       description: "Capturing the vibrant traditions and joyous moments of the Haldi ceremony",
-    },
-    {
-      title: "Pre-wedding Photoshoot",
-      image: "https://images.unsplash.com/photo-1621184455862-c163dfb30e0f",
-      description: "Creating beautiful memories before the big day",
-    },
-    {
-      title: "E-commerce Shoot",
-      image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8",
-      description: "Professional product photography for your business",
-    },
-    {
-      title: "Model Shoot",
-      image: "https://images.unsplash.com/photo-1618375531912-867984bdfd87",
-      description: "Capturing your best angles",
-    },
-    {
-      title: "Product Shoot",
-      image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e",
-      description: "Showcase your products professionally",
-    },
-    {
-      title: "Makeup Shoot",
-      image: "https://images.unsplash.com/photo-1596704017704-2fcd0b0e4ebf",
-      description: "Highlighting your beauty transformations",
-    },
-    {
-      title: "Concept Shoot",
-      image: "https://images.unsplash.com/photo-1533158628620-7e35717d36e8",
-      description: "Bringing creative ideas to life",
-    },
-    {
-      title: "Maternity Shoot",
-      image: "https://images.unsplash.com/photo-1544126592-807ade215a0b",
-      description: "Celebrating the journey of motherhood",
-    },
-    {
-      title: "Newborn Shoot",
-      image: "https://images.unsplash.com/photo-1519689680058-324335c77eba",
-      description: "Capturing precious first moments",
     }
   ];
 
