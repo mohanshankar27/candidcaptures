@@ -33,6 +33,14 @@ const Navbar = () => {
     { name: 'Login', href: '#login', icon: <LogIn className="w-4 h-4" /> },
   ];
 
+  const handleServiceClick = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsOpen(false);
+  };
+
   return (
     <nav className="fixed w-full bg-white/90 backdrop-blur-sm z-50 shadow-sm">
       <div className="container mx-auto px-4">
@@ -54,6 +62,7 @@ const Navbar = () => {
                     <MenubarItem
                       key={service.name}
                       className="flex items-center gap-2 cursor-pointer text-gray-800 hover:text-primary hover:bg-secondary"
+                      onClick={handleServiceClick}
                     >
                       {service.icon}
                       {service.name}
@@ -94,8 +103,9 @@ const Navbar = () => {
               {services.map((service) => (
                 <a
                   key={service.name}
-                  href="#"
+                  href="#contact"
                   className="flex items-center gap-2 py-1 pl-4 text-gray-800 hover:text-primary transition-colors"
+                  onClick={handleServiceClick}
                 >
                   {service.icon}
                   {service.name}
