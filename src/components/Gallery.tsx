@@ -1,20 +1,16 @@
 const Gallery = () => {
   const images = [
     {
-      url: "https://images.unsplash.com/photo-1498936178812-4b2e558d2937",
-      alt: "Nature candid shot 1",
+      url: "/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png",
+      alt: "Romantic beach bonfire photoshoot with fairy lights and colorful flags",
     },
     {
-      url: "https://images.unsplash.com/photo-1438565434616-3ef039228b15",
-      alt: "Nature candid shot 2",
+      url: "/lovable-uploads/1e8e3b73-0675-48f7-a578-9f204a21062c.png",
+      alt: "Traditional ceremony with floral garlands and festive lighting",
     },
     {
-      url: "https://images.unsplash.com/photo-1439886183900-e79ec0057170",
-      alt: "Nature candid shot 3",
-    },
-    {
-      url: "https://images.unsplash.com/photo-1485833077593-4278bba3f11f",
-      alt: "Nature candid shot 4",
+      url: "/lovable-uploads/44fdad37-1724-4cad-a878-bb2baf05b83b.png",
+      alt: "Artistic bridal preparation photoshoot with dramatic lighting",
     },
   ];
 
@@ -22,11 +18,11 @@ const Gallery = () => {
     <section id="gallery" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-12">Featured Work</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {images.map((image, index) => (
             <div
               key={index}
-              className="relative overflow-hidden group aspect-[4/3]"
+              className="relative overflow-hidden group aspect-square"
             >
               <img
                 src={image.url}
