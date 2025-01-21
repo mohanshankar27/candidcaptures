@@ -29,11 +29,6 @@ const Hero = () => {
       description: "Capturing the vibrant traditions and joyous moments of the Haldi ceremony",
     },
     {
-      title: "Traditional Wedding Portrait",
-      image: "/lovable-uploads/932908b8-c3eb-4a8c-b97a-7948d2de4bce.png",
-      description: "Elegant portraits capturing the essence of traditional wedding attire and customs",
-    },
-    {
       title: "Wedding Photography",
       image: "https://images.unsplash.com/photo-1583939003579-730e3918a45a",
       description: "Capturing your special moments with elegance",
