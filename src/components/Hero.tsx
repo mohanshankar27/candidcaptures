@@ -29,11 +29,6 @@ const Hero = () => {
       description: "Capturing the vibrant traditions and joyous moments of the Haldi ceremony",
     },
     {
-      title: "Wedding Photography",
-      image: "https://images.unsplash.com/photo-1583939003579-730e3918a45a",
-      description: "Capturing your special moments with elegance",
-    },
-    {
       title: "Pre-wedding Photoshoot",
       image: "https://images.unsplash.com/photo-1621184455862-c163dfb30e0f",
       description: "Creating beautiful memories before the big day",
