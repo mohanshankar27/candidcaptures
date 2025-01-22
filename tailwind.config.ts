@@ -38,9 +38,17 @@ export default {
           "0%": { opacity: "0" },
           "100%": { opacity: "1" },
         },
+        "ken-burns": {
+          "0%": { transform: "scale(1)" },
+          "100%": { transform: "scale(1.1)" },
+        }
       },
       animation: {
         fadeIn: "fadeIn 0.5s ease-in-out",
+        "ken-burns": "ken-burns 20s ease-out infinite alternate",
+      },
+      textShadow: {
+        'lg': '2px 2px 4px rgba(0, 0, 0, 0.5)',
       },
     },
   },
