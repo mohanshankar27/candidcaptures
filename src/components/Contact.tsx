@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { useToast } from "@/components/ui/use-toast";
 import { Mail, Phone, MapPin } from 'lucide-react';
@@ -21,7 +22,7 @@ const Contact = () => {
         from_name: formData.name,
         from_email: formData.email,
         message: formData.message,
-        to_email: 'candidcapture4@gmail.com',
+        to_email: 'candidcapturephotograhy@gmail.com',
       };
 
       await emailjs.send(
