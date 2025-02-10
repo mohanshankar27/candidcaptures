@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useToast } from "@/components/ui/use-toast";
 import { Mail, Phone, MapPin } from 'lucide-react';
 import emailjs from '@emailjs/browser';
@@ -12,6 +12,11 @@ const Contact = () => {
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    // Initialize EmailJS with your public key
+    emailjs.init("YOUR_PUBLIC_KEY");
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,10 +31,9 @@ const Contact = () => {
       };
 
       await emailjs.send(
-        'service_id', // You'll need to replace this with your EmailJS service ID
-        'template_id', // You'll need to replace this with your EmailJS template ID
-        templateParams,
-        'public_key' // You'll need to replace this with your EmailJS public key
+        "YOUR_SERVICE_ID", // Replace with your EmailJS service ID
+        "YOUR_TEMPLATE_ID", // Replace with your EmailJS template ID
+        templateParams
       );
 
       toast({
@@ -38,6 +42,7 @@ const Contact = () => {
       });
       setFormData({ name: '', email: '', message: '' });
     } catch (error) {
+      console.error('EmailJS Error:', error);
       toast({
         title: "Error",
         description: "Failed to send message. Please try again later.",
