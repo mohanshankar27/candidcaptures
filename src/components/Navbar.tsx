@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Menu, X, Home, Camera, Heart, Users, ShoppingBag } from 'lucide-react';
 import {
@@ -43,24 +44,22 @@ const Navbar = () => {
   return (
     <nav className="fixed w-full bg-background/90 backdrop-blur-sm z-50 shadow-sm border-b">
       <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center h-16">
-          <a href="#" className="text-xl font-semibold text-primary">
+        <div className="flex justify-between items-center h-20">
+          <a href="#" className="text-3xl font-bold text-primary tracking-wider">
             Candid Moments
           </a>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {/* Services Dropdown */}
+          <div className="hidden lg:flex items-center space-x-8">
             <Menubar className="border-none bg-transparent">
               <MenubarMenu>
-                <MenubarTrigger className="font-normal cursor-pointer">
+                <MenubarTrigger className="font-medium cursor-pointer text-base">
                   Services
                 </MenubarTrigger>
-                <MenubarContent className="bg-background border">
+                <MenubarContent className="bg-background/95 backdrop-blur-sm border rounded-xl">
                   {services.map((service) => (
                     <MenubarItem
                       key={service.name}
-                      className="flex items-center gap-2 cursor-pointer hover:text-primary hover:bg-secondary"
+                      className="flex items-center gap-2 cursor-pointer hover:text-primary hover:bg-secondary p-3 text-base"
                       onClick={handleServiceClick}
                     >
                       {service.icon}
@@ -75,7 +74,7 @@ const Navbar = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="flex items-center gap-2 hover:text-primary transition-colors"
+                className="flex items-center gap-2 hover:text-primary transition-colors text-base font-medium"
               >
                 {item.icon && item.icon}
                 {item.name}
@@ -85,11 +84,11 @@ const Navbar = () => {
             <ThemeToggle />
           </div>
 
-          {/* Mobile Navigation Button */}
-          <div className="md:hidden flex items-center gap-4">
+          <div className="lg:hidden flex items-center gap-4">
             <ThemeToggle />
             <button
               onClick={() => setIsOpen(!isOpen)}
+              className="hover:text-primary transition-colors"
               aria-label="Toggle menu"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -97,17 +96,15 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile Navigation Menu */}
         {isOpen && (
-          <div className="md:hidden pb-4 animate-fadeIn bg-background">
-            {/* Mobile Services Menu */}
-            <div className="py-2">
-              <div className="font-medium mb-2">Services</div>
+          <div className="lg:hidden pb-6 animate-fadeIn bg-background/95 backdrop-blur-sm">
+            <div className="py-4">
+              <div className="font-medium mb-2 text-lg">Services</div>
               {services.map((service) => (
                 <a
                   key={service.name}
                   href="#contact"
-                  className="flex items-center gap-2 py-1 pl-4 hover:text-primary transition-colors"
+                  className="flex items-center gap-2 py-2 pl-4 hover:text-primary transition-colors"
                   onClick={handleServiceClick}
                 >
                   {service.icon}
@@ -115,12 +112,11 @@ const Navbar = () => {
                 </a>
               ))}
             </div>
-            {/* Regular Navigation Items */}
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="flex items-center gap-2 py-2 hover:text-primary transition-colors"
+                className="flex items-center gap-2 py-2 hover:text-primary transition-colors text-base"
                 onClick={() => setIsOpen(false)}
               >
                 {item.icon && item.icon}
