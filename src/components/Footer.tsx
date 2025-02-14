@@ -11,15 +11,15 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-secondary py-8 mt-16">
+    <footer className="bg-secondary py-12 mt-16">
       <div className="container mx-auto px-4">
-        <div className="flex justify-center gap-4">
+        <div className="flex justify-center gap-6">
           {socialLinks.map(({ icon: Icon, href, label }) => (
             <Button
               key={label}
               variant="ghost"
               size="icon"
-              className="hover:bg-primary/10"
+              className="rounded-full bg-white shadow-lg hover:shadow-xl hover:scale-110 hover:bg-primary/5 transition-all duration-300"
               asChild
             >
               <a
@@ -28,12 +28,12 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 aria-label={label}
               >
-                <Icon className="h-5 w-5" />
+                <Icon className="h-6 w-6 text-primary hover:text-primary/80 transition-colors" strokeWidth={1.5} />
               </a>
             </Button>
           ))}
         </div>
-        <p className="text-center text-sm text-gray-600 mt-4">
+        <p className="text-center text-sm text-gray-600 mt-6">
           © {new Date().getFullYear()} All rights reserved.
         </p>
       </div>
