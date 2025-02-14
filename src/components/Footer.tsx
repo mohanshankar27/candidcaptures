@@ -1,5 +1,5 @@
 
-import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Youtube, Phone } from "lucide-react";
 import { Button } from "./ui/button";
 
 const Footer = () => {
@@ -13,6 +13,20 @@ const Footer = () => {
   return (
     <footer className="bg-secondary py-12 mt-16">
       <div className="container mx-auto px-4">
+        <div className="text-center mb-8">
+          <h3 className="text-2xl font-bold text-primary mb-2">|| Jai Shri Ram ||</h3>
+          <div className="flex items-center justify-center gap-2 text-gray-700">
+            <Phone className="h-5 w-5" />
+            <p className="text-lg">Any Query Please Feel Free Contact Us</p>
+          </div>
+          <a 
+            href="tel:+919632288815" 
+            className="inline-block mt-2 text-xl font-semibold text-primary hover:text-primary/80 transition-colors"
+          >
+            Mob: +91 96322 88815
+          </a>
+        </div>
+        
         <div className="flex justify-center gap-6">
           {socialLinks.map(({ icon: Icon, href, label }) => (
             <Button
