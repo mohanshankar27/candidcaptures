@@ -5,7 +5,7 @@ import { Button } from "./ui/button";
 const Footer = () => {
   const socialLinks = [
     { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
-    { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
+    { icon: Instagram, href: "https://www.instagram.com/candidcapture_photogrphy?igsh=MWE3OWg1dmlwODZ2eQ==", label: "Instagram" },
     { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
     { icon: Youtube, href: "https://youtube.com", label: "YouTube" },
   ];
