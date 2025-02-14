@@ -1,11 +1,11 @@
-import { Facebook, Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
+
+import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
 import { Button } from "./ui/button";
 
 const Footer = () => {
   const socialLinks = [
     { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
     { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
-    { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
     { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
     { icon: Youtube, href: "https://youtube.com", label: "YouTube" },
   ];
