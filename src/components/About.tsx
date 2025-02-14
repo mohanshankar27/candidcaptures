@@ -11,7 +11,7 @@ const About = () => {
             <div className="h-1 w-24 bg-primary mx-auto rounded-full"></div>
           </div>
           
-          <div className="grid gap-8 md:grid-cols-2 animate-fadeIn">
+          <div className="grid gap-8 md:grid-cols-3 animate-fadeIn">
             <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
               <h3 className="text-2xl font-semibold mb-4 text-primary">The CANDID CAPTURE Way</h3>
               <p className="text-lg leading-relaxed">
