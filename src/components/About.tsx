@@ -1,3 +1,4 @@
+
 const About = () => {
   return (
     <section id="about" className="py-24 bg-gradient-to-b from-secondary to-secondary/30">
@@ -25,14 +26,6 @@ const About = () => {
               <p className="text-lg leading-relaxed">
                 I believe in capturing authentic moments that tell genuine stories. My candid photography
                 style focuses on the natural, unposed moments that make life beautiful.
-              </p>
-            </div>
-            
-            <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-              <h3 className="text-2xl font-semibold mb-4 text-primary">A Decade of Experience</h3>
-              <p className="text-lg leading-relaxed">
-                With over a decade of experience, I've developed an eye for those split-second moments
-                that make memories truly special.
               </p>
             </div>
             
