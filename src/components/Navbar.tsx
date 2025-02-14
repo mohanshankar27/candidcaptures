@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Menu, X, Home, Camera, Heart, Users, ShoppingBag } from 'lucide-react';
 import {
@@ -46,7 +45,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-20">
           <a href="#" className="text-3xl font-bold text-primary tracking-wider">
-            Candid Moments
+            Candid Capture
           </a>
 
           <div className="hidden lg:flex items-center space-x-8">
