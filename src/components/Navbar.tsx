@@ -1,5 +1,7 @@
+
 import { useState } from 'react';
 import { Menu, X, Home, Camera, Heart, Users, ShoppingBag } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import {
   Menubar,
   MenubarContent,
@@ -11,6 +13,7 @@ import { ThemeToggle } from './ThemeToggle';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   const services = [
     { name: 'Wedding Photography', icon: <Heart className="w-4 h-4" /> },
@@ -40,13 +43,25 @@ const Navbar = () => {
     setIsOpen(false);
   };
 
+  const handleLogoClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    navigate('/');
+  };
+
   return (
     <nav className="fixed w-full bg-background/90 backdrop-blur-sm z-50 shadow-sm border-b">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-20">
-          <a href="#" className="text-3xl font-bold text-primary tracking-wider">
-            Candid Capture
-          </a>
+          <button 
+            onClick={handleLogoClick}
+            className="flex items-center focus:outline-none"
+          >
+            <img 
+              src="/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png" 
+              alt="Candid Capture Photography" 
+              className="h-12 w-auto"
+            />
+          </button>
 
           <div className="hidden lg:flex items-center space-x-8">
             <Menubar className="border-none bg-transparent">
