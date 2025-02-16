@@ -51,7 +51,7 @@ const Navbar = () => {
   return (
     <nav className="fixed w-full bg-background/90 backdrop-blur-sm z-50 shadow-sm border-b">
       <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-24">
           <button 
             onClick={handleLogoClick}
             className="flex items-center focus:outline-none"
@@ -59,7 +59,7 @@ const Navbar = () => {
             <img 
               src="/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png" 
               alt="Candid Capture Photography" 
-              className="h-12 w-auto"
+              className="h-16 w-auto" // Increased height from h-12 to h-16
             />
           </button>
 
