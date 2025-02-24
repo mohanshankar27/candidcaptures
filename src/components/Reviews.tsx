@@ -1,3 +1,4 @@
+
 import {
   Carousel,
   CarouselContent,
@@ -11,33 +12,33 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 const reviews = [
   {
     id: 1,
-    name: "Sarah Johnson",
-    role: "Product Manager",
-    content: "Exceptional work! The attention to detail and creative solutions provided were exactly what we needed.",
+    name: "Dhanu Dhanu",
+    role: "Client",
+    content: "Sathya Prakash is an absolutely brilliant fantastic photographer so friendly and professional. His interaction with adults and children is absolutely brilliant. I have received photo and video with the quantity but the quality in each photo. Sathya make our day was captured with amazing photos. Candid capture photography team was very friendly they will understand the customer thought..... 100% I highly recommend my friend and family to Sathya for any function...... All the best for Candid Capture photography....",
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158",
-    initials: "SJ"
+    initials: "DD"
   },
   {
     id: 2,
     name: "Michael Chen",
-    role: "Tech Lead",
-    content: "Outstanding development skills and great communication throughout the project.",
+    role: "Wedding Client",
+    content: "Outstanding photography skills and great communication throughout the event. The candid moments captured were priceless.",
     image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
     initials: "MC"
   },
   {
     id: 3,
     name: "Emma Davis",
-    role: "Startup Founder",
-    content: "Transformed our vision into reality. The final product exceeded our expectations.",
+    role: "Corporate Event",
+    content: "Transformed our corporate event into beautiful memories. The final photos exceeded our expectations.",
     image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81",
     initials: "ED"
   },
   {
     id: 4,
     name: "Alex Thompson",
-    role: "CTO",
-    content: "Delivered high-quality code and innovative solutions that helped scale our platform.",
+    role: "Pre-wedding Shoot",
+    content: "Delivered high-quality photos and innovative concepts that made our pre-wedding shoot special.",
     image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b",
     initials: "AT"
   }
