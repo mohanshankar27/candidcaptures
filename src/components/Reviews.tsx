@@ -22,19 +22,20 @@ const reviews = [
   },
   {
     id: 2,
+    name: "Manjunath M S",
+    role: "Client",
+    content: "I have saw the Candid Capture photography in my cousin engagement. Sathya is excellent photographer highly professional i saw the passion in his work. Candid Capture Photography team was very friendly they will truly captured the all fun and emotions in event there ideas are mind blowing and guests have been thrilled with there photos..... Tq so much sathya u have bought josh to event by ur photography......",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158",
+    initials: "MS",
+    rating: 5
+  },
+  {
+    id: 3,
     name: "Pavana N",
     role: "Client",
     content: "Sathya Prakash. M. S best photographer. While there are so many photographers out there, its hard to choose the best right i saw the Candid Capture Photography in my sister engagement & pre-wedding shoot the pictures & video are amazing. All the event are well captured & pre-wedding shoot was really like a Hindi movie look..... Photo & video are high quality.. Tq for candid capture Photography team all the best....",
     image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81",
     initials: "PN"
-  },
-  {
-    id: 3,
-    name: "Manjunath M S",
-    role: "Client",
-    content: "I have saw the Candid Capture photography in my cousin engagement. Sathya is excellent photographer highly professional i saw the passion in his work. Candid Capture Photography team was very friendly they will truly captured the all fun and emotions in event there ideas are mind blowing and guests have been thrilled with there photos..... Tq so much sathya u have bought josh to event by ur photography......",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158",
-    initials: "MS"
   },
   {
     id: 4,
