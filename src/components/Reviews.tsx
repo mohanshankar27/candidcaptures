@@ -84,7 +84,7 @@ const Reviews = () => {
                           )}
                         </div>
                       </div>
-                      <p className="text-gray-700 line-clamp-6">{review.content}</p>
+                      <p className="text-gray-700">{review.content}</p>
                     </CardContent>
                   </Card>
                 </CarouselItem>
