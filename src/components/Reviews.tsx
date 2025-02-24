@@ -31,11 +31,12 @@ const reviews = [
   },
   {
     id: 3,
-    name: "Pavana N",
+    name: "Venkatesh",
     role: "Client",
     content: "Sathya Prakash. M. S best photographer. While there are so many photographers out there, its hard to choose the best right i saw the Candid Capture Photography in my sister engagement & pre-wedding shoot the pictures & video are amazing. All the event are well captured & pre-wedding shoot was really like a Hindi movie look..... Photo & video are high quality.. Tq for candid capture Photography team all the best....",
     image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81",
-    initials: "PN"
+    initials: "V",
+    rating: 5
   },
   {
     id: 4,
