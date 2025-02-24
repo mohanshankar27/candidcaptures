@@ -40,11 +40,12 @@ const reviews = [
   },
   {
     id: 4,
-    name: "Alex Thompson",
+    name: "Santoshmurthy Vashista",
     role: "Pre-wedding Shoot",
     content: "Delivered high-quality photos and innovative concepts that made our pre-wedding shoot special.",
     image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b",
-    initials: "AT"
+    initials: "SV",
+    rating: 5
   }
 ];
 
