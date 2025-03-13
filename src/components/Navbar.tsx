@@ -1,6 +1,5 @@
-
 import { useState } from 'react';
-import { Menu, X, Home, Camera, Heart, Users, ShoppingBag } from 'lucide-react';
+import { Menu, X, Home, Camera, Heart, Users, ShoppingBag, ExternalLink } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import {
   Menubar,
@@ -17,6 +16,18 @@ const Navbar = () => {
 
   const services = [
     { name: 'Wedding Photography', icon: <Heart className="w-4 h-4" /> },
+    { 
+      name: 'Wedding Photoshoot Gallery', 
+      icon: <Camera className="w-4 h-4" />,
+      href: "https://photos.google.com/share/AF1QipMFmTIEYszMPXvYaD_NuynOGVrs45W8UEXeVlRrNO1bNuMOs84Ka4Z4Fig8pAPEgQ/photo/AF1QipNzfHamfCW0cnCc74SKSYo_gGXozV7Usz8YVNNI?key=MUV5cHFRNHNvSmtDeml2Vi1ESTJuR0NzQS11UHl3",
+      external: true
+    },
+    { 
+      name: 'Pre-wedding Photoshoot Gallery', 
+      icon: <Camera className="w-4 h-4" />,
+      href: "https://photos.google.com/share/AF1QipMFmTIEYszMPXvYaD_NuynOGVrs45W8UEXeVlRrNO1bNuMOs84Ka4Z4Fig8pAPEgQ/photo/AF1QipMeb26RqTnwrFsKRc10TdGTQeCUg4OOUZGAPKMw?key=MUV5cHFRNHNvSmtDeml2Vi1ESTJuR0NzQS11UHl3",
+      external: true
+    },
     { name: 'Pre-wedding photoshoot', icon: <Heart className="w-4 h-4" /> },
     { name: 'E-commerce shoot', icon: <ShoppingBag className="w-4 h-4" /> },
     { name: 'Model shoot', icon: <Users className="w-4 h-4" /> },
@@ -36,7 +47,13 @@ const Navbar = () => {
     { name: 'Contact Us', href: '#contact' },
   ];
 
-  const handleServiceClick = () => {
+  const handleServiceClick = (service) => {
+    if (service.external && service.href) {
+      window.open(service.href, '_blank', 'noopener,noreferrer');
+      setIsOpen(false);
+      return;
+    }
+    
     const contactSection = document.getElementById('contact');
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: 'smooth' });
@@ -60,7 +77,7 @@ const Navbar = () => {
             <img 
               src="/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png" 
               alt="Candid Capture Photography" 
-              className="h-20 w-auto" // Increased height from h-16 to h-20
+              className="h-20 w-auto"
             />
           </button>
 
@@ -75,10 +92,11 @@ const Navbar = () => {
                     <MenubarItem
                       key={service.name}
                       className="flex items-center gap-2 cursor-pointer hover:text-primary hover:bg-secondary p-3 text-base"
-                      onClick={handleServiceClick}
+                      onClick={() => handleServiceClick(service)}
                     >
                       {service.icon}
-                      {service.name}
+                      <span className="flex-1">{service.name}</span>
+                      {service.external && <ExternalLink className="w-3 h-3 ml-1" />}
                     </MenubarItem>
                   ))}
                 </MenubarContent>
@@ -118,12 +136,15 @@ const Navbar = () => {
               {services.map((service) => (
                 <a
                   key={service.name}
-                  href="#contact"
+                  href={service.external ? service.href : "#contact"}
+                  target={service.external ? "_blank" : ""}
+                  rel={service.external ? "noopener noreferrer" : ""}
                   className="flex items-center gap-2 py-2 pl-4 hover:text-primary transition-colors"
-                  onClick={handleServiceClick}
+                  onClick={() => !service.external && handleServiceClick(service)}
                 >
                   {service.icon}
-                  {service.name}
+                  <span className="flex-1">{service.name}</span>
+                  {service.external && <ExternalLink className="w-3 h-3 ml-1" />}
                 </a>
               ))}
             </div>
