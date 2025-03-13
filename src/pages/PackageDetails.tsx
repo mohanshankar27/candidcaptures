@@ -4,6 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import NewBornPackage from '@/components/packages/NewBornPackage';
+import FamilyPackage from '@/components/packages/FamilyPackage';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
 
@@ -15,6 +16,8 @@ const PackageDetails: React.FC = () => {
     switch (packageId) {
       case 'new-born':
         return <NewBornPackage />;
+      case 'family':
+        return <FamilyPackage />;
       default:
         return (
           <div className="text-center p-8">
