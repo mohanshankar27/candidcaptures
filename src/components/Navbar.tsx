@@ -31,6 +31,7 @@ const Navbar = () => {
   const navItems = [
     { name: 'Home', href: '#home', icon: <Home className="w-4 h-4" /> },
     { name: 'Gallery', href: '#gallery' },
+    { name: 'Wedding Photos', href: '#wedding-photos', icon: <Camera className="w-4 h-4" /> },
     { name: 'About', href: '#about' },
     { name: 'Contact Us', href: '#contact' },
   ];
