@@ -1,6 +1,6 @@
-
 import React from 'react';
 import { Separator } from '@/components/ui/separator';
+import BookingCTA from './BookingCTA';
 
 const MatrimonialPackage: React.FC = () => {
   return (
@@ -108,13 +108,10 @@ const MatrimonialPackage: React.FC = () => {
           </ul>
         </div>
 
-        <div className="bg-slate-50 p-4 rounded-md mt-6">
-          <p className="text-center italic text-slate-600">
-            To book a session or for more information, please contact us at 
-            <a href="tel:+919632288815" className="text-[#ea384c] mx-1">+91 96322 88815</a> or 
-            <a href="mailto:candidcapture4@gmail.com" className="text-[#ea384c] mx-1">candidcapture4@gmail.com</a>
-          </p>
-        </div>
+        <BookingCTA 
+          title="Book Your Matrimonial Portfolio Session" 
+          serviceType="perfect portfolio"
+        />
       </div>
     </div>
   );
