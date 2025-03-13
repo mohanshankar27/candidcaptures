@@ -1,35 +1,31 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Separator } from '@/components/ui/separator';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { X } from 'lucide-react';
-import NewBornPackage from './packages/NewBornPackage';
+import { useNavigate } from 'react-router-dom';
 
 interface PricePackageItem {
   title: string;
-  component?: React.ReactNode;
+  id: string;
 }
 
 const pricePackages: PricePackageItem[] = [
   { 
     title: 'New Born, Toddlers, and younger children',
-    component: <NewBornPackage /> 
+    id: 'new-born'
   },
-  { title: 'Family Portrait Sessions' },
-  { title: 'Corporate Head-shot Sessions' },
-  { title: 'Maternity Photography Sessions' },
-  { title: 'Matrimonial / Dating Portfolio Sessions' },
-  { title: 'Modelling Portfolios & Polaroids' },
-  { title: 'Event Photography Pricing' },
+  { title: 'Family Portrait Sessions', id: 'family' },
+  { title: 'Corporate Head-shot Sessions', id: 'corporate' },
+  { title: 'Maternity Photography Sessions', id: 'maternity' },
+  { title: 'Matrimonial / Dating Portfolio Sessions', id: 'matrimonial' },
+  { title: 'Modelling Portfolios & Polaroids', id: 'modelling' },
+  { title: 'Event Photography Pricing', id: 'event' },
 ];
 
 const PricePackages: React.FC = () => {
-  const [selectedPackage, setSelectedPackage] = useState<PricePackageItem | null>(null);
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handlePackageClick = (pkg: PricePackageItem) => {
-    setSelectedPackage(pkg);
-    setIsDialogOpen(true);
+    navigate(`/packages/${pkg.id}`);
   };
 
   return (
@@ -54,32 +50,6 @@ const PricePackages: React.FC = () => {
           ))}
         </div>
       </div>
-
-      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogContent className="max-w-3xl">
-          <DialogHeader>
-            <div className="flex items-center justify-between">
-              <DialogTitle className="text-2xl font-medium text-[#ea384c]">
-                {selectedPackage?.title}
-              </DialogTitle>
-              <button 
-                onClick={() => setIsDialogOpen(false)}
-                className="rounded-full p-1 hover:bg-slate-100"
-              >
-                <X className="h-5 w-5" />
-              </button>
-            </div>
-          </DialogHeader>
-          
-          <div className="mt-4">
-            {selectedPackage?.component || (
-              <div className="text-center p-8">
-                <p className="text-slate-500">Package details coming soon.</p>
-              </div>
-            )}
-          </div>
-        </DialogContent>
-      </Dialog>
     </div>
   );
 };
