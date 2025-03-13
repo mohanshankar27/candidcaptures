@@ -5,11 +5,25 @@ import { Separator } from '@/components/ui/separator';
 const NewBornPackage: React.FC = () => {
   return (
     <div className="package-details">
-      <img 
-        src="/lovable-uploads/b977d3f5-fd63-468d-ac7f-09766c3ab6c1.png" 
-        alt="Newborn Photography" 
-        className="w-full h-auto max-h-[300px] object-cover rounded-md mb-6"
-      />
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+        <img 
+          src="/lovable-uploads/b977d3f5-fd63-468d-ac7f-09766c3ab6c1.png" 
+          alt="Newborn Photography" 
+          className="w-full h-64 object-cover rounded-md col-span-3 md:col-span-2"
+        />
+        <div className="grid grid-cols-1 gap-4">
+          <img 
+            src="/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png" 
+            alt="Newborn Photography" 
+            className="w-full h-[120px] object-cover rounded-md"
+          />
+          <img 
+            src="/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png" 
+            alt="Newborn Photography" 
+            className="w-full h-[120px] object-cover rounded-md"
+          />
+        </div>
+      </div>
       
       <div className="space-y-6">
         <div>

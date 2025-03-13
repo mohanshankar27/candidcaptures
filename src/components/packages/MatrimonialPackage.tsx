@@ -5,11 +5,25 @@ import { Separator } from '@/components/ui/separator';
 const MatrimonialPackage: React.FC = () => {
   return (
     <div className="package-details">
-      <img 
-        src="/lovable-uploads/8d5e6443-143d-4c94-be94-b1e0b3cc76b2.png" 
-        alt="Matrimonial Portfolio Photography" 
-        className="w-full h-auto max-h-[300px] object-cover rounded-md mb-6"
-      />
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+        <img 
+          src="/lovable-uploads/8d5e6443-143d-4c94-be94-b1e0b3cc76b2.png" 
+          alt="Matrimonial Portfolio Photography" 
+          className="w-full h-64 object-cover rounded-md col-span-3 md:col-span-2"
+        />
+        <div className="grid grid-cols-1 gap-4">
+          <img 
+            src="/lovable-uploads/f981f530-98b4-46e6-8063-68406ae598e1.png" 
+            alt="Matrimonial Portfolio" 
+            className="w-full h-[120px] object-cover rounded-md"
+          />
+          <img 
+            src="/lovable-uploads/3b0c013d-b9fb-40c8-b991-7781c698945e.png" 
+            alt="Matrimonial Portfolio" 
+            className="w-full h-[120px] object-cover rounded-md"
+          />
+        </div>
+      </div>
       
       <div className="space-y-6">
         <div>

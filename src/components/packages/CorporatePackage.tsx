@@ -7,11 +7,25 @@ import { Card, CardContent, CardHeader } from '@/components/ui/card';
 const CorporatePackage: React.FC = () => {
   return (
     <div className="package-details">
-      <img 
-        src="/lovable-uploads/b0d50296-3c5f-41b2-afcf-af58d024d712.png" 
-        alt="Corporate Headshot Photography Packages" 
-        className="w-full h-auto max-h-[300px] object-cover rounded-md mb-8"
-      />
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+        <img 
+          src="/lovable-uploads/b0d50296-3c5f-41b2-afcf-af58d024d712.png" 
+          alt="Corporate Headshot Photography" 
+          className="w-full h-64 object-cover rounded-md col-span-3 md:col-span-2"
+        />
+        <div className="grid grid-cols-1 gap-4">
+          <img 
+            src="/lovable-uploads/3b0c013d-b9fb-40c8-b991-7781c698945e.png" 
+            alt="Corporate Headshot" 
+            className="w-full h-[120px] object-cover rounded-md"
+          />
+          <img 
+            src="/lovable-uploads/f981f530-98b4-46e6-8063-68406ae598e1.png" 
+            alt="Corporate Headshot" 
+            className="w-full h-[120px] object-cover rounded-md"
+          />
+        </div>
+      </div>
       
       <div className="space-y-8">
         <div className="max-w-3xl mx-auto text-center">
