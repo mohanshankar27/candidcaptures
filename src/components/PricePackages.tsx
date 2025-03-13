@@ -17,6 +17,11 @@ const pricePackages: PricePackageItem[] = [
     id: 'new-born',
     description: 'Capture precious moments of your little ones with our specialized photography sessions.'
   },
+  {
+    title: 'Wedding Photography',
+    id: 'wedding',
+    description: 'Comprehensive packages to capture your special day from start to finish.'
+  },
   { 
     title: 'Family Portrait Sessions', 
     id: 'family',

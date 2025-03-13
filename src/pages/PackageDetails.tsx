@@ -10,6 +10,7 @@ import MaternityPackage from '@/components/packages/MaternityPackage';
 import MatrimonialPackage from '@/components/packages/MatrimonialPackage';
 import ModellingPackage from '@/components/packages/ModellingPackage';
 import EventPackage from '@/components/packages/EventPackage';
+import WeddingPackage from '@/components/packages/WeddingPackage';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, Package, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -20,6 +21,7 @@ const PackageDetails: React.FC = () => {
 
   const packageList = [
     { id: 'new-born', title: 'New Born, Toddlers, and younger children' },
+    { id: 'wedding', title: 'Wedding Photography' },
     { id: 'family', title: 'Family Portrait Sessions' },
     { id: 'corporate', title: 'Corporate Head-shot Sessions' },
     { id: 'maternity', title: 'Maternity Photography Sessions' },
@@ -36,6 +38,8 @@ const PackageDetails: React.FC = () => {
     switch (packageId) {
       case 'new-born':
         return <NewBornPackage />;
+      case 'wedding':
+        return <WeddingPackage />;
       case 'family':
         return <FamilyPackage />;
       case 'corporate':
