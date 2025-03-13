@@ -1,4 +1,4 @@
-import { Heart, Camera, Users, ShoppingBag, Utensils, Building, Video, Family, Baby, Star, User } from 'lucide-react';
+import { Heart, Camera, Users, ShoppingBag, Utensils, Building, Video, Baby, Star, User } from 'lucide-react';
 import React from 'react';
 
 export interface Service {
@@ -173,7 +173,7 @@ const servicesList: Service[] = [
   },
   { 
     name: 'Family Portraits', 
-    icon: <Family className="w-5 h-5" />,
+    icon: <Users className="w-5 h-5" />,
     description: 'Beautiful, timeless family portraits that capture connections and personalities in studio settings or meaningful locations of your choice.',
     benefits: [
       'Family grouping guidance',
