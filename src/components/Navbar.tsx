@@ -63,8 +63,8 @@ const Navbar = () => {
   };
 
   const handleLogoClick = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
     navigate('/');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
