@@ -1,5 +1,9 @@
 
-import { Heart, Camera, Users, ShoppingBag, Utensils, Building, Video, Baby, Star, User } from 'lucide-react';
+import { 
+  Heart, Camera, Users, ShoppingBag, Utensils, Building, Video, 
+  Baby, Star, User, Image, Gift, Flower, Key, Lightbulb, Mail, 
+  MapPin, Music, Package, Phone, Settings, Shield, Tag, Tv
+} from 'lucide-react';
 import React from 'react';
 
 export interface Service {
@@ -28,7 +32,7 @@ const servicesList: Service[] = [
   },
   { 
     name: 'Concept shoot', 
-    icon: <Camera className="w-5 h-5" />,
+    icon: <Lightbulb className="w-5 h-5 text-amber-400" />,
     description: 'Bring your creative vision to life with our concept photography services. We work closely with you to translate your ideas into powerful visual stories.',
     benefits: [
       'Creative consultation',
@@ -79,7 +83,7 @@ const servicesList: Service[] = [
   },
   { 
     name: 'E-commerce shoot', 
-    icon: <ShoppingBag className="w-5 h-5" />,
+    icon: <Package className="w-5 h-5 text-violet-500" />,
     description: 'Elevate your online store with professional e-commerce photography that showcases your products in the best light, increasing conversion rates and customer trust.',
     benefits: [
       'White/custom background options',
@@ -143,7 +147,7 @@ const servicesList: Service[] = [
   },
   { 
     name: 'Makeup shoot', 
-    icon: <Camera className="w-5 h-5" />,
+    icon: <Music className="w-5 h-5 text-rose-400" />,
     description: 'Specialized photography for makeup artists and beauty professionals to showcase their work with high-quality, detailed images.',
     benefits: [
       'Macro photography for fine details',
@@ -181,7 +185,7 @@ const servicesList: Service[] = [
   },
   { 
     name: 'Model shoot', 
-    icon: <Users className="w-5 h-5" />,
+    icon: <Image className="w-5 h-5 text-indigo-500" />,
     description: 'Professional model photography for portfolios, agency submissions, or promotional work. We highlight your unique features and help you create a compelling portfolio.',
     benefits: [
       'Professional makeup artist options',
@@ -206,7 +210,7 @@ const servicesList: Service[] = [
   },
   { 
     name: 'Naming Ceremony', 
-    icon: <Heart className="w-5 h-5" />,
+    icon: <Gift className="w-5 h-5 text-emerald-500" />,
     description: "Document your child's naming ceremony with professional photography that captures all the meaningful moments and traditions of this important celebration.",
     benefits: [
       'Ceremony coverage',
@@ -231,7 +235,7 @@ const servicesList: Service[] = [
   },
   { 
     name: 'Pre-wedding photoshoot', 
-    icon: <Heart className="w-5 h-5" />,
+    icon: <Heart className="w-5 h-5 text-pink-600" />,
     description: "Tell your love story through beautiful pre-wedding photography. We'll capture your chemistry in stunning locations that reflect your personality as a couple.",
     benefits: [
       'Location scouting assistance',
@@ -243,7 +247,7 @@ const servicesList: Service[] = [
   },
   { 
     name: 'Pre-wedding Photoshoot Gallery', 
-    icon: <Camera className="w-5 h-5" />,
+    icon: <Camera className="w-5 h-5 text-cyan-500" />,
     description: 'Explore our pre-wedding photoshoot collections that capture the romance and excitement before your big day.',
     external: true,
     href: "https://photos.google.com/share/AF1QipMFmTIEYszMPXvYaD_NuynOGVrs45W8UEXeVlRrNO1bNuMOs84Ka4Z4Fig8pAPEgQ/photo/AF1QipMeb26RqTnwrFsKRc10TdGTQeCUg4OOUZGAPKMw?key=MUV5cHFRNHNvSmtDeml2Vi1ESTJuR0NzQS11UHl3"
@@ -263,7 +267,7 @@ const servicesList: Service[] = [
   },
   { 
     name: 'Product shoot', 
-    icon: <ShoppingBag className="w-5 h-5" />,
+    icon: <Tag className="w-5 h-5 text-slate-500" />,
     description: 'Showcase your products with professional photography that highlights features, quality, and details that matter to your customers.',
     benefits: [
       'Custom backgrounds and props',
@@ -301,7 +305,7 @@ const servicesList: Service[] = [
   },
   { 
     name: 'Wedding Photography', 
-    icon: <Heart className="w-5 h-5" />,
+    icon: <Heart className="w-5 h-5 text-red-600" />,
     description: 'Capture the most important day of your life with our professional wedding photography services. We focus on candid moments and emotions that tell your unique love story.',
     benefits: [
       'Full day coverage',
@@ -314,7 +318,7 @@ const servicesList: Service[] = [
   },
   { 
     name: 'Wedding Photoshoot Gallery', 
-    icon: <Camera className="w-5 h-5" />,
+    icon: <Camera className="w-5 h-5 text-gold-500" />,
     description: 'View our wedding photography portfolio showcasing our best work from various wedding ceremonies and celebrations.',
     external: true,
     href: "https://photos.google.com/share/AF1QipMFmTIEYszMPXvYaD_NuynOGVrs45W8UEXeVlRrNO1bNuMOs84Ka4Z4Fig8pAPEgQ/photo/AF1QipNzfHamfCW0cnCc74SKSYo_gGXozV7Usz8YVNNI?key=MUV5cHFRNHNvSmtDeml2Vi1ESTJuR0NzQS11UHl3"
