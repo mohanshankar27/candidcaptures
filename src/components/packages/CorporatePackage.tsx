@@ -14,6 +14,14 @@ const CorporatePackage: React.FC = () => {
     'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80',
     '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png'
   ];
+  
+  // Define separate gallery images to avoid repetition
+  const galleryImages = [
+    'https://images.unsplash.com/photo-1559523161-0fc0d8b38a7a?auto=format&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1573497019236-61f323342eb3?auto=format&fit=crop&q=80'
+  ];
 
   return (
     <div className="package-details">
@@ -233,35 +241,35 @@ const CorporatePackage: React.FC = () => {
         
         <Separator className="my-12" />
         
-        {/* Photo Gallery Section - Added to replace FAQ section with updated photos */}
+        {/* Photo Gallery Section with non-repeating images */}
         <div className="mt-8">
           <h3 className="text-2xl font-semibold mb-8 text-center text-[#333333]">Sample Corporate Headshots</h3>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             <div className="overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all">
               <img 
-                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80" 
+                src={galleryImages[0]} 
                 alt="Corporate Headshot Sample 1" 
                 className="w-full h-64 object-cover object-center hover:scale-105 transition-transform duration-300"
               />
             </div>
             <div className="overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all">
               <img 
-                src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&q=80" 
+                src={galleryImages[1]} 
                 alt="Corporate Headshot Sample 2" 
                 className="w-full h-64 object-cover object-center hover:scale-105 transition-transform duration-300"
               />
             </div>
             <div className="overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all">
               <img 
-                src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80" 
+                src={galleryImages[2]} 
                 alt="Corporate Headshot Sample 3" 
                 className="w-full h-64 object-cover object-center hover:scale-105 transition-transform duration-300"
               />
             </div>
             <div className="overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all">
               <img 
-                src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80" 
+                src={galleryImages[3]} 
                 alt="Corporate Headshot Sample 4" 
                 className="w-full h-64 object-cover object-center hover:scale-105 transition-transform duration-300"
               />
