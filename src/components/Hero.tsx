@@ -33,6 +33,15 @@ const Hero = () => {
 
   return (
     <section id="home" className="min-h-screen relative">
+      <div className="absolute top-0 left-0 w-full z-10 pt-24 md:pt-32 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="inline-block bg-black/50 backdrop-blur-sm px-8 py-6 rounded-lg animate-fadeIn">
+            <h2 className="text-2xl md:text-3xl font-bold text-primary mb-2">Welcome to Candid Capture</h2>
+            <p className="text-white text-lg md:text-xl">Where Every Moment Becomes a Timeless Memory</p>
+          </div>
+        </div>
+      </div>
+      
       <Carousel className="w-full">
         <CarouselContent>
           {slides.map((slide, index) => (
