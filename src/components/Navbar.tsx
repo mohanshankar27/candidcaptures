@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Menu, X, Home, Camera, Heart, Users, ShoppingBag, ExternalLink } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -77,7 +78,7 @@ const Navbar = () => {
             <img 
               src="/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png" 
               alt="Candid Capture Photography" 
-              className="h-20 w-auto"
+              className="h-24 w-auto" /* Increased from h-20 to h-24 */
             />
           </button>
 
