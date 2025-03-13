@@ -1,9 +1,10 @@
 
 import React from 'react';
-import { Check, X } from 'lucide-react';
+import { Check, X, Info } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import PackageImageCarousel from '../packages/PackageImageCarousel';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 const CorporatePackage: React.FC = () => {
   // Define corporate package images for the carousel with updated professional photos
@@ -42,12 +43,39 @@ const CorporatePackage: React.FC = () => {
           <Card className="overflow-hidden border-slate-200 hover:shadow-md transition-all">
             <CardHeader className="bg-slate-50 p-6 text-center border-b border-slate-200">
               <h4 className="text-2xl uppercase font-medium tracking-wide text-slate-800 mb-2">Mini</h4>
-              <div className="line-through text-slate-500 text-sm">₹8,890/- inclusive of GST</div>
-              <div className="font-medium text-[#ea384c] mt-1">Now at <span className="text-2xl font-semibold">₹7,550 +GST</span></div>
-              <div className="mt-3 text-xs text-slate-600 bg-slate-100 p-2 rounded-md">
-                Additional <span className="font-medium text-[#ea384c]">15% Discount</span> applicable if all team members are above 5 persons
-                <div className="text-xs mt-1">(i.e. ₹6,417 +GST)</div>
+              
+              <div className="mt-4 space-y-3">
+                <div className="flex flex-col items-center">
+                  <div className="text-sm text-slate-500 line-through">₹8,890 (inc. GST)</div>
+                  <div className="flex items-center gap-2">
+                    <span className="bg-[#ea384c]/10 px-3 py-1 rounded-full text-[#ea384c] font-medium">15% OFF</span>
+                    <span className="text-2xl font-bold text-slate-800">₹7,550</span>
+                    <span className="text-sm text-slate-500">+GST</span>
+                  </div>
+                </div>
+                
+                <div className="bg-slate-100 rounded-lg p-3 text-sm">
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <div className="flex items-center justify-center gap-1 cursor-help">
+                          <span className="font-medium">Team Discount</span>
+                          <Info className="h-4 w-4 text-slate-500" />
+                        </div>
+                      </TooltipTrigger>
+                      <TooltipContent className="max-w-xs">
+                        <p>Additional 15% discount applied when booking for 5+ team members</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                  <div className="flex items-center justify-center mt-1">
+                    <span className="text-[#ea384c] font-semibold">₹6,417</span>
+                    <span className="text-sm text-slate-500 ml-1">+GST per person</span>
+                  </div>
+                  <div className="text-xs text-slate-500 mt-1">(for 5+ people)</div>
+                </div>
               </div>
+              
               <button className="mt-4 bg-[#ea384c] text-white rounded-full px-6 py-2.5 text-sm hover:bg-[#ea384c]/90 transition-colors w-full">
                 Schedule Online
               </button>
@@ -109,12 +137,39 @@ const CorporatePackage: React.FC = () => {
             </div>
             <CardHeader className="bg-slate-50 p-6 text-center border-b border-slate-200">
               <h4 className="text-2xl uppercase font-medium tracking-wide text-slate-800 mb-2">Classic</h4>
-              <div className="line-through text-slate-500 text-sm">₹13,500/- inclusive of GST</div>
-              <div className="font-medium text-[#ea384c] mt-1">Now at <span className="text-2xl font-semibold">₹11,475 +GST</span></div>
-              <div className="mt-3 text-xs text-slate-600 bg-slate-100 p-2 rounded-md">
-                Additional <span className="font-medium text-[#ea384c]">15% Discount</span> applicable if all team members are above 5 persons
-                <div className="text-xs mt-1">(i.e. ₹9,754 +GST)</div>
+              
+              <div className="mt-4 space-y-3">
+                <div className="flex flex-col items-center">
+                  <div className="text-sm text-slate-500 line-through">₹13,500 (inc. GST)</div>
+                  <div className="flex items-center gap-2">
+                    <span className="bg-[#ea384c]/10 px-3 py-1 rounded-full text-[#ea384c] font-medium">15% OFF</span>
+                    <span className="text-2xl font-bold text-slate-800">₹11,475</span>
+                    <span className="text-sm text-slate-500">+GST</span>
+                  </div>
+                </div>
+                
+                <div className="bg-slate-100 rounded-lg p-3 text-sm">
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <div className="flex items-center justify-center gap-1 cursor-help">
+                          <span className="font-medium">Team Discount</span>
+                          <Info className="h-4 w-4 text-slate-500" />
+                        </div>
+                      </TooltipTrigger>
+                      <TooltipContent className="max-w-xs">
+                        <p>Additional 15% discount applied when booking for 5+ team members</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                  <div className="flex items-center justify-center mt-1">
+                    <span className="text-[#ea384c] font-semibold">₹9,754</span>
+                    <span className="text-sm text-slate-500 ml-1">+GST per person</span>
+                  </div>
+                  <div className="text-xs text-slate-500 mt-1">(for 5+ people)</div>
+                </div>
               </div>
+              
               <button className="mt-4 bg-[#ea384c] text-white rounded-full px-6 py-2.5 text-sm hover:bg-[#ea384c]/90 transition-colors w-full">
                 Call us on: +919632288815
               </button>
@@ -177,11 +232,21 @@ const CorporatePackage: React.FC = () => {
           <Card className="overflow-hidden border-slate-200 hover:shadow-md transition-all">
             <CardHeader className="bg-slate-50 p-6 text-center border-b border-slate-200">
               <h4 className="text-2xl uppercase font-medium tracking-wide text-slate-800 mb-2">Signature & On Location</h4>
-              <div className="font-medium text-[#ea384c] mt-1">Fully Customized Plan Starting <span className="text-2xl font-semibold">₹17,500 +GST</span></div>
-              <div className="mt-3 text-xs text-slate-600 bg-slate-100 p-2 rounded-md">
-                For large corporate teams and executive suites
-                <div className="text-xs mt-1 italic">Actual price based on Team Size/Location/Requirements</div>
+              
+              <div className="mt-4">
+                <div className="bg-gradient-to-r from-slate-100 to-slate-50 p-4 rounded-lg">
+                  <div className="text-xl font-bold text-slate-800">Custom Pricing</div>
+                  <div className="flex items-center justify-center gap-2 mt-1">
+                    <span className="text-xl font-bold text-[#ea384c]">₹17,500</span>
+                    <span className="text-sm text-slate-500">+GST onwards</span>
+                  </div>
+                  <div className="mt-2 text-xs text-slate-600">
+                    Tailored to your specific requirements
+                    <div className="text-xs mt-1 italic">Price based on team size, location & needs</div>
+                  </div>
+                </div>
               </div>
+              
               <button className="mt-4 bg-[#ea384c] text-white rounded-full px-6 py-2.5 text-sm hover:bg-[#ea384c]/90 transition-colors w-full">
                 Let us plan everything
               </button>

@@ -18,13 +18,13 @@ const PackageImageCarousel: React.FC<PackageImageCarouselProps> = ({
   altPrefix = "Package image" 
 }) => {
   return (
-    <div className="mb-8 relative">
+    <div className="mb-10 relative">
       <Carousel className="w-full">
         <CarouselContent>
           {images.map((image, index) => (
             <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
               <div className="p-1">
-                <div className="overflow-hidden rounded-xl h-48 md:h-64">
+                <div className="overflow-hidden rounded-xl h-52 md:h-64 lg:h-72 shadow-md hover:shadow-lg transition-all duration-300">
                   <img 
                     src={image} 
                     alt={`${altPrefix} ${index + 1}`}
@@ -35,11 +35,11 @@ const PackageImageCarousel: React.FC<PackageImageCarouselProps> = ({
             </CarouselItem>
           ))}
         </CarouselContent>
-        <div className="absolute -right-4 top-1/2 -translate-y-1/2">
-          <CarouselNext />
+        <div className="absolute -right-4 top-1/2 -translate-y-1/2 hidden md:block">
+          <CarouselNext className="bg-white shadow-md hover:bg-slate-50" />
         </div>
-        <div className="absolute -left-4 top-1/2 -translate-y-1/2">
-          <CarouselPrevious />
+        <div className="absolute -left-4 top-1/2 -translate-y-1/2 hidden md:block">
+          <CarouselPrevious className="bg-white shadow-md hover:bg-slate-50" />
         </div>
       </Carousel>
     </div>
