@@ -10,6 +10,7 @@ import servicesList from '@/data/servicesList';
 import { Grid, List } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ServicesGrid from '@/components/ServicesGrid';
+import PricePackages from '@/components/PricePackages';
 
 const Services = () => {
   const [selectedService, setSelectedService] = useState(servicesList[0]);
@@ -89,6 +90,9 @@ const Services = () => {
               </div>
             </>
           )}
+          
+          {/* Price Packages section */}
+          <PricePackages />
         </div>
       </div>
       
