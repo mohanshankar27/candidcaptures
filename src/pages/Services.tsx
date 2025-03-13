@@ -44,7 +44,7 @@ const Services = () => {
                 onServiceClick={handleServiceClick} 
               />
               
-              <ResizableHandle withHandle />
+              <ResizableHandle />
               
               <ResizablePanel defaultSize={75} minSize={60}>
                 <div className="h-full overflow-y-auto">
