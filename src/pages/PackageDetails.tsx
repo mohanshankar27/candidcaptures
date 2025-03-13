@@ -7,6 +7,7 @@ import NewBornPackage from '@/components/packages/NewBornPackage';
 import FamilyPackage from '@/components/packages/FamilyPackage';
 import CorporatePackage from '@/components/packages/CorporatePackage';
 import MaternityPackage from '@/components/packages/MaternityPackage';
+import MatrimonialPackage from '@/components/packages/MatrimonialPackage';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
 
@@ -24,6 +25,8 @@ const PackageDetails: React.FC = () => {
         return <CorporatePackage />;
       case 'maternity':
         return <MaternityPackage />;
+      case 'matrimonial':
+        return <MatrimonialPackage />;
       default:
         return (
           <div className="text-center p-8">
