@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -19,6 +18,13 @@ const PackageDetails: React.FC = () => {
   const { packageId } = useParams();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }, [packageId]);
+
   const packageList = [
     { id: 'new-born', title: 'New Born, Toddlers, and younger children' },
     { id: 'wedding', title: 'Wedding Photography' },
@@ -33,6 +39,14 @@ const PackageDetails: React.FC = () => {
   const currentPackageIndex = packageList.findIndex(pkg => pkg.id === packageId);
   const prevPackage = currentPackageIndex > 0 ? packageList[currentPackageIndex - 1] : null;
   const nextPackage = currentPackageIndex < packageList.length - 1 ? packageList[currentPackageIndex + 1] : null;
+
+  const handlePackageNavigation = (packageId: string) => {
+    navigate(`/packages/${packageId}`);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
 
   const getPackageComponent = () => {
     switch (packageId) {
@@ -77,7 +91,13 @@ const PackageDetails: React.FC = () => {
               variant="outline" 
               size="sm" 
               className="hover:bg-primary/10" 
-              onClick={() => navigate('/services')}
+              onClick={() => {
+                navigate('/services');
+                window.scrollTo({
+                  top: 0,
+                  behavior: 'smooth'
+                });
+              }}
             >
               <ArrowLeft className="mr-2 h-4 w-4" /> Back to Services
             </Button>
@@ -88,7 +108,7 @@ const PackageDetails: React.FC = () => {
                   variant="ghost"
                   size="sm"
                   className="text-xs"
-                  onClick={() => navigate(`/packages/${prevPackage.id}`)}
+                  onClick={() => handlePackageNavigation(prevPackage.id)}
                 >
                   <ArrowLeft className="mr-1 h-3 w-3" /> {prevPackage.title}
                 </Button>
@@ -99,7 +119,7 @@ const PackageDetails: React.FC = () => {
                   variant="ghost"
                   size="sm"
                   className="text-xs"
-                  onClick={() => navigate(`/packages/${nextPackage.id}`)}
+                  onClick={() => handlePackageNavigation(nextPackage.id)}
                 >
                   {nextPackage.title} <ArrowRight className="ml-1 h-3 w-3" />
                 </Button>
@@ -129,7 +149,7 @@ const PackageDetails: React.FC = () => {
                       "text-xs w-full justify-start",
                       pkg.id === packageId ? "bg-primary text-white" : "hover:bg-primary/10"
                     )}
-                    onClick={() => navigate(`/packages/${pkg.id}`)}
+                    onClick={() => handlePackageNavigation(pkg.id)}
                   >
                     {pkg.id === packageId ? "• " : ""}{pkg.title}
                   </Button>

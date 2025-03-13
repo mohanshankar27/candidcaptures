@@ -58,7 +58,14 @@ const PricePackages: React.FC = () => {
   const navigate = useNavigate();
 
   const handlePackageClick = (pkg: PricePackageItem) => {
+    // First navigate to the package page
     navigate(`/packages/${pkg.id}`);
+    
+    // Then scroll to the top of the page
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   };
 
   return (
