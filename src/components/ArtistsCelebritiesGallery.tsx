@@ -8,7 +8,7 @@ interface ArtistsCelebritiesGalleryProps {
 }
 
 const ArtistsCelebritiesGallery: React.FC<ArtistsCelebritiesGalleryProps> = ({ service }) => {
-  // Collection of 6 artist/celebrity photography images
+  // Collection of 6 unique artist/celebrity photography images
   const artistsImages = [
     '/lovable-uploads/e612e8f7-3f32-4c0d-a920-b83e95752820.png',
     '/lovable-uploads/a6d35b17-76d1-4a77-89b4-5760943e213b.png',

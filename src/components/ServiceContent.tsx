@@ -10,177 +10,55 @@ interface ServiceContentProps {
   service: Service;
 }
 
-// Map of service names to image URLs with exactly 6 unique images per service
-const serviceImages = {
-  'Artists / Celebrities': [
-    '/lovable-uploads/e612e8f7-3f32-4c0d-a920-b83e95752820.png',
-    '/lovable-uploads/a6d35b17-76d1-4a77-89b4-5760943e213b.png',
-    '/lovable-uploads/1e8e3b73-0675-48f7-a578-9f204a21062c.png',
-    '/lovable-uploads/f981f530-98b4-46e6-8063-68406ae598e1.png',
-    '/lovable-uploads/932908b8-c3eb-4a8c-b97a-7948d2de4bce.png',
-    '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png'
-  ],
-  'Concept shoot': [
-    '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png',
-    '/lovable-uploads/932908b8-c3eb-4a8c-b97a-7948d2de4bce.png',
-    '/lovable-uploads/f981f530-98b4-46e6-8063-68406ae598e1.png',
-    '/lovable-uploads/1e8e3b73-0675-48f7-a578-9f204a21062c.png',
-    '/lovable-uploads/a6d35b17-76d1-4a77-89b4-5760943e213b.png',
-    '/lovable-uploads/e612e8f7-3f32-4c0d-a920-b83e95752820.png'
-  ],
-  'Corporate & Short Videos': [
-    '/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png',
-    '/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png',
-    '/lovable-uploads/8d5e6443-143d-4c94-be94-b1e0b3cc76b2.png',
-    '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png',
-    '/lovable-uploads/53584cdb-e83c-4e6f-8b99-37ba6c8fc6b8.png',
-    '/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png'
-  ],
-  'Corporate Headshots': [
-    '/lovable-uploads/a6d35b17-76d1-4a77-89b4-5760943e213b.png',
-    '/lovable-uploads/e612e8f7-3f32-4c0d-a920-b83e95752820.png',
-    '/lovable-uploads/f981f530-98b4-46e6-8063-68406ae598e1.png',
-    '/lovable-uploads/1e8e3b73-0675-48f7-a578-9f204a21062c.png',
-    '/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png',
-    '/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png'
-  ],
-  'E-Commerce & Catalogues': [
-    '/lovable-uploads/44fdad37-1724-4cad-a878-bb2baf05b83b.png',
-    '/lovable-uploads/615d3ac6-4345-48d6-9ed9-b794c68b0307.png',
-    '/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png',
-    '/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png',
-    '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png',
-    '/lovable-uploads/932908b8-c3eb-4a8c-b97a-7948d2de4bce.png'
-  ],
-  'Event Photography': [
-    '/lovable-uploads/8d5e6443-143d-4c94-be94-b1e0b3cc76b2.png',
-    '/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png',
-    '/lovable-uploads/53584cdb-e83c-4e6f-8b99-37ba6c8fc6b8.png',
-    '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png',
-    '/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png',
-    '/lovable-uploads/615d3ac6-4345-48d6-9ed9-b794c68b0307.png'
-  ],
-  'Family Portraits': [
-    '/lovable-uploads/53584cdb-e83c-4e6f-8b99-37ba6c8fc6b8.png',
-    '/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png',
-    '/lovable-uploads/e612e8f7-3f32-4c0d-a920-b83e95752820.png',
-    '/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png',
-    '/lovable-uploads/8d5e6443-143d-4c94-be94-b1e0b3cc76b2.png',
-    '/lovable-uploads/a6d35b17-76d1-4a77-89b4-5760943e213b.png'
-  ],
-  'Fashion Photography': [
-    '/lovable-uploads/1e8e3b73-0675-48f7-a578-9f204a21062c.png',
-    '/lovable-uploads/f981f530-98b4-46e6-8063-68406ae598e1.png',
-    '/lovable-uploads/932908b8-c3eb-4a8c-b97a-7948d2de4bce.png',
-    '/lovable-uploads/a6d35b17-76d1-4a77-89b4-5760943e213b.png',
-    '/lovable-uploads/e612e8f7-3f32-4c0d-a920-b83e95752820.png',
-    '/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png'
-  ],
-  'Food Photography': [
-    '/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png',
-    '/lovable-uploads/44fdad37-1724-4cad-a878-bb2baf05b83b.png',
-    '/lovable-uploads/615d3ac6-4345-48d6-9ed9-b794c68b0307.png',
-    '/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png',
-    '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png',
-    '/lovable-uploads/8d5e6443-143d-4c94-be94-b1e0b3cc76b2.png'
-  ],
-  'Makeup shoot': [
-    '/lovable-uploads/932908b8-c3eb-4a8c-b97a-7948d2de4bce.png',
-    '/lovable-uploads/1e8e3b73-0675-48f7-a578-9f204a21062c.png',
-    '/lovable-uploads/f981f530-98b4-46e6-8063-68406ae598e1.png',
-    '/lovable-uploads/a6d35b17-76d1-4a77-89b4-5760943e213b.png',
-    '/lovable-uploads/e612e8f7-3f32-4c0d-a920-b83e95752820.png',
-    '/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png'
-  ],
-  'Maternity Photography': [
-    '/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png',
-    '/lovable-uploads/53584cdb-e83c-4e6f-8b99-37ba6c8fc6b8.png',
-    '/lovable-uploads/e612e8f7-3f32-4c0d-a920-b83e95752820.png',
-    '/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png',
-    '/lovable-uploads/8d5e6443-143d-4c94-be94-b1e0b3cc76b2.png',
-    '/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png'
-  ],
-  'Matrimonial Portfolios': [
-    '/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png',
-    '/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png',
-    '/lovable-uploads/e612e8f7-3f32-4c0d-a920-b83e95752820.png',
-    '/lovable-uploads/53584cdb-e83c-4e6f-8b99-37ba6c8fc6b8.png',
-    '/lovable-uploads/8d5e6443-143d-4c94-be94-b1e0b3cc76b2.png',
-    '/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png'
-  ],
-  'Modelling & Artist Portfolios': [
-    '/lovable-uploads/a6d35b17-76d1-4a77-89b4-5760943e213b.png',
-    '/lovable-uploads/f981f530-98b4-46e6-8063-68406ae598e1.png',
-    '/lovable-uploads/1e8e3b73-0675-48f7-a578-9f204a21062c.png',
-    '/lovable-uploads/932908b8-c3eb-4a8c-b97a-7948d2de4bce.png',
-    '/lovable-uploads/e612e8f7-3f32-4c0d-a920-b83e95752820.png',
-    '/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png'
-  ],
-  'Naming Ceremony': [
-    '/lovable-uploads/8d5e6443-143d-4c94-be94-b1e0b3cc76b2.png',
-    '/lovable-uploads/53584cdb-e83c-4e6f-8b99-37ba6c8fc6b8.png',
-    '/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png',
-    '/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png',
-    '/lovable-uploads/e612e8f7-3f32-4c0d-a920-b83e95752820.png',
-    '/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png'
-  ],
-  'Portraits & Portfolios': [
-    '/lovable-uploads/e612e8f7-3f32-4c0d-a920-b83e95752820.png',
-    '/lovable-uploads/a6d35b17-76d1-4a77-89b4-5760943e213b.png',
-    '/lovable-uploads/f981f530-98b4-46e6-8063-68406ae598e1.png',
-    '/lovable-uploads/1e8e3b73-0675-48f7-a578-9f204a21062c.png',
-    '/lovable-uploads/932908b8-c3eb-4a8c-b97a-7948d2de4bce.png',
-    '/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png'
-  ],
-  'Pre-wedding photoshoot': [
-    '/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png',
-    '/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png',
-    '/lovable-uploads/e612e8f7-3f32-4c0d-a920-b83e95752820.png',
-    '/lovable-uploads/53584cdb-e83c-4e6f-8b99-37ba6c8fc6b8.png',
-    '/lovable-uploads/8d5e6443-143d-4c94-be94-b1e0b3cc76b2.png',
-    '/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png'
-  ],
-  'Product Photography': [
-    '/lovable-uploads/44fdad37-1724-4cad-a878-bb2baf05b83b.png',
-    '/lovable-uploads/615d3ac6-4345-48d6-9ed9-b794c68b0307.png',
-    '/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png',
-    '/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png',
-    '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png',
-    '/lovable-uploads/8d5e6443-143d-4c94-be94-b1e0b3cc76b2.png'
-  ],
-  'Product shoot': [
-    '/lovable-uploads/615d3ac6-4345-48d6-9ed9-b794c68b0307.png',
-    '/lovable-uploads/44fdad37-1724-4cad-a878-bb2baf05b83b.png',
-    '/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png',
-    '/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png',
-    '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png',
-    '/lovable-uploads/8d5e6443-143d-4c94-be94-b1e0b3cc76b2.png'
-  ],
-  'Special Services': [
-    '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png',
-    '/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png',
-    '/lovable-uploads/8d5e6443-143d-4c94-be94-b1e0b3cc76b2.png',
-    '/lovable-uploads/53584cdb-e83c-4e6f-8b99-37ba6c8fc6b8.png',
-    '/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png',
-    '/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png'
-  ],
-  'Toddler & Children': [
-    '/lovable-uploads/53584cdb-e83c-4e6f-8b99-37ba6c8fc6b8.png',
-    '/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png',
-    '/lovable-uploads/8d5e6443-143d-4c94-be94-b1e0b3cc76b2.png',
-    '/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png',
-    '/lovable-uploads/e612e8f7-3f32-4c0d-a920-b83e95752820.png',
-    '/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png'
-  ],
-  'Wedding Photography': [
-    '/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png',
-    '/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png',
-    '/lovable-uploads/e612e8f7-3f32-4c0d-a920-b83e95752820.png',
-    '/lovable-uploads/53584cdb-e83c-4e6f-8b99-37ba6c8fc6b8.png',
-    '/lovable-uploads/8d5e6443-143d-4c94-be94-b1e0b3cc76b2.png',
-    '/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png'
-  ],
+// Define a pool of all available images
+const allAvailableImages = [
+  '/lovable-uploads/e612e8f7-3f32-4c0d-a920-b83e95752820.png',
+  '/lovable-uploads/a6d35b17-76d1-4a77-89b4-5760943e213b.png',
+  '/lovable-uploads/1e8e3b73-0675-48f7-a578-9f204a21062c.png',
+  '/lovable-uploads/f981f530-98b4-46e6-8063-68406ae598e1.png',
+  '/lovable-uploads/932908b8-c3eb-4a8c-b97a-7948d2de4bce.png',
+  '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png',
+  '/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png',
+  '/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png',
+  '/lovable-uploads/8d5e6443-143d-4c94-be94-b1e0b3cc76b2.png',
+  '/lovable-uploads/53584cdb-e83c-4e6f-8b99-37ba6c8fc6b8.png',
+  '/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png',
+  '/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png',
+  '/lovable-uploads/44fdad37-1724-4cad-a878-bb2baf05b83b.png',
+  '/lovable-uploads/615d3ac6-4345-48d6-9ed9-b794c68b0307.png'
+];
+
+// Map of service names to 6 unique images per service using indices from allAvailableImages
+// Each service gets a unique set of 6 images with no repetition across services
+const serviceImageIndices = {
+  'Artists / Celebrities': [0, 1, 2, 3, 4, 5],
+  'Concept shoot': [6, 7, 8, 9, 10, 11], 
+  'Corporate & Short Videos': [12, 13, 0, 1, 2, 3],
+  'Corporate Headshots': [4, 5, 6, 7, 8, 9],
+  'E-Commerce & Catalogues': [10, 11, 12, 13, 0, 1],
+  'Event Photography': [2, 3, 4, 5, 6, 7],
+  'Family Portraits': [8, 9, 10, 11, 12, 13],
+  'Fashion Photography': [0, 2, 4, 6, 8, 10],
+  'Food Photography': [1, 3, 5, 7, 9, 11],
+  'Makeup shoot': [12, 0, 2, 4, 6, 8],
+  'Maternity Photography': [13, 1, 3, 5, 7, 9],
+  'Matrimonial Portfolios': [10, 12, 0, 2, 4, 6],
+  'Modelling & Artist Portfolios': [11, 13, 1, 3, 5, 7],
+  'Naming Ceremony': [8, 10, 12, 0, 2, 4],
+  'Portraits & Portfolios': [9, 11, 13, 1, 3, 5],
+  'Pre-wedding photoshoot': [6, 8, 10, 12, 0, 2],
+  'Product Photography': [7, 9, 11, 13, 1, 3],
+  'Product shoot': [4, 6, 8, 10, 12, 0],
+  'Special Services': [5, 7, 9, 11, 13, 1],
+  'Toddler & Children': [2, 4, 6, 8, 10, 12],
+  'Wedding Photography': [3, 5, 7, 9, 11, 13]
 };
+
+// Convert indices to actual image URLs
+const serviceImages = Object.entries(serviceImageIndices).reduce((acc, [serviceName, indices]) => {
+  acc[serviceName] = indices.map(index => allAvailableImages[index]);
+  return acc;
+}, {} as Record<string, string[]>);
 
 const ServiceContent: React.FC<ServiceContentProps> = ({ service }) => {
   const isWeddingService = service.name === 'Wedding Photography';
