@@ -224,26 +224,40 @@ const CorporatePackage: React.FC = () => {
           </Card>
         </div>
         
-        <Separator className="my-8" />
+        <Separator className="my-12" />
         
-        <div className="bg-slate-50 p-8 rounded-lg">
-          <h3 className="text-xl font-medium mb-6 text-center text-slate-800">Corporate Photography FAQs</h3>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-white p-5 rounded-lg shadow-sm">
-              <h4 className="font-medium text-[#ea384c] text-lg mb-2">What is the turnaround time?</h4>
-              <p className="text-slate-600">Standard delivery is 3-5 business days. Rush delivery available at additional cost.</p>
+        {/* Photo Gallery Section - Added to replace FAQ section */}
+        <div className="mt-8">
+          <h3 className="text-2xl font-semibold mb-8 text-center text-[#333333]">Sample Corporate Headshots</h3>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+            <div className="overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all">
+              <img 
+                src="/lovable-uploads/3b0c013d-b9fb-40c8-b991-7781c698945e.png" 
+                alt="Corporate Headshot Sample 1" 
+                className="w-full h-64 object-cover object-center hover:scale-105 transition-transform duration-300"
+              />
             </div>
-            <div className="bg-white p-5 rounded-lg shadow-sm">
-              <h4 className="font-medium text-[#ea384c] text-lg mb-2">Do you offer on-site photography for large teams?</h4>
-              <p className="text-slate-600">Yes, we specialize in on-site corporate photography. Our Signature package includes this service.</p>
+            <div className="overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all">
+              <img 
+                src="/lovable-uploads/f981f530-98b4-46e6-8063-68406ae598e1.png" 
+                alt="Corporate Headshot Sample 2" 
+                className="w-full h-64 object-cover object-center hover:scale-105 transition-transform duration-300"
+              />
             </div>
-            <div className="bg-white p-5 rounded-lg shadow-sm">
-              <h4 className="font-medium text-[#ea384c] text-lg mb-2">Can we get consistency across multiple sessions?</h4>
-              <p className="text-slate-600">Absolutely. We maintain detailed records of lighting setup, background, and styling to ensure consistency.</p>
+            <div className="overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all">
+              <img 
+                src="/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png" 
+                alt="Corporate Headshot Sample 3" 
+                className="w-full h-64 object-cover object-center hover:scale-105 transition-transform duration-300"
+              />
             </div>
-            <div className="bg-white p-5 rounded-lg shadow-sm">
-              <h4 className="font-medium text-[#ea384c] text-lg mb-2">How do we prepare for a corporate shoot?</h4>
-              <p className="text-slate-600">We provide detailed preparation guidelines for your team, including clothing recommendations and scheduling tips.</p>
+            <div className="overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all">
+              <img 
+                src="/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png" 
+                alt="Corporate Headshot Sample 4" 
+                className="w-full h-64 object-cover object-center hover:scale-105 transition-transform duration-300"
+              />
             </div>
           </div>
         </div>
