@@ -82,18 +82,6 @@ const servicesList: Service[] = [
     pricing: 'Starting at ₹800 per product with package options'
   },
   { 
-    name: 'E-commerce shoot', 
-    icon: <Package className="w-5 h-5 text-violet-500" />,
-    description: 'Elevate your online store with professional e-commerce photography that showcases your products in the best light, increasing conversion rates and customer trust.',
-    benefits: [
-      'White/custom background options',
-      'Multiple angles per product',
-      'Lifestyle product shots available',
-      'Quick turnaround time'
-    ],
-    pricing: 'Starting at ₹1,000 per product with volume discounts available'
-  },
-  { 
     name: 'Event Photography', 
     icon: <Users className="w-5 h-5 text-green-500" />,
     description: 'Capture the energy and important moments of your corporate events, celebrations, and gatherings with our professional event photography services.',
@@ -182,18 +170,6 @@ const servicesList: Service[] = [
       'Perfect for all matrimonial platforms'
     ],
     pricing: 'Starting at ₹5,000 per portfolio'
-  },
-  { 
-    name: 'Model shoot', 
-    icon: <Image className="w-5 h-5 text-indigo-500" />,
-    description: 'Professional model photography for portfolios, agency submissions, or promotional work. We highlight your unique features and help you create a compelling portfolio.',
-    benefits: [
-      'Professional makeup artist options',
-      'Studio or location settings',
-      'Digital and print formats',
-      'Portfolio consultation'
-    ],
-    pricing: 'Starting at ₹8,000 for a 2-hour session'
   },
   { 
     name: 'Modelling & Artist Portfolios', 
@@ -315,13 +291,6 @@ const servicesList: Service[] = [
       'Print options available'
     ],
     pricing: 'Starting at ₹25,000 for full day coverage'
-  },
-  { 
-    name: 'Wedding Photoshoot Gallery', 
-    icon: <Camera className="w-5 h-5 text-gold-500" />,
-    description: 'View our wedding photography portfolio showcasing our best work from various wedding ceremonies and celebrations.',
-    external: true,
-    href: "https://photos.google.com/share/AF1QipMFmTIEYszMPXvYaD_NuynOGVrs45W8UEXeVlRrNO1bNuMOs84Ka4Z4Fig8pAPEgQ/photo/AF1QipNzfHamfCW0cnCc74SKSYo_gGXozV7Usz8YVNNI?key=MUV5cHFRNHNvSmtDeml2Vi1ESTJuR0NzQS11UHl3"
   }
 ];
 

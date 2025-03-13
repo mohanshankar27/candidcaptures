@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Menu, X, Home, Camera, Heart, Users, ShoppingBag, ExternalLink } from 'lucide-react';
 import { useNavigate, Link } from 'react-router-dom';
@@ -18,20 +17,12 @@ const Navbar = () => {
   const services = [
     { name: 'Wedding Photography', icon: <Heart className="w-4 h-4" /> },
     { 
-      name: 'Wedding Photoshoot Gallery', 
-      icon: <Camera className="w-4 h-4" />,
-      href: "https://photos.google.com/share/AF1QipMFmTIEYszMPXvYaD_NuynOGVrs45W8UEXeVlRrNO1bNuMOs84Ka4Z4Fig8pAPEgQ/photo/AF1QipNzfHamfCW0cnCc74SKSYo_gGXozV7Usz8YVNNI?key=MUV5cHFRNHNvSmtDeml2Vi1ESTJuR0NzQS11UHl3",
-      external: true
-    },
-    { 
       name: 'Pre-wedding Photoshoot Gallery', 
       icon: <Camera className="w-4 h-4" />,
       href: "https://photos.google.com/share/AF1QipMFmTIEYszMPXvYaD_NuynOGVrs45W8UEXeVlRrNO1bNuMOs84Ka4Z4Fig8pAPEgQ/photo/AF1QipMeb26RqTnwrFsKRc10TdGTQeCUg4OOUZGAPKMw?key=MUV5cHFRNHNvSmtDeml2Vi1ESTJuR0NzQS11UHl3",
       external: true
     },
     { name: 'Pre-wedding photoshoot', icon: <Heart className="w-4 h-4" /> },
-    { name: 'E-commerce shoot', icon: <ShoppingBag className="w-4 h-4" /> },
-    { name: 'Model shoot', icon: <Users className="w-4 h-4" /> },
     { name: 'Product shoot', icon: <ShoppingBag className="w-4 h-4" /> },
     { name: 'Makeup shoot', icon: <Camera className="w-4 h-4" /> },
     { name: 'Concept shoot', icon: <Camera className="w-4 h-4" /> },
@@ -76,7 +67,7 @@ const Navbar = () => {
             <img 
               src="/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png" 
               alt="Candid Capture Photography" 
-              className="h-32 w-auto" /* Increased from h-28 to h-32 */
+              className="h-32 w-auto"
             />
           </button>
 
