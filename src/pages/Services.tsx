@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -38,7 +37,7 @@ const servicesList = [
   { 
     name: 'Pre-wedding photoshoot', 
     icon: <Heart className="w-5 h-5" />,
-    description: 'Tell your love story through beautiful pre-wedding photography. We'll capture your chemistry in stunning locations that reflect your personality as a couple.',
+    description: "Tell your love story through beautiful pre-wedding photography. We'll capture your chemistry in stunning locations that reflect your personality as a couple.",
     benefits: [
       'Location scouting assistance',
       'Multiple outfit changes',
@@ -122,7 +121,7 @@ const servicesList = [
   { 
     name: 'Newborn shoot', 
     icon: <Heart className="w-5 h-5" />,
-    description: 'Capture the precious early days of your baby's life with our gentle, safe newborn photography sessions.',
+    description: "Capture the precious early days of your baby's life with our gentle, safe newborn photography sessions.",
     benefits: [
       'Safe baby handling practices',
       'Comfortable studio environment',
@@ -134,7 +133,7 @@ const servicesList = [
   { 
     name: 'Naming Ceremony', 
     icon: <Heart className="w-5 h-5" />,
-    description: 'Document your child's naming ceremony with professional photography that captures all the meaningful moments and traditions of this important celebration.',
+    description: "Document your child's naming ceremony with professional photography that captures all the meaningful moments and traditions of this important celebration.",
     benefits: [
       'Ceremony coverage',
       'Family group photos',
