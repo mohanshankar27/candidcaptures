@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import NewBornPackage from '@/components/packages/NewBornPackage';
 import FamilyPackage from '@/components/packages/FamilyPackage';
 import CorporatePackage from '@/components/packages/CorporatePackage';
+import MaternityPackage from '@/components/packages/MaternityPackage';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
 
@@ -21,6 +22,8 @@ const PackageDetails: React.FC = () => {
         return <FamilyPackage />;
       case 'corporate':
         return <CorporatePackage />;
+      case 'maternity':
+        return <MaternityPackage />;
       default:
         return (
           <div className="text-center p-8">
