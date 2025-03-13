@@ -23,7 +23,7 @@ const Services = () => {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       
-      <div className="flex-1 pt-28 pb-12">
+      <div className="flex-1 pt-20 pb-12">
         <div className="container mx-auto px-4">
           <h1 className="text-3xl font-bold mb-6 md:hidden">Our Services</h1>
           
@@ -34,7 +34,10 @@ const Services = () => {
           />
           
           <div className="hidden md:block">
-            <ResizablePanelGroup direction="horizontal" className="min-h-[calc(100vh-200px)] border rounded-lg overflow-hidden">
+            <ResizablePanelGroup 
+              direction="horizontal" 
+              className="min-h-[calc(100vh-200px)] border rounded-lg overflow-hidden shadow-md"
+            >
               <ServiceSidebar 
                 services={servicesList} 
                 selectedService={selectedService} 
@@ -43,7 +46,7 @@ const Services = () => {
               
               <ResizableHandle withHandle />
               
-              <ResizablePanel defaultSize={75}>
+              <ResizablePanel defaultSize={75} minSize={60}>
                 <div className="h-full overflow-y-auto">
                   <ServiceContent service={selectedService} />
                 </div>
