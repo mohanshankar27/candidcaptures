@@ -1,5 +1,8 @@
+
 import React from 'react';
 import { Separator } from '@/components/ui/separator';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Check } from 'lucide-react';
 import BookingCTA from './BookingCTA';
 
 const MatrimonialPackage: React.FC = () => {
@@ -34,52 +37,119 @@ const MatrimonialPackage: React.FC = () => {
           </p>
         </div>
 
-        <Separator />
+        <div className="grid md:grid-cols-3 gap-6">
+          <Card className="border-primary/20 hover:shadow-lg transition-all duration-300">
+            <CardHeader className="bg-gradient-to-r from-primary/10 to-primary/5 pb-2">
+              <CardTitle className="text-primary text-xl">Basic Portfolio</CardTitle>
+              <CardDescription className="text-slate-600 pt-1">Essential coverage</CardDescription>
+              <div className="mt-4 mb-1">
+                <span className="text-3xl font-light text-[#ea384c]">₹10,000</span>
+              </div>
+            </CardHeader>
+            <CardContent className="pt-6">
+              <ul className="space-y-3">
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">1-hour photo session</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">2 outfit changes</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">10 edited digital images</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Indoor studio session</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Basic retouching included</span>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
 
-        <div className="package">
-          <h4 className="text-lg font-medium mb-2 text-[#ea384c]">Basic Portfolio Package - ₹10,000</h4>
-          <ul className="list-disc pl-5 space-y-2 text-slate-600">
-            <li>1-hour photo session</li>
-            <li>2 outfit changes</li>
-            <li>10 edited digital images</li>
-            <li>Indoor studio session with professional lighting</li>
-            <li>Online gallery for viewing and downloading</li>
-            <li>Basic retouching included</li>
-          </ul>
-        </div>
+          <Card className="border-primary/20 shadow-md hover:shadow-xl relative transition-all duration-300">
+            <div className="absolute -top-4 right-0 left-0 mx-auto w-fit px-3 py-1 bg-[#ea384c] text-white text-sm rounded-full">
+              Most Popular
+            </div>
+            <CardHeader className="bg-gradient-to-r from-primary/20 to-primary/10 pb-2">
+              <CardTitle className="text-primary text-xl">Premium Portfolio</CardTitle>
+              <CardDescription className="text-slate-600 pt-1">Enhanced coverage</CardDescription>
+              <div className="mt-4 mb-1">
+                <span className="text-3xl font-light text-[#ea384c]">₹15,000</span>
+              </div>
+            </CardHeader>
+            <CardContent className="pt-6">
+              <ul className="space-y-3">
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">2-hour photo session</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">3 outfit changes</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">15 edited digital images</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Indoor studio and outdoor location</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Advanced retouching included</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">5 printed 5×7″ photographs</span>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
 
-        <Separator />
-
-        <div className="package">
-          <h4 className="text-lg font-medium mb-2 text-[#ea384c]">Premium Portfolio Package - ₹15,000</h4>
-          <ul className="list-disc pl-5 space-y-2 text-slate-600">
-            <li>2-hour photo session</li>
-            <li>3 outfit changes</li>
-            <li>15 edited digital images</li>
-            <li>Indoor studio and outdoor location (single location)</li>
-            <li>Professional lighting and setups</li>
-            <li>Online gallery for viewing and downloading</li>
-            <li>Advanced retouching included</li>
-            <li>5 printed 5×7″ photographs</li>
-          </ul>
-        </div>
-
-        <Separator />
-
-        <div className="package">
-          <h4 className="text-lg font-medium mb-2 text-[#ea384c]">Deluxe Portfolio Package - ₹20,000</h4>
-          <ul className="list-disc pl-5 space-y-2 text-slate-600">
-            <li>3-hour photo session</li>
-            <li>4 outfit changes</li>
-            <li>20 edited digital images</li>
-            <li>Multiple locations (studio and outdoor)</li>
-            <li>Professional lighting and diverse setups</li>
-            <li>Hair and makeup services included</li>
-            <li>Online gallery for viewing and downloading</li>
-            <li>Premium retouching included</li>
-            <li>10 printed 5×7″ photographs</li>
-            <li>Custom-designed digital portfolio</li>
-          </ul>
+          <Card className="border-primary/20 hover:shadow-lg transition-all duration-300">
+            <CardHeader className="bg-gradient-to-r from-primary/15 to-primary/5 pb-2">
+              <CardTitle className="text-primary text-xl">Deluxe Portfolio</CardTitle>
+              <CardDescription className="text-slate-600 pt-1">Complete coverage</CardDescription>
+              <div className="mt-4 mb-1">
+                <span className="text-3xl font-light text-[#ea384c]">₹20,000</span>
+              </div>
+            </CardHeader>
+            <CardContent className="pt-6">
+              <ul className="space-y-3">
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">3-hour photo session</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">4 outfit changes</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">20 edited digital images</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Multiple locations</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Hair and makeup included</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">10 printed 5×7″ photographs</span>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
         </div>
 
         <Separator />

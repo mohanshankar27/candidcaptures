@@ -1,6 +1,9 @@
 
 import React from 'react';
 import { Separator } from '@/components/ui/separator';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Check } from 'lucide-react';
+import BookingCTA from './BookingCTA';
 
 const EventPackage: React.FC = () => {
   return (
@@ -33,98 +36,181 @@ const EventPackage: React.FC = () => {
           </p>
         </div>
 
-        <Separator />
+        <div className="grid md:grid-cols-4 gap-5">
+          <Card className="border-primary/20 hover:shadow-lg transition-all duration-300">
+            <CardHeader className="bg-gradient-to-r from-primary/10 to-primary/5 pb-2">
+              <CardTitle className="text-primary text-lg">Basic</CardTitle>
+              <CardDescription className="text-slate-600 pt-1">Small events</CardDescription>
+              <div className="mt-4 mb-1">
+                <span className="text-2xl font-light text-[#ea384c]">₹15,000</span>
+              </div>
+            </CardHeader>
+            <CardContent className="pt-6">
+              <ul className="space-y-3">
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">4 hours of coverage</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">One professional photographer</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">100+ edited digital images</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Online gallery for downloading</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">7-10 business days delivery</span>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
 
-        <div className="package">
-          <h4 className="text-lg font-medium mb-2 text-[#ea384c]">Basic Event Coverage - ₹15,000</h4>
-          <ul className="list-disc pl-5 space-y-2 text-slate-600">
-            <li>4 hours of photography coverage</li>
-            <li>One professional photographer</li>
-            <li>100+ professionally edited digital images</li>
-            <li>Online gallery for viewing and downloading</li>
-            <li>Quick turnaround time (7-10 business days)</li>
-            <li>All high-resolution images included</li>
-          </ul>
-        </div>
+          <Card className="border-primary/20 hover:shadow-lg transition-all duration-300">
+            <CardHeader className="bg-gradient-to-r from-primary/15 to-primary/5 pb-2">
+              <CardTitle className="text-primary text-lg">Standard</CardTitle>
+              <CardDescription className="text-slate-600 pt-1">Medium events</CardDescription>
+              <div className="mt-4 mb-1">
+                <span className="text-2xl font-light text-[#ea384c]">₹25,000</span>
+              </div>
+            </CardHeader>
+            <CardContent className="pt-6">
+              <ul className="space-y-3">
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">6 hours of coverage</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">One professional photographer</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">200+ edited digital images</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Same-day preview (10 photos)</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">7-10 business days delivery</span>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
 
-        <Separator />
+          <Card className="border-primary/20 shadow-md hover:shadow-xl relative transition-all duration-300">
+            <div className="absolute -top-4 right-0 left-0 mx-auto w-fit px-3 py-1 bg-[#ea384c] text-white text-sm rounded-full">
+              Most Popular
+            </div>
+            <CardHeader className="bg-gradient-to-r from-primary/20 to-primary/10 pb-2">
+              <CardTitle className="text-primary text-lg">Premium</CardTitle>
+              <CardDescription className="text-slate-600 pt-1">Large events</CardDescription>
+              <div className="mt-4 mb-1">
+                <span className="text-2xl font-light text-[#ea384c]">₹35,000</span>
+              </div>
+            </CardHeader>
+            <CardContent className="pt-6">
+              <ul className="space-y-3">
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">8 hours of coverage</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Two professional photographers</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">300+ edited digital images</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Same-day preview (20 photos)</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">5-7 business days delivery</span>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
 
-        <div className="package">
-          <h4 className="text-lg font-medium mb-2 text-[#ea384c]">Standard Event Coverage - ₹25,000</h4>
-          <ul className="list-disc pl-5 space-y-2 text-slate-600">
-            <li>6 hours of photography coverage</li>
-            <li>One professional photographer</li>
-            <li>200+ professionally edited digital images</li>
-            <li>Online gallery for viewing and downloading</li>
-            <li>Quick turnaround time (7-10 business days)</li>
-            <li>All high-resolution images included</li>
-            <li>Same-day preview of selected images (10 photos)</li>
-          </ul>
-        </div>
-
-        <Separator />
-
-        <div className="package">
-          <h4 className="text-lg font-medium mb-2 text-[#ea384c]">Premium Event Coverage - ₹35,000</h4>
-          <ul className="list-disc pl-5 space-y-2 text-slate-600">
-            <li>8 hours of photography coverage</li>
-            <li>Two professional photographers</li>
-            <li>300+ professionally edited digital images</li>
-            <li>Online gallery for viewing and downloading</li>
-            <li>Quick turnaround time (5-7 business days)</li>
-            <li>All high-resolution images included</li>
-            <li>Same-day preview of selected images (20 photos)</li>
-            <li>Custom USB drive with all images</li>
-          </ul>
-        </div>
-
-        <Separator />
-
-        <div className="package">
-          <h4 className="text-lg font-medium mb-2 text-[#ea384c]">Corporate Event Package - ₹40,000</h4>
-          <ul className="list-disc pl-5 space-y-2 text-slate-600">
-            <li>Full day coverage (up to 10 hours)</li>
-            <li>Two professional photographers</li>
-            <li>400+ professionally edited digital images</li>
-            <li>Corporate branding integration</li>
-            <li>Online gallery for viewing and downloading</li>
-            <li>Quick turnaround time (5-7 business days)</li>
-            <li>All high-resolution images included</li>
-            <li>Same-day preview of selected images (30 photos)</li>
-            <li>Custom USB drive with all images</li>
-            <li>Commercial usage rights</li>
-          </ul>
+          <Card className="border-primary/20 hover:shadow-lg transition-all duration-300">
+            <CardHeader className="bg-gradient-to-r from-primary/15 to-primary/5 pb-2">
+              <CardTitle className="text-primary text-lg">Corporate</CardTitle>
+              <CardDescription className="text-slate-600 pt-1">Professional events</CardDescription>
+              <div className="mt-4 mb-1">
+                <span className="text-2xl font-light text-[#ea384c]">₹40,000</span>
+              </div>
+            </CardHeader>
+            <CardContent className="pt-6">
+              <ul className="space-y-3">
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Full day (up to 10 hours)</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Two professional photographers</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">400+ edited digital images</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Corporate branding integration</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Commercial usage rights</span>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
         </div>
 
         <Separator />
 
         <div className="mt-6">
           <h3 className="text-lg font-medium mb-3 text-[#333333]">Add-On Services</h3>
-          <ul className="list-disc pl-5 space-y-2 text-slate-600">
-            <li>Additional hour of coverage - ₹5,000 per hour</li>
-            <li>Additional photographer - ₹10,000 per photographer</li>
-            <li>Express delivery (48 hours) - ₹5,000</li>
-            <li>Printed photo album (30 pages) - ₹8,000</li>
-            <li>On-site printing station - ₹15,000</li>
-            <li>Photo booth setup - ₹20,000</li>
-            <li>Drone photography - ₹10,000</li>
-          </ul>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="bg-slate-50 p-4 rounded-lg">
+              <ul className="list-disc pl-5 space-y-2 text-slate-600">
+                <li>Additional hour of coverage - ₹5,000 per hour</li>
+                <li>Additional photographer - ₹10,000 per photographer</li>
+                <li>Express delivery (48 hours) - ₹5,000</li>
+                <li>Printed photo album (30 pages) - ₹8,000</li>
+              </ul>
+            </div>
+            <div className="bg-slate-50 p-4 rounded-lg">
+              <ul className="list-disc pl-5 space-y-2 text-slate-600">
+                <li>On-site printing station - ₹15,000</li>
+                <li>Photo booth setup - ₹20,000</li>
+                <li>Drone photography - ₹10,000</li>
+                <li>Video highlights - starting at ₹15,000</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         <div className="mt-6">
           <h3 className="text-lg font-medium mb-3 text-[#333333]">Event Types We Cover</h3>
-          <ul className="list-disc pl-5 space-y-2 text-slate-600">
-            <li>Corporate conferences and seminars</li>
-            <li>Product launches and promotional events</li>
-            <li>Award ceremonies and galas</li>
-            <li>Trade shows and exhibitions</li>
-            <li>Corporate team-building activities</li>
-            <li>Birthday parties and anniversaries</li>
-            <li>Engagement parties</li>
-            <li>Religious ceremonies</li>
-            <li>Graduation celebrations</li>
-            <li>Cultural events and festivals</li>
-          </ul>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+            {['Corporate conferences', 'Product launches', 'Award ceremonies', 'Trade shows', 'Team-building',
+              'Birthday parties', 'Anniversaries', 'Religious ceremonies', 'Graduations', 'Cultural events'].map((type, i) => (
+              <div key={i} className="bg-primary/5 p-2 rounded-lg text-center text-slate-700 border border-primary/10 text-sm">
+                {type}
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="mt-6">
@@ -134,17 +220,13 @@ const EventPackage: React.FC = () => {
             <li>Travel fees may apply for events outside Bangalore city limits</li>
             <li>Customized packages available upon request</li>
             <li>Weekend and holiday bookings should be made well in advance</li>
-            <li>Cancellation policy: Full refund if cancelled 30+ days before event, 50% refund if cancelled 15-29 days before event, no refund if cancelled less than 15 days before event</li>
           </ul>
         </div>
 
-        <div className="bg-slate-50 p-4 rounded-md mt-6">
-          <p className="text-center italic text-slate-600">
-            To book our event photography services or for more information, please contact us at 
-            <a href="tel:+919632288815" className="text-[#ea384c] mx-1">+91 96322 88815</a> or 
-            <a href="mailto:candidcapture4@gmail.com" className="text-[#ea384c] mx-1">candidcapture4@gmail.com</a>
-          </p>
-        </div>
+        <BookingCTA 
+          title="Book Your Event Photography Services" 
+          serviceType="special event"
+        />
       </div>
     </div>
   );

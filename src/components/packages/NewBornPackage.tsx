@@ -1,5 +1,8 @@
+
 import React from 'react';
 import { Separator } from '@/components/ui/separator';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Check } from 'lucide-react';
 import BookingCTA from './BookingCTA';
 
 const NewBornPackage: React.FC = () => {
@@ -34,49 +37,119 @@ const NewBornPackage: React.FC = () => {
           </p>
         </div>
 
-        <Separator />
+        <div className="grid md:grid-cols-3 gap-6">
+          <Card className="border-primary/20 hover:shadow-lg transition-all duration-300">
+            <CardHeader className="bg-gradient-to-r from-primary/10 to-primary/5 pb-2">
+              <CardTitle className="text-primary text-xl">Basic Package</CardTitle>
+              <CardDescription className="text-slate-600 pt-1">Essential coverage</CardDescription>
+              <div className="mt-4 mb-1">
+                <span className="text-3xl font-light text-[#ea384c]">₹10,000</span>
+              </div>
+            </CardHeader>
+            <CardContent className="pt-6">
+              <ul className="space-y-3">
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Up to 2-hour photo session</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">10 edited digital images</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">1 outfit/setup included</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">In-studio session with props</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Online gallery for downloading</span>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
 
-        <div className="package">
-          <h4 className="text-lg font-medium mb-2 text-[#ea384c]">Basic Package - ₹10,000</h4>
-          <ul className="list-disc pl-5 space-y-2 text-slate-600">
-            <li>Up to 2-hour photo session</li>
-            <li>10 edited digital images</li>
-            <li>1 outfit/setup included</li>
-            <li>In-studio session with props</li>
-            <li>Online gallery for viewing and downloading</li>
-          </ul>
-        </div>
+          <Card className="border-primary/20 shadow-md hover:shadow-xl relative transition-all duration-300">
+            <div className="absolute -top-4 right-0 left-0 mx-auto w-fit px-3 py-1 bg-[#ea384c] text-white text-sm rounded-full">
+              Most Popular
+            </div>
+            <CardHeader className="bg-gradient-to-r from-primary/20 to-primary/10 pb-2">
+              <CardTitle className="text-primary text-xl">Standard Package</CardTitle>
+              <CardDescription className="text-slate-600 pt-1">Premium coverage</CardDescription>
+              <div className="mt-4 mb-1">
+                <span className="text-3xl font-light text-[#ea384c]">₹15,000</span>
+              </div>
+            </CardHeader>
+            <CardContent className="pt-6">
+              <ul className="space-y-3">
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Up to 3-hour photo session</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">20 edited digital images</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">2 outfits/setups included</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Family portraits included</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">In-studio session with props</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">5 printed 5×7″ photographs</span>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
 
-        <Separator />
-
-        <div className="package">
-          <h4 className="text-lg font-medium mb-2 text-[#ea384c]">Standard Package - ₹15,000</h4>
-          <ul className="list-disc pl-5 space-y-2 text-slate-600">
-            <li>Up to 3-hour photo session</li>
-            <li>20 edited digital images</li>
-            <li>2 outfits/setups included</li>
-            <li>Family portraits included</li>
-            <li>In-studio session with props</li>
-            <li>Online gallery for viewing and downloading</li>
-            <li>5 printed 5×7″ photographs</li>
-          </ul>
-        </div>
-
-        <Separator />
-
-        <div className="package">
-          <h4 className="text-lg font-medium mb-2 text-[#ea384c]">Premium Package - ₹25,000</h4>
-          <ul className="list-disc pl-5 space-y-2 text-slate-600">
-            <li>Up to 4-hour photo session</li>
-            <li>30 edited digital images</li>
-            <li>3 outfits/setups included</li>
-            <li>Family portraits included</li>
-            <li>Sibling photos included</li>
-            <li>In-studio session with premium props</li>
-            <li>Online gallery for viewing and downloading</li>
-            <li>10 printed 5×7″ photographs</li>
-            <li>1 custom photo album (8×8″)</li>
-          </ul>
+          <Card className="border-primary/20 hover:shadow-lg transition-all duration-300">
+            <CardHeader className="bg-gradient-to-r from-primary/15 to-primary/5 pb-2">
+              <CardTitle className="text-primary text-xl">Premium Package</CardTitle>
+              <CardDescription className="text-slate-600 pt-1">Complete coverage</CardDescription>
+              <div className="mt-4 mb-1">
+                <span className="text-3xl font-light text-[#ea384c]">₹25,000</span>
+              </div>
+            </CardHeader>
+            <CardContent className="pt-6">
+              <ul className="space-y-3">
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Up to 4-hour photo session</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">30 edited digital images</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">3 outfits/setups included</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Family and sibling photos</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">10 printed 5×7″ photographs</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">1 custom photo album (8×8″)</span>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
         </div>
 
         <Separator />

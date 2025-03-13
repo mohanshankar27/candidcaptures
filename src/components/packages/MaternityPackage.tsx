@@ -1,6 +1,9 @@
 
 import React from 'react';
 import { Separator } from '@/components/ui/separator';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Check } from 'lucide-react';
+import BookingCTA from './BookingCTA';
 
 const MaternityPackage: React.FC = () => {
   return (
@@ -34,72 +37,145 @@ const MaternityPackage: React.FC = () => {
           </p>
         </div>
 
-        <Separator />
+        <div className="grid md:grid-cols-4 gap-5">
+          <Card className="border-primary/20 hover:shadow-lg transition-all duration-300">
+            <CardHeader className="bg-gradient-to-r from-primary/10 to-primary/5 pb-2">
+              <CardTitle className="text-primary text-lg">Basic</CardTitle>
+              <CardDescription className="text-slate-600 pt-1">Simple session</CardDescription>
+              <div className="mt-4 mb-1">
+                <span className="text-2xl font-light text-[#ea384c]">₹6,000</span>
+              </div>
+            </CardHeader>
+            <CardContent className="pt-6">
+              <ul className="space-y-3">
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">1-hour photo session</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">10 edited digital images</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">1 outfit change</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Indoor studio session</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Basic retouching</span>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
 
-        <div className="package">
-          <h4 className="text-lg font-medium mb-2 text-[#ea384c]">Basic Maternity Package - ₹6,000</h4>
-          <ul className="list-disc pl-5 space-y-2 text-slate-600">
-            <li>1-hour photo session</li>
-            <li>10 edited digital images</li>
-            <li>1 outfit change</li>
-            <li>Indoor studio session</li>
-            <li>Online gallery for viewing and downloading</li>
-            <li>Basic retouching included</li>
-          </ul>
-        </div>
+          <Card className="border-primary/20 hover:shadow-lg transition-all duration-300">
+            <CardHeader className="bg-gradient-to-r from-primary/20 to-primary/10 pb-2">
+              <CardTitle className="text-primary text-lg">Standard</CardTitle>
+              <CardDescription className="text-slate-600 pt-1">Popular choice</CardDescription>
+              <div className="mt-4 mb-1">
+                <span className="text-2xl font-light text-[#ea384c]">₹12,000</span>
+              </div>
+            </CardHeader>
+            <CardContent className="pt-6">
+              <ul className="space-y-3">
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">2-hour photo session</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">20 edited digital images</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">2 outfit changes</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Studio or outdoor location</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Partner inclusion</span>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
 
-        <Separator />
+          <Card className="border-primary/20 shadow-md hover:shadow-xl relative transition-all duration-300">
+            <div className="absolute -top-4 right-0 left-0 mx-auto w-fit px-3 py-1 bg-[#ea384c] text-white text-sm rounded-full">
+              Most Popular
+            </div>
+            <CardHeader className="bg-gradient-to-r from-primary/20 to-primary/10 pb-2">
+              <CardTitle className="text-primary text-lg">Premium</CardTitle>
+              <CardDescription className="text-slate-600 pt-1">Complete coverage</CardDescription>
+              <div className="mt-4 mb-1">
+                <span className="text-2xl font-light text-[#ea384c]">₹18,000</span>
+              </div>
+            </CardHeader>
+            <CardContent className="pt-6">
+              <ul className="space-y-3">
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">3-hour photo session</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">30 edited digital images</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">3 outfit changes</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Studio and outdoor locations</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Hair and makeup artist</span>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
 
-        <div className="package">
-          <h4 className="text-lg font-medium mb-2 text-[#ea384c]">Standard Maternity Package - ₹12,000</h4>
-          <ul className="list-disc pl-5 space-y-2 text-slate-600">
-            <li>2-hour photo session</li>
-            <li>20 edited digital images</li>
-            <li>2 outfit changes</li>
-            <li>Studio or outdoor location (single location)</li>
-            <li>Partner/family inclusion (limited shots)</li>
-            <li>Online gallery for viewing and downloading</li>
-            <li>Advanced retouching included</li>
-            <li>5 printed 5×7″ photographs</li>
-          </ul>
-        </div>
-
-        <Separator />
-
-        <div className="package">
-          <h4 className="text-lg font-medium mb-2 text-[#ea384c]">Premium Maternity Package - ₹18,000</h4>
-          <ul className="list-disc pl-5 space-y-2 text-slate-600">
-            <li>3-hour photo session</li>
-            <li>30 edited digital images</li>
-            <li>3 outfit changes</li>
-            <li>Studio and outdoor locations (up to 2 locations)</li>
-            <li>Partner/family inclusion</li>
-            <li>Hair and makeup artist included</li>
-            <li>Online gallery for viewing and downloading</li>
-            <li>Premium retouching included</li>
-            <li>10 printed 5×7″ photographs</li>
-            <li>1 custom 8×10″ matted print</li>
-          </ul>
-        </div>
-
-        <Separator />
-
-        <div className="package">
-          <h4 className="text-lg font-medium mb-2 text-[#ea384c]">Deluxe Maternity Package - ₹25,000</h4>
-          <ul className="list-disc pl-5 space-y-2 text-slate-600">
-            <li>4-hour photo session</li>
-            <li>40 edited digital images</li>
-            <li>Multiple outfit changes (up to 4)</li>
-            <li>Multiple locations (up to 3)</li>
-            <li>Partner/family inclusion</li>
-            <li>Hair and makeup artist included with touch-ups</li>
-            <li>Custom props and accessories</li>
-            <li>Online gallery for viewing and downloading</li>
-            <li>Premium retouching included</li>
-            <li>15 printed 5×7″ photographs</li>
-            <li>1 custom 12×12″ photo album</li>
-            <li>2 custom 8×10″ matted prints</li>
-          </ul>
+          <Card className="border-primary/20 hover:shadow-lg transition-all duration-300">
+            <CardHeader className="bg-gradient-to-r from-primary/15 to-primary/5 pb-2">
+              <CardTitle className="text-primary text-lg">Deluxe</CardTitle>
+              <CardDescription className="text-slate-600 pt-1">Luxury experience</CardDescription>
+              <div className="mt-4 mb-1">
+                <span className="text-2xl font-light text-[#ea384c]">₹25,000</span>
+              </div>
+            </CardHeader>
+            <CardContent className="pt-6">
+              <ul className="space-y-3">
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">4-hour photo session</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">40 edited digital images</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">4 outfit changes</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Multiple locations (up to 3)</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Hair and makeup with touch-ups</span>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
         </div>
 
         <Separator />
@@ -127,13 +203,10 @@ const MaternityPackage: React.FC = () => {
           </ul>
         </div>
 
-        <div className="bg-slate-50 p-4 rounded-md mt-6">
-          <p className="text-center italic text-slate-600">
-            To book a session or for more information, please contact us at 
-            <a href="tel:+919632288815" className="text-[#ea384c] mx-1">+91 96322 88815</a> or 
-            <a href="mailto:candidcapture4@gmail.com" className="text-[#ea384c] mx-1">candidcapture4@gmail.com</a>
-          </p>
-        </div>
+        <BookingCTA 
+          title="Book Your Maternity Photography Session" 
+          serviceType="precious pregnancy journey"
+        />
       </div>
     </div>
   );

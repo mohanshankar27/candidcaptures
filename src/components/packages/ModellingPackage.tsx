@@ -1,6 +1,9 @@
 
 import React from 'react';
 import { Separator } from '@/components/ui/separator';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Check } from 'lucide-react';
+import BookingCTA from './BookingCTA';
 
 const ModellingPackage: React.FC = () => {
   return (
@@ -33,107 +36,159 @@ const ModellingPackage: React.FC = () => {
           </p>
         </div>
 
-        <Separator />
+        <div className="grid md:grid-cols-4 gap-5">
+          <Card className="border-primary/20 hover:shadow-lg transition-all duration-300">
+            <CardHeader className="bg-gradient-to-r from-primary/10 to-primary/5 pb-2">
+              <CardTitle className="text-primary text-lg">Basic Polaroid</CardTitle>
+              <CardDescription className="text-slate-600 pt-1">Agency submissions</CardDescription>
+              <div className="mt-4 mb-1">
+                <span className="text-2xl font-light text-[#ea384c]">₹5,000</span>
+              </div>
+            </CardHeader>
+            <CardContent className="pt-6">
+              <ul className="space-y-3">
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">2-hour studio session</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">3 outfit changes</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">10 edited digital images</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">5 printed polaroid-style photos</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Basic styling advice</span>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
 
-        <div className="package">
-          <h4 className="text-lg font-medium mb-2 text-[#ea384c]">Basic Polaroid Package - ₹5,000</h4>
-          <ul className="list-disc pl-5 space-y-2 text-slate-600">
-            <li>2-hour studio session</li>
-            <li>3 outfit changes</li>
-            <li>10 professionally edited digital images</li>
-            <li>5 printed polaroid-style photos</li>
-            <li>Basic styling advice</li>
-            <li>Soft and hard copy of images</li>
-            <li>Online gallery for downloading</li>
-          </ul>
+          <Card className="border-primary/20 hover:shadow-lg transition-all duration-300">
+            <CardHeader className="bg-gradient-to-r from-primary/15 to-primary/5 pb-2">
+              <CardTitle className="text-primary text-lg">Standard</CardTitle>
+              <CardDescription className="text-slate-600 pt-1">Portfolio beginners</CardDescription>
+              <div className="mt-4 mb-1">
+                <span className="text-2xl font-light text-[#ea384c]">₹12,000</span>
+              </div>
+            </CardHeader>
+            <CardContent className="pt-6">
+              <ul className="space-y-3">
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">4-hour studio session</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">5 outfit changes</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">20 edited digital images</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">10 printed polaroid-style photos</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">10 printed comp cards</span>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card className="border-primary/20 shadow-md hover:shadow-xl relative transition-all duration-300">
+            <div className="absolute -top-4 right-0 left-0 mx-auto w-fit px-3 py-1 bg-[#ea384c] text-white text-sm rounded-full">
+              Most Popular
+            </div>
+            <CardHeader className="bg-gradient-to-r from-primary/20 to-primary/10 pb-2">
+              <CardTitle className="text-primary text-lg">Premium</CardTitle>
+              <CardDescription className="text-slate-600 pt-1">Professional portfolio</CardDescription>
+              <div className="mt-4 mb-1">
+                <span className="text-2xl font-light text-[#ea384c]">₹25,000</span>
+              </div>
+            </CardHeader>
+            <CardContent className="pt-6">
+              <ul className="space-y-3">
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Full-day photoshoot (6-8 hours)</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Multiple locations</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">8 outfit changes</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">40 edited digital images</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Hair and makeup artist included</span>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card className="border-primary/20 hover:shadow-lg transition-all duration-300">
+            <CardHeader className="bg-gradient-to-r from-primary/15 to-primary/5 pb-2">
+              <CardTitle className="text-primary text-lg">Elite</CardTitle>
+              <CardDescription className="text-slate-600 pt-1">Agency-ready portfolio</CardDescription>
+              <div className="mt-4 mb-1">
+                <span className="text-2xl font-light text-[#ea384c]">₹40,000</span>
+              </div>
+            </CardHeader>
+            <CardContent className="pt-6">
+              <ul className="space-y-3">
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Two-day comprehensive shoot</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Multiple premium locations</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">12 outfit changes</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">60 edited digital images</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Video clips for motion portfolio</span>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
         </div>
 
         <Separator />
-
-        <div className="package">
-          <h4 className="text-lg font-medium mb-2 text-[#ea384c]">Standard Portfolio Package - ₹12,000</h4>
-          <ul className="list-disc pl-5 space-y-2 text-slate-600">
-            <li>4-hour studio session</li>
-            <li>5 outfit changes</li>
-            <li>20 professionally edited digital images</li>
-            <li>10 printed polaroid-style photos</li>
-            <li>Hair and makeup consultation</li>
-            <li>Basic styling assistance</li>
-            <li>Online gallery for downloading</li>
-            <li>Digital portfolio compilation</li>
-            <li>10 printed comp cards</li>
-          </ul>
-        </div>
-
-        <Separator />
-
-        <div className="package">
-          <h4 className="text-lg font-medium mb-2 text-[#ea384c]">Premium Portfolio Package - ₹25,000</h4>
-          <ul className="list-disc pl-5 space-y-2 text-slate-600">
-            <li>Full-day photoshoot (6-8 hours)</li>
-            <li>Multiple locations (studio and outdoor)</li>
-            <li>8 outfit changes</li>
-            <li>40 professionally edited digital images</li>
-            <li>15 printed polaroid-style photos</li>
-            <li>Professional hair and makeup artist included</li>
-            <li>Styling consultation and assistance</li>
-            <li>Online gallery for downloading</li>
-            <li>Digital portfolio compilation</li>
-            <li>20 printed comp cards</li>
-            <li>Portfolio book (10 pages, professionally designed)</li>
-          </ul>
-        </div>
-
-        <Separator />
-
-        <div className="package">
-          <h4 className="text-lg font-medium mb-2 text-[#ea384c]">Elite Portfolio Package - ₹40,000</h4>
-          <ul className="list-disc pl-5 space-y-2 text-slate-600">
-            <li>Two-day comprehensive photoshoot</li>
-            <li>Multiple premium locations</li>
-            <li>12 outfit changes across various styles</li>
-            <li>60 professionally edited digital images</li>
-            <li>20 printed polaroid-style photos</li>
-            <li>Professional hair and makeup artist for both days</li>
-            <li>Professional stylist consultation</li>
-            <li>Wardrobe assistance available</li>
-            <li>Online gallery for downloading</li>
-            <li>Digital portfolio compilation with categorization</li>
-            <li>30 printed comp cards with multiple designs</li>
-            <li>Premium portfolio book (20 pages, professionally designed)</li>
-            <li>Short video clips for motion portfolio</li>
-            <li>Agency submission guidance</li>
-          </ul>
-        </div>
-
-        <Separator />
-
-        <div className="mt-6">
-          <h3 className="text-lg font-medium mb-3 text-[#333333]">Add-On Services</h3>
-          <ul className="list-disc pl-5 space-y-2 text-slate-600">
-            <li>Additional outfit change - ₹1,500 per outfit</li>
-            <li>Additional edited digital images - ₹500 per image</li>
-            <li>Additional printed comp cards - ₹2,000 per set of 10</li>
-            <li>Professional hair and makeup artist - ₹5,000</li>
-            <li>Location change - ₹3,000 per additional location</li>
-            <li>Express delivery (48 hours) - ₹5,000</li>
-            <li>Video portfolio additions - Starting at ₹10,000</li>
-          </ul>
-        </div>
 
         <div className="mt-6">
           <h3 className="text-lg font-medium mb-3 text-[#333333]">Portfolio Types We Specialize In</h3>
-          <ul className="list-disc pl-5 space-y-2 text-slate-600">
-            <li>Fashion portfolios</li>
-            <li>Commercial modeling</li>
-            <li>Runway portfolios</li>
-            <li>Editorial style</li>
-            <li>Fitness modeling</li>
-            <li>Plus-size modeling</li>
-            <li>Parts modeling (hands, feet, etc.)</li>
-            <li>Acting headshots</li>
-            <li>Child modeling portfolios</li>
-          </ul>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            {['Fashion portfolios', 'Commercial modeling', 'Runway portfolios', 'Editorial style', 
+              'Fitness modeling', 'Plus-size modeling', 'Parts modeling', 'Acting headshots'].map((type, i) => (
+              <div key={i} className="bg-primary/5 p-3 rounded-lg text-center text-slate-700 border border-primary/10">
+                {type}
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="mt-6">
@@ -144,18 +199,13 @@ const ModellingPackage: React.FC = () => {
             <li>We can provide recommendations for hair stylists, makeup artists, and wardrobe stylists</li>
             <li>Travel fees may apply for locations outside Bangalore city limits</li>
             <li>Customized packages available upon request</li>
-            <li>Commercial usage rights are available at additional cost</li>
-            <li>Portfolio guidance and agency introduction services available</li>
           </ul>
         </div>
 
-        <div className="bg-slate-50 p-4 rounded-md mt-6">
-          <p className="text-center italic text-slate-600">
-            To book our modelling portfolio services or for more information, please contact us at 
-            <a href="tel:+919632288815" className="text-[#ea384c] mx-1">+91 96322 88815</a> or 
-            <a href="mailto:candidcapture4@gmail.com" className="text-[#ea384c] mx-1">candidcapture4@gmail.com</a>
-          </p>
-        </div>
+        <BookingCTA 
+          title="Book Your Modelling Portfolio Session" 
+          serviceType="modeling career"
+        />
       </div>
     </div>
   );
