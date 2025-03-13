@@ -14,7 +14,7 @@ const Footer = () => {
     <footer className="bg-secondary py-12 mt-16">
       <div className="container mx-auto px-4">
         <div className="text-center mb-8">
-          <h3 className="text-2xl font-bold text-primary mb-2">|| Jai Shri Ram ||</h3>
+          <h3 className="text-2xl font-bold text-primary mb-2">Candid Capture</h3>
           <div className="flex items-center justify-center gap-2 text-gray-700">
             <Phone className="h-5 w-5" />
             <p className="text-lg">Any Query Please Feel Free Contact Us</p>
