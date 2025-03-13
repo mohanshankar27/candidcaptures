@@ -113,181 +113,196 @@ const servicesList: Service[] = [
   },
   { 
     name: 'Artists / Celebrities', 
-    icon: <Star className="w-5 h-5" />,
-    description: 'Professional photography services for artists and celebrities, capturing their unique personality and brand identity with stunning visuals.',
+    icon: <Star className="w-5 h-5 text-yellow-400" />,
+    description: 'Premium photography services for artists and celebrities, capturing their unique personality and brand identity with stunning visuals that make a statement.',
     benefits: [
       'Luxury studio or location options',
       'Advanced lighting techniques',
       'Image rights negotiation',
-      'Express editing services'
+      'Express editing services',
+      'Personal branding consultation'
     ],
     pricing: 'Custom quotes based on requirements'
   },
   { 
     name: 'Corporate Headshots', 
-    icon: <User className="w-5 h-5" />,
+    icon: <User className="w-5 h-5 text-blue-500" />,
     description: 'Professional headshots for corporate teams and individuals that convey confidence and approachability, perfect for websites, LinkedIn, and marketing materials.',
     benefits: [
       'On-site photography options',
       'Consistent style across team',
       'Quick turnaround',
-      'Digital touch-ups included'
+      'Digital touch-ups included',
+      'Corporate branding integration'
     ],
     pricing: 'Starting at ₹2,500 per person with group discounts'
   },
   { 
     name: 'Corporate & Short Videos', 
-    icon: <Video className="w-5 h-5" />,
-    description: 'Professional video services for corporate communications, events, promotions, and social media content that elevate your brand message.',
+    icon: <Video className="w-5 h-5 text-red-500" />,
+    description: 'Professional video services for corporate communications, events, promotions, and social media content that elevate your brand message and engage your audience.',
     benefits: [
       'Scriptwriting assistance',
       'Professional sound recording',
       'Motion graphics options',
-      'Multiple format deliverables'
+      'Multiple format deliverables',
+      'Social media optimization'
     ],
     pricing: 'Starting at ₹20,000 for short videos'
   },
   { 
     name: 'E-Commerce & Catalogues', 
-    icon: <ShoppingBag className="w-5 h-5" />,
-    description: 'Comprehensive photography services for e-commerce platforms and product catalogues with consistent styling and high-quality imagery.',
+    icon: <ShoppingBag className="w-5 h-5 text-purple-500" />,
+    description: 'Comprehensive photography services for e-commerce platforms and product catalogues with consistent styling and high-quality imagery that boosts conversions.',
     benefits: [
       'Bulk product photography',
       'Styling and arrangement',
       'Background options',
-      'Format optimization for various platforms'
+      'Format optimization for various platforms',
+      'Integration ready files'
     ],
     pricing: 'Starting at ₹800 per product with package options'
   },
   { 
     name: 'Event Photography', 
-    icon: <Users className="w-5 h-5" />,
+    icon: <Users className="w-5 h-5 text-green-500" />,
     description: 'Capture the energy and important moments of your corporate events, celebrations, and gatherings with our professional event photography services.',
     benefits: [
       'Multiple photographer options',
       'Quick preview delivery',
       'Coverage of key moments',
-      'Indoor and outdoor expertise'
+      'Indoor and outdoor expertise',
+      'Same-day highlights available'
     ],
     pricing: 'Starting at ₹15,000 for 4-hour coverage'
   },
   { 
     name: 'Family Portraits', 
-    icon: <Users className="w-5 h-5" />,
+    icon: <Users className="w-5 h-5 text-orange-500" />,
     description: 'Beautiful, timeless family portraits that capture connections and personalities in studio settings or meaningful locations of your choice.',
     benefits: [
       'Family grouping guidance',
       'Kid-friendly photography approach',
       'Multiple generation options',
-      'Print packages available'
+      'Print packages available',
+      'Digital album included'
     ],
     pricing: 'Starting at ₹6,000 per session'
   },
   { 
     name: 'Fashion Photography', 
-    icon: <Camera className="w-5 h-5" />,
+    icon: <Camera className="w-5 h-5 text-pink-500" />,
     description: 'Creative and technical fashion photography services for designers, boutiques, and fashion brands that highlight style and craftsmanship.',
     benefits: [
       'Styling collaboration',
       'Model coordination options',
       'Location or studio setups',
-      'Editorial quality results'
+      'Editorial quality results',
+      'Magazine-ready editing'
     ],
     pricing: 'Starting at ₹18,000 per collection'
   },
   { 
     name: 'Food Photography', 
-    icon: <Utensils className="w-5 h-5" />,
+    icon: <Utensils className="w-5 h-5 text-amber-500" />,
     description: 'Appetizing food photography for restaurants, menus, cookbooks, and food brands that showcases culinary creations in their best light.',
     benefits: [
       'Food styling expertise',
       'Props and background options',
       'Quick shooting to maintain freshness',
-      'Menu-package discounts'
+      'Menu-package discounts',
+      'Social media optimized images'
     ],
     pricing: 'Starting at ₹1,500 per dish'
   },
   { 
     name: 'Maternity Photography', 
-    icon: <Heart className="w-5 h-5" />,
+    icon: <Heart className="w-5 h-5 text-pink-400" />,
     description: 'Elegant maternity photography sessions that celebrate the beauty of pregnancy with artistic and intimate portraits.',
     benefits: [
       'Partner and family inclusion',
       'Wardrobe consultation',
       'Comfortable poses and guidance',
-      'Indoor or outdoor options'
+      'Indoor or outdoor options',
+      'Timeline photo series available'
     ],
     pricing: 'Starting at ₹8,000 per session'
   },
   { 
     name: 'Matrimonial Portfolios', 
-    icon: <Heart className="w-5 h-5" />,
+    icon: <Heart className="w-5 h-5 text-red-400" />,
     description: 'Professional portraits specifically designed for matrimonial profiles that present you in an authentic and appealing way.',
     benefits: [
       'Multiple outfit options',
       'Natural and posed shots',
       'Quick delivery for profile use',
-      'Digital touch-ups included'
+      'Digital touch-ups included',
+      'Perfect for all matrimonial platforms'
     ],
     pricing: 'Starting at ₹5,000 per portfolio'
   },
   { 
     name: 'Modelling & Artist Portfolios', 
-    icon: <User className="w-5 h-5" />,
+    icon: <User className="w-5 h-5 text-teal-500" />,
     description: 'Comprehensive portfolio development for models and artists featuring diverse looks, styles, and concepts for agency submission and client presentations.',
     benefits: [
       'Agency submission guidance',
       'Various concept shots',
       'Look development',
-      'Digital portfolio formatting'
+      'Digital portfolio formatting',
+      'Industry standard deliverables'
     ],
     pricing: 'Starting at ₹12,000 for basic portfolio'
   },
   { 
     name: 'Portraits & Portfolios', 
-    icon: <User className="w-5 h-5" />,
+    icon: <User className="w-5 h-5 text-indigo-500" />,
     description: 'Professional portrait sessions for individuals seeking quality headshots and personal branding images for various professional and personal uses.',
     benefits: [
       'Personalized consultation',
       'Multiple setting options',
       'Digital and print deliverables',
-      'LinkedIn and social media optimization'
+      'LinkedIn and social media optimization',
+      'Personal branding guidance'
     ],
     pricing: 'Starting at ₹4,000 per session'
   },
   { 
     name: 'Product Photography', 
-    icon: <ShoppingBag className="w-5 h-5" />,
+    icon: <ShoppingBag className="w-5 h-5 text-cyan-500" />,
     description: 'Detailed product photography that highlights features and craftsmanship for marketing materials, websites, and sales presentations.',
     benefits: [
       'White background options',
       'Lifestyle product shots',
       'Detail focus photography',
-      '360-degree rotation available'
+      '360-degree rotation available',
+      'E-commerce ready formats'
     ],
     pricing: 'Starting at ₹1,200 per product'
   },
   { 
     name: 'Special Services', 
-    icon: <Star className="w-5 h-5" />,
+    icon: <Star className="w-5 h-5 text-purple-400" />,
     description: 'Custom photography solutions for unique requirements and specialized projects beyond our standard service offerings.',
     benefits: [
       'Personalized consultation',
       'Custom project planning',
       'Specialized equipment when needed',
-      'Flexible scheduling options'
+      'Flexible scheduling options',
+      'Tailored to your unique needs'
     ],
     pricing: 'Custom quotes based on project scope'
   },
   { 
     name: 'Toddler & Children', 
-    icon: <Baby className="w-5 h-5" />,
+    icon: <Baby className="w-5 h-5 text-blue-400" />,
     description: 'Playful and natural photography sessions for toddlers and children that capture their personality, joy, and milestone moments.',
     benefits: [
       'Child-friendly environment',
       'Patience and experience with kids',
       'Activity-based photography',
-      'Family inclusion options'
+      'Family inclusion options',
+      'Growth timeline packages'
     ],
     pricing: 'Starting at ₹5,000 per session'
   },
