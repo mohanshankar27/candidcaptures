@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Menu, X, Home, Camera, Heart, Users, ShoppingBag, ExternalLink, DollarSign } from 'lucide-react';
 import { useNavigate, Link } from 'react-router-dom';
@@ -9,7 +8,6 @@ import {
   MenubarMenu,
   MenubarTrigger,
 } from "@/components/ui/menubar";
-import { ThemeToggle } from './ThemeToggle';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -92,12 +90,9 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
-            
-            <ThemeToggle />
           </div>
 
-          <div className="lg:hidden flex items-center gap-4">
-            <ThemeToggle />
+          <div className="lg:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="hover:text-primary transition-colors"
