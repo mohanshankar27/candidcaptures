@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import { Menu, X, Home, Camera, Heart, Users, ShoppingBag, ExternalLink } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import {
   Menubar,
   MenubarContent,
@@ -41,11 +41,12 @@ const Navbar = () => {
   ];
 
   const navItems = [
-    { name: 'Home', href: '#home', icon: <Home className="w-4 h-4" /> },
-    { name: 'Gallery', href: '#gallery' },
-    { name: 'Wedding Photos', href: '#wedding-photos', icon: <Camera className="w-4 h-4" /> },
-    { name: 'About', href: '#about' },
-    { name: 'Contact Us', href: '#contact' },
+    { name: 'Home', href: '/', icon: <Home className="w-4 h-4" /> },
+    { name: 'Services', href: '/services', icon: <Camera className="w-4 h-4" /> },
+    { name: 'Gallery', href: '/#gallery' },
+    { name: 'Wedding Photos', href: '/#wedding-photos', icon: <Camera className="w-4 h-4" /> },
+    { name: 'About', href: '/#about' },
+    { name: 'Contact Us', href: '/#contact' },
   ];
 
   const handleServiceClick = (service) => {
@@ -55,10 +56,7 @@ const Navbar = () => {
       return;
     }
     
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
+    navigate('/services');
     setIsOpen(false);
   };
 
@@ -83,36 +81,25 @@ const Navbar = () => {
           </button>
 
           <div className="hidden lg:flex items-center space-x-8">
-            <Menubar className="border-none bg-transparent">
-              <MenubarMenu>
-                <MenubarTrigger className="font-medium cursor-pointer text-base">
-                  Services
-                </MenubarTrigger>
-                <MenubarContent className="bg-background/95 backdrop-blur-sm border rounded-xl">
-                  {services.map((service) => (
-                    <MenubarItem
-                      key={service.name}
-                      className="flex items-center gap-2 cursor-pointer hover:text-primary hover:bg-secondary p-3 text-base"
-                      onClick={() => handleServiceClick(service)}
-                    >
-                      {service.icon}
-                      <span className="flex-1">{service.name}</span>
-                      {service.external && <ExternalLink className="w-3 h-3 ml-1" />}
-                    </MenubarItem>
-                  ))}
-                </MenubarContent>
-              </MenubarMenu>
-            </Menubar>
-
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.name}
-                href={item.href}
+                to={item.href.startsWith('/') ? item.href : item.href}
                 className="flex items-center gap-2 hover:text-primary transition-colors text-base font-medium"
+                onClick={(e) => {
+                  if (item.href.startsWith('#')) {
+                    e.preventDefault();
+                    const sectionId = item.href.substring(1);
+                    const section = document.getElementById(sectionId);
+                    if (section) {
+                      section.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }
+                }}
               >
                 {item.icon && item.icon}
                 {item.name}
-              </a>
+              </Link>
             ))}
             
             <ThemeToggle />
@@ -133,33 +120,28 @@ const Navbar = () => {
         {isOpen && (
           <div className="lg:hidden pb-6 animate-fadeIn bg-background/95 backdrop-blur-sm">
             <div className="py-4">
-              <div className="font-medium mb-2 text-lg">Services</div>
-              {services.map((service) => (
-                <a
-                  key={service.name}
-                  href={service.external ? service.href : "#contact"}
-                  target={service.external ? "_blank" : ""}
-                  rel={service.external ? "noopener noreferrer" : ""}
-                  className="flex items-center gap-2 py-2 pl-4 hover:text-primary transition-colors"
-                  onClick={() => !service.external && handleServiceClick(service)}
+              {navItems.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.href.startsWith('/') ? item.href : item.href}
+                  className="flex items-center gap-2 py-2 hover:text-primary transition-colors text-base"
+                  onClick={(e) => {
+                    if (item.href.startsWith('#')) {
+                      e.preventDefault();
+                      const sectionId = item.href.substring(1);
+                      const section = document.getElementById(sectionId);
+                      if (section) {
+                        section.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }
+                    setIsOpen(false);
+                  }}
                 >
-                  {service.icon}
-                  <span className="flex-1">{service.name}</span>
-                  {service.external && <ExternalLink className="w-3 h-3 ml-1" />}
-                </a>
+                  {item.icon && item.icon}
+                  {item.name}
+                </Link>
               ))}
             </div>
-            {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="flex items-center gap-2 py-2 hover:text-primary transition-colors text-base"
-                onClick={() => setIsOpen(false)}
-              >
-                {item.icon && item.icon}
-                {item.name}
-              </a>
-            ))}
           </div>
         )}
       </div>
