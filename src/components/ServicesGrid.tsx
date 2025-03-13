@@ -12,26 +12,28 @@ interface ServicesGridProps {
 
 const ServicesGrid: React.FC<ServicesGridProps> = ({ services, onServiceClick }) => {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
       {services.map((service) => (
         <Card 
           key={service.name}
           className={cn(
-            "cursor-pointer hover:shadow-md transition-all border overflow-hidden h-32",
-            "hover:border-primary/50 group"
+            "cursor-pointer transition-all overflow-hidden h-24",
+            "border border-primary/10 hover:border-primary/30",
+            "bg-gradient-to-br from-secondary/50 to-background",
+            "hover:shadow-lg hover:shadow-primary/5 group"
           )}
           onClick={() => onServiceClick(service)}
         >
-          <CardContent className="p-3 md:p-4 flex flex-col items-center justify-center h-full text-center">
-            <div className="mb-2 text-primary group-hover:scale-110 transition-transform duration-200">
+          <CardContent className="p-2 flex flex-col items-center justify-center h-full text-center">
+            <div className="mb-1 text-primary group-hover:scale-110 transition-transform duration-200">
               {service.icon}
             </div>
-            <div className="text-sm font-medium line-clamp-2">
+            <div className="text-xs font-medium line-clamp-2 leading-tight">
               {service.name}
+              {service.external && (
+                <ExternalLink className="w-2.5 h-2.5 ml-1 inline-block opacity-60" />
+              )}
             </div>
-            {service.external && (
-              <ExternalLink className="w-3 h-3 ml-1 opacity-60 mt-1" />
-            )}
           </CardContent>
         </Card>
       ))}

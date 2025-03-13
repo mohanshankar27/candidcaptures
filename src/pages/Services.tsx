@@ -32,10 +32,12 @@ const Services = () => {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       
-      <div className="flex-1 pt-20 pb-12">
-        <div className="container mx-auto px-4">
-          <div className="flex justify-between items-center mb-6">
-            <h1 className="text-3xl font-bold md:hidden">Our Services</h1>
+      <div className="flex-1 pt-16 pb-8">
+        <div className="container mx-auto px-2 md:px-4">
+          <div className="flex justify-between items-center mb-3">
+            <h1 className="text-2xl md:text-3xl font-bold text-primary">
+              {viewMode === 'grid' ? 'Premium Services' : selectedService.name}
+            </h1>
             <div className="flex items-center gap-2">
               <Button 
                 variant="outline" 
@@ -50,7 +52,9 @@ const Services = () => {
           </div>
           
           {viewMode === 'grid' ? (
-            <ServicesGrid services={servicesList} onServiceClick={handleServiceClick} />
+            <div className="bg-white/50 backdrop-blur-sm p-3 rounded-lg shadow-sm border border-primary/5">
+              <ServicesGrid services={servicesList} onServiceClick={handleServiceClick} />
+            </div>
           ) : (
             <>
               <MobileServiceMenu 
@@ -80,7 +84,7 @@ const Services = () => {
                 </ResizablePanelGroup>
               </div>
               
-              <div className="md:hidden mt-6">
+              <div className="md:hidden mt-4">
                 <ServiceContent service={selectedService} />
               </div>
             </>
