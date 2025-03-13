@@ -13,8 +13,6 @@ const pricePackages: PricePackageItem[] = [
   { title: 'Maternity Photography Sessions' },
   { title: 'Matrimonial / Dating Portfolio Sessions' },
   { title: 'Modelling Portfolios & Polaroids' },
-  { title: 'Studio Rental Packages' },
-  { title: 'Website Maintenance Services' },
   { title: 'Event Photography Pricing' },
 ];
 
