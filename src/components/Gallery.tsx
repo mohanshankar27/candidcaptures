@@ -1,3 +1,8 @@
+
+import { useState } from "react";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
+
 const Gallery = () => {
   const images = [
     {
@@ -26,6 +31,32 @@ const Gallery = () => {
     },
   ];
 
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+  
+  const openImageModal = (index: number) => {
+    setSelectedImageIndex(index);
+  };
+
+  const closeImageModal = () => {
+    setSelectedImageIndex(null);
+  };
+
+  const navigateImage = (direction: "prev" | "next") => {
+    if (selectedImageIndex === null) return;
+    
+    if (direction === "prev") {
+      setSelectedImageIndex((prevIndex) => {
+        if (prevIndex === null) return null;
+        return (prevIndex - 1 + images.length) % images.length;
+      });
+    } else {
+      setSelectedImageIndex((prevIndex) => {
+        if (prevIndex === null) return null;
+        return (prevIndex + 1) % images.length;
+      });
+    }
+  };
+
   return (
     <section id="gallery" className="py-20 bg-white">
       <div className="container mx-auto px-4">
@@ -34,7 +65,8 @@ const Gallery = () => {
           {images.map((image, index) => (
             <div
               key={index}
-              className="relative overflow-hidden group aspect-square"
+              className="relative overflow-hidden group aspect-square cursor-pointer"
+              onClick={() => openImageModal(index)}
             >
               <img
                 src={image.url}
@@ -46,6 +78,53 @@ const Gallery = () => {
           ))}
         </div>
       </div>
+
+      {/* Image Modal/Dialog */}
+      <Dialog open={selectedImageIndex !== null} onOpenChange={closeImageModal}>
+        <DialogContent className="max-w-5xl p-0 border-4 border-[#ea384c] bg-black" onClick={(e) => e.stopPropagation()}>
+          {selectedImageIndex !== null && (
+            <div className="relative w-full h-[80vh]">
+              <img 
+                src={images[selectedImageIndex].url} 
+                alt={images[selectedImageIndex].alt} 
+                className="w-full h-full object-contain"
+              />
+              
+              <button 
+                className="absolute top-4 right-4 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors"
+                onClick={closeImageModal}
+              >
+                <X className="w-6 h-6" />
+              </button>
+              
+              <button 
+                className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors"
+                onClick={() => navigateImage("prev")}
+              >
+                <ChevronLeft className="w-6 h-6" />
+              </button>
+              
+              <button 
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors"
+                onClick={() => navigateImage("next")}
+              >
+                <ChevronRight className="w-6 h-6" />
+              </button>
+              
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2">
+                {images.map((_, index) => (
+                  <div 
+                    key={index}
+                    className={`w-2 h-2 rounded-full ${
+                      index === selectedImageIndex ? "bg-[#ea384c]" : "bg-white/50"
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
