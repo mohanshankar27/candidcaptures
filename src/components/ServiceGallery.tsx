@@ -20,7 +20,7 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, images }) => {
       </h2>
       
       {/* Featured hero image - larger and prominent */}
-      <div className="mb-6 w-full overflow-hidden rounded-lg">
+      <div className="mb-6 w-full overflow-hidden rounded-lg border-2 border-[#ea384c]">
         <img 
           src={images[0]} 
           alt={`${service.name} featured`}
@@ -39,7 +39,7 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, images }) => {
               <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
                 {service.benefits.map((benefit, index) => (
                   <li key={index} className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-primary" />
+                    <div className="w-2 h-2 rounded-full bg-[#ea384c]" />
                     {benefit}
                   </li>
                 ))}
@@ -58,6 +58,7 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, images }) => {
             key={index} 
             className={`
               overflow-hidden rounded-lg cursor-pointer bg-muted
+              border-2 border-[#ea384c]
               ${index % 7 === 0 ? 'md:col-span-2 md:row-span-2' : ''}
               ${index % 11 === 0 ? 'sm:col-span-2' : ''}
             `}
@@ -78,7 +79,7 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, images }) => {
       {service.pricing && (
         <div className="mt-8">
           <h3 className="text-xl font-medium mb-2">Pricing</h3>
-          <p className="bg-secondary/30 p-4 rounded-md inline-block">{service.pricing}</p>
+          <p className="bg-secondary/30 p-4 rounded-md inline-block border-l-4 border-[#ea384c]">{service.pricing}</p>
         </div>
       )}
 
@@ -101,7 +102,7 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, images }) => {
             <img 
               src={enlargedImage} 
               alt="Enlarged view" 
-              className="w-full h-full object-contain"
+              className="w-full h-full object-contain border-4 border-[#ea384c]"
             />
           </div>
         </div>
