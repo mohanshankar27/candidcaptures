@@ -33,16 +33,16 @@ const Hero = () => {
 
   return (
     <section id="home" className="min-h-screen relative">
-      <div className="absolute top-0 left-0 w-full z-10 pt-24 md:pt-32 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-block bg-black/50 backdrop-blur-sm px-8 py-6 rounded-lg animate-fadeIn">
-            <h2 className="text-2xl md:text-3xl font-bold text-primary mb-2">Welcome to Candid Capture</h2>
-            <p className="text-white text-lg md:text-xl">Where Every Moment Becomes a Timeless Memory</p>
-          </div>
+      <div className="absolute inset-0 z-10 flex items-center justify-center">
+        <div className="text-center px-4">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-2 tracking-tight animate-fadeIn">
+            Welcome to Candid Captures
+          </h1>
+          <div className="h-1 w-24 bg-primary mx-auto mt-8 animate-fadeIn delay-300"></div>
         </div>
       </div>
       
-      <Carousel className="w-full">
+      <Carousel className="w-full" opts={{ loop: true }}>
         <CarouselContent>
           {slides.map((slide, index) => (
             <CarouselItem key={index}>
@@ -53,23 +53,7 @@ const Hero = () => {
                     backgroundImage: `url("${slide.image}")`,
                   }}
                 >
-                  <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/70" />
-                  <div className="relative h-full flex flex-col items-center justify-center text-white z-10 animate-fadeIn px-4">
-                    <h1 className="text-5xl md:text-7xl font-bold text-shadow-lg mb-6 text-center">
-                      {slide.title}
-                    </h1>
-                    <p className="text-xl md:text-2xl max-w-3xl text-center font-light">
-                      {slide.description}
-                    </p>
-                    <div className="mt-8">
-                      <a
-                        href="#contact"
-                        className="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-full text-lg font-medium transition-all transform hover:scale-105"
-                      >
-                        Book Now
-                      </a>
-                    </div>
-                  </div>
+                  <div className="absolute inset-0 bg-black/60" />
                 </div>
               </div>
             </CarouselItem>

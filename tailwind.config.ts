@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -35,8 +36,8 @@ export default {
       },
       keyframes: {
         fadeIn: {
-          "0%": { opacity: "0" },
-          "100%": { opacity: "1" },
+          "0%": { opacity: "0", transform: "translateY(10px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
         },
         "ken-burns": {
           "0%": { transform: "scale(1)" },
@@ -45,10 +46,16 @@ export default {
       },
       animation: {
         fadeIn: "fadeIn 0.5s ease-in-out",
+        "fadeIn-delay": "fadeIn 0.5s ease-in-out 0.3s forwards",
         "ken-burns": "ken-burns 20s ease-out infinite alternate",
       },
       textShadow: {
         'lg': '2px 2px 4px rgba(0, 0, 0, 0.5)',
+      },
+      transitionDelay: {
+        '300': '300ms',
+        '500': '500ms',
+        '700': '700ms',
       },
     },
   },
