@@ -7,12 +7,14 @@ import Contact from "@/components/Contact";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import Reviews from "@/components/Reviews";
+import PhotoSlideshow from "@/components/PhotoSlideshow";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
       <Hero />
+      <PhotoSlideshow />
       <Gallery />
       <Reviews />
       <CTA />
