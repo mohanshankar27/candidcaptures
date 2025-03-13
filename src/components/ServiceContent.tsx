@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { ExternalLink, X } from 'lucide-react';
 import WeddingSlideshow from '@/components/WeddingSlideshow';
@@ -11,8 +10,7 @@ import {
   CarouselNext,
   CarouselPrevious
 } from '@/components/ui/carousel';
-import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card';
-import ArtistsCelebritiesGallery from '@/components/ArtistsCelebritiesGallery';
+import ServiceGallery from '@/components/ServiceGallery';
 
 interface ServiceContentProps {
   service: Service;
@@ -262,10 +260,31 @@ const serviceImages = {
   ],
 };
 
+// Create a collection of 28 images for each service by duplicating the existing images
+// with different arrangements to create visual variety
+const expandedServiceImages = Object.entries(serviceImages).reduce((acc, [serviceName, images]) => {
+  // For each service, create a larger collection of 28+ images by reusing the original images
+  // in different sequences to simulate a larger gallery
+  const expandedImages = [
+    ...images,
+    ...images.slice(4, 8),
+    ...images.slice(0, 4),
+    ...images.slice(2, 6),
+    ...images.slice(1, 5),
+    ...images.slice(3, 7),
+    ...images.slice(0, 8)
+  ];
+  
+  return {
+    ...acc,
+    [serviceName]: expandedImages
+  };
+}, {});
+
 const ServiceContent: React.FC<ServiceContentProps> = ({ service }) => {
   const isWeddingService = service.name === 'Wedding Photography';
-  const isArtistCelebrityService = service.name === 'Artists / Celebrities';
   const serviceImageArray = serviceImages[service.name] || Array(8).fill('/lovable-uploads/e612e8f7-3f32-4c0d-a920-b83e95752820.png');
+  const expandedImageArray = expandedServiceImages[service.name] || Array(28).fill('/lovable-uploads/e612e8f7-3f32-4c0d-a920-b83e95752820.png');
   const [enlargedImage, setEnlargedImage] = useState<string | null>(null);
   
   if (service.external) {
@@ -292,107 +311,12 @@ const ServiceContent: React.FC<ServiceContentProps> = ({ service }) => {
     );
   }
 
-  // Special rendering for Artists/Celebrities page with expanded gallery
-  if (isArtistCelebrityService) {
-    return <ArtistsCelebritiesGallery service={service} />;
-  }
-
+  // Use our new ServiceGallery component for all regular services
   return (
-    <div className="p-6 h-full overflow-y-auto">
-      <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-        {service.icon}
-        <span>{service.name}</span>
-      </h2>
-      
-      {/* Main featured image */}
-      <div className="mb-6 w-full overflow-hidden rounded-lg">
-        <img 
-          src={serviceImageArray[0]} 
-          alt={service.name}
-          className="w-full h-64 object-cover transition-transform duration-300 hover:scale-110 cursor-pointer"
-          onClick={() => setEnlargedImage(serviceImageArray[0])}
-        />
-      </div>
-      
-      {/* Gallery carousel */}
-      <div className="mb-8">
-        <h3 className="text-lg font-medium mb-3">Gallery</h3>
-        <Carousel className="w-full">
-          <CarouselContent>
-            {serviceImageArray.map((image, index) => (
-              <CarouselItem key={index} className="basis-1/3 sm:basis-1/3 md:basis-1/4">
-                <div className="p-1">
-                  <div className="overflow-hidden rounded-lg h-32 bg-muted">
-                    <img 
-                      src={image} 
-                      alt={`${service.name} ${index + 1}`} 
-                      className="w-full h-full object-cover transition-transform duration-300 hover:scale-110 cursor-pointer"
-                      onClick={() => setEnlargedImage(image)}
-                    />
-                  </div>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <div className="flex justify-center mt-2">
-            <CarouselPrevious className="mr-2 relative static left-0 translate-y-0" />
-            <CarouselNext className="ml-2 relative static right-0 translate-y-0" />
-          </div>
-        </Carousel>
-      </div>
-      
-      <p className="mb-8">{service.description}</p>
-
+    <>
+      <ServiceGallery service={service} images={expandedImageArray} />
       {isWeddingService && <WeddingSlideshow />}
-      
-      {service.benefits && (
-        <Card className="mb-8 bg-secondary/20">
-          <CardContent className="pt-6">
-            <h3 className="text-xl font-medium mb-4">What's Included</h3>
-            <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
-              {service.benefits.map((benefit, index) => (
-                <li key={index} className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-primary" />
-                  {benefit}
-                </li>
-              ))}
-            </ul>
-          </CardContent>
-        </Card>
-      )}
-      
-      {service.pricing && (
-        <div>
-          <h3 className="text-xl font-medium mb-2">Pricing</h3>
-          <p className="bg-secondary/30 p-4 rounded-md inline-block">{service.pricing}</p>
-        </div>
-      )}
-
-      {/* Enlarged image overlay */}
-      {enlargedImage && (
-        <div 
-          className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
-          onClick={() => setEnlargedImage(null)}
-        >
-          <div className="relative max-w-4xl max-h-[90vh] w-full">
-            <button 
-              className="absolute top-4 right-4 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors"
-              onClick={(e) => {
-                e.stopPropagation();
-                setEnlargedImage(null);
-              }}
-            >
-              <X className="w-6 h-6" />
-            </button>
-            <img 
-              src={enlargedImage} 
-              alt="Enlarged view" 
-              className="w-full h-full object-contain"
-            />
-          </div>
-        </div>
-      )}
-    </div>
+    </>
   );
 };
 
