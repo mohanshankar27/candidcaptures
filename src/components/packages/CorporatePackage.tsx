@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Check, X } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
@@ -5,12 +6,12 @@ import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import PackageImageCarousel from '../packages/PackageImageCarousel';
 
 const CorporatePackage: React.FC = () => {
-  // Define corporate package images for the carousel
+  // Define corporate package images for the carousel with updated professional photos
   const corporateImages = [
-    '/lovable-uploads/b0d50296-3c5f-41b2-afcf-af58d024d712.png',
-    '/lovable-uploads/3b0c013d-b9fb-40c8-b991-7781c698945e.png',
-    '/lovable-uploads/f981f530-98b4-46e6-8063-68406ae598e1.png',
-    '/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png',
+    'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80',
     '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png'
   ];
 
@@ -232,35 +233,35 @@ const CorporatePackage: React.FC = () => {
         
         <Separator className="my-12" />
         
-        {/* Photo Gallery Section - Added to replace FAQ section */}
+        {/* Photo Gallery Section - Added to replace FAQ section with updated photos */}
         <div className="mt-8">
           <h3 className="text-2xl font-semibold mb-8 text-center text-[#333333]">Sample Corporate Headshots</h3>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             <div className="overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all">
               <img 
-                src="/lovable-uploads/3b0c013d-b9fb-40c8-b991-7781c698945e.png" 
+                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80" 
                 alt="Corporate Headshot Sample 1" 
                 className="w-full h-64 object-cover object-center hover:scale-105 transition-transform duration-300"
               />
             </div>
             <div className="overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all">
               <img 
-                src="/lovable-uploads/f981f530-98b4-46e6-8063-68406ae598e1.png" 
+                src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&q=80" 
                 alt="Corporate Headshot Sample 2" 
                 className="w-full h-64 object-cover object-center hover:scale-105 transition-transform duration-300"
               />
             </div>
             <div className="overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all">
               <img 
-                src="/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png" 
+                src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80" 
                 alt="Corporate Headshot Sample 3" 
                 className="w-full h-64 object-cover object-center hover:scale-105 transition-transform duration-300"
               />
             </div>
             <div className="overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all">
               <img 
-                src="/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png" 
+                src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80" 
                 alt="Corporate Headshot Sample 4" 
                 className="w-full h-64 object-cover object-center hover:scale-105 transition-transform duration-300"
               />
