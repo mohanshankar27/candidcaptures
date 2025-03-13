@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { ExternalLink, X } from 'lucide-react';
 import WeddingSlideshow from '@/components/WeddingSlideshow';
@@ -11,6 +12,7 @@ import {
   CarouselPrevious
 } from '@/components/ui/carousel';
 import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card';
+import ArtistsCelebritiesGallery from '@/components/ArtistsCelebritiesGallery';
 
 interface ServiceContentProps {
   service: Service;
@@ -262,6 +264,7 @@ const serviceImages = {
 
 const ServiceContent: React.FC<ServiceContentProps> = ({ service }) => {
   const isWeddingService = service.name === 'Wedding Photography';
+  const isArtistCelebrityService = service.name === 'Artists / Celebrities';
   const serviceImageArray = serviceImages[service.name] || Array(8).fill('/lovable-uploads/e612e8f7-3f32-4c0d-a920-b83e95752820.png');
   const [enlargedImage, setEnlargedImage] = useState<string | null>(null);
   
@@ -287,6 +290,11 @@ const ServiceContent: React.FC<ServiceContentProps> = ({ service }) => {
         </a>
       </div>
     );
+  }
+
+  // Special rendering for Artists/Celebrities page with expanded gallery
+  if (isArtistCelebrityService) {
+    return <ArtistsCelebritiesGallery service={service} />;
   }
 
   return (
