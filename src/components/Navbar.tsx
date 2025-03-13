@@ -78,7 +78,7 @@ const Navbar = () => {
             <img 
               src="/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png" 
               alt="Candid Capture Photography" 
-              className="h-24 w-auto" /* Increased from h-20 to h-24 */
+              className="h-28 w-auto" /* Increased from h-24 to h-28 */
             />
           </button>
 
