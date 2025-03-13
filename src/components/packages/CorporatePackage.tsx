@@ -1,31 +1,23 @@
-
 import React from 'react';
 import { Check, X } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import PackageImageCarousel from '../packages/PackageImageCarousel';
 
 const CorporatePackage: React.FC = () => {
+  // Define corporate package images for the carousel
+  const corporateImages = [
+    '/lovable-uploads/b0d50296-3c5f-41b2-afcf-af58d024d712.png',
+    '/lovable-uploads/3b0c013d-b9fb-40c8-b991-7781c698945e.png',
+    '/lovable-uploads/f981f530-98b4-46e6-8063-68406ae598e1.png',
+    '/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png',
+    '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png'
+  ];
+
   return (
     <div className="package-details">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-        <img 
-          src="/lovable-uploads/b0d50296-3c5f-41b2-afcf-af58d024d712.png" 
-          alt="Corporate Headshot Photography" 
-          className="w-full h-64 object-cover rounded-md col-span-3 md:col-span-2"
-        />
-        <div className="grid grid-cols-1 gap-4">
-          <img 
-            src="/lovable-uploads/3b0c013d-b9fb-40c8-b991-7781c698945e.png" 
-            alt="Corporate Headshot" 
-            className="w-full h-[120px] object-cover rounded-md"
-          />
-          <img 
-            src="/lovable-uploads/f981f530-98b4-46e6-8063-68406ae598e1.png" 
-            alt="Corporate Headshot" 
-            className="w-full h-[120px] object-cover rounded-md"
-          />
-        </div>
-      </div>
+      {/* Add the image carousel component */}
+      <PackageImageCarousel images={corporateImages} altPrefix="Corporate Headshot" />
       
       <div className="space-y-8">
         <div className="max-w-3xl mx-auto text-center">
