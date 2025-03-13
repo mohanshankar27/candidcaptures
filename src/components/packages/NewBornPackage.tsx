@@ -4,28 +4,50 @@ import { Separator } from '@/components/ui/separator';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Check } from 'lucide-react';
 import BookingCTA from './BookingCTA';
+import { 
+  Carousel, 
+  CarouselContent, 
+  CarouselItem, 
+  CarouselPrevious, 
+  CarouselNext 
+} from '@/components/ui/carousel';
 
 const NewBornPackage: React.FC = () => {
+  // Images for the newborn package carousel
+  const newbornImages = [
+    '/lovable-uploads/b977d3f5-fd63-468d-ac7f-09766c3ab6c1.png',
+    '/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png',
+    '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png',
+    '/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png',
+    '/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png'
+  ];
+
   return (
     <div className="package-details">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-        <img 
-          src="/lovable-uploads/b977d3f5-fd63-468d-ac7f-09766c3ab6c1.png" 
-          alt="Newborn Photography" 
-          className="w-full h-64 object-cover rounded-md col-span-3 md:col-span-2"
-        />
-        <div className="grid grid-cols-1 gap-4">
-          <img 
-            src="/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png" 
-            alt="Newborn Photography" 
-            className="w-full h-[120px] object-cover rounded-md"
-          />
-          <img 
-            src="/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png" 
-            alt="Newborn Photography" 
-            className="w-full h-[120px] object-cover rounded-md"
-          />
-        </div>
+      <div className="mb-8">
+        <Carousel className="w-full">
+          <CarouselContent>
+            {newbornImages.map((image, index) => (
+              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                <div className="p-1">
+                  <div className="overflow-hidden rounded-xl h-48 md:h-64">
+                    <img 
+                      src={image} 
+                      alt={`Newborn photography ${index + 1}`}
+                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                    />
+                  </div>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <div className="absolute -right-4 top-1/2 -translate-y-1/2">
+            <CarouselNext />
+          </div>
+          <div className="absolute -left-4 top-1/2 -translate-y-1/2">
+            <CarouselPrevious />
+          </div>
+        </Carousel>
       </div>
       
       <div className="space-y-6">
