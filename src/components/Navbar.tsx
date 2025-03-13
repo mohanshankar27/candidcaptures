@@ -36,8 +36,6 @@ const Navbar = () => {
     { name: 'Home', href: '/', icon: <Home className="w-4 h-4" /> },
     { name: 'Services', href: '/services', icon: <Camera className="w-4 h-4" /> },
     { name: 'Pricing', href: '/pricing', icon: <DollarSign className="w-4 h-4" /> },
-    { name: 'Gallery', href: '/#gallery' },
-    { name: 'Wedding Photos', href: '/#wedding-photos', icon: <Camera className="w-4 h-4" /> },
     { name: 'About', href: '/#about' },
     { name: 'Contact Us', href: '/#contact' },
   ];
