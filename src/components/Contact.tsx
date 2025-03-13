@@ -27,7 +27,7 @@ const Contact = () => {
         from_name: formData.name,
         from_email: formData.email,
         message: formData.message,
-        to_email: 'candidcapturephotograhy@gmail.com',
+        to_email: 'candidcapture4@gmail.com',
       };
 
       await emailjs.send(
@@ -138,7 +138,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-medium text-gray-900 underline">Call Us</h3>
-                  <p className="text-gray-600">+91 9663659888, +91 9632288815</p>
+                  <p className="text-gray-600">+91 9632288815</p>
                 </div>
               </div>
             </div>

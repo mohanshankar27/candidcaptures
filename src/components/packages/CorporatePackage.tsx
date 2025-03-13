@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Check, X } from 'lucide-react';
 
@@ -99,7 +98,7 @@ const CorporatePackage: React.FC = () => {
                 <div className="text-xs mt-1">(i.e. ₹9,754 +GST)</div>
               </div>
               <button className="mt-4 bg-[#ea384c] text-white rounded-full px-5 py-2 text-sm hover:bg-[#ea384c]/90 transition-colors">
-                Call us on: +919100493929
+                Call us on: +919632288815
               </button>
             </div>
             <div className="p-4">
@@ -246,11 +245,11 @@ const CorporatePackage: React.FC = () => {
             Contact us to schedule a consultation and discuss your specific corporate photography needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a href="tel:+919100493929" className="inline-flex items-center justify-center gap-2 bg-[#ea384c] text-white px-5 py-2 rounded-md hover:bg-[#ea384c]/90 transition-colors">
-              Call Us: +91 91004 93929
+            <a href="tel:+919632288815" className="inline-flex items-center justify-center gap-2 bg-[#ea384c] text-white px-5 py-2 rounded-md hover:bg-[#ea384c]/90 transition-colors">
+              Call Us: +91 96322 88815
             </a>
-            <a href="mailto:info@artriva.com" className="inline-flex items-center justify-center gap-2 bg-white border border-[#ea384c] text-[#ea384c] px-5 py-2 rounded-md hover:bg-[#ea384c]/5 transition-colors">
-              Email: info@artriva.com
+            <a href="mailto:candidcapture4@gmail.com" className="inline-flex items-center justify-center gap-2 bg-white border border-[#ea384c] text-[#ea384c] px-5 py-2 rounded-md hover:bg-[#ea384c]/5 transition-colors">
+              Email: candidcapture4@gmail.com
             </a>
           </div>
         </div>
