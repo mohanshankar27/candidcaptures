@@ -6,7 +6,7 @@ import { PricingContent } from '@/components/PricingContent';
 
 const Pricing = () => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
       <div className="flex-grow pt-28">
         <div className="container mx-auto px-4 py-8">
