@@ -23,7 +23,7 @@ const MobileServiceMenu: React.FC<MobileServiceMenuProps> = ({
   };
 
   return (
-    <div className="md:hidden mb-4 shadow-sm">
+    <div className="md:hidden mb-4 shadow-sm w-full">
       <Button 
         variant="outline"
         className="flex items-center justify-between w-full p-3"
@@ -34,8 +34,8 @@ const MobileServiceMenu: React.FC<MobileServiceMenuProps> = ({
       </Button>
       
       {isMenuOpen && (
-        <div className="mt-1 border rounded-md shadow-md bg-background max-h-[60vh] overflow-y-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-0">
+        <div className="mt-1 border rounded-md shadow-md bg-background max-h-[60vh] overflow-y-auto w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 w-full">
             {services.map((service) => (
               <button
                 key={service.name}

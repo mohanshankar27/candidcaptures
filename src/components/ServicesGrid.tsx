@@ -12,12 +12,12 @@ interface ServicesGridProps {
 
 const ServicesGrid: React.FC<ServicesGridProps> = ({ services, onServiceClick }) => {
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-2">
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 w-full">
       {services.map((service) => (
         <Card 
           key={service.name}
           className={cn(
-            "cursor-pointer transition-all overflow-hidden h-20",
+            "cursor-pointer transition-all overflow-hidden h-24",
             "border border-primary/10 hover:border-primary/30",
             "bg-gradient-to-br from-secondary/50 to-background",
             "hover:shadow-lg hover:shadow-primary/5 group"

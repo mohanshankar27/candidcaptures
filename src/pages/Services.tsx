@@ -30,12 +30,12 @@ const Services = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col w-full">
       <Navbar />
       
-      <div className="flex-1 pt-16 pb-8">
-        <div className="container mx-auto px-0 md:px-0"> {/* Removed padding */}
-          <div className="flex justify-between items-center mb-3 px-2 md:px-4">
+      <div className="flex-1 pt-16 pb-8 w-full">
+        <div className="w-full mx-0 px-0"> {/* Full width container */}
+          <div className="flex justify-between items-center mb-3 px-4">
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary">
               {viewMode === 'grid' ? 'Premium Services' : selectedService.name}
             </h1>
@@ -53,12 +53,12 @@ const Services = () => {
           </div>
           
           {viewMode === 'grid' ? (
-            <div className="bg-white/50 backdrop-blur-sm p-4 rounded-lg shadow-sm border border-primary/5 mx-2 md:mx-4">
+            <div className="bg-white/50 backdrop-blur-sm p-4 rounded-lg shadow-sm border border-primary/5 mx-4">
               <ServicesGrid services={servicesList} onServiceClick={handleServiceClick} />
             </div>
           ) : (
             <>
-              <div className="px-2 md:px-4">
+              <div className="px-4">
                 <MobileServiceMenu 
                   services={servicesList} 
                   selectedService={selectedService} 
@@ -66,10 +66,10 @@ const Services = () => {
                 />
               </div>
               
-              <div className="hidden md:block">
+              <div className="hidden md:block w-full">
                 <ResizablePanelGroup 
                   direction="horizontal" 
-                  className="min-h-[calc(100vh-200px)] border-0 md:border-r overflow-hidden"
+                  className="min-h-[calc(100vh-200px)] w-full overflow-hidden"
                 >
                   <ServiceSidebar 
                     services={servicesList} 
@@ -87,14 +87,14 @@ const Services = () => {
                 </ResizablePanelGroup>
               </div>
               
-              <div className="md:hidden mt-4 px-2 md:px-4">
+              <div className="md:hidden mt-4 px-4">
                 <ServiceContent service={selectedService} />
               </div>
             </>
           )}
           
           {/* Price Packages section */}
-          <div className="px-2 md:px-4 mt-8">
+          <div className="px-4 mt-8">
             <PricePackages />
           </div>
         </div>
