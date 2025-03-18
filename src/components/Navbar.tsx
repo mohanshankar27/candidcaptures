@@ -68,7 +68,7 @@ const Navbar = () => {
               <Link
                 key={item.name}
                 to={item.href.startsWith('/') ? item.href : item.href}
-                className="flex items-center gap-2 hover:text-primary transition-colors text-base font-medium"
+                className="flex items-center gap-2 hover:text-primary transition-colors text-base font-medium font-serif italic"
                 onClick={(e) => {
                   if (item.href.startsWith('#')) {
                     e.preventDefault();
@@ -103,7 +103,7 @@ const Navbar = () => {
                 <Link
                   key={item.name}
                   to={item.href.startsWith('/') ? item.href : item.href}
-                  className="flex items-center gap-2 py-2 hover:text-primary transition-colors text-base"
+                  className="flex items-center gap-2 py-2 hover:text-primary transition-colors text-base font-serif italic"
                   onClick={(e) => {
                     if (item.href.startsWith('#')) {
                       e.preventDefault();
