@@ -37,20 +37,22 @@ const MobileServiceMenu: React.FC<MobileServiceMenuProps> = ({
       </Button>
       
       {isMenuOpen && (
-        <div className="mt-2 border rounded-md shadow-md bg-background">
-          {services.map((service) => (
-            <button
-              key={service.name}
-              className={`flex items-center gap-2 w-full px-4 py-3 text-left hover:bg-muted transition-colors ${
-                selectedService.name === service.name ? 'bg-muted font-medium' : ''
-              }`}
-              onClick={() => handleServiceClick(service)}
-            >
-              {service.icon}
-              <span>{service.name}</span>
-              {service.external && <ExternalLink className="w-3 h-3 ml-1" />}
-            </button>
-          ))}
+        <div className="mt-2 border rounded-md shadow-md bg-background max-h-[60vh] overflow-y-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-0.5 p-1">
+            {services.map((service) => (
+              <button
+                key={service.name}
+                className={`flex items-center gap-1 w-full px-2 py-1.5 text-left rounded hover:bg-muted transition-colors text-xs ${
+                  selectedService.name === service.name ? 'bg-muted font-medium' : ''
+                }`}
+                onClick={() => handleServiceClick(service)}
+              >
+                {service.icon}
+                <span className="truncate">{service.name}</span>
+                {service.external && <ExternalLink className="w-3 h-3 ml-1 flex-shrink-0" />}
+              </button>
+            ))}
+          </div>
         </div>
       )}
     </div>

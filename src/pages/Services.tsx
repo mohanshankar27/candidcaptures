@@ -14,7 +14,7 @@ import PricePackages from '@/components/PricePackages';
 
 const Services = () => {
   const [selectedService, setSelectedService] = useState(servicesList[0]);
-  const [viewMode, setViewMode] = useState<'detailed' | 'grid'>('detailed');
+  const [viewMode, setViewMode] = useState<'detailed' | 'grid'>('grid');
 
   const handleServiceClick = (service) => {
     if (service.external && service.href) {
