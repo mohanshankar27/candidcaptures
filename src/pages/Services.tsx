@@ -1,11 +1,12 @@
 
 import { useState, useEffect, lazy, Suspense } from 'react';
+import { useLocation } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { ResizablePanelGroup, ResizableHandle, ResizablePanel } from '@/components/ui/resizable';
 import ServiceSidebar from '@/components/ServiceSidebar';
 import MobileServiceMenu from '@/components/MobileServiceMenu';
-import servicesList from '@/data/servicesList';
+import servicesList, { Service } from '@/data/servicesList';
 import { Grid, List } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ServicesLoading from '@/components/ServicesLoading';
@@ -16,7 +17,8 @@ const ServicesGrid = lazy(() => import('@/components/ServicesGrid'));
 const PricePackages = lazy(() => import('@/components/PricePackages'));
 
 const Services = () => {
-  const [selectedService, setSelectedService] = useState(servicesList[0]);
+  const location = useLocation();
+  const [selectedService, setSelectedService] = useState<Service>(servicesList[0]);
   const [viewMode, setViewMode] = useState<'detailed' | 'grid'>('grid');
   const [isLoading, setIsLoading] = useState(true);
 
@@ -34,7 +36,20 @@ const Services = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleServiceClick = (service) => {
+  useEffect(() => {
+    // Check if location state contains a selected service
+    if (location.state && location.state.selectedService) {
+      const serviceName = location.state.selectedService;
+      const matchingService = servicesList.find(service => service.name === serviceName);
+      
+      if (matchingService) {
+        setSelectedService(matchingService);
+        setViewMode('detailed'); // Switch to detailed view when a service is selected
+      }
+    }
+  }, [location.state]);
+
+  const handleServiceClick = (service: Service) => {
     if (service.external && service.href) {
       window.open(service.href, '_blank', 'noopener,noreferrer');
       return;

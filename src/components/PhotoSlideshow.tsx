@@ -49,12 +49,12 @@ const PhotoSlideshow = () => {
   ];
 
   const navigateToServices = (serviceName: string) => {
-    navigate('/services');
-    
     const matchingService = servicesList.find(service => service.name === serviceName);
     
     if (matchingService) {
       console.log(`Navigating to service: ${serviceName}`);
+      // Navigate to services page and pass the selected service name through state
+      navigate('/services', { state: { selectedService: serviceName } });
     }
   };
 
