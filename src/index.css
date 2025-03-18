@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -8,10 +8,15 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    font-family: 'Akaya Kanadaka', cursive;
+  }
+
+  body {
+    @apply bg-background text-foreground font-akaya;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif italic;
+    @apply font-akaya;
   }
 
   :root {
@@ -42,16 +47,13 @@
   * {
     @apply border-border;
   }
-  body {
-    @apply bg-background text-foreground font-sans;
-  }
 }
 
-/* Utility classes for italic serif styling */
+/* Utility classes for styling */
 .serif-italic {
-  @apply font-serif italic;
+  @apply font-akaya;
 }
 
 .title-elegant {
-  @apply font-serif italic text-primary font-bold;
+  @apply font-akaya text-primary font-bold;
 }

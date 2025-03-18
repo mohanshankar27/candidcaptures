@@ -19,6 +19,7 @@ export default {
     },
     extend: {
       fontFamily: {
+        akaya: ['Akaya Kanadaka', 'cursive'],
         serif: ['Playfair Display', 'Georgia', 'serif'],
         sans: ['Poppins', 'Helvetica', 'Arial', 'sans-serif'],
       },
