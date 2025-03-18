@@ -6,7 +6,6 @@ import About from "@/components/About";
 import Contact from "@/components/Contact";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
-import Reviews from "@/components/Reviews";
 import PhotoSlideshow from "@/components/PhotoSlideshow";
 
 const Index = () => {
@@ -16,7 +15,6 @@ const Index = () => {
       <Hero />
       <PhotoSlideshow />
       <Gallery />
-      <Reviews />
       <CTA />
       <About />
       <Contact />
