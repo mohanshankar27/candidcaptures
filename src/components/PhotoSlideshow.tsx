@@ -139,25 +139,27 @@ const PhotoSlideshow = () => {
               onHoverEnd={() => setHoveredItem(null)}
             >
               <Card 
-                className={`group cursor-pointer overflow-hidden border-0 bg-transparent shadow-none transition-all duration-500 ${hoveredItem === index ? 'scale-105 shadow-xl shadow-primary/20' : ''}`}
+                className={`group cursor-pointer overflow-hidden transition-all duration-500 bg-white shadow-md hover:shadow-xl ${hoveredItem === index ? 'scale-105 shadow-xl shadow-primary/20' : ''}`}
                 onClick={() => navigateToServices(service.name)}
               >
-                <div className="relative h-36 sm:h-44 overflow-hidden rounded-xl border-2 border-[#003c72]">
-                  <img 
-                    src={service.image} 
-                    alt={service.name}
-                    className={`w-full h-full object-cover transition-transform duration-700 ${hoveredItem === index ? 'scale-110' : 'scale-100'} rounded-xl`}
-                  />
-                  {hoveredItem === index && (
-                    <motion.div 
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"
+                <div className="relative h-36 sm:h-44 overflow-hidden rounded-t-xl p-3">
+                  <div className="w-full h-full overflow-hidden rounded-xl bg-white border-2 border-[#003c72]">
+                    <img 
+                      src={service.image} 
+                      alt={service.name}
+                      className={`w-full h-full object-cover transition-transform duration-700 ${hoveredItem === index ? 'scale-110' : 'scale-100'}`}
                     />
-                  )}
+                    {hoveredItem === index && (
+                      <motion.div 
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"
+                      />
+                    )}
+                  </div>
                 </div>
-                <CardContent className="pt-3 pb-0 px-1 text-center">
+                <CardContent className="pt-1 pb-3 px-3 text-center bg-white rounded-b-xl">
                   <h3 className={`text-[#003c72] font-serif italic text-sm font-medium transition-all duration-300 ${hoveredItem === index ? 'font-bold' : ''}`}>
                     {service.name}
                   </h3>
