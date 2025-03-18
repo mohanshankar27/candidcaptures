@@ -6,7 +6,7 @@ const About = () => {
         <div className="max-w-4xl mx-auto">
           <div className="text-center space-y-4 mb-8 sm:mb-12">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60">
-              About My Approach
+              About US
             </h2>
             <div className="h-1 w-24 bg-primary mx-auto rounded-full"></div>
           </div>
