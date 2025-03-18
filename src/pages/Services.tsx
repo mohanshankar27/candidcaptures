@@ -36,7 +36,7 @@ const Services = () => {
       <div className="flex-1 pt-16 pb-8">
         <div className="container mx-auto px-2 md:px-4">
           <div className="flex justify-between items-center mb-3">
-            <h1 className="text-2xl md:text-3xl font-bold text-primary">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary"> {/* Added lg:text-4xl */}
               {viewMode === 'grid' ? 'Premium Services' : selectedService.name}
             </h1>
             <div className="flex items-center gap-2">
@@ -47,13 +47,13 @@ const Services = () => {
                 className="ml-auto"
                 aria-label={viewMode === 'detailed' ? "Switch to grid view" : "Switch to detailed view"}
               >
-                {viewMode === 'detailed' ? <Grid className="h-4 w-4" /> : <List className="h-4 w-4" />}
+                {viewMode === 'detailed' ? <Grid className="h-5 w-5" /> : <List className="h-5 w-5" />} {/* Increased from h-4 w-4 to h-5 w-5 */}
               </Button>
             </div>
           </div>
           
           {viewMode === 'grid' ? (
-            <div className="bg-white/50 backdrop-blur-sm p-3 rounded-lg shadow-sm border border-primary/5">
+            <div className="bg-white/50 backdrop-blur-sm p-4 rounded-lg shadow-sm border border-primary/5"> {/* Changed from p-3 to p-4 */}
               <ServicesGrid services={servicesList} onServiceClick={handleServiceClick} />
             </div>
           ) : (

@@ -17,7 +17,7 @@ const ServicesGrid: React.FC<ServicesGridProps> = ({ services, onServiceClick })
         <Card 
           key={service.name}
           className={cn(
-            "cursor-pointer transition-all overflow-hidden h-14",
+            "cursor-pointer transition-all overflow-hidden h-16", // Increased height from h-14 to h-16
             "border border-primary/10 hover:border-primary/30",
             "bg-gradient-to-br from-secondary/50 to-background",
             "hover:shadow-lg hover:shadow-primary/5 group"
@@ -25,10 +25,10 @@ const ServicesGrid: React.FC<ServicesGridProps> = ({ services, onServiceClick })
           onClick={() => onServiceClick(service)}
         >
           <CardContent className="p-2 flex items-center h-full">
-            <div className="text-xs font-medium line-clamp-1 leading-tight">
+            <div className="text-sm font-medium line-clamp-1 leading-tight"> {/* Changed from text-xs to text-sm */}
               {service.name}
               {service.external && (
-                <ExternalLink className="w-2.5 h-2.5 ml-1 inline-block opacity-60" />
+                <ExternalLink className="w-3 h-3 ml-1 inline-block opacity-60" /> /* Increased from w-2.5 h-2.5 to w-3 h-3 */
               )}
             </div>
           </CardContent>
