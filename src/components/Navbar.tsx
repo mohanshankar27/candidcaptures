@@ -1,5 +1,4 @@
-
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 import {
@@ -14,6 +13,10 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
 
   const services = [
     { name: 'Wedding Photography' },
@@ -57,7 +60,6 @@ const Navbar = () => {
   };
 
   const handleNavClick = (e, item) => {
-    // For Home link, navigate to home and scroll to top
     if (item.href === '/') {
       e.preventDefault();
       navigate('/');
@@ -65,10 +67,8 @@ const Navbar = () => {
       return;
     }
     
-    // For hash links like About, Contact, etc.
     if (item.href.startsWith('/#')) {
       e.preventDefault();
-      // If on home page, just scroll to section
       if (location.pathname === '/') {
         const sectionId = item.href.substring(2);
         const section = document.getElementById(sectionId);
@@ -76,9 +76,7 @@ const Navbar = () => {
           section.scrollIntoView({ behavior: 'smooth' });
         }
       } else {
-        // If on another page, navigate to home then scroll
         navigate('/');
-        // Need to wait for navigation to complete
         setTimeout(() => {
           const sectionId = item.href.substring(2);
           const section = document.getElementById(sectionId);
