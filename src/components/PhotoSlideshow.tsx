@@ -68,21 +68,18 @@ const PhotoSlideshow = () => {
               className="group cursor-pointer overflow-hidden border-0 bg-transparent shadow-none transition-all duration-500 hover:shadow-xl hover:shadow-primary/10"
               onClick={() => navigateToServices(service.name)}
             >
-              <div className="relative h-36 sm:h-44 overflow-hidden rounded-xl border-2 border-[#003c72] transform transition-all duration-500 group-hover:border-4">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60 z-10"></div>
+              <div className="relative h-36 sm:h-44 overflow-hidden rounded-xl border-2 border-[#003c72]">
                 <img 
                   src={service.image} 
                   alt={service.name}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 rounded-xl"
                 />
-                <div className="absolute bottom-0 left-0 right-0 p-3 z-20 transform transition-transform duration-500 group-hover:translate-y-0">
-                  <h3 className="text-white font-serif italic text-center text-sm font-medium drop-shadow-lg">
-                    {service.name}
-                  </h3>
-                </div>
               </div>
-              <CardContent className="pt-3 pb-0 px-1">
-                <div className="h-0.5 w-0 bg-gradient-to-r from-[#003c72] to-blue-400 mx-auto transition-all duration-500 group-hover:w-1/2"></div>
+              <CardContent className="pt-3 pb-0 px-1 text-center">
+                <h3 className="text-[#003c72] font-serif italic text-sm font-medium">
+                  {service.name}
+                </h3>
+                <div className="h-0.5 w-0 bg-gradient-to-r from-[#003c72] to-blue-400 mx-auto transition-all duration-500 group-hover:w-1/2 mt-1"></div>
               </CardContent>
             </Card>
           ))}
