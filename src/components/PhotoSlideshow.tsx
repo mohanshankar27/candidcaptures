@@ -68,7 +68,7 @@ const PhotoSlideshow = () => {
               className="group cursor-pointer overflow-hidden border-0 bg-transparent shadow-none transition-all duration-500 hover:shadow-xl hover:shadow-primary/10"
               onClick={() => navigateToServices(service.name)}
             >
-              <div className="relative h-36 sm:h-44 overflow-hidden rounded-xl">
+              <div className="relative h-36 sm:h-44 overflow-hidden rounded-xl border-2 border-[#003c72] transform transition-all duration-500 group-hover:border-4">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60 z-10"></div>
                 <img 
                   src={service.image} 
@@ -82,7 +82,7 @@ const PhotoSlideshow = () => {
                 </div>
               </div>
               <CardContent className="pt-3 pb-0 px-1">
-                <div className="h-0.5 w-0 bg-gradient-to-r from-primary to-blue-400 mx-auto transition-all duration-500 group-hover:w-1/2"></div>
+                <div className="h-0.5 w-0 bg-gradient-to-r from-[#003c72] to-blue-400 mx-auto transition-all duration-500 group-hover:w-1/2"></div>
               </CardContent>
             </Card>
           ))}
