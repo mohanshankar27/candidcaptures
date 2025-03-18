@@ -5,33 +5,58 @@ import { ArrowRight } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen relative bg-background">
+    <section id="home" className="min-h-screen relative bg-gradient-to-br from-indigo-50 via-white to-purple-50 overflow-hidden">
+      {/* Abstract shapes */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -right-20 -top-20 w-96 h-96 rounded-full bg-gradient-to-r from-primary/20 to-blue-200/30 blur-3xl"></div>
+        <div className="absolute -left-40 top-40 w-80 h-80 rounded-full bg-gradient-to-r from-pink-200/30 to-primary/20 blur-3xl"></div>
+        <div className="absolute right-1/4 bottom-1/4 w-64 h-64 rounded-full bg-gradient-to-r from-yellow-200/20 to-red-200/30 blur-3xl"></div>
+      </div>
+
+      {/* Content */}
       <div className="absolute inset-0 z-10 flex flex-col items-center justify-center">
-        <div className="text-center px-4 max-w-4xl">
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif italic font-bold text-primary mb-2 tracking-tight animate-fadeIn">
+        <div className="text-center px-4 max-w-5xl backdrop-blur-sm py-12 rounded-2xl">
+          <div className="mb-3 flex justify-center">
+            <div className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium tracking-wider">
+              PHOTOGRAPHY REDEFINED
+            </div>
+          </div>
+          
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif italic font-bold mb-2 tracking-tight animate-fadeIn bg-clip-text text-transparent bg-gradient-to-r from-primary to-violet-500">
             Welcome to Candid Captures
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 font-serif italic mt-4 animate-fadeIn delay-300">
+          
+          <p className="text-xl md:text-2xl text-gray-600 font-serif italic mt-4 animate-fadeIn delay-300 max-w-3xl mx-auto">
             Preserving your precious moments with elegance
           </p>
           
-          <div className="mt-8 mb-10 max-w-3xl mx-auto">
-            <p className="text-xl md:text-3xl font-semibold text-[#6E59A5] bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent animate-fadeIn delay-500 px-6 py-3 rounded-lg shadow-sm border border-purple-100">
+          <div className="mt-8 mb-10 max-w-3xl mx-auto relative group">
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-purple-500 rounded-xl blur-sm opacity-60 group-hover:opacity-80 transition duration-500"></div>
+            <p className="relative text-xl md:text-3xl font-semibold bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent animate-fadeIn delay-500 px-8 py-4 rounded-xl bg-white/90 backdrop-blur-sm border border-purple-100/40 shadow-lg">
               "Where Every Click Tells Your Unique Story — Moments Frozen, Memories Forever"
             </p>
           </div>
           
-          <div className="h-1 w-24 bg-primary mx-auto mt-2 animate-fadeIn delay-300"></div>
+          <div className="h-1 w-24 bg-gradient-to-r from-primary to-violet-500 mx-auto mt-2 animate-fadeIn delay-300"></div>
           
-          <div className="mt-10 animate-fadeIn delay-700">
+          <div className="mt-10 animate-fadeIn delay-700 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button 
               onClick={() => document.getElementById('gallery')?.scrollIntoView({ behavior: 'smooth' })}
               variant="default"
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 py-6 text-lg font-medium transition-all duration-300 hover:shadow-lg"
+              className="bg-gradient-to-r from-primary to-violet-600 hover:from-primary/90 hover:to-violet-600/90 text-white rounded-full px-8 py-6 text-lg font-medium transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 border border-white/10"
             >
               Explore Our Work
               <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+            
+            <Button 
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              variant="outline"
+              size="lg"
+              className="border-primary/30 text-primary hover:bg-primary/5 rounded-full px-8 py-6 text-lg font-medium transition-all duration-300"
+            >
+              Contact Us
             </Button>
           </div>
         </div>
