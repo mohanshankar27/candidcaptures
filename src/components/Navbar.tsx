@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
@@ -60,15 +61,15 @@ const Navbar = () => {
   };
 
   const handleNavClick = (e, item) => {
+    e.preventDefault();
+    
     if (item.href === '/') {
-      e.preventDefault();
       navigate('/');
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
     
     if (item.href.startsWith('/#')) {
-      e.preventDefault();
       if (location.pathname === '/') {
         const sectionId = item.href.substring(2);
         const section = document.getElementById(sectionId);
@@ -85,6 +86,9 @@ const Navbar = () => {
           }
         }, 100);
       }
+    } else {
+      // Regular page navigation
+      navigate(item.href);
     }
   };
 
@@ -106,16 +110,16 @@ const Navbar = () => {
 
         <div className="hidden lg:flex items-center space-x-8 pr-8">
           {navItems.map((item) => (
-            <Link
+            <a
               key={item.name}
-              to={item.href}
+              href={item.href}
               className={`flex items-center gap-2 transition-colors text-base font-medium font-serif italic ${
                 isActive(item.href) ? 'text-[#003c72] font-bold' : 'hover:text-primary'
               }`}
               onClick={(e) => handleNavClick(e, item)}
             >
               {item.name}
-            </Link>
+            </a>
           ))}
         </div>
 
@@ -134,9 +138,9 @@ const Navbar = () => {
         <div className="lg:hidden pb-6 animate-fadeIn bg-background/95 backdrop-blur-sm">
           <div className="py-4">
             {navItems.map((item) => (
-              <Link
+              <a
                 key={item.name}
-                to={item.href}
+                href={item.href}
                 className={`flex items-center gap-2 py-2 transition-colors text-base font-serif italic ${
                   isActive(item.href) ? 'text-[#003c72] font-bold' : 'hover:text-primary'
                 }`}
@@ -146,7 +150,7 @@ const Navbar = () => {
                 }}
               >
                 {item.name}
-              </Link>
+              </a>
             ))}
           </div>
         </div>

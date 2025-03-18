@@ -1,5 +1,6 @@
+
 import React, { useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import NewBornPackage from '@/components/packages/NewBornPackage';
@@ -13,6 +14,7 @@ import WeddingPackage from '@/components/packages/WeddingPackage';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, Package, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 
 const PackageDetails: React.FC = () => {
   const { packageId } = useParams();
@@ -86,6 +88,22 @@ const PackageDetails: React.FC = () => {
       
       <div className="flex-1 pt-28 pb-12">
         <div className="container mx-auto px-4">
+          <Breadcrumb className="mb-4">
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink as={Link} to="/">Home</BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink as={Link} to="/services">Services</BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink>{getPackageTitle()}</BreadcrumbLink>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+          
           <div className="flex justify-between items-center mb-6">
             <Button 
               variant="outline" 
