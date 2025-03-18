@@ -1,10 +1,12 @@
 
-import { memo, useState } from 'react';
+import { memo, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Sparkles } from 'lucide-react';
+import { Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
 import servicesList from '@/data/servicesList';
 import { Card, CardContent } from '@/components/ui/card';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import { Button } from '@/components/ui/button';
 
 // Map service names to appropriate images
 const serviceImages = {
@@ -37,6 +39,14 @@ const serviceThumbnails = servicesList.map(service => ({
 const PhotoSlideshow = () => {
   const navigate = useNavigate();
   const [hoveredItem, setHoveredItem] = useState<number | null>(null);
+  const [activeGroup, setActiveGroup] = useState(0);
+  
+  // Group services for featured showcase
+  const featuredServices = [
+    serviceThumbnails.slice(0, 6),
+    serviceThumbnails.slice(6, 12),
+    serviceThumbnails.slice(12)
+  ];
 
   const navigateToServices = (serviceName: string) => {
     navigate('/services');
@@ -124,56 +134,124 @@ const PhotoSlideshow = () => {
           </motion.p>
         </motion.div>
         
+        {/* Featured Services Carousel */}
         <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+          className="mb-16"
         >
-          {serviceThumbnails.map((service, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              onHoverStart={() => setHoveredItem(index)}
-              onHoverEnd={() => setHoveredItem(null)}
-            >
-              <Card 
-                className={`group cursor-pointer overflow-hidden transition-all duration-500 bg-white shadow-md hover:shadow-xl ${hoveredItem === index ? 'scale-105 shadow-xl shadow-primary/20' : ''}`}
-                onClick={() => navigateToServices(service.name)}
-              >
-                <div className="relative h-36 sm:h-44 overflow-hidden rounded-t-xl p-3">
-                  <div className="w-full h-full overflow-hidden rounded-xl bg-white border-2 border-[#003c72]">
-                    <img 
-                      src={service.image} 
-                      alt={service.name}
-                      className={`w-full h-full object-cover transition-transform duration-700 ${hoveredItem === index ? 'scale-110' : 'scale-100'}`}
-                    />
-                    {hoveredItem === index && (
-                      <motion.div 
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"
-                      />
-                    )}
-                  </div>
-                </div>
-                <CardContent className="pt-1 pb-3 px-3 text-center bg-white rounded-b-xl">
-                  <h3 className={`text-[#003c72] font-serif italic text-sm font-medium transition-all duration-300 ${hoveredItem === index ? 'font-bold' : ''}`}>
-                    {service.name}
-                  </h3>
-                  <motion.div 
-                    initial={{ width: 0 }}
-                    animate={{ width: hoveredItem === index ? "50%" : 0 }}
+          <Carousel 
+            opts={{ 
+              loop: true,
+              align: "start"
+            }}
+            className="w-full"
+          >
+            <CarouselContent>
+              {serviceThumbnails.map((service, index) => (
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                  <motion.div
+                    whileHover={{ y: -5 }}
                     transition={{ duration: 0.3 }}
-                    className="h-0.5 bg-gradient-to-r from-[#003c72] to-blue-400 mx-auto mt-1"
-                  ></motion.div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
+                    className="p-2 h-full"
+                  >
+                    <Card 
+                      className="overflow-hidden group cursor-pointer transition-all duration-500 bg-white shadow-xl h-full border-none"
+                      onClick={() => navigateToServices(service.name)}
+                    >
+                      <div className="aspect-[4/3] relative overflow-hidden">
+                        <div className="absolute inset-0 bg-blue-500/10 group-hover:bg-transparent transition-colors duration-300 z-10"></div>
+                        <img 
+                          src={service.image} 
+                          alt={service.name}
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                      </div>
+                      <CardContent className="p-4 bg-white">
+                        <div className="flex flex-col items-center justify-center">
+                          <h3 className="text-primary font-serif italic text-xl font-medium mb-2 text-center">
+                            {service.name}
+                          </h3>
+                          <div className="h-0.5 w-12 bg-gradient-to-r from-primary to-blue-400 mb-2"></div>
+                          <Button 
+                            variant="ghost" 
+                            size="sm" 
+                            className="text-xs text-primary/70 font-medium hover:text-primary transition-colors"
+                          >
+                            View Details
+                          </Button>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="flex justify-center mt-6 space-x-2">
+              <CarouselPrevious className="relative inset-0 translate-y-0 bg-primary/10 hover:bg-primary/20 text-primary" />
+              <CarouselNext className="relative inset-0 translate-y-0 bg-primary/10 hover:bg-primary/20 text-primary" />
+            </div>
+          </Carousel>
         </motion.div>
+        
+        {/* Featured Groups */}
+        <div className="mt-16">
+          <div className="flex justify-center mb-8 space-x-2">
+            {featuredServices.map((_, index) => (
+              <Button
+                key={index}
+                variant={activeGroup === index ? "default" : "outline"}
+                size="sm"
+                onClick={() => setActiveGroup(index)}
+                className={activeGroup === index ? "bg-primary text-white" : "text-primary"}
+              >
+                Group {index + 1}
+              </Button>
+            ))}
+          </div>
+          
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-6 gap-6"
+            key={activeGroup} // Force re-render for animation
+          >
+            {featuredServices[activeGroup].map((service, index) => (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                onHoverStart={() => setHoveredItem(index)}
+                onHoverEnd={() => setHoveredItem(null)}
+                className="transform transition-all duration-500 hover:scale-105"
+              >
+                <Card 
+                  className="group cursor-pointer overflow-hidden transition-all duration-500 bg-white shadow-md hover:shadow-xl border-none"
+                  onClick={() => navigateToServices(service.name)}
+                >
+                  <div className="relative h-40 overflow-hidden">
+                    <div className="w-full h-full overflow-hidden bg-white">
+                      <img 
+                        src={service.image} 
+                        alt={service.name}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                  </div>
+                  <CardContent className="pt-3 pb-3 px-3 text-center bg-white">
+                    <h3 className="text-primary font-serif italic text-sm font-medium">
+                      {service.name}
+                    </h3>
+                    <div className="h-0.5 w-0 group-hover:w-1/2 bg-gradient-to-r from-primary to-blue-400 mx-auto mt-1 transition-all duration-300"></div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
       </div>
     </section>
   );
