@@ -32,7 +32,7 @@ const MobileServiceMenu: React.FC<MobileServiceMenuProps> = ({
         className="flex items-center justify-between w-full p-3"
         onClick={() => setIsMenuOpen(!isMenuOpen)}
       >
-        <span className="text-lg font-bold font-serif italic text-primary">{selectedService.name}</span>
+        <span className="text-lg font-bold font-serif italic text-[#003c72]">{selectedService.name}</span>
         <Menu className="h-5 w-5" />
       </Button>
       
