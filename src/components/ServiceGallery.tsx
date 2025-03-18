@@ -63,8 +63,7 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, images }) => {
   
   return (
     <div className="p-4 md:p-6 h-full overflow-y-auto">
-      <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-        {service.icon}
+      <h2 className="text-2xl font-semibold mb-4">
         <span>{service.name}</span>
       </h2>
       

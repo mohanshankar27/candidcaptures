@@ -1,5 +1,6 @@
+
 import { useState } from 'react';
-import { Menu, X, Home, Camera, Heart, Users, ShoppingBag, ExternalLink, DollarSign } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useNavigate, Link } from 'react-router-dom';
 import {
   Menubar,
@@ -14,19 +15,19 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const services = [
-    { name: 'Wedding Photography', icon: <Heart className="w-4 h-4" /> },
-    { name: 'Product shoot', icon: <ShoppingBag className="w-4 h-4" /> },
-    { name: 'Makeup shoot', icon: <Camera className="w-4 h-4" /> },
-    { name: 'Concept shoot', icon: <Camera className="w-4 h-4" /> },
-    { name: 'Maternity shoot', icon: <Heart className="w-4 h-4" /> },
-    { name: 'Newborn shoot', icon: <Heart className="w-4 h-4" /> },
-    { name: 'Naming Ceremony', icon: <Heart className="w-4 h-4" /> },
+    { name: 'Wedding Photography' },
+    { name: 'Product shoot' },
+    { name: 'Makeup shoot' },
+    { name: 'Concept shoot' },
+    { name: 'Maternity shoot' },
+    { name: 'Newborn shoot' },
+    { name: 'Naming Ceremony' },
   ];
 
   const navItems = [
-    { name: 'Home', href: '/', icon: <Home className="w-4 h-4" /> },
-    { name: 'Services', href: '/services', icon: <Camera className="w-4 h-4" /> },
-    { name: 'Pricing', href: '/pricing', icon: <DollarSign className="w-4 h-4" /> },
+    { name: 'Home', href: '/' },
+    { name: 'Services', href: '/services' },
+    { name: 'Package', href: '/pricing' },
     { name: 'About', href: '/#about' },
     { name: 'Contact Us', href: '/#contact' },
   ];
@@ -79,7 +80,6 @@ const Navbar = () => {
                   }
                 }}
               >
-                {item.icon && item.icon}
                 {item.name}
               </Link>
             ))}
@@ -116,7 +116,6 @@ const Navbar = () => {
                     setIsOpen(false);
                   }}
                 >
-                  {item.icon && item.icon}
                   {item.name}
                 </Link>
               ))}
