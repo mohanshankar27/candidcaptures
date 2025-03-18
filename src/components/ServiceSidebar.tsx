@@ -16,25 +16,27 @@ const ServiceSidebar: React.FC<ServiceSidebarProps> = ({
   onServiceClick 
 }) => {
   return (
-    <ResizablePanel defaultSize={25} minSize={20} maxSize={30}>
-      <div className="h-full overflow-y-auto border-r">
-        <div className="p-2 font-medium text-sm border-b">Our Services</div>
+    <ResizablePanel defaultSize={25} minSize={20} maxSize={30} className="border-r-0">
+      <div className="h-full overflow-y-auto border-r shadow-sm bg-white/80">
+        <div className="p-3 font-medium text-base border-b bg-white sticky top-0">
+          <span className="font-serif italic">Our Services</span>
+        </div>
         <div className="divide-y">
           {services.map((service) => (
             <button
               key={service.name}
-              className={`flex items-center justify-between w-full p-2.5 text-left text-sm hover:bg-muted transition-colors ${
+              className={`flex items-center justify-between w-full p-3 text-left text-sm hover:bg-muted transition-colors ${
                 selectedService.name === service.name ? 'bg-muted font-medium' : ''
               }`}
               onClick={() => onServiceClick(service)}
             >
-              <div className="truncate">
+              <div className="truncate font-medium">
                 <span>{service.name}</span>
               </div>
               {service.external ? (
-                <ExternalLink className="w-3.5 h-3.5 flex-shrink-0" />
+                <ExternalLink className="w-4 h-4 flex-shrink-0" />
               ) : (
-                <ChevronRight className="w-3.5 h-3.5 flex-shrink-0" />
+                <ChevronRight className="w-4 h-4 flex-shrink-0" />
               )}
             </button>
           ))}

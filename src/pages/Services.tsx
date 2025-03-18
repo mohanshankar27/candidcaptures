@@ -34,9 +34,9 @@ const Services = () => {
       <Navbar />
       
       <div className="flex-1 pt-16 pb-8">
-        <div className="container mx-auto px-2 md:px-4">
-          <div className="flex justify-between items-center mb-3">
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary"> {/* Added lg:text-4xl */}
+        <div className="container mx-auto px-0 md:px-0"> {/* Removed padding */}
+          <div className="flex justify-between items-center mb-3 px-2 md:px-4">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary">
               {viewMode === 'grid' ? 'Premium Services' : selectedService.name}
             </h1>
             <div className="flex items-center gap-2">
@@ -47,27 +47,29 @@ const Services = () => {
                 className="ml-auto"
                 aria-label={viewMode === 'detailed' ? "Switch to grid view" : "Switch to detailed view"}
               >
-                {viewMode === 'detailed' ? <Grid className="h-5 w-5" /> : <List className="h-5 w-5" />} {/* Increased from h-4 w-4 to h-5 w-5 */}
+                {viewMode === 'detailed' ? <Grid className="h-5 w-5" /> : <List className="h-5 w-5" />}
               </Button>
             </div>
           </div>
           
           {viewMode === 'grid' ? (
-            <div className="bg-white/50 backdrop-blur-sm p-4 rounded-lg shadow-sm border border-primary/5"> {/* Changed from p-3 to p-4 */}
+            <div className="bg-white/50 backdrop-blur-sm p-4 rounded-lg shadow-sm border border-primary/5 mx-2 md:mx-4">
               <ServicesGrid services={servicesList} onServiceClick={handleServiceClick} />
             </div>
           ) : (
             <>
-              <MobileServiceMenu 
-                services={servicesList} 
-                selectedService={selectedService} 
-                onServiceClick={handleServiceClick} 
-              />
+              <div className="px-2 md:px-4">
+                <MobileServiceMenu 
+                  services={servicesList} 
+                  selectedService={selectedService} 
+                  onServiceClick={handleServiceClick} 
+                />
+              </div>
               
               <div className="hidden md:block">
                 <ResizablePanelGroup 
                   direction="horizontal" 
-                  className="min-h-[calc(100vh-200px)] border rounded-lg overflow-hidden shadow-md"
+                  className="min-h-[calc(100vh-200px)] border-0 md:border-r overflow-hidden"
                 >
                   <ServiceSidebar 
                     services={servicesList} 
@@ -78,21 +80,23 @@ const Services = () => {
                   <ResizableHandle withHandle />
                   
                   <ResizablePanel defaultSize={75} minSize={60}>
-                    <div className="h-full overflow-y-auto">
+                    <div className="h-full overflow-y-auto px-4">
                       <ServiceContent service={selectedService} />
                     </div>
                   </ResizablePanel>
                 </ResizablePanelGroup>
               </div>
               
-              <div className="md:hidden mt-4">
+              <div className="md:hidden mt-4 px-2 md:px-4">
                 <ServiceContent service={selectedService} />
               </div>
             </>
           )}
           
           {/* Price Packages section */}
-          <PricePackages />
+          <div className="px-2 md:px-4 mt-8">
+            <PricePackages />
+          </div>
         </div>
       </div>
       

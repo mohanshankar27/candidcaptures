@@ -12,23 +12,23 @@ interface ServicesGridProps {
 
 const ServicesGrid: React.FC<ServicesGridProps> = ({ services, onServiceClick }) => {
   return (
-    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-1">
+    <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-2">
       {services.map((service) => (
         <Card 
           key={service.name}
           className={cn(
-            "cursor-pointer transition-all overflow-hidden h-16", // Increased height from h-14 to h-16
+            "cursor-pointer transition-all overflow-hidden h-20",
             "border border-primary/10 hover:border-primary/30",
             "bg-gradient-to-br from-secondary/50 to-background",
             "hover:shadow-lg hover:shadow-primary/5 group"
           )}
           onClick={() => onServiceClick(service)}
         >
-          <CardContent className="p-2 flex items-center h-full">
-            <div className="text-sm font-medium line-clamp-1 leading-tight"> {/* Changed from text-xs to text-sm */}
+          <CardContent className="p-3 flex items-center justify-center h-full">
+            <div className="text-base font-medium text-center font-serif italic">
               {service.name}
               {service.external && (
-                <ExternalLink className="w-3 h-3 ml-1 inline-block opacity-60" /> /* Increased from w-2.5 h-2.5 to w-3 h-3 */
+                <ExternalLink className="w-3.5 h-3.5 ml-1 inline-block opacity-60" />
               )}
             </div>
           </CardContent>
