@@ -60,6 +60,7 @@ const ServicesGrid: React.FC<ServicesGridProps> = ({ services, onServiceClick })
             "bg-gradient-to-br from-secondary/50 to-background",
             "group",
             "animate-fadeIn",
+            "relative",
             // Apply highlight effect to the currently hovered service 
             // and services in the same row (group of 4)
             hoveredIndex === index 
@@ -82,8 +83,8 @@ const ServicesGrid: React.FC<ServicesGridProps> = ({ services, onServiceClick })
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-80"></div>
           </div>
-          <CardContent className="p-3 absolute bottom-0 left-0 right-0">
-            <div className="text-base font-bold text-center font-serif italic text-white group-hover:scale-105 transition-transform">
+          <div className="absolute bottom-0 left-0 right-0 p-3">
+            <div className="text-base font-medium text-center font-serif italic text-white group-hover:scale-105 transition-transform bg-black/40 backdrop-blur-sm py-1.5 px-2 rounded">
               {service.name}
               {service.external && (
                 <ExternalLink className="w-3.5 h-3.5 ml-1 inline-block opacity-60" />
@@ -92,7 +93,7 @@ const ServicesGrid: React.FC<ServicesGridProps> = ({ services, onServiceClick })
                 <Sparkles className="w-3.5 h-3.5 ml-1 inline-block text-orange-300 animate-pulse" />
               )}
             </div>
-          </CardContent>
+          </div>
         </Card>
       ))}
     </div>
