@@ -22,8 +22,9 @@ const Hero = () => {
             </div>
           </div>
           
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif italic font-bold mb-2 tracking-tight animate-fadeIn bg-clip-text text-transparent bg-gradient-to-r from-primary to-violet-500">
-            Welcome to Candid Captures
+          <h1 className="flex flex-col text-5xl md:text-7xl lg:text-8xl font-serif italic font-bold mb-2 tracking-tight animate-fadeIn">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-violet-500">Welcome to</span>
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-violet-500 to-primary">Candid Captures</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-gray-600 font-serif italic mt-4 animate-fadeIn delay-300 max-w-3xl mx-auto">
