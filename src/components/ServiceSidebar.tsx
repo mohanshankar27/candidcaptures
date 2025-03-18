@@ -18,8 +18,8 @@ const ServiceSidebar: React.FC<ServiceSidebarProps> = ({
   return (
     <ResizablePanel defaultSize={25} minSize={20} maxSize={30} className="border-r-0">
       <div className="h-full overflow-y-auto border-r shadow-sm bg-white/80">
-        <div className="p-3 font-extrabold text-base border-b bg-white sticky top-0">
-          <span className="font-serif italic text-[#003c72]">Our Services</span>
+        <div className="p-3 font-extrabold text-xl border-b bg-white sticky top-0 text-center">
+          <span className="font-serif italic text-[#003c72] text-2xl">Our Services</span>
         </div>
         <div className="divide-y">
           {services.map((service) => (

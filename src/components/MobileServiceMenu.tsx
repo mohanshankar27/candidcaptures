@@ -24,6 +24,9 @@ const MobileServiceMenu: React.FC<MobileServiceMenuProps> = ({
 
   return (
     <div className="md:hidden mb-4 shadow-sm w-full">
+      <div className="text-center py-3 mb-3">
+        <span className="text-2xl font-bold font-serif italic text-[#003c72]">Our Services</span>
+      </div>
       <Button 
         variant="outline"
         className="flex items-center justify-between w-full p-3"
