@@ -1,5 +1,6 @@
+
 import { useState } from 'react';
-import { Menu, X, Camera } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 import {
   Menubar,
@@ -61,10 +62,13 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-28">
           <button 
             onClick={handleLogoClick}
-            className="flex items-center gap-2 focus:outline-none"
+            className="flex items-center focus:outline-none"
           >
-            <Camera className="h-8 w-8 text-white bg-[#003c72] p-1 rounded" />
-            <span className="font-akaya text-[#003c72] text-3xl">Candid Capture</span>
+            <img 
+              src="/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png" 
+              alt="Candid Capture Photography" 
+              className="h-32 w-auto"
+            />
           </button>
 
           <div className="hidden lg:flex items-center space-x-8">
