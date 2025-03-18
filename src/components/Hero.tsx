@@ -5,12 +5,12 @@ import { ArrowRight } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen relative bg-gradient-to-br from-indigo-50 via-white to-purple-50 overflow-hidden">
+    <section id="home" className="min-h-screen relative bg-gradient-to-br from-indigo-50 via-white to-blue-50 overflow-hidden">
       {/* Abstract shapes */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -right-20 -top-20 w-96 h-96 rounded-full bg-gradient-to-r from-primary/20 to-blue-200/30 blur-3xl"></div>
-        <div className="absolute -left-40 top-40 w-80 h-80 rounded-full bg-gradient-to-r from-pink-200/30 to-primary/20 blur-3xl"></div>
-        <div className="absolute right-1/4 bottom-1/4 w-64 h-64 rounded-full bg-gradient-to-r from-yellow-200/20 to-red-200/30 blur-3xl"></div>
+        <div className="absolute -left-40 top-40 w-80 h-80 rounded-full bg-gradient-to-r from-blue-200/30 to-primary/20 blur-3xl"></div>
+        <div className="absolute right-1/4 bottom-1/4 w-64 h-64 rounded-full bg-gradient-to-r from-yellow-200/20 to-blue-200/30 blur-3xl"></div>
       </div>
 
       {/* Content */}
@@ -23,8 +23,8 @@ const Hero = () => {
           </div>
           
           <h1 className="flex flex-col text-5xl md:text-7xl lg:text-8xl font-serif italic font-bold mb-2 tracking-tight animate-fadeIn">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-violet-500">Welcome to</span>
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-violet-500 to-primary">Candid Captures</span>
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-400">Welcome to</span>
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-primary">Candid Captures</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-gray-600 font-serif italic mt-4 animate-fadeIn delay-300 max-w-3xl mx-auto">
@@ -32,20 +32,20 @@ const Hero = () => {
           </p>
           
           <div className="mt-8 mb-10 max-w-3xl mx-auto relative group">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-purple-500 rounded-xl blur-sm opacity-60 group-hover:opacity-80 transition duration-500"></div>
-            <p className="relative text-xl md:text-3xl font-semibold bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent animate-fadeIn delay-500 px-8 py-4 rounded-xl bg-white/90 backdrop-blur-sm border border-purple-100/40 shadow-lg">
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-blue-500 rounded-xl blur-sm opacity-60 group-hover:opacity-80 transition duration-500"></div>
+            <p className="relative text-xl md:text-3xl font-semibold bg-gradient-to-r from-blue-600 to-primary bg-clip-text text-transparent animate-fadeIn delay-500 px-8 py-4 rounded-xl bg-white/90 backdrop-blur-sm border border-blue-100/40 shadow-lg">
               "Where Every Click Tells Your Unique Story — Moments Frozen, Memories Forever"
             </p>
           </div>
           
-          <div className="h-1 w-24 bg-gradient-to-r from-primary to-violet-500 mx-auto mt-2 animate-fadeIn delay-300"></div>
+          <div className="h-1 w-24 bg-gradient-to-r from-primary to-blue-500 mx-auto mt-2 animate-fadeIn delay-300"></div>
           
           <div className="mt-10 animate-fadeIn delay-700 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button 
               onClick={() => document.getElementById('gallery')?.scrollIntoView({ behavior: 'smooth' })}
               variant="default"
               size="lg"
-              className="bg-gradient-to-r from-primary to-violet-600 hover:from-primary/90 hover:to-violet-600/90 text-white rounded-full px-8 py-6 text-lg font-medium transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 border border-white/10"
+              className="bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-600/90 text-white rounded-full px-8 py-6 text-lg font-medium transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 border border-white/10"
             >
               Explore Our Work
               <ArrowRight className="ml-2 h-5 w-5" />
