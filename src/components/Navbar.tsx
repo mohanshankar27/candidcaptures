@@ -56,6 +56,40 @@ const Navbar = () => {
     return location.pathname === path;
   };
 
+  const handleNavClick = (e, item) => {
+    // For Home link, navigate to home and scroll to top
+    if (item.href === '/') {
+      e.preventDefault();
+      navigate('/');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    
+    // For hash links like About, Contact, etc.
+    if (item.href.startsWith('/#')) {
+      e.preventDefault();
+      // If on home page, just scroll to section
+      if (location.pathname === '/') {
+        const sectionId = item.href.substring(2);
+        const section = document.getElementById(sectionId);
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else {
+        // If on another page, navigate to home then scroll
+        navigate('/');
+        // Need to wait for navigation to complete
+        setTimeout(() => {
+          const sectionId = item.href.substring(2);
+          const section = document.getElementById(sectionId);
+          if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      }
+    }
+  };
+
   return (
     <nav className="fixed w-full bg-background/90 backdrop-blur-sm z-50 shadow-sm border-b">
       <div className="w-full flex justify-between items-center h-28 px-0">
@@ -80,16 +114,7 @@ const Navbar = () => {
               className={`flex items-center gap-2 transition-colors text-base font-medium font-serif italic ${
                 isActive(item.href) ? 'text-[#003c72] font-bold' : 'hover:text-primary'
               }`}
-              onClick={(e) => {
-                if (item.href.startsWith('/#')) {
-                  e.preventDefault();
-                  const sectionId = item.href.substring(2);
-                  const section = document.getElementById(sectionId);
-                  if (section) {
-                    section.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }
-              }}
+              onClick={(e) => handleNavClick(e, item)}
             >
               {item.name}
             </Link>
@@ -118,14 +143,7 @@ const Navbar = () => {
                   isActive(item.href) ? 'text-[#003c72] font-bold' : 'hover:text-primary'
                 }`}
                 onClick={(e) => {
-                  if (item.href.startsWith('/#')) {
-                    e.preventDefault();
-                    const sectionId = item.href.substring(2);
-                    const section = document.getElementById(sectionId);
-                    if (section) {
-                      section.scrollIntoView({ behavior: 'smooth' });
-                    }
-                  }
+                  handleNavClick(e, item);
                   setIsOpen(false);
                 }}
               >
