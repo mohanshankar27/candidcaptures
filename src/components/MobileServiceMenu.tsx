@@ -40,7 +40,7 @@ const MobileServiceMenu: React.FC<MobileServiceMenuProps> = ({
               <button
                 key={service.name}
                 className={`px-4 py-3 text-left border-b hover:bg-muted transition-colors text-base ${
-                  selectedService.name === service.name ? 'bg-muted font-bold text-primary' : 'font-medium'
+                  selectedService.name === service.name ? 'bg-[#003c72] font-bold text-white' : 'font-medium'
                 }`}
                 onClick={() => handleServiceClick(service)}
               >
