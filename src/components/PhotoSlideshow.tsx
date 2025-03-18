@@ -1,4 +1,3 @@
-
 import { useState, useEffect, memo } from 'react';
 import { 
   Carousel, 
@@ -10,8 +9,30 @@ import {
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { X } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import servicesList from '@/data/servicesList';
 
-// Array of wedding photos for the slideshow
+const serviceThumbnails = [
+  { name: 'Concept shoot', image: "/lovable-uploads/0e3af22f-eb15-463b-80be-159d6b53f595.png" },
+  { name: 'Corporate & Short Videos', image: "/lovable-uploads/0e3af22f-eb15-463b-80be-159d6b53f595.png" },
+  { name: 'Corporate Headshots', image: "/lovable-uploads/0e3af22f-eb15-463b-80be-159d6b53f595.png" },
+  { name: 'E-Commerce & Catalogues', image: "/lovable-uploads/0e3af22f-eb15-463b-80be-159d6b53f595.png" },
+  { name: 'Event Photography', image: "/lovable-uploads/0e3af22f-eb15-463b-80be-159d6b53f595.png" },
+  { name: 'Family Portraits', image: "/lovable-uploads/0e3af22f-eb15-463b-80be-159d6b53f595.png" },
+  { name: 'Fashion Photography', image: "/lovable-uploads/0e3af22f-eb15-463b-80be-159d6b53f595.png" },
+  { name: 'Food Photography', image: "/lovable-uploads/0e3af22f-eb15-463b-80be-159d6b53f595.png" },
+  { name: 'Makeup shoot', image: "/lovable-uploads/0e3af22f-eb15-463b-80be-159d6b53f595.png" },
+  { name: 'Maternity Photography', image: "/lovable-uploads/0e3af22f-eb15-463b-80be-159d6b53f595.png" },
+  { name: 'Matrimonial Portfolios', image: "/lovable-uploads/0e3af22f-eb15-463b-80be-159d6b53f595.png" },
+  { name: 'Naming Ceremony', image: "/lovable-uploads/0e3af22f-eb15-463b-80be-159d6b53f595.png" },
+  { name: 'New Born Baby Shoot', image: "/lovable-uploads/0e3af22f-eb15-463b-80be-159d6b53f595.png" },
+  { name: 'Product Photography', image: "/lovable-uploads/0e3af22f-eb15-463b-80be-159d6b53f595.png" },
+  { name: 'Product shoot', image: "/lovable-uploads/0e3af22f-eb15-463b-80be-159d6b53f595.png" },
+  { name: 'Special Services', image: "/lovable-uploads/0e3af22f-eb15-463b-80be-159d6b53f595.png" },
+  { name: 'Toddler & Children', image: "/lovable-uploads/0e3af22f-eb15-463b-80be-159d6b53f595.png" },
+  { name: 'Wedding Photography', image: "/lovable-uploads/0e3af22f-eb15-463b-80be-159d6b53f595.png" }
+];
+
 const slideshowPhotos = [
   "/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png",
   "/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png", 
@@ -28,8 +49,8 @@ const slideshowPhotos = [
 const PhotoSlideshow = () => {
   const [enlargedImageIndex, setEnlargedImageIndex] = useState<number | null>(null);
   const [api, setApi] = useState<any>(null);
+  const navigate = useNavigate();
 
-  // Set up autoplay
   useEffect(() => {
     if (!api) return;
     
@@ -64,10 +85,45 @@ const PhotoSlideshow = () => {
     }
   };
 
+  const navigateToServices = (serviceName: string) => {
+    navigate('/services');
+    
+    const matchingService = servicesList.find(service => service.name === serviceName);
+    
+    if (matchingService) {
+      setTimeout(() => {
+        console.log(`Navigating to service: ${serviceName}`);
+      }, 100);
+    }
+  };
+
   return (
-    <section className="py-16 bg-background">
+    <section id="gallery" className="py-16 bg-background">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-10">Our Photography Collection</h2>
+        
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-16">
+          {serviceThumbnails.map((service, index) => (
+            <div 
+              key={index}
+              className="cursor-pointer hover:shadow-lg transition-all duration-300 rounded-lg overflow-hidden bg-white"
+              onClick={() => navigateToServices(service.name)}
+            >
+              <div className="h-32 overflow-hidden">
+                <img 
+                  src={service.image} 
+                  alt={service.name}
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                />
+              </div>
+              <div className="p-3 text-center bg-primary/5 border-t border-primary/10">
+                <h3 className="text-sm font-medium text-primary font-serif italic">
+                  {service.name}
+                </h3>
+              </div>
+            </div>
+          ))}
+        </div>
         
         <Carousel 
           setApi={setApi}
@@ -106,7 +162,6 @@ const PhotoSlideshow = () => {
         </Carousel>
       </div>
 
-      {/* Enlarged Image View */}
       {enlargedImageIndex !== null && (
         <Dialog open={enlargedImageIndex !== null} onOpenChange={closeImageView}>
           <DialogContent className="max-w-5xl p-0 border-4 border-[#1e40af] bg-black" onClick={(e) => e.stopPropagation()}>
