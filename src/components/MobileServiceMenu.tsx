@@ -29,7 +29,7 @@ const MobileServiceMenu: React.FC<MobileServiceMenuProps> = ({
         className="flex items-center justify-between w-full p-3"
         onClick={() => setIsMenuOpen(!isMenuOpen)}
       >
-        <span className="text-lg font-serif italic">{selectedService.name}</span>
+        <span className="text-lg font-bold font-serif italic text-primary">{selectedService.name}</span>
         <Menu className="h-5 w-5" />
       </Button>
       
@@ -40,7 +40,7 @@ const MobileServiceMenu: React.FC<MobileServiceMenuProps> = ({
               <button
                 key={service.name}
                 className={`px-4 py-3 text-left border-b hover:bg-muted transition-colors text-base ${
-                  selectedService.name === service.name ? 'bg-muted font-medium' : ''
+                  selectedService.name === service.name ? 'bg-muted font-bold text-primary' : 'font-medium'
                 }`}
                 onClick={() => handleServiceClick(service)}
               >
