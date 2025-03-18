@@ -26,7 +26,7 @@ const ServiceSidebar: React.FC<ServiceSidebarProps> = ({
             <button
               key={service.name}
               className={`flex items-center justify-between w-full p-3 text-left text-sm hover:bg-muted transition-colors ${
-                selectedService.name === service.name ? 'bg-[#003c72] font-bold text-white' : 'font-medium'
+                selectedService.name === service.name ? 'font-bold text-[#003c72]' : 'font-medium'
               }`}
               onClick={() => onServiceClick(service)}
             >
