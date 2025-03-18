@@ -8,6 +8,7 @@ import MobileServiceMenu from '@/components/MobileServiceMenu';
 import servicesList from '@/data/servicesList';
 import { Grid, List } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import ServicesLoading from '@/components/ServicesLoading';
 
 // Lazy load components that aren't needed immediately
 const ServiceContent = lazy(() => import('@/components/ServiceContent'));
@@ -23,7 +24,7 @@ const Services = () => {
     // Mark as loaded shortly after mount
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 300);
+    }, 1200); // Longer loading time to show animation
     
     window.scrollTo({
       top: 0,
@@ -69,14 +70,16 @@ const Services = () => {
             </div>
           </div>
           
-          <Suspense fallback={<div className="p-4 text-center">Loading services...</div>}>
-            {viewMode === 'grid' ? (
-              <div className="bg-white/50 backdrop-blur-sm p-4 rounded-lg shadow-sm border border-primary/5 mx-4">
+          <Suspense fallback={<ServicesLoading />}>
+            {isLoading ? (
+              <ServicesLoading />
+            ) : viewMode === 'grid' ? (
+              <div className="bg-white/50 backdrop-blur-sm p-4 rounded-lg shadow-sm border border-primary/5 mx-4 animate-fade-in">
                 <ServicesGrid services={servicesList} onServiceClick={handleServiceClick} />
               </div>
             ) : (
               <>
-                <div className="px-4">
+                <div className="px-4 animate-fade-in">
                   <MobileServiceMenu 
                     services={servicesList} 
                     selectedService={selectedService} 
@@ -84,7 +87,7 @@ const Services = () => {
                   />
                 </div>
                 
-                <div className="hidden md:block w-full">
+                <div className="hidden md:block w-full animate-fade-in">
                   <ResizablePanelGroup 
                     direction="horizontal" 
                     className="min-h-[calc(100vh-200px)] w-full overflow-hidden"
@@ -105,7 +108,7 @@ const Services = () => {
                   </ResizablePanelGroup>
                 </div>
                 
-                <div className="md:hidden mt-4 px-4">
+                <div className="md:hidden mt-4 px-4 animate-fade-in">
                   <ServiceContent service={selectedService} />
                 </div>
               </>
@@ -113,7 +116,7 @@ const Services = () => {
             
             {/* Price Packages section */}
             {!isLoading && (
-              <div className="px-4 mt-8">
+              <div className="px-4 mt-8 animate-fade-in">
                 <PricePackages />
               </div>
             )}
