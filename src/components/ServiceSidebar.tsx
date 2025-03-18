@@ -15,6 +15,15 @@ const ServiceSidebar: React.FC<ServiceSidebarProps> = ({
   selectedService, 
   onServiceClick 
 }) => {
+  const handleServiceClick = (service: Service) => {
+    onServiceClick(service);
+    // Scroll to top when selecting a service
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <ResizablePanel defaultSize={25} minSize={20} maxSize={30} className="border-r-0">
       <div className="h-full overflow-y-auto border-r shadow-sm bg-white/80">
@@ -28,7 +37,7 @@ const ServiceSidebar: React.FC<ServiceSidebarProps> = ({
               className={`flex items-center justify-between w-full p-3 text-left text-sm hover:bg-muted transition-colors ${
                 selectedService.name === service.name ? 'font-bold text-[#003c72]' : 'font-medium'
               }`}
-              onClick={() => onServiceClick(service)}
+              onClick={() => handleServiceClick(service)}
             >
               <div className="truncate">
                 <span>{service.name}</span>

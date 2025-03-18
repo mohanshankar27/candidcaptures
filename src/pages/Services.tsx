@@ -1,5 +1,4 @@
-
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ServiceContent from '@/components/ServiceContent';
@@ -15,6 +14,13 @@ import PricePackages from '@/components/PricePackages';
 const Services = () => {
   const [selectedService, setSelectedService] = useState(servicesList[0]);
   const [viewMode, setViewMode] = useState<'detailed' | 'grid'>('grid');
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }, [selectedService]);
 
   const handleServiceClick = (service) => {
     if (service.external && service.href) {

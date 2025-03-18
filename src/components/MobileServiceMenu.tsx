@@ -20,6 +20,11 @@ const MobileServiceMenu: React.FC<MobileServiceMenuProps> = ({
   const handleServiceClick = (service: Service) => {
     onServiceClick(service);
     setIsMenuOpen(false);
+    // Scroll to top when selecting a service
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   };
 
   return (
