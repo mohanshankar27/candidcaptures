@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -16,25 +16,25 @@ const serviceItems: ServiceItem[] = [
   {
     id: 1,
     name: "Product Photography",
-    image: "/lovable-uploads/0abd204c-da72-4a05-87ae-39929aeedd9f.png",
+    image: "/lovable-uploads/8d5e6443-143d-4c94-be94-b1e0b3cc76b2.png",
     description: "Professional studio setup for capturing high-quality product images"
   },
   {
     id: 2,
     name: "PhotoShoot",
-    image: "/lovable-uploads/0abd204c-da72-4a05-87ae-39929aeedd9f.png",
+    image: "/lovable-uploads/b977d3f5-fd63-468d-ac7f-09766c3ab6c1.png",
     description: "Creative photography sessions tailored to your unique vision"
   },
   {
     id: 3,
     name: "Image Editing",
-    image: "/lovable-uploads/0abd204c-da72-4a05-87ae-39929aeedd9f.png",
+    image: "/lovable-uploads/932908b8-c3eb-4a8c-b97a-7948d2de4bce.png",
     description: "Expert retouching and enhancement to perfect your photographs"
   },
   {
     id: 4,
     name: "Automation Photography",
-    image: "/lovable-uploads/0abd204c-da72-4a05-87ae-39929aeedd9f.png",
+    image: "/lovable-uploads/f981f530-98b4-46e6-8063-68406ae598e1.png",
     description: "Streamlined photo capture and processing for high-volume needs"
   }
 ];
@@ -83,7 +83,7 @@ const ServiceSlider = () => {
     center: {
       x: 0,
       opacity: 1
-    },
+    }),
     exit: (direction: number) => ({
       x: direction < 0 ? 1000 : -1000,
       opacity: 0
@@ -91,7 +91,7 @@ const ServiceSlider = () => {
   };
 
   return (
-    <section className="py-16 relative bg-gradient-to-b from-white to-slate-50 overflow-hidden">
+    <section id="services" className="py-16 relative bg-gradient-to-b from-white to-slate-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70 font-serif italic">
