@@ -28,13 +28,13 @@ const ServiceSidebar: React.FC<ServiceSidebarProps> = ({
     <ResizablePanel defaultSize={25} minSize={20} maxSize={30} className="border-r-0">
       <div className="h-full overflow-y-auto border-r shadow-sm bg-white/80">
         <div className="p-3 font-bold text-xl border-b bg-white sticky top-0 text-center">
-          <span className="font-akaya text-[#003c72] text-2xl">Our Services</span>
+          <span className="font-akaya text-[#003c72] text-3xl">Our Services</span>
         </div>
         <div className="divide-y">
           {services.map((service) => (
             <button
               key={service.name}
-              className={`flex items-center justify-between w-full p-3 text-left text-sm hover:bg-muted transition-colors font-akaya ${
+              className={`flex items-center justify-between w-full p-3 text-left text-base hover:bg-muted transition-colors font-akaya ${
                 selectedService.name === service.name ? 'font-bold text-[#003c72]' : 'font-medium'
               }`}
               onClick={() => handleServiceClick(service)}
@@ -43,9 +43,9 @@ const ServiceSidebar: React.FC<ServiceSidebarProps> = ({
                 <span>{service.name}</span>
               </div>
               {service.external ? (
-                <ExternalLink className="w-4 h-4 flex-shrink-0" />
+                <ExternalLink className="w-5 h-5 flex-shrink-0" />
               ) : (
-                <ChevronRight className="w-4 h-4 flex-shrink-0" />
+                <ChevronRight className="w-5 h-5 flex-shrink-0" />
               )}
             </button>
           ))}

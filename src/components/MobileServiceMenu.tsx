@@ -30,15 +30,15 @@ const MobileServiceMenu: React.FC<MobileServiceMenuProps> = ({
   return (
     <div className="md:hidden mb-4 shadow-sm w-full">
       <div className="text-center py-3 mb-3">
-        <span className="text-2xl font-bold font-akaya text-[#003c72]">Our Services</span>
+        <span className="text-3xl font-bold font-akaya text-[#003c72]">Our Services</span>
       </div>
       <Button 
         variant="outline"
         className="flex items-center justify-between w-full p-3 font-akaya"
         onClick={() => setIsMenuOpen(!isMenuOpen)}
       >
-        <span className="text-lg font-bold font-akaya text-[#003c72]">{selectedService.name}</span>
-        <Menu className="h-5 w-5" />
+        <span className="text-xl font-bold font-akaya text-[#003c72]">{selectedService.name}</span>
+        <Menu className="h-6 w-6" />
       </Button>
       
       {isMenuOpen && (
@@ -47,13 +47,13 @@ const MobileServiceMenu: React.FC<MobileServiceMenuProps> = ({
             {services.map((service) => (
               <button
                 key={service.name}
-                className={`px-4 py-3 text-left border-b hover:bg-muted transition-colors text-base font-akaya ${
+                className={`px-4 py-3 text-left border-b hover:bg-muted transition-colors text-lg font-akaya ${
                   selectedService.name === service.name ? 'font-bold text-[#003c72]' : 'font-medium'
                 }`}
                 onClick={() => handleServiceClick(service)}
               >
                 <span className="truncate">{service.name}</span>
-                {service.external && <ExternalLink className="w-4 h-4 ml-1 inline-block" />}
+                {service.external && <ExternalLink className="w-5 h-5 ml-1 inline-block" />}
               </button>
             ))}
           </div>
