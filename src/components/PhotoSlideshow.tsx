@@ -7,6 +7,7 @@ import servicesList from '@/data/servicesList';
 import { Card, CardContent } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Button } from '@/components/ui/button';
+import ServicesGrid from './ServicesGrid';
 
 // Map service names to appropriate images
 const serviceImages = {
@@ -39,15 +40,7 @@ const serviceThumbnails = servicesList.map(service => ({
 const PhotoSlideshow = () => {
   const navigate = useNavigate();
   const [hoveredItem, setHoveredItem] = useState<number | null>(null);
-  const [activeGroup, setActiveGroup] = useState(0);
   
-  // Group services for featured showcase
-  const featuredServices = [
-    serviceThumbnails.slice(0, 6),
-    serviceThumbnails.slice(6, 12),
-    serviceThumbnails.slice(12)
-  ];
-
   const navigateToServices = (serviceName: string) => {
     const matchingService = servicesList.find(service => service.name === serviceName);
     
@@ -195,61 +188,19 @@ const PhotoSlideshow = () => {
           </Carousel>
         </motion.div>
         
-        {/* Featured Groups */}
-        <div className="mt-16">
-          <div className="flex justify-center mb-8 space-x-2">
-            {featuredServices.map((_, index) => (
-              <Button
-                key={index}
-                variant={activeGroup === index ? "default" : "outline"}
-                size="sm"
-                onClick={() => setActiveGroup(index)}
-                className={activeGroup === index ? "bg-orange-500 text-white hover:bg-orange-600" : "text-orange-700 hover:bg-orange-50"}
-              >
-                Group {index + 1}
-              </Button>
-            ))}
-          </div>
-          
+        {/* Services Grid - Arranged in rows of 4 */}
+        <div className="mt-16">          
           <motion.div 
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-6 gap-6"
-            key={activeGroup} // Force re-render for animation
+            className="w-full max-w-7xl mx-auto px-4"
           >
-            {featuredServices[activeGroup].map((service, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                onHoverStart={() => setHoveredItem(index)}
-                onHoverEnd={() => setHoveredItem(null)}
-                className="transform transition-all duration-500 hover:scale-105"
-              >
-                <Card 
-                  className="group cursor-pointer overflow-hidden transition-all duration-500 bg-white shadow-md hover:shadow-xl border-none"
-                  onClick={() => navigateToServices(service.name)}
-                >
-                  <div className="relative h-40 overflow-hidden">
-                    <div className="w-full h-full overflow-hidden bg-white">
-                      <img 
-                        src={service.image} 
-                        alt={service.name}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    </div>
-                  </div>
-                  <CardContent className="pt-3 pb-3 px-3 text-center bg-white">
-                    <h3 className="text-primary font-serif italic text-sm font-medium">
-                      {service.name}
-                    </h3>
-                    <div className="h-0.5 w-0 group-hover:w-1/2 bg-gradient-to-r from-orange-400 to-orange-300 mx-auto mt-1 transition-all duration-300"></div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+            <ServicesGrid 
+              services={servicesList} 
+              onServiceClick={(service) => navigateToServices(service.name)} 
+            />
           </motion.div>
         </div>
       </div>
