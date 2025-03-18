@@ -75,7 +75,7 @@ const PhotoSlideshow = () => {
   };
 
   return (
-    <section id="gallery" className="py-20 bg-gradient-to-b from-background via-secondary/10 to-secondary/30 relative overflow-hidden">
+    <section id="gallery" className="py-20 bg-gradient-to-b from-white via-slate-50 to-orange-50 relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
         <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-orange-200 blur-3xl"></div>
@@ -155,18 +155,27 @@ const PhotoSlideshow = () => {
                     >
                       <div className="aspect-[4/3] relative overflow-hidden">
                         <div className="absolute inset-0 bg-transparent group-hover:bg-transparent transition-colors duration-300 z-10"></div>
-                        <img 
-                          src={service.image} 
-                          alt={service.name}
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        />
+                        <motion.div
+                          whileHover={{ scale: 1.08 }}
+                          transition={{ duration: 0.7 }}
+                          className="w-full h-full"
+                        >
+                          <img 
+                            src={service.image} 
+                            alt={service.name}
+                            className="w-full h-full object-cover"
+                          />
+                        </motion.div>
                       </div>
                       <CardContent className="p-4 bg-white">
                         <div className="flex flex-col items-center justify-center">
                           <h3 className="text-primary font-serif italic text-xl font-medium mb-2 text-center">
                             {service.name}
                           </h3>
-                          <div className="h-0.5 w-12 bg-gradient-to-r from-orange-400 to-orange-300 mb-2"></div>
+                          <motion.div 
+                            className="h-0.5 w-12 bg-gradient-to-r from-orange-400 to-orange-300 mb-2"
+                            whileHover={{ width: "4rem" }}
+                          ></motion.div>
                           <Button 
                             variant="ghost" 
                             size="sm" 
@@ -195,7 +204,7 @@ const PhotoSlideshow = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="w-full max-w-7xl mx-auto px-4"
+            className="w-full max-w-7xl mx-auto"
           >
             <ServicesGrid 
               services={servicesList} 

@@ -4,6 +4,7 @@ import { Service } from '@/data/servicesList';
 import { Card, CardContent } from '@/components/ui/card';
 import { ExternalLink, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { motion } from 'framer-motion';
 
 // Map service names to appropriate images
 const serviceImages = {
@@ -50,51 +51,89 @@ const ServicesGrid: React.FC<ServicesGridProps> = ({ services, onServiceClick })
   };
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 w-full">
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 w-full">
       {services.map((service, index) => (
-        <Card 
+        <motion.div
           key={service.name}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ 
+            duration: 0.5, 
+            delay: index * 0.1,
+            ease: [0.43, 0.13, 0.23, 0.96] 
+          }}
+          whileHover={{ scale: isHighlighted(index) ? 1.02 : 1.05 }}
           className={cn(
-            "cursor-pointer transition-all overflow-hidden",
-            "border border-amber-100 hover:border-orange-200",
-            "bg-gradient-to-br from-secondary/50 to-background",
-            "group",
-            "animate-fadeIn",
-            "relative",
-            // Apply highlight effect to the currently hovered service 
-            // and services in the same row (group of 4)
-            hoveredIndex === index 
-              ? "shadow-lg shadow-orange-200 scale-105 z-10" 
-              : isHighlighted(index) 
-                ? "shadow-md shadow-orange-100 scale-[1.02] z-[5]" 
-                : "hover:shadow-lg hover:shadow-orange-100",
-            // Stagger the animations slightly for a cascading effect
-            `transition-delay-${Math.min(index * 100, 700)}`
+            "p-1", 
+            hoveredIndex === index ? "z-20" : isHighlighted(index) ? "z-10" : "z-0"
           )}
-          onClick={() => onServiceClick(service)}
-          onMouseEnter={() => setHoveredIndex(index)}
-          onMouseLeave={() => setHoveredIndex(null)}
         >
-          <div className="aspect-[4/3] relative overflow-hidden">
-            <img 
-              src={serviceImages[service.name] || "/lovable-uploads/0e3af22f-eb15-463b-80be-159d6b53f595.png"} 
-              alt={service.name}
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-80"></div>
-          </div>
-          <div className="absolute bottom-0 left-0 right-0 p-3">
-            <div className="text-base font-medium text-center font-serif italic text-white group-hover:scale-105 transition-transform bg-black/40 backdrop-blur-sm py-1.5 px-2 rounded">
-              {service.name}
-              {service.external && (
-                <ExternalLink className="w-3.5 h-3.5 ml-1 inline-block opacity-60" />
-              )}
-              {hoveredIndex === index && (
-                <Sparkles className="w-3.5 h-3.5 ml-1 inline-block text-orange-300 animate-pulse" />
-              )}
+          <Card 
+            className={cn(
+              "cursor-pointer overflow-hidden",
+              "bg-white border-0",
+              "rounded-xl",
+              "transition-all duration-500",
+              // Premium shadow effects
+              hoveredIndex === index 
+                ? "shadow-[0_15px_30px_rgba(0,0,0,0.15)]" 
+                : isHighlighted(index) 
+                  ? "shadow-[0_10px_20px_rgba(0,0,0,0.1)]" 
+                  : "shadow-[0_5px_15px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_25px_rgba(0,0,0,0.12)]",
+            )}
+            onClick={() => onServiceClick(service)}
+            onMouseEnter={() => setHoveredIndex(index)}
+            onMouseLeave={() => setHoveredIndex(null)}
+          >
+            <div className="p-2 bg-white">
+              <div className="aspect-[4/3] relative overflow-hidden rounded-lg">
+                <motion.div 
+                  className="w-full h-full"
+                  whileHover={{ scale: 1.08 }}
+                  transition={{ duration: 0.7 }}
+                >
+                  <img 
+                    src={serviceImages[service.name] || "/lovable-uploads/0e3af22f-eb15-463b-80be-159d6b53f595.png"} 
+                    alt={service.name}
+                    className="w-full h-full object-cover"
+                  />
+                </motion.div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-80"></div>
+              </div>
+              
+              <div className="py-3 px-2 relative">
+                <div className={cn(
+                  "text-base font-medium text-center font-serif italic",
+                  "text-primary transition-all duration-300",
+                  "relative",
+                  hoveredIndex === index ? "text-orange-600" : ""
+                )}>
+                  {service.name}
+                  {service.external && (
+                    <ExternalLink className="w-3.5 h-3.5 ml-1 inline-block opacity-60" />
+                  )}
+                  {hoveredIndex === index && (
+                    <motion.span
+                      initial={{ opacity: 0, scale: 0 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      className="inline-flex ml-2"
+                    >
+                      <Sparkles className="w-3.5 h-3.5 text-orange-400 animate-pulse" />
+                    </motion.span>
+                  )}
+                </div>
+                
+                {/* Animated underline effect */}
+                <motion.div 
+                  className="h-0.5 bg-gradient-to-r from-orange-400 to-orange-200 mt-1 mx-auto"
+                  initial={{ width: 0 }}
+                  animate={{ width: hoveredIndex === index || isHighlighted(index) ? "70%" : "20%" }}
+                  transition={{ duration: 0.3 }}
+                />
+              </div>
             </div>
-          </div>
-        </Card>
+          </Card>
+        </motion.div>
       ))}
     </div>
   );
