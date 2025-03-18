@@ -58,27 +58,63 @@ const Navbar = () => {
 
   return (
     <nav className="fixed w-full bg-background/90 backdrop-blur-sm z-50 shadow-sm border-b">
-      <div className="container mx-auto px-0">
-        <div className="flex justify-between items-center h-28">
-          <button 
-            onClick={handleLogoClick}
-            className="flex items-center focus:outline-none pl-2"
-          >
-            <img 
-              src="/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png" 
-              alt="Candid Capture Photography" 
-              className="h-48 w-auto object-contain" 
-              loading="eager"
-              fetchPriority="high"
-            />
-          </button>
+      <div className="w-full flex justify-between items-center h-28 px-0">
+        <button 
+          onClick={handleLogoClick}
+          className="flex items-center focus:outline-none pl-4"
+        >
+          <img 
+            src="/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png" 
+            alt="Candid Capture Photography" 
+            className="h-48 w-auto object-contain" 
+            loading="eager"
+            fetchPriority="high"
+          />
+        </button>
 
-          <div className="hidden lg:flex items-center space-x-8 pr-4">
+        <div className="hidden lg:flex items-center space-x-8 pr-8">
+          {navItems.map((item) => (
+            <Link
+              key={item.name}
+              to={item.href}
+              className={`flex items-center gap-2 transition-colors text-base font-medium font-serif italic ${
+                isActive(item.href) ? 'text-[#003c72] font-bold' : 'hover:text-primary'
+              }`}
+              onClick={(e) => {
+                if (item.href.startsWith('/#')) {
+                  e.preventDefault();
+                  const sectionId = item.href.substring(2);
+                  const section = document.getElementById(sectionId);
+                  if (section) {
+                    section.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }
+              }}
+            >
+              {item.name}
+            </Link>
+          ))}
+        </div>
+
+        <div className="lg:hidden flex items-center pr-4">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="hover:text-primary transition-colors"
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+      </div>
+
+      {isOpen && (
+        <div className="lg:hidden pb-6 animate-fadeIn bg-background/95 backdrop-blur-sm">
+          <div className="py-4">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.href}
-                className={`flex items-center gap-2 transition-colors text-base font-medium font-serif italic ${
+                className={`flex items-center gap-2 py-2 transition-colors text-base font-serif italic ${
                   isActive(item.href) ? 'text-[#003c72] font-bold' : 'hover:text-primary'
                 }`}
                 onClick={(e) => {
@@ -90,53 +126,15 @@ const Navbar = () => {
                       section.scrollIntoView({ behavior: 'smooth' });
                     }
                   }
+                  setIsOpen(false);
                 }}
               >
                 {item.name}
               </Link>
             ))}
           </div>
-
-          <div className="lg:hidden flex items-center pr-4">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="hover:text-primary transition-colors"
-              aria-label="Toggle menu"
-            >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
         </div>
-
-        {isOpen && (
-          <div className="lg:hidden pb-6 animate-fadeIn bg-background/95 backdrop-blur-sm">
-            <div className="py-4">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className={`flex items-center gap-2 py-2 transition-colors text-base font-serif italic ${
-                    isActive(item.href) ? 'text-[#003c72] font-bold' : 'hover:text-primary'
-                  }`}
-                  onClick={(e) => {
-                    if (item.href.startsWith('/#')) {
-                      e.preventDefault();
-                      const sectionId = item.href.substring(2);
-                      const section = document.getElementById(sectionId);
-                      if (section) {
-                        section.scrollIntoView({ behavior: 'smooth' });
-                      }
-                    }
-                    setIsOpen(false);
-                  }}
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div>
-          </div>
-        )}
-      </div>
+      )}
     </nav>
   );
 };
