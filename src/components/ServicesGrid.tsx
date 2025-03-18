@@ -25,7 +25,7 @@ const ServicesGrid: React.FC<ServicesGridProps> = ({ services, onServiceClick })
           onClick={() => onServiceClick(service)}
         >
           <CardContent className="p-3 flex items-center justify-center h-full">
-            <div className="text-base font-bold text-center font-serif italic text-primary">
+            <div className="text-base font-bold text-center font-serif italic text-[#003c72]">
               {service.name}
               {service.external && (
                 <ExternalLink className="w-3.5 h-3.5 ml-1 inline-block opacity-60" />
