@@ -24,10 +24,7 @@ const ServicesGrid: React.FC<ServicesGridProps> = ({ services, onServiceClick })
           )}
           onClick={() => onServiceClick(service)}
         >
-          <CardContent className="p-0.5 flex items-center gap-1 h-full">
-            <div className="text-primary group-hover:scale-110 transition-transform duration-200 flex-shrink-0 ml-1">
-              {service.icon}
-            </div>
+          <CardContent className="p-2 flex items-center h-full">
             <div className="text-xs font-medium line-clamp-1 leading-tight">
               {service.name}
               {service.external && (

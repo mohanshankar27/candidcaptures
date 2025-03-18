@@ -1,14 +1,8 @@
 
-import { 
-  Heart, Camera, Users, ShoppingBag, Utensils, Building, Video, 
-  Baby, Star, User, Image, Gift, Flower, Key, Lightbulb, Mail, 
-  MapPin, Music, Package, Phone, Settings, Shield, Tag, Tv
-} from 'lucide-react';
 import React from 'react';
 
 export interface Service {
   name: string;
-  icon: React.ReactNode;
   description: string;
   benefits?: string[];
   pricing?: string;
@@ -18,8 +12,7 @@ export interface Service {
 
 const servicesList: Service[] = [
   { 
-    name: 'Concept shoot', 
-    icon: <Lightbulb className="w-5 h-5 text-amber-400" />,
+    name: 'Concept shoot',
     description: 'Bring your creative vision to life with our concept photography services. We work closely with you to translate your ideas into powerful visual stories.',
     benefits: [
       'Creative consultation',
@@ -30,8 +23,7 @@ const servicesList: Service[] = [
     pricing: 'Custom quotes based on concept requirements'
   },
   { 
-    name: 'Corporate & Short Videos', 
-    icon: <Video className="w-5 h-5 text-red-500" />,
+    name: 'Corporate & Short Videos',
     description: 'Professional video services for corporate communications, events, promotions, and social media content that elevate your brand message and engage your audience.',
     benefits: [
       'Scriptwriting assistance',
@@ -43,8 +35,7 @@ const servicesList: Service[] = [
     pricing: 'Starting at ₹20,000 for short videos'
   },
   { 
-    name: 'Corporate Headshots', 
-    icon: <User className="w-5 h-5 text-blue-500" />,
+    name: 'Corporate Headshots',
     description: 'Professional headshots for corporate teams and individuals that convey confidence and approachability, perfect for websites, LinkedIn, and marketing materials.',
     benefits: [
       'On-site photography options',
@@ -56,8 +47,7 @@ const servicesList: Service[] = [
     pricing: 'Starting at ₹2,500 per person with group discounts'
   },
   { 
-    name: 'E-Commerce & Catalogues', 
-    icon: <ShoppingBag className="w-5 h-5 text-purple-500" />,
+    name: 'E-Commerce & Catalogues',
     description: 'Comprehensive photography services for e-commerce platforms and product catalogues with consistent styling and high-quality imagery that boosts conversions.',
     benefits: [
       'Bulk product photography',
@@ -69,8 +59,7 @@ const servicesList: Service[] = [
     pricing: 'Starting at ₹800 per product with package options'
   },
   { 
-    name: 'Event Photography', 
-    icon: <Users className="w-5 h-5 text-green-500" />,
+    name: 'Event Photography',
     description: 'Capture the energy and important moments of your corporate events, celebrations, and gatherings with our professional event photography services.',
     benefits: [
       'Multiple photographer options',
@@ -82,8 +71,7 @@ const servicesList: Service[] = [
     pricing: 'Starting at ₹15,000 for 4-hour coverage'
   },
   { 
-    name: 'Family Portraits', 
-    icon: <Users className="w-5 h-5 text-orange-500" />,
+    name: 'Family Portraits',
     description: 'Beautiful, timeless family portraits that capture connections and personalities in studio settings or meaningful locations of your choice.',
     benefits: [
       'Family grouping guidance',
@@ -95,8 +83,7 @@ const servicesList: Service[] = [
     pricing: 'Starting at ₹6,000 per session'
   },
   { 
-    name: 'Fashion Photography', 
-    icon: <Camera className="w-5 h-5 text-pink-500" />,
+    name: 'Fashion Photography',
     description: 'Creative and technical fashion photography services for designers, boutiques, and fashion brands that highlight style and craftsmanship.',
     benefits: [
       'Styling collaboration',
@@ -108,8 +95,7 @@ const servicesList: Service[] = [
     pricing: 'Starting at ₹18,000 per collection'
   },
   { 
-    name: 'Food Photography', 
-    icon: <Utensils className="w-5 h-5 text-amber-500" />,
+    name: 'Food Photography',
     description: 'Appetizing food photography for restaurants, menus, cookbooks, and food brands that showcases culinary creations in their best light.',
     benefits: [
       'Food styling expertise',
@@ -121,8 +107,7 @@ const servicesList: Service[] = [
     pricing: 'Starting at ₹1,500 per dish'
   },
   { 
-    name: 'Makeup shoot', 
-    icon: <Music className="w-5 h-5 text-rose-400" />,
+    name: 'Makeup shoot',
     description: 'Specialized photography for makeup artists and beauty professionals to showcase their work with high-quality, detailed images.',
     benefits: [
       'Macro photography for fine details',
@@ -133,8 +118,7 @@ const servicesList: Service[] = [
     pricing: 'Starting at ₹7,000 per session'
   },
   { 
-    name: 'Maternity Photography', 
-    icon: <Heart className="w-5 h-5 text-pink-400" />,
+    name: 'Maternity Photography',
     description: 'Elegant maternity photography sessions that celebrate the beauty of pregnancy with artistic and intimate portraits.',
     benefits: [
       'Partner and family inclusion',
@@ -146,8 +130,7 @@ const servicesList: Service[] = [
     pricing: 'Starting at ₹8,000 per session'
   },
   { 
-    name: 'Matrimonial Portfolios', 
-    icon: <Heart className="w-5 h-5 text-red-400" />,
+    name: 'Matrimonial Portfolios',
     description: 'Professional portraits specifically designed for matrimonial profiles that present you in an authentic and appealing way.',
     benefits: [
       'Multiple outfit options',
@@ -159,8 +142,7 @@ const servicesList: Service[] = [
     pricing: 'Starting at ₹5,000 per portfolio'
   },
   { 
-    name: 'Naming Ceremony', 
-    icon: <Gift className="w-5 h-5 text-emerald-500" />,
+    name: 'Naming Ceremony',
     description: "Document your child's naming ceremony with professional photography that captures all the meaningful moments and traditions of this important celebration.",
     benefits: [
       'Ceremony coverage',
@@ -171,8 +153,7 @@ const servicesList: Service[] = [
     pricing: 'Starting at ₹12,000 for full ceremony coverage'
   },
   { 
-    name: 'New Born Baby Shoot', 
-    icon: <Baby className="w-5 h-5 text-pink-300" />,
+    name: 'New Born Baby Shoot',
     description: "Capture those precious first days and weeks of your baby's life with our professional newborn photography. We create gentle, timeless portraits in a safe and comfortable setting.",
     benefits: [
       'Trained in newborn safety',
@@ -184,8 +165,7 @@ const servicesList: Service[] = [
     pricing: 'Starting at ₹8,000 per session'
   },
   { 
-    name: 'Product Photography', 
-    icon: <ShoppingBag className="w-5 h-5 text-cyan-500" />,
+    name: 'Product Photography',
     description: 'Detailed product photography that highlights features and craftsmanship for marketing materials, websites, and sales presentations.',
     benefits: [
       'White background options',
@@ -197,8 +177,7 @@ const servicesList: Service[] = [
     pricing: 'Starting at ₹1,200 per product'
   },
   { 
-    name: 'Product shoot', 
-    icon: <Tag className="w-5 h-5 text-slate-500" />,
+    name: 'Product shoot',
     description: 'Showcase your products with professional photography that highlights features, quality, and details that matter to your customers.',
     benefits: [
       'Custom backgrounds and props',
@@ -209,8 +188,7 @@ const servicesList: Service[] = [
     pricing: 'Starting at ₹1,200 per product with packages available'
   },
   { 
-    name: 'Special Services', 
-    icon: <Star className="w-5 h-5 text-purple-400" />,
+    name: 'Special Services',
     description: 'Custom photography solutions for unique requirements and specialized projects beyond our standard service offerings.',
     benefits: [
       'Personalized consultation',
@@ -222,8 +200,7 @@ const servicesList: Service[] = [
     pricing: 'Custom quotes based on project scope'
   },
   { 
-    name: 'Toddler & Children', 
-    icon: <Baby className="w-5 h-5 text-blue-400" />,
+    name: 'Toddler & Children',
     description: 'Playful and natural photography sessions for toddlers and children that capture their personality, joy, and milestone moments.',
     benefits: [
       'Child-friendly environment',
@@ -235,8 +212,7 @@ const servicesList: Service[] = [
     pricing: 'Starting at ₹5,000 per session'
   },
   { 
-    name: 'Wedding Photography', 
-    icon: <Heart className="w-5 h-5 text-red-600" />,
+    name: 'Wedding Photography',
     description: 'Capture the most important day of your life with our professional wedding photography services. We focus on candid moments and emotions that tell your unique love story.',
     benefits: [
       'Full day coverage',

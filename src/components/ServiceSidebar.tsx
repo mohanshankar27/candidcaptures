@@ -28,9 +28,8 @@ const ServiceSidebar: React.FC<ServiceSidebarProps> = ({
               }`}
               onClick={() => onServiceClick(service)}
             >
-              <div className="flex items-center gap-1 truncate">
-                {service.icon}
-                <span className="truncate">{service.name}</span>
+              <div className="truncate">
+                <span>{service.name}</span>
               </div>
               {service.external ? (
                 <ExternalLink className="w-2.5 h-2.5 flex-shrink-0" />
