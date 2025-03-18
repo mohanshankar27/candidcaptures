@@ -46,6 +46,9 @@ export default {
         "ken-burns": {
           "0%": { transform: "scale(1)" },
           "100%": { transform: "scale(1.1)" },
+        },
+        shimmer: {
+          "100%": { transform: "translateX(100%)" }
         }
       },
       animation: {
