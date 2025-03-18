@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, memo } from 'react';
 import { 
   Carousel, 
   CarouselContent, 
@@ -90,6 +90,7 @@ const PhotoSlideshow = () => {
                       src={photo} 
                       alt={`Photography collection ${index + 1}`} 
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      loading={index < 3 ? "eager" : "lazy"}
                     />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
                   </div>
@@ -106,9 +107,9 @@ const PhotoSlideshow = () => {
       </div>
 
       {/* Enlarged Image View */}
-      <Dialog open={enlargedImageIndex !== null} onOpenChange={closeImageView}>
-        <DialogContent className="max-w-5xl p-0 border-4 border-[#1e40af] bg-black" onClick={(e) => e.stopPropagation()}>
-          {enlargedImageIndex !== null && (
+      {enlargedImageIndex !== null && (
+        <Dialog open={enlargedImageIndex !== null} onOpenChange={closeImageView}>
+          <DialogContent className="max-w-5xl p-0 border-4 border-[#1e40af] bg-black" onClick={(e) => e.stopPropagation()}>
             <div className="relative w-full h-[80vh]">
               <img 
                 src={slideshowPhotos[enlargedImageIndex]} 
@@ -148,11 +149,11 @@ const PhotoSlideshow = () => {
                 ))}
               </div>
             </div>
-          )}
-        </DialogContent>
-      </Dialog>
+          </DialogContent>
+        </Dialog>
+      )}
     </section>
   );
 };
 
-export default PhotoSlideshow;
+export default memo(PhotoSlideshow);

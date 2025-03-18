@@ -68,6 +68,8 @@ const Navbar = () => {
               src="/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png" 
               alt="Candid Capture Photography" 
               className="h-24 w-auto object-contain"
+              loading="eager"
+              fetchpriority="high"
             />
           </button>
 

@@ -1,26 +1,37 @@
-import { useState, useEffect } from 'react';
+
+import { useState, useEffect, lazy, Suspense } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import ServiceContent from '@/components/ServiceContent';
 import { ResizablePanelGroup, ResizableHandle, ResizablePanel } from '@/components/ui/resizable';
 import ServiceSidebar from '@/components/ServiceSidebar';
 import MobileServiceMenu from '@/components/MobileServiceMenu';
 import servicesList from '@/data/servicesList';
 import { Grid, List } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import ServicesGrid from '@/components/ServicesGrid';
-import PricePackages from '@/components/PricePackages';
+
+// Lazy load components that aren't needed immediately
+const ServiceContent = lazy(() => import('@/components/ServiceContent'));
+const ServicesGrid = lazy(() => import('@/components/ServicesGrid'));
+const PricePackages = lazy(() => import('@/components/PricePackages'));
 
 const Services = () => {
   const [selectedService, setSelectedService] = useState(servicesList[0]);
   const [viewMode, setViewMode] = useState<'detailed' | 'grid'>('grid');
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    // Mark as loaded shortly after mount
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 300);
+    
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
     });
-  }, [selectedService]);
+    
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleServiceClick = (service) => {
     if (service.external && service.href) {
@@ -40,7 +51,7 @@ const Services = () => {
       <Navbar />
       
       <div className="flex-1 pt-16 pb-8 w-full">
-        <div className="w-full mx-0 px-0"> {/* Full width container */}
+        <div className="w-full mx-0 px-0">
           <div className="flex justify-between items-center mb-3 px-4">
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#003c72]">
               {viewMode === 'grid' ? 'Premium Services' : selectedService.name}
@@ -58,51 +69,55 @@ const Services = () => {
             </div>
           </div>
           
-          {viewMode === 'grid' ? (
-            <div className="bg-white/50 backdrop-blur-sm p-4 rounded-lg shadow-sm border border-primary/5 mx-4">
-              <ServicesGrid services={servicesList} onServiceClick={handleServiceClick} />
-            </div>
-          ) : (
-            <>
-              <div className="px-4">
-                <MobileServiceMenu 
-                  services={servicesList} 
-                  selectedService={selectedService} 
-                  onServiceClick={handleServiceClick} 
-                />
+          <Suspense fallback={<div className="p-4 text-center">Loading services...</div>}>
+            {viewMode === 'grid' ? (
+              <div className="bg-white/50 backdrop-blur-sm p-4 rounded-lg shadow-sm border border-primary/5 mx-4">
+                <ServicesGrid services={servicesList} onServiceClick={handleServiceClick} />
               </div>
-              
-              <div className="hidden md:block w-full">
-                <ResizablePanelGroup 
-                  direction="horizontal" 
-                  className="min-h-[calc(100vh-200px)] w-full overflow-hidden"
-                >
-                  <ServiceSidebar 
+            ) : (
+              <>
+                <div className="px-4">
+                  <MobileServiceMenu 
                     services={servicesList} 
                     selectedService={selectedService} 
                     onServiceClick={handleServiceClick} 
                   />
-                  
-                  <ResizableHandle withHandle />
-                  
-                  <ResizablePanel defaultSize={75} minSize={60}>
-                    <div className="h-full overflow-y-auto px-4">
-                      <ServiceContent service={selectedService} />
-                    </div>
-                  </ResizablePanel>
-                </ResizablePanelGroup>
+                </div>
+                
+                <div className="hidden md:block w-full">
+                  <ResizablePanelGroup 
+                    direction="horizontal" 
+                    className="min-h-[calc(100vh-200px)] w-full overflow-hidden"
+                  >
+                    <ServiceSidebar 
+                      services={servicesList} 
+                      selectedService={selectedService} 
+                      onServiceClick={handleServiceClick} 
+                    />
+                    
+                    <ResizableHandle withHandle />
+                    
+                    <ResizablePanel defaultSize={75} minSize={60}>
+                      <div className="h-full overflow-y-auto px-4">
+                        <ServiceContent service={selectedService} />
+                      </div>
+                    </ResizablePanel>
+                  </ResizablePanelGroup>
+                </div>
+                
+                <div className="md:hidden mt-4 px-4">
+                  <ServiceContent service={selectedService} />
+                </div>
+              </>
+            )}
+            
+            {/* Price Packages section */}
+            {!isLoading && (
+              <div className="px-4 mt-8">
+                <PricePackages />
               </div>
-              
-              <div className="md:hidden mt-4 px-4">
-                <ServiceContent service={selectedService} />
-              </div>
-            </>
-          )}
-          
-          {/* Price Packages section */}
-          <div className="px-4 mt-8">
-            <PricePackages />
-          </div>
+            )}
+          </Suspense>
         </div>
       </div>
       
