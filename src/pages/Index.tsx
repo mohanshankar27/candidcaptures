@@ -8,7 +8,6 @@ import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import Reviews from "@/components/Reviews";
 import PhotoSlideshow from "@/components/PhotoSlideshow";
-import WeddingPhotos from "@/components/WeddingPhotos";
 
 const Index = () => {
   return (
@@ -17,7 +16,6 @@ const Index = () => {
       <Hero />
       <PhotoSlideshow />
       <Gallery />
-      <WeddingPhotos />
       <Reviews />
       <CTA />
       <About />
