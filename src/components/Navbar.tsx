@@ -1,7 +1,6 @@
-
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link, useLocation } from 'react-router-dom';
 import {
   Menubar,
   MenubarContent,
@@ -13,6 +12,7 @@ import {
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const services = [
     { name: 'Wedding Photography' },
@@ -48,6 +48,13 @@ const Navbar = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const isActive = (path) => {
+    if (path.startsWith('/#')) {
+      return false;
+    }
+    return location.pathname === path;
+  };
+
   return (
     <nav className="fixed w-full bg-background/90 backdrop-blur-sm z-50 shadow-sm border-b">
       <div className="container mx-auto px-4">
@@ -68,7 +75,9 @@ const Navbar = () => {
               <Link
                 key={item.name}
                 to={item.href.startsWith('/') ? item.href : item.href}
-                className="flex items-center gap-2 hover:text-primary transition-colors text-base font-medium font-serif italic"
+                className={`flex items-center gap-2 transition-colors text-base font-medium font-serif italic ${
+                  isActive(item.href) ? 'text-[#003c72] font-bold' : 'hover:text-primary'
+                }`}
                 onClick={(e) => {
                   if (item.href.startsWith('#')) {
                     e.preventDefault();
@@ -103,7 +112,9 @@ const Navbar = () => {
                 <Link
                   key={item.name}
                   to={item.href.startsWith('/') ? item.href : item.href}
-                  className="flex items-center gap-2 py-2 hover:text-primary transition-colors text-base font-serif italic"
+                  className={`flex items-center gap-2 py-2 transition-colors text-base font-serif italic ${
+                    isActive(item.href) ? 'text-[#003c72] font-bold' : 'hover:text-primary'
+                  }`}
                   onClick={(e) => {
                     if (item.href.startsWith('#')) {
                       e.preventDefault();
