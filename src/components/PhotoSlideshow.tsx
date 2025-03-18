@@ -2,6 +2,7 @@
 import { memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import servicesList from '@/data/servicesList';
+import { Card, CardContent } from '@/components/ui/card';
 
 // Map service names to appropriate images
 const serviceImages = {
@@ -45,30 +46,45 @@ const PhotoSlideshow = () => {
   };
 
   return (
-    <section id="gallery" className="py-16 bg-background">
+    <section id="gallery" className="py-20 bg-gradient-to-b from-background to-secondary/20">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-10">Our Photography Collection</h2>
+        <div className="max-w-3xl mx-auto text-center mb-16">
+          <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary text-sm font-medium rounded-full mb-4">
+            EXQUISITE COLLECTION
+          </span>
+          <h2 className="text-4xl md:text-5xl font-serif italic font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-500">
+            Our Photography Collection
+          </h2>
+          <div className="w-20 h-1 bg-gradient-to-r from-primary to-blue-500 mx-auto mb-6"></div>
+          <p className="text-gray-600 text-lg font-serif italic">
+            Each image tells a story, each moment captured becomes eternal
+          </p>
+        </div>
         
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
           {serviceThumbnails.map((service, index) => (
-            <div 
+            <Card 
               key={index}
-              className="cursor-pointer hover:shadow-lg transition-all duration-300 rounded-lg overflow-hidden bg-white"
+              className="group cursor-pointer overflow-hidden border-0 bg-transparent shadow-none transition-all duration-500 hover:shadow-xl hover:shadow-primary/10"
               onClick={() => navigateToServices(service.name)}
             >
-              <div className="h-32 overflow-hidden">
+              <div className="relative h-36 sm:h-44 overflow-hidden rounded-xl">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60 z-10"></div>
                 <img 
                   src={service.image} 
                   alt={service.name}
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 rounded-xl"
                 />
+                <div className="absolute bottom-0 left-0 right-0 p-3 z-20 transform transition-transform duration-500 group-hover:translate-y-0">
+                  <h3 className="text-white font-serif italic text-center text-sm font-medium drop-shadow-lg">
+                    {service.name}
+                  </h3>
+                </div>
               </div>
-              <div className="p-3 text-center bg-primary/5 border-t border-primary/10">
-                <h3 className="text-sm font-medium text-primary font-serif italic">
-                  {service.name}
-                </h3>
-              </div>
-            </div>
+              <CardContent className="pt-3 pb-0 px-1">
+                <div className="h-0.5 w-0 bg-gradient-to-r from-primary to-blue-400 mx-auto transition-all duration-500 group-hover:w-1/2"></div>
+              </CardContent>
+            </Card>
           ))}
         </div>
       </div>
