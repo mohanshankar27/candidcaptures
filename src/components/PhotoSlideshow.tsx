@@ -14,7 +14,7 @@ import servicesList from '@/data/servicesList';
 
 // Map service names to appropriate images
 const serviceImages = {
-  'Concept shoot': "/lovable-uploads/3b0c013d-b9fb-40c8-b991-7781c698945e.png",
+  'Concept shoot': "/lovable-uploads/a6d35b17-76d1-4a77-89b4-5760943e213b.png",
   'Corporate & Short Videos': "/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png",
   'Corporate Headshots': "/lovable-uploads/53584cdb-e83c-4e6f-8b99-37ba6c8fc6b8.png",
   'E-Commerce & Catalogues': "/lovable-uploads/8d5e6443-143d-4c94-be94-b1e0b3cc76b2.png",
@@ -37,7 +37,7 @@ const serviceImages = {
 // Create service thumbnails with proper image mapping
 const serviceThumbnails = servicesList.map(service => ({
   name: service.name,
-  image: serviceImages[service.name] || "/lovable-uploads/0e3af22f-eb15-463b-80be-159d6b53f595.png" // Fallback image
+  image: serviceImages[service.name] || "/lovable-uploads/0e3af22f-eb15-463b-80be-159d6b53f595.png"
 }));
 
 const slideshowPhotos = [
