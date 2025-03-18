@@ -58,11 +58,11 @@ const Navbar = () => {
 
   return (
     <nav className="fixed w-full bg-background/90 backdrop-blur-sm z-50 shadow-sm border-b">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-0">
         <div className="flex justify-between items-center h-28">
           <button 
             onClick={handleLogoClick}
-            className="flex items-center focus:outline-none"
+            className="flex items-center focus:outline-none pl-2"
           >
             <img 
               src="/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png" 
@@ -73,7 +73,7 @@ const Navbar = () => {
             />
           </button>
 
-          <div className="hidden lg:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-8 pr-4">
             {navItems.map((item) => (
               <Link
                 key={item.name}
@@ -97,7 +97,7 @@ const Navbar = () => {
             ))}
           </div>
 
-          <div className="lg:hidden flex items-center">
+          <div className="lg:hidden flex items-center pr-4">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="hover:text-primary transition-colors"
