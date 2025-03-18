@@ -29,8 +29,8 @@ const MobileServiceMenu: React.FC<MobileServiceMenuProps> = ({
         className="flex items-center justify-between w-full"
         onClick={() => setIsMenuOpen(!isMenuOpen)}
       >
-        <span className="text-base font-serif italic">{selectedService.name}</span> {/* Changed from text-sm to text-base and added font-serif italic */}
-        <Menu className="h-5 w-5" /> {/* Increased from h-4 w-4 to h-5 w-5 */}
+        <span className="text-base font-serif italic">{selectedService.name}</span>
+        <Menu className="h-5 w-5" />
       </Button>
       
       {isMenuOpen && (
@@ -41,11 +41,11 @@ const MobileServiceMenu: React.FC<MobileServiceMenuProps> = ({
                 key={service.name}
                 className={`px-2 py-1.5 text-left rounded hover:bg-muted transition-colors text-sm ${
                   selectedService.name === service.name ? 'bg-muted font-medium' : ''
-                }`} {/* Changed from px-1.5 py-1 text-xs to px-2 py-1.5 text-sm */}
+                }`}
                 onClick={() => handleServiceClick(service)}
               >
                 <span className="truncate">{service.name}</span>
-                {service.external && <ExternalLink className="w-3.5 h-3.5 ml-1 inline-block" />} {/* Increased from w-2.5 h-2.5 to w-3.5 h-3.5 */}
+                {service.external && <ExternalLink className="w-3.5 h-3.5 ml-1 inline-block" />}
               </button>
             ))}
           </div>

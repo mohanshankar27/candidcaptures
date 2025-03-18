@@ -18,23 +18,23 @@ const ServiceSidebar: React.FC<ServiceSidebarProps> = ({
   return (
     <ResizablePanel defaultSize={25} minSize={20} maxSize={30}>
       <div className="h-full overflow-y-auto border-r">
-        <div className="p-2 font-medium text-sm border-b">Our Services</div> {/* Changed from p-1.5 text-xs to p-2 text-sm */}
+        <div className="p-2 font-medium text-sm border-b">Our Services</div>
         <div className="divide-y">
           {services.map((service) => (
             <button
               key={service.name}
               className={`flex items-center justify-between w-full p-2.5 text-left text-sm hover:bg-muted transition-colors ${
                 selectedService.name === service.name ? 'bg-muted font-medium' : ''
-              }`} {/* Changed from p-1.5 text-xs to p-2.5 text-sm */}
+              }`}
               onClick={() => onServiceClick(service)}
             >
               <div className="truncate">
                 <span>{service.name}</span>
               </div>
               {service.external ? (
-                <ExternalLink className="w-3.5 h-3.5 flex-shrink-0" /> /* Increased from w-2.5 h-2.5 to w-3.5 h-3.5 */
+                <ExternalLink className="w-3.5 h-3.5 flex-shrink-0" />
               ) : (
-                <ChevronRight className="w-3.5 h-3.5 flex-shrink-0" /> /* Increased from w-2.5 h-2.5 to w-3.5 h-3.5 */
+                <ChevronRight className="w-3.5 h-3.5 flex-shrink-0" />
               )}
             </button>
           ))}
