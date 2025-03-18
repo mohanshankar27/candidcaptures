@@ -1,4 +1,3 @@
-
 import { useState, useEffect, memo } from 'react';
 import { 
   Carousel, 
@@ -15,7 +14,7 @@ import servicesList from '@/data/servicesList';
 
 // Map service names to appropriate images
 const serviceImages = {
-  'Concept shoot': "/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png",
+  'Concept shoot': "/lovable-uploads/3b0c013d-b9fb-40c8-b991-7781c698945e.png",
   'Corporate & Short Videos': "/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png",
   'Corporate Headshots': "/lovable-uploads/53584cdb-e83c-4e6f-8b99-37ba6c8fc6b8.png",
   'E-Commerce & Catalogues': "/lovable-uploads/8d5e6443-143d-4c94-be94-b1e0b3cc76b2.png",
@@ -25,7 +24,7 @@ const serviceImages = {
   'Food Photography': "/lovable-uploads/615d3ac6-4345-48d6-9ed9-b794c68b0307.png",
   'Makeup shoot': "/lovable-uploads/e612e8f7-3f32-4c0d-a920-b83e95752820.png",
   'Maternity Photography': "/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png",
-  'Matrimonial Portfolios': "/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png",
+  'Matrimonial Portfolios': "/lovable-uploads/f981f530-98b4-46e6-8063-68406ae598e1.png",
   'Naming Ceremony': "/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png",
   'New Born Baby Shoot': "/lovable-uploads/53584cdb-e83c-4e6f-8b99-37ba6c8fc6b8.png",
   'Product Photography': "/lovable-uploads/8d5e6443-143d-4c94-be94-b1e0b3cc76b2.png",
