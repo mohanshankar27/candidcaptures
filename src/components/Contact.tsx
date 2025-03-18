@@ -1,8 +1,8 @@
-
 import { useState, useEffect } from 'react';
 import { useToast } from "@/components/ui/use-toast";
 import { Mail, Phone, MapPin } from 'lucide-react';
 import emailjs from '@emailjs/browser';
+import Map from './Map';
 
 const Contact = () => {
   const { toast } = useToast();
@@ -154,6 +154,8 @@ const Contact = () => {
                 </div>
               </div>
             </div>
+            
+            <Map className="h-60 mt-6" />
           </div>
         </div>
       </div>
