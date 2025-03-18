@@ -15,13 +15,6 @@ const Navbar = () => {
 
   const services = [
     { name: 'Wedding Photography', icon: <Heart className="w-4 h-4" /> },
-    { 
-      name: 'Pre-wedding Photoshoot Gallery', 
-      icon: <Camera className="w-4 h-4" />,
-      href: "https://photos.google.com/share/AF1QipMFmTIEYszMPXvYaD_NuynOGVrs45W8UEXeVlRrNO1bNuMOs84Ka4Z4Fig8pAPEgQ/photo/AF1QipMeb26RqTnwrFsKRc10TdGTQeCUg4OOUZGAPKMw?key=MUV5cHFRNHNvSmtDeml2Vi1ESTJuR0NzQS11UHl3",
-      external: true
-    },
-    { name: 'Pre-wedding photoshoot', icon: <Heart className="w-4 h-4" /> },
     { name: 'Product shoot', icon: <ShoppingBag className="w-4 h-4" /> },
     { name: 'Makeup shoot', icon: <Camera className="w-4 h-4" /> },
     { name: 'Concept shoot', icon: <Camera className="w-4 h-4" /> },

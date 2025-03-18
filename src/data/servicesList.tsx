@@ -18,19 +18,6 @@ export interface Service {
 
 const servicesList: Service[] = [
   { 
-    name: 'Artists / Celebrities', 
-    icon: <Star className="w-5 h-5 text-yellow-400" />,
-    description: 'Premium photography services for artists and celebrities, capturing their unique personality and brand identity with stunning visuals that make a statement.',
-    benefits: [
-      'Luxury studio or location options',
-      'Advanced lighting techniques',
-      'Image rights negotiation',
-      'Express editing services',
-      'Personal branding consultation'
-    ],
-    pricing: 'Custom quotes based on requirements'
-  },
-  { 
     name: 'Concept shoot', 
     icon: <Lightbulb className="w-5 h-5 text-amber-400" />,
     description: 'Bring your creative vision to life with our concept photography services. We work closely with you to translate your ideas into powerful visual stories.',
@@ -172,19 +159,6 @@ const servicesList: Service[] = [
     pricing: 'Starting at ₹5,000 per portfolio'
   },
   { 
-    name: 'Modelling & Artist Portfolios', 
-    icon: <User className="w-5 h-5 text-teal-500" />,
-    description: 'Comprehensive portfolio development for models and artists featuring diverse looks, styles, and concepts for agency submission and client presentations.',
-    benefits: [
-      'Agency submission guidance',
-      'Various concept shots',
-      'Look development',
-      'Digital portfolio formatting',
-      'Industry standard deliverables'
-    ],
-    pricing: 'Starting at ₹12,000 for basic portfolio'
-  },
-  { 
     name: 'Naming Ceremony', 
     icon: <Gift className="w-5 h-5 text-emerald-500" />,
     description: "Document your child's naming ceremony with professional photography that captures all the meaningful moments and traditions of this important celebration.",
@@ -195,38 +169,6 @@ const servicesList: Service[] = [
       'Quick preview delivery'
     ],
     pricing: 'Starting at ₹12,000 for full ceremony coverage'
-  },
-  { 
-    name: 'Portraits & Portfolios', 
-    icon: <User className="w-5 h-5 text-indigo-500" />,
-    description: 'Professional portrait sessions for individuals seeking quality headshots and personal branding images for various professional and personal uses.',
-    benefits: [
-      'Personalized consultation',
-      'Multiple setting options',
-      'Digital and print deliverables',
-      'LinkedIn and social media optimization',
-      'Personal branding guidance'
-    ],
-    pricing: 'Starting at ₹4,000 per session'
-  },
-  { 
-    name: 'Pre-wedding photoshoot', 
-    icon: <Heart className="w-5 h-5 text-pink-600" />,
-    description: "Tell your love story through beautiful pre-wedding photography. We'll capture your chemistry in stunning locations that reflect your personality as a couple.",
-    benefits: [
-      'Location scouting assistance',
-      'Multiple outfit changes',
-      'Professional editing',
-      'Same-day preview of selected shots'
-    ],
-    pricing: 'Starting at ₹15,000 for a half-day shoot'
-  },
-  { 
-    name: 'Pre-wedding Photoshoot Gallery', 
-    icon: <Camera className="w-5 h-5 text-cyan-500" />,
-    description: 'Explore our pre-wedding photoshoot collections that capture the romance and excitement before your big day.',
-    external: true,
-    href: "https://photos.google.com/share/AF1QipMFmTIEYszMPXvYaD_NuynOGVrs45W8UEXeVlRrNO1bNuMOs84Ka4Z4Fig8pAPEgQ/photo/AF1QipMeb26RqTnwrFsKRc10TdGTQeCUg4OOUZGAPKMw?key=MUV5cHFRNHNvSmtDeml2Vi1ESTJuR0NzQS11UHl3"
   },
   { 
     name: 'Product Photography', 
