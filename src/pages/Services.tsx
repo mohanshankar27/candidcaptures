@@ -23,10 +23,10 @@ const Services = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Mark as loaded shortly after mount - faster loading time
+    // Mark as loaded after 3 seconds
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 600); // Reduced loading time from 1200ms to 600ms for a faster experience
+    }, 3000); // Changed from 600ms to 3000ms (3 seconds)
     
     window.scrollTo({
       top: 0,
