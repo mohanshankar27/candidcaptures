@@ -1,21 +1,62 @@
 
 import React from 'react';
 import { Skeleton } from '@/components/ui/skeleton';
+import { Progress } from '@/components/ui/progress';
+import { motion } from 'framer-motion';
 
 const ServicesLoading = () => {
+  const [progress, setProgress] = React.useState(0);
+  
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setProgress(33);
+    }, 1000);
+    
+    const timer2 = setTimeout(() => {
+      setProgress(66);
+    }, 2000);
+    
+    const timer3 = setTimeout(() => {
+      setProgress(100);
+    }, 2800);
+    
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(timer2);
+      clearTimeout(timer3);
+    };
+  }, []);
+
   return (
     <div className="space-y-6 p-4">
+      <div className="flex flex-col items-center justify-center my-8">
+        <div className="w-16 h-16 rounded-full border-4 border-orange-400 border-t-transparent animate-spin mb-4"></div>
+        <h3 className="text-primary font-serif italic text-2xl mb-2">Loading Premium Services</h3>
+        <div className="w-full max-w-md mb-2">
+          <Progress value={progress} className="h-2 bg-orange-100" />
+        </div>
+        <p className="text-gray-500 text-sm">{progress}% complete</p>
+      </div>
+      
       {/* Loading skeleton for grid view with staggered animations */}
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 w-full">
         {Array(12).fill(0).map((_, index) => (
-          <Skeleton 
-            key={index} 
-            className="h-24 w-full rounded-md bg-secondary/80"
-            style={{
-              animationDelay: `${index * 50}ms`, // Faster staggered delay (reduced from 100ms to 50ms)
-              animationDuration: '1s' // Faster animation (reduced from 1.5s to 1s)
+          <motion.div
+            key={index}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: [0, 0.5, 1] }}
+            transition={{
+              repeat: Infinity,
+              repeatType: "reverse",
+              duration: 2,
+              delay: index * 0.1
             }}
-          />
+          >
+            <Skeleton 
+              key={index} 
+              className="h-24 w-full rounded-md bg-secondary/80"
+            />
+          </motion.div>
         ))}
       </div>
       

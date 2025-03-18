@@ -21,12 +21,13 @@ const Services = () => {
   const [selectedService, setSelectedService] = useState<Service>(servicesList[0]);
   const [viewMode, setViewMode] = useState<'detailed' | 'grid'>('grid');
   const [isLoading, setIsLoading] = useState(true);
+  const [isServiceLoading, setIsServiceLoading] = useState(false);
 
   useEffect(() => {
-    // Mark as loaded after 3 seconds
+    // Mark as loaded after specified time
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 3000); // Changed from 600ms to 3000ms (3 seconds)
+    }, 3000); // 3 seconds initial page load
     
     window.scrollTo({
       top: 0,
@@ -54,8 +55,17 @@ const Services = () => {
       window.open(service.href, '_blank', 'noopener,noreferrer');
       return;
     }
+    
+    // We've already added the delay in the ServicesGrid component
+    // This will execute after the delay
     setSelectedService(service);
     setViewMode('detailed');
+    
+    // Scroll to top when changing services
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   };
 
   const toggleViewMode = () => {
