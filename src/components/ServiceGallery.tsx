@@ -68,7 +68,7 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, images }) => {
       </h2>
       
       {/* Featured hero image - larger and prominent */}
-      <div className="mb-6 w-full overflow-hidden rounded-lg border-2 border-[#1e40af]">
+      <div className="mb-6 w-full overflow-hidden rounded-lg border-2 border-orange-400">
         <img 
           src={limitedImages[0]} 
           alt={`${service.name} featured`}
@@ -87,7 +87,7 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, images }) => {
               <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
                 {service.benefits.map((benefit, index) => (
                   <li key={index} className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-[#1e40af]" />
+                    <div className="w-2 h-2 rounded-full bg-orange-500" />
                     {benefit}
                   </li>
                 ))}
@@ -104,7 +104,7 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, images }) => {
         {limitedImages.slice(1).map((image, index) => (
           <div 
             key={index} 
-            className="overflow-hidden rounded-lg cursor-pointer bg-muted border-2 border-[#1e40af] aspect-square"
+            className="overflow-hidden rounded-lg cursor-pointer bg-muted border-2 border-orange-300 aspect-square"
             onClick={() => handleImageClick(index + 1)}
           >
             <img 
@@ -119,14 +119,14 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, images }) => {
       {service.pricing && (
         <div className="mt-8">
           <h3 className="text-xl font-medium mb-2">Pricing</h3>
-          <p className="bg-secondary/30 p-4 rounded-md inline-block border-l-4 border-[#1e40af]">{service.pricing}</p>
+          <p className="bg-secondary/30 p-4 rounded-md inline-block border-l-4 border-orange-400">{service.pricing}</p>
         </div>
       )}
 
       {/* Image slideshow dialog */}
       {enlargedImageIndex !== null && (
         <Dialog open={enlargedImageIndex !== null} onOpenChange={handleClose}>
-          <DialogContent className="max-w-5xl p-0 border-4 border-[#1e40af] bg-black" onClick={e => e.stopPropagation()}>
+          <DialogContent className="max-w-5xl p-0 border-4 border-orange-400 bg-black" onClick={e => e.stopPropagation()}>
             <div className="relative w-full h-[80vh]">
               <img 
                 src={limitedImages[enlargedImageIndex]} 
@@ -160,7 +160,7 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, images }) => {
                   <div 
                     key={index}
                     className={`w-2 h-2 rounded-full ${
-                      index === enlargedImageIndex ? 'bg-[#1e40af]' : 'bg-white/50'
+                      index === enlargedImageIndex ? 'bg-orange-400' : 'bg-white/50'
                     }`}
                   />
                 ))}

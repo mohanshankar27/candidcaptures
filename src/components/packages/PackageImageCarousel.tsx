@@ -76,7 +76,7 @@ const PackageImageCarousel: React.FC<PackageImageCarouselProps> = ({
 
       {/* Enlarged Image View */}
       <Dialog open={enlargedImageIndex !== null} onOpenChange={closeImageView}>
-        <DialogContent className="max-w-5xl p-0 border-4 border-[#1e40af] bg-black" onClick={(e) => e.stopPropagation()}>
+        <DialogContent className="max-w-5xl p-0 border-4 border-orange-400 bg-black" onClick={(e) => e.stopPropagation()}>
           {enlargedImageIndex !== null && (
             <div className="relative w-full h-[80vh]">
               <img 
@@ -111,7 +111,7 @@ const PackageImageCarousel: React.FC<PackageImageCarouselProps> = ({
                   <div 
                     key={index}
                     className={`w-2 h-2 rounded-full ${
-                      index === enlargedImageIndex ? 'bg-[#1e40af]' : 'bg-white/50'
+                      index === enlargedImageIndex ? 'bg-orange-400' : 'bg-white/50'
                     }`}
                   />
                 ))}

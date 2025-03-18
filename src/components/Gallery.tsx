@@ -81,7 +81,7 @@ const Gallery = () => {
 
       {/* Image Modal/Dialog */}
       <Dialog open={selectedImageIndex !== null} onOpenChange={closeImageModal}>
-        <DialogContent className="max-w-5xl p-0 border-4 border-[#1e40af] bg-black" onClick={(e) => e.stopPropagation()}>
+        <DialogContent className="max-w-5xl p-0 border-4 border-orange-400 bg-black" onClick={(e) => e.stopPropagation()}>
           {selectedImageIndex !== null && (
             <div className="relative w-full h-[80vh]">
               <img 
@@ -116,7 +116,7 @@ const Gallery = () => {
                   <div 
                     key={index}
                     className={`w-2 h-2 rounded-full ${
-                      index === selectedImageIndex ? "bg-[#1e40af]" : "bg-white/50"
+                      index === selectedImageIndex ? "bg-orange-400" : "bg-white/50"
                     }`}
                   />
                 ))}

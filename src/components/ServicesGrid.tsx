@@ -18,9 +18,9 @@ const ServicesGrid: React.FC<ServicesGridProps> = ({ services, onServiceClick })
           key={service.name}
           className={cn(
             "cursor-pointer transition-all overflow-hidden h-24",
-            "border border-primary/10 hover:border-primary/30",
+            "border border-amber-100 hover:border-orange-200",
             "bg-gradient-to-br from-secondary/50 to-background",
-            "hover:shadow-lg hover:shadow-primary/5 group",
+            "hover:shadow-lg hover:shadow-orange-100 group",
             "animate-fadeIn",
             // Stagger the animations slightly for a cascading effect
             `transition-delay-${Math.min(index * 100, 700)}`
@@ -28,7 +28,7 @@ const ServicesGrid: React.FC<ServicesGridProps> = ({ services, onServiceClick })
           onClick={() => onServiceClick(service)}
         >
           <CardContent className="p-3 flex items-center justify-center h-full">
-            <div className="text-base font-bold text-center font-serif italic text-[#003c72] group-hover:scale-105 transition-transform">
+            <div className="text-base font-bold text-center font-serif italic text-orange-900 group-hover:scale-105 transition-transform">
               {service.name}
               {service.external && (
                 <ExternalLink className="w-3.5 h-3.5 ml-1 inline-block opacity-60" />
