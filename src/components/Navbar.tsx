@@ -69,7 +69,7 @@ const Navbar = () => {
               alt="Candid Capture Photography" 
               className="h-24 w-auto object-contain"
               loading="eager"
-              fetchpriority="high"
+              fetchPriority="high"
             />
           </button>
 
@@ -77,14 +77,14 @@ const Navbar = () => {
             {navItems.map((item) => (
               <Link
                 key={item.name}
-                to={item.href.startsWith('/') ? item.href : item.href}
+                to={item.href}
                 className={`flex items-center gap-2 transition-colors text-base font-medium font-serif italic ${
                   isActive(item.href) ? 'text-[#003c72] font-bold' : 'hover:text-primary'
                 }`}
                 onClick={(e) => {
-                  if (item.href.startsWith('#')) {
+                  if (item.href.startsWith('/#')) {
                     e.preventDefault();
-                    const sectionId = item.href.substring(1);
+                    const sectionId = item.href.substring(2);
                     const section = document.getElementById(sectionId);
                     if (section) {
                       section.scrollIntoView({ behavior: 'smooth' });
@@ -114,14 +114,14 @@ const Navbar = () => {
               {navItems.map((item) => (
                 <Link
                   key={item.name}
-                  to={item.href.startsWith('/') ? item.href : item.href}
+                  to={item.href}
                   className={`flex items-center gap-2 py-2 transition-colors text-base font-serif italic ${
                     isActive(item.href) ? 'text-[#003c72] font-bold' : 'hover:text-primary'
                   }`}
                   onClick={(e) => {
-                    if (item.href.startsWith('#')) {
+                    if (item.href.startsWith('/#')) {
                       e.preventDefault();
-                      const sectionId = item.href.substring(1);
+                      const sectionId = item.href.substring(2);
                       const section = document.getElementById(sectionId);
                       if (section) {
                         section.scrollIntoView({ behavior: 'smooth' });
