@@ -12,7 +12,7 @@ interface ServicesGridProps {
 
 const ServicesGrid: React.FC<ServicesGridProps> = ({ services, onServiceClick }) => {
   return (
-    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-7 gap-1">
+    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-1">
       {services.map((service) => (
         <Card 
           key={service.name}

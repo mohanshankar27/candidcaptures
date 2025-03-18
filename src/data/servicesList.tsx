@@ -171,6 +171,19 @@ const servicesList: Service[] = [
     pricing: 'Starting at ₹12,000 for full ceremony coverage'
   },
   { 
+    name: 'New Born Baby Shoot', 
+    icon: <Baby className="w-5 h-5 text-pink-300" />,
+    description: "Capture those precious first days and weeks of your baby's life with our professional newborn photography. We create gentle, timeless portraits in a safe and comfortable setting.",
+    benefits: [
+      'Trained in newborn safety',
+      'Soothing environment for baby',
+      'Custom props and accessories',
+      'Parent and sibling portraits included',
+      'Flexible scheduling for newborns'
+    ],
+    pricing: 'Starting at ₹8,000 per session'
+  },
+  { 
     name: 'Product Photography', 
     icon: <ShoppingBag className="w-5 h-5 text-cyan-500" />,
     description: 'Detailed product photography that highlights features and craftsmanship for marketing materials, websites, and sales presentations.',
