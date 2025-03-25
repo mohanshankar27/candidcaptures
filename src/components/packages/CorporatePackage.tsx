@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Check, X, Info, Star, Crown, Sparkles } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
@@ -7,20 +6,21 @@ import PackageImageCarousel from '../packages/PackageImageCarousel';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 const CorporatePackage: React.FC = () => {
-  // Define corporate package images for the carousel with updated professional photos
+  // Define corporate package images for the carousel with new professional photos
   const corporateImages = [
+    '/lovable-uploads/36ad88c2-1413-4c51-bb6b-9a73ef010452.png',
+    '/lovable-uploads/27587b05-9077-48f3-84a4-728a9e38855a.png',
+    '/lovable-uploads/caea3e9d-d65d-4d4a-a6e8-9cfa1219b0d3.png',
     'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80',
     'https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&q=80',
-    'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80',
-    'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80',
-    '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png'
+    'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80'
   ];
   
-  // Define separate gallery images to avoid repetition
+  // Define separate gallery images to show variety
   const galleryImages = [
-    'https://images.unsplash.com/photo-1559523161-0fc0d8b38a7a?auto=format&fit=crop&q=80',
-    'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80',
-    'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80',
+    '/lovable-uploads/36ad88c2-1413-4c51-bb6b-9a73ef010452.png',
+    '/lovable-uploads/27587b05-9077-48f3-84a4-728a9e38855a.png',
+    '/lovable-uploads/caea3e9d-d65d-4d4a-a6e8-9cfa1219b0d3.png',
     'https://images.unsplash.com/photo-1573497019236-61f323342eb3?auto=format&fit=crop&q=80'
   ];
 
@@ -41,7 +41,7 @@ const CorporatePackage: React.FC = () => {
         </div>
       </div>
 
-      {/* Add the image carousel component with enhanced styling */}
+      {/* Add the image carousel component with enhanced styling and new images */}
       <div className="max-w-6xl mx-auto mb-16 px-4">
         <PackageImageCarousel images={corporateImages} altPrefix="Corporate Headshot" />
       </div>
@@ -332,7 +332,7 @@ const CorporatePackage: React.FC = () => {
         
         <Separator className="my-16" />
         
-        {/* Photo Gallery Section with enhanced styling */}
+        {/* Photo Gallery Section with updated images */}
         <div className="mt-12">
           <h3 className="text-3xl font-bold mb-10 text-center text-[#1A1F2C]">Sample Corporate Headshots</h3>
           

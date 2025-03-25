@@ -27,7 +27,21 @@ const allAvailableImages = [
   '/lovable-uploads/44fdad37-1724-4cad-a878-bb2baf05b83b.png',
   '/lovable-uploads/615d3ac6-4345-48d6-9ed9-b794c68b0307.png',
   '/lovable-uploads/5faf55b4-c582-4816-aa3b-99e8faa9a73d.png',
-  '/lovable-uploads/3346c7fa-c327-4873-a6e2-35da082a7f6e.png'
+  '/lovable-uploads/3346c7fa-c327-4873-a6e2-35da082a7f6e.png',
+  // Adding the new corporate headshot images
+  '/lovable-uploads/36ad88c2-1413-4c51-bb6b-9a73ef010452.png',
+  '/lovable-uploads/27587b05-9077-48f3-84a4-728a9e38855a.png',
+  '/lovable-uploads/caea3e9d-d65d-4d4a-a6e8-9cfa1219b0d3.png'
+];
+
+// Define specific images for Corporate Headshots
+const corporateHeadshotImages = [
+  '/lovable-uploads/36ad88c2-1413-4c51-bb6b-9a73ef010452.png',
+  '/lovable-uploads/27587b05-9077-48f3-84a4-728a9e38855a.png',
+  '/lovable-uploads/caea3e9d-d65d-4d4a-a6e8-9cfa1219b0d3.png',
+  '/lovable-uploads/53584cdb-e83c-4e6f-8b99-37ba6c8fc6b8.png',
+  'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80'
 ];
 
 // Map of service names to 6 unique images per service using indices from allAvailableImages
@@ -36,6 +50,7 @@ const serviceImageIndices = {
   'Artists / Celebrities': [0, 1, 2, 3, 4, 5],
   'Concept shoot': [14, 9, 10, 11, 12, 4],
   'Corporate & Short Videos': [12, 13, 0, 1, 2, 3],
+  'Corporate Headshots': [16, 17, 18, 9, 10, 11], // Updated with new images
   'E-Commerce & Catalogues': [15, 10, 11, 13, 0, 1],
   'Event Photography': [2, 3, 4, 5, 6, 7],
   'Family Portraits': [8, 9, 10, 11, 12, 13],
@@ -61,8 +76,12 @@ const serviceImages = Object.entries(serviceImageIndices).reduce((acc, [serviceN
   return acc;
 }, {} as Record<string, string[]>);
 
+// For Corporate Headshots, use the specific images
+serviceImages['Corporate Headshots'] = corporateHeadshotImages;
+
 const ServiceContent: React.FC<ServiceContentProps> = ({ service }) => {
   const isWeddingService = service.name === 'Wedding Photography';
+  const isCorporateHeadshots = service.name === 'Corporate Headshots';
   const serviceImageArray = serviceImages[service.name] || Array(6).fill('/lovable-uploads/e612e8f7-3f32-4c0d-a920-b83e95752820.png');
   
   if (service.external) {
