@@ -4,25 +4,12 @@ import { Separator } from '@/components/ui/separator';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import PackageImageCarousel from '../packages/PackageImageCarousel';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { getPackageImages } from '@/components/slideshow/serviceImages';
 
 const CorporatePackage: React.FC = () => {
-  // Define corporate package images for the carousel with new professional photos
-  const corporateImages = [
-    '/lovable-uploads/5d90fcb0-8d52-441c-92d9-ab63b40d0b9c.png', // New laptop portrait
-    '/lovable-uploads/078c0e85-a4b3-4252-b5f0-9dd955da69fc.png', // New document portrait
-    '/lovable-uploads/36ad88c2-1413-4c51-bb6b-9a73ef010452.png',
-    '/lovable-uploads/27587b05-9077-48f3-84a4-728a9e38855a.png',
-    '/lovable-uploads/caea3e9d-d65d-4d4a-a6e8-9cfa1219b0d3.png',
-    'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80'
-  ];
-  
-  // Define separate gallery images to show variety
-  const galleryImages = [
-    '/lovable-uploads/5d90fcb0-8d52-441c-92d9-ab63b40d0b9c.png', // New laptop portrait
-    '/lovable-uploads/078c0e85-a4b3-4252-b5f0-9dd955da69fc.png', // New document portrait
-    '/lovable-uploads/36ad88c2-1413-4c51-bb6b-9a73ef010452.png',
-    '/lovable-uploads/27587b05-9077-48f3-84a4-728a9e38855a.png'
-  ];
+  // Get corporate package images from our central image management
+  const corporateImages = getPackageImages('Corporate', 'carousel');
+  const galleryImages = getPackageImages('Corporate', 'gallery');
 
   return (
     <div className="package-details bg-white">
