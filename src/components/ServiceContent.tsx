@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ExternalLink } from 'lucide-react';
 import WeddingSlideshow from '@/components/WeddingSlideshow';
@@ -26,18 +25,17 @@ const allAvailableImages = [
   '/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png',
   '/lovable-uploads/44fdad37-1724-4cad-a878-bb2baf05b83b.png',
   '/lovable-uploads/615d3ac6-4345-48d6-9ed9-b794c68b0307.png',
-  '/lovable-uploads/5faf55b4-c582-4816-aa3b-99e8faa9a73d.png' // Added new image
+  '/lovable-uploads/5faf55b4-c582-4816-aa3b-99e8faa9a73d.png',
+  '/lovable-uploads/3346c7fa-c327-4873-a6e2-35da082a7f6e.png'
 ];
 
 // Map of service names to 6 unique images per service using indices from allAvailableImages
 // Each service gets a unique set of 6 images with no repetition across services
 const serviceImageIndices = {
   'Artists / Celebrities': [0, 1, 2, 3, 4, 5],
-  // Updated indices for Concept shoot - feature the new cultural performance image prominently
-  'Concept shoot': [14, 9, 10, 11, 12, 4], 
+  'Concept shoot': [14, 9, 10, 11, 12, 4],
   'Corporate & Short Videos': [12, 13, 0, 1, 2, 3],
-  'Corporate Headshots': [4, 5, 6, 7, 8, 9],
-  'E-Commerce & Catalogues': [10, 11, 12, 13, 0, 1],
+  'E-Commerce & Catalogues': [15, 10, 11, 13, 0, 1],
   'Event Photography': [2, 3, 4, 5, 6, 7],
   'Family Portraits': [8, 9, 10, 11, 12, 13],
   'Fashion Photography': [0, 2, 4, 6, 8, 10],
