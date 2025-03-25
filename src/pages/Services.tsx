@@ -1,5 +1,5 @@
 
-import { useState, useEffect, lazy, Suspense } from 'react';
+import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -10,18 +10,15 @@ import servicesList, { Service } from '@/data/servicesList';
 import { Grid, List } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ServicesLoading from '@/components/ServicesLoading';
-
-// Lazy load components that aren't needed immediately
-const ServiceContent = lazy(() => import('@/components/ServiceContent'));
-const ServicesGrid = lazy(() => import('@/components/ServicesGrid'));
-const PricePackages = lazy(() => import('@/components/PricePackages'));
+import ServiceContent from '@/components/ServiceContent';
+import ServicesGrid from '@/components/ServicesGrid';
+import PricePackages from '@/components/PricePackages';
 
 const Services = () => {
   const location = useLocation();
   const [selectedService, setSelectedService] = useState<Service>(servicesList[0]);
   const [viewMode, setViewMode] = useState<'detailed' | 'grid'>('grid');
   const [isLoading, setIsLoading] = useState(true);
-  const [isServiceLoading, setIsServiceLoading] = useState(false);
 
   useEffect(() => {
     // Mark as loaded after specified time
@@ -56,8 +53,6 @@ const Services = () => {
       return;
     }
     
-    // We've already added the delay in the ServicesGrid component
-    // This will execute after the delay
     setSelectedService(service);
     setViewMode('detailed');
     
@@ -95,57 +90,55 @@ const Services = () => {
             </div>
           </div>
           
-          <Suspense fallback={<ServicesLoading />}>
-            {isLoading ? (
-              <ServicesLoading />
-            ) : viewMode === 'grid' ? (
-              <div className="bg-white/50 backdrop-blur-sm p-4 rounded-lg shadow-sm border border-primary/5 mx-4 animate-fade-in">
-                <ServicesGrid services={servicesList} onServiceClick={handleServiceClick} />
+          {isLoading ? (
+            <ServicesLoading />
+          ) : viewMode === 'grid' ? (
+            <div className="bg-white/50 backdrop-blur-sm p-4 rounded-lg shadow-sm border border-primary/5 mx-4 animate-fade-in">
+              <ServicesGrid services={servicesList} onServiceClick={handleServiceClick} />
+            </div>
+          ) : (
+            <>
+              <div className="px-4 animate-fade-in">
+                <MobileServiceMenu 
+                  services={servicesList} 
+                  selectedService={selectedService} 
+                  onServiceClick={handleServiceClick} 
+                />
               </div>
-            ) : (
-              <>
-                <div className="px-4 animate-fade-in">
-                  <MobileServiceMenu 
+              
+              <div className="hidden md:block w-full animate-fade-in">
+                <ResizablePanelGroup 
+                  direction="horizontal" 
+                  className="min-h-[calc(100vh-200px)] w-full overflow-hidden"
+                >
+                  <ServiceSidebar 
                     services={servicesList} 
                     selectedService={selectedService} 
                     onServiceClick={handleServiceClick} 
                   />
-                </div>
-                
-                <div className="hidden md:block w-full animate-fade-in">
-                  <ResizablePanelGroup 
-                    direction="horizontal" 
-                    className="min-h-[calc(100vh-200px)] w-full overflow-hidden"
-                  >
-                    <ServiceSidebar 
-                      services={servicesList} 
-                      selectedService={selectedService} 
-                      onServiceClick={handleServiceClick} 
-                    />
-                    
-                    <ResizableHandle withHandle />
-                    
-                    <ResizablePanel defaultSize={75} minSize={60}>
-                      <div className="h-full overflow-y-auto px-4">
-                        <ServiceContent service={selectedService} />
-                      </div>
-                    </ResizablePanel>
-                  </ResizablePanelGroup>
-                </div>
-                
-                <div className="md:hidden mt-4 px-4 animate-fade-in">
-                  <ServiceContent service={selectedService} />
-                </div>
-              </>
-            )}
-            
-            {/* Price Packages section */}
-            {!isLoading && (
-              <div className="px-4 mt-8 animate-fade-in">
-                <PricePackages />
+                  
+                  <ResizableHandle withHandle />
+                  
+                  <ResizablePanel defaultSize={75} minSize={60}>
+                    <div className="h-full overflow-y-auto px-4">
+                      <ServiceContent service={selectedService} />
+                    </div>
+                  </ResizablePanel>
+                </ResizablePanelGroup>
               </div>
-            )}
-          </Suspense>
+              
+              <div className="md:hidden mt-4 px-4 animate-fade-in">
+                <ServiceContent service={selectedService} />
+              </div>
+            </>
+          )}
+          
+          {/* Price Packages section */}
+          {!isLoading && (
+            <div className="px-4 mt-8 animate-fade-in">
+              <PricePackages />
+            </div>
+          )}
         </div>
       </div>
       
