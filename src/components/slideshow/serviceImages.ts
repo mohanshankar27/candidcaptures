@@ -1,4 +1,3 @@
-
 // Centralized image management file
 
 // Primary service images (used in services grid and as featured images)
@@ -26,11 +25,7 @@ const serviceImages = {
 // Gallery collections for each service
 export const serviceGalleries = {
   'Corporate Headshots': [
-    '/lovable-uploads/5d90fcb0-8d52-441c-92d9-ab63b40d0b9c.png', // Laptop portrait
     '/lovable-uploads/078c0e85-a4b3-4252-b5f0-9dd955da69fc.png', // Document portrait
-    '/lovable-uploads/36ad88c2-1413-4c51-bb6b-9a73ef010452.png',
-    '/lovable-uploads/27587b05-9077-48f3-84a4-728a9e38855a.png',
-    '/lovable-uploads/caea3e9d-d65d-4d4a-a6e8-9cfa1219b0d3.png',
     'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80'
   ],
   'Wedding Photography': [
@@ -56,18 +51,11 @@ export const serviceGalleries = {
 export const packageImages = {
   'Corporate': {
     carousel: [
-      '/lovable-uploads/5d90fcb0-8d52-441c-92d9-ab63b40d0b9c.png', // Laptop portrait
       '/lovable-uploads/078c0e85-a4b3-4252-b5f0-9dd955da69fc.png', // Document portrait
-      '/lovable-uploads/36ad88c2-1413-4c51-bb6b-9a73ef010452.png',
-      '/lovable-uploads/27587b05-9077-48f3-84a4-728a9e38855a.png',
-      '/lovable-uploads/caea3e9d-d65d-4d4a-a6e8-9cfa1219b0d3.png',
       'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80'
     ],
     gallery: [
-      '/lovable-uploads/5d90fcb0-8d52-441c-92d9-ab63b40d0b9c.png', // Laptop portrait
       '/lovable-uploads/078c0e85-a4b3-4252-b5f0-9dd955da69fc.png', // Document portrait
-      '/lovable-uploads/36ad88c2-1413-4c51-bb6b-9a73ef010452.png',
-      '/lovable-uploads/27587b05-9077-48f3-84a4-728a9e38855a.png'
     ]
   },
   // Add other packages as needed
