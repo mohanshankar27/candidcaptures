@@ -9,6 +9,7 @@ import {
 } from '@/components/ui/carousel';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { isImageCritical } from '@/components/slideshow/serviceImages';
 
 interface PackageImageCarouselProps {
   images: string[];
@@ -49,22 +50,27 @@ const PackageImageCarousel: React.FC<PackageImageCarouselProps> = ({
     <div className="mb-10 relative">
       <Carousel className="w-full">
         <CarouselContent>
-          {images.map((image, index) => (
-            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-              <div className="p-1">
-                <div 
-                  className="overflow-hidden rounded-xl h-52 md:h-64 lg:h-72 shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer"
-                  onClick={() => openImageView(index)}
-                >
-                  <img 
-                    src={image} 
-                    alt={`${altPrefix} ${index + 1}`}
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                  />
+          {images.map((image, index) => {
+            const isCritical = isImageCritical(image);
+            return (
+              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                <div className="p-1">
+                  <div 
+                    className="overflow-hidden rounded-xl h-52 md:h-64 lg:h-72 shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer"
+                    onClick={() => openImageView(index)}
+                  >
+                    <img 
+                      src={image} 
+                      alt={`${altPrefix} ${index + 1}`}
+                      loading={isCritical || index < 2 ? "eager" : "lazy"}
+                      decoding={isCritical || index < 2 ? "sync" : "async"}
+                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                    />
+                  </div>
                 </div>
-              </div>
-            </CarouselItem>
-          ))}
+              </CarouselItem>
+            );
+          })}
         </CarouselContent>
         <div className="absolute -right-4 top-1/2 -translate-y-1/2 hidden md:block">
           <CarouselNext className="bg-white shadow-md hover:bg-slate-50" />
@@ -74,10 +80,10 @@ const PackageImageCarousel: React.FC<PackageImageCarouselProps> = ({
         </div>
       </Carousel>
 
-      {/* Enlarged Image View */}
-      <Dialog open={enlargedImageIndex !== null} onOpenChange={closeImageView}>
-        <DialogContent className="max-w-5xl p-0 border-4 border-orange-400 bg-black" onClick={(e) => e.stopPropagation()}>
-          {enlargedImageIndex !== null && (
+      {/* Enlarged Image View - Only render when needed */}
+      {enlargedImageIndex !== null && (
+        <Dialog open={enlargedImageIndex !== null} onOpenChange={closeImageView}>
+          <DialogContent className="max-w-5xl p-0 border-4 border-orange-400 bg-black" onClick={(e) => e.stopPropagation()}>
             <div className="relative w-full h-[80vh]">
               <img 
                 src={images[enlargedImageIndex]} 
@@ -117,9 +123,9 @@ const PackageImageCarousel: React.FC<PackageImageCarouselProps> = ({
                 ))}
               </div>
             </div>
-          )}
-        </DialogContent>
-      </Dialog>
+          </DialogContent>
+        </Dialog>
+      )}
     </div>
   );
 };

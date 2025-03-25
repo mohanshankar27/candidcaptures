@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { isImageCritical } from "@/components/slideshow/serviceImages";
 
 const Gallery = () => {
   const images = [
@@ -62,27 +63,34 @@ const Gallery = () => {
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-12">Featured Work</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {images.map((image, index) => (
-            <div
-              key={index}
-              className="relative overflow-hidden group aspect-square cursor-pointer"
-              onClick={() => openImageModal(index)}
-            >
-              <img
-                src={image.url}
-                alt={image.alt}
-                className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
-            </div>
-          ))}
+          {images.map((image, index) => {
+            // Determine if this is a critical image that should be loaded eagerly
+            const isCritical = isImageCritical(image.url);
+            
+            return (
+              <div
+                key={index}
+                className="relative overflow-hidden group aspect-square cursor-pointer"
+                onClick={() => openImageModal(index)}
+              >
+                <img
+                  src={image.url}
+                  alt={image.alt}
+                  loading={isCritical ? "eager" : "lazy"}
+                  decoding={isCritical ? "sync" : "async"}
+                  className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+              </div>
+            );
+          })}
         </div>
       </div>
 
-      {/* Image Modal/Dialog */}
-      <Dialog open={selectedImageIndex !== null} onOpenChange={closeImageModal}>
-        <DialogContent className="max-w-5xl p-0 border-4 border-orange-400 bg-black" onClick={(e) => e.stopPropagation()}>
-          {selectedImageIndex !== null && (
+      {/* Image Modal/Dialog - Only render when needed */}
+      {selectedImageIndex !== null && (
+        <Dialog open={selectedImageIndex !== null} onOpenChange={closeImageModal}>
+          <DialogContent className="max-w-5xl p-0 border-4 border-orange-400 bg-black" onClick={(e) => e.stopPropagation()}>
             <div className="relative w-full h-[80vh]">
               <img 
                 src={images[selectedImageIndex].url} 
@@ -122,9 +130,9 @@ const Gallery = () => {
                 ))}
               </div>
             </div>
-          )}
-        </DialogContent>
-      </Dialog>
+          </DialogContent>
+        </Dialog>
+      )}
     </section>
   );
 };

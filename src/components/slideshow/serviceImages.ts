@@ -23,6 +23,13 @@ const serviceImages = {
   'Wedding Photography': "/lovable-uploads/615d3ac6-4345-48d6-9ed9-b794c68b0307.png"
 };
 
+// Define critical images that should be preloaded
+export const criticalImages = [
+  '/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png',
+  '/lovable-uploads/71dc637a-2ed8-42fe-b045-b78301739a30.png',
+  '/lovable-uploads/615d3ac6-4345-48d6-9ed9-b794c68b0307.png'
+];
+
 // Gallery collections for each service
 export const serviceGalleries = {
   'Corporate Headshots': [
@@ -94,6 +101,11 @@ export const getPackageImages = (packageName: string, type: 'carousel' | 'galler
     '/lovable-uploads/44fdad37-1724-4cad-a878-bb2baf05b83b.png',
     '/lovable-uploads/615d3ac6-4345-48d6-9ed9-b794c68b0307.png'
   ];
+};
+
+// Helper to check if an image is critical (should be eager loaded)
+export const isImageCritical = (imagePath: string): boolean => {
+  return criticalImages.includes(imagePath);
 };
 
 export default serviceImages;
