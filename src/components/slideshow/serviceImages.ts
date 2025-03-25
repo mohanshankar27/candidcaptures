@@ -3,7 +3,7 @@
 const serviceImages = {
   'Concept shoot': "/lovable-uploads/5faf55b4-c582-4816-aa3b-99e8faa9a73d.png", // Updated to feature the cultural outfit photo
   'Corporate & Short Videos': "/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png",
-  'Corporate Headshots': "/lovable-uploads/36ad88c2-1413-4c51-bb6b-9a73ef010452.png", // Updated to new corporate headshot
+  'Corporate Headshots': "/lovable-uploads/5d90fcb0-8d52-441c-92d9-ab63b40d0b9c.png", // Updated to the new laptop portrait
   'E-Commerce & Catalogues': "/lovable-uploads/3346c7fa-c327-4873-a6e2-35da082a7f6e.png", // Updated to new catalogue image
   'Event Photography': "/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png",
   'Family Portraits': "/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png",

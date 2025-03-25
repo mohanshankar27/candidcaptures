@@ -8,20 +8,20 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/comp
 const CorporatePackage: React.FC = () => {
   // Define corporate package images for the carousel with new professional photos
   const corporateImages = [
+    '/lovable-uploads/5d90fcb0-8d52-441c-92d9-ab63b40d0b9c.png', // New laptop portrait
+    '/lovable-uploads/078c0e85-a4b3-4252-b5f0-9dd955da69fc.png', // New document portrait
     '/lovable-uploads/36ad88c2-1413-4c51-bb6b-9a73ef010452.png',
     '/lovable-uploads/27587b05-9077-48f3-84a4-728a9e38855a.png',
     '/lovable-uploads/caea3e9d-d65d-4d4a-a6e8-9cfa1219b0d3.png',
-    'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80',
-    'https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&q=80',
-    'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80'
+    'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80'
   ];
   
   // Define separate gallery images to show variety
   const galleryImages = [
+    '/lovable-uploads/5d90fcb0-8d52-441c-92d9-ab63b40d0b9c.png', // New laptop portrait
+    '/lovable-uploads/078c0e85-a4b3-4252-b5f0-9dd955da69fc.png', // New document portrait
     '/lovable-uploads/36ad88c2-1413-4c51-bb6b-9a73ef010452.png',
-    '/lovable-uploads/27587b05-9077-48f3-84a4-728a9e38855a.png',
-    '/lovable-uploads/caea3e9d-d65d-4d4a-a6e8-9cfa1219b0d3.png',
-    'https://images.unsplash.com/photo-1573497019236-61f323342eb3?auto=format&fit=crop&q=80'
+    '/lovable-uploads/27587b05-9077-48f3-84a4-728a9e38855a.png'
   ];
 
   return (
