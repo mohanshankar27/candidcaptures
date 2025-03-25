@@ -32,7 +32,8 @@ const allAvailableImages = [
 // Each service gets a unique set of 6 images with no repetition across services
 const serviceImageIndices = {
   'Artists / Celebrities': [0, 1, 2, 3, 4, 5],
-  'Concept shoot': [6, 7, 8, 9, 10, 11], 
+  // Updated indices for Concept shoot - chose more creative/artistic images
+  'Concept shoot': [9, 10, 11, 12, 13, 4], 
   'Corporate & Short Videos': [12, 13, 0, 1, 2, 3],
   'Corporate Headshots': [4, 5, 6, 7, 8, 9],
   'E-Commerce & Catalogues': [10, 11, 12, 13, 0, 1],
