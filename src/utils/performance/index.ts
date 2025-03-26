@@ -18,8 +18,34 @@ export {
   optimizeCSSDelivery,
   setupIntersectionObserver,
   setupRoutePerformanceTracking,
-  initializePerformanceOptimizations
+  initializePerformanceOptimizations,
+  measurePerformance,
+  optimizeImageLoading
 };
+
+// Additional legacy exports for backward compatibility
+export function measurePerformance(): void {
+  if (typeof window === 'undefined' || !window.performance) return;
+  
+  // Wait for the page to be fully loaded
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      const paintMetrics = performance.getEntriesByType('paint');
+      paintMetrics.forEach(metric => {
+        console.log(`${metric.name}: ${metric.startTime}ms`);
+      });
+    }, 0);
+  });
+}
+
+export function optimizeImageLoading(): void {
+  // Use the new implementation internally
+  if (typeof window !== 'undefined') {
+    setTimeout(() => {
+      optimizePageImages();
+    }, 100);
+  }
+}
 
 // Export a default object with all functions for convenience
 export default {
@@ -30,5 +56,7 @@ export default {
   optimizeCSSDelivery,
   setupIntersectionObserver,
   setupRoutePerformanceTracking,
-  initializePerformanceOptimizations
+  initializePerformanceOptimizations,
+  measurePerformance,
+  optimizeImageLoading
 };

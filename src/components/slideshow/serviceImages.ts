@@ -1,8 +1,9 @@
+
 // Centralized image management file
 
 // Primary service images (used in services grid and as featured images)
 const serviceImages = {
-  'Concept shoot': "/lovable-uploads/5faf55b4-c582-4816-aa3b-99e8faa9a73d.png", // Cultural outfit photo
+  'Concept shoot': "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800&h=600", // Updated with high-resolution laptop product image
   'Corporate & Short Videos': "/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png",
   'Corporate Headshots': "/lovable-uploads/71dc637a-2ed8-42fe-b045-b78301739a30.png", // Updated corporate headshot image
   'E-Commerce & Catalogues': "/lovable-uploads/3346c7fa-c327-4873-a6e2-35da082a7f6e.png", // Catalogue image
@@ -26,7 +27,8 @@ const serviceImages = {
 export const criticalImages = [
   '/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png', // Hero image
   '/lovable-uploads/71dc637a-2ed8-42fe-b045-b78301739a30.png', // Corporate headshots
-  '/lovable-uploads/615d3ac6-4345-48d6-9ed9-b794c68b0307.png'  // Wedding photo
+  '/lovable-uploads/615d3ac6-4345-48d6-9ed9-b794c68b0307.png',  // Wedding photo
+  'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800&h=600' // New concept shoot image added to critical images
 ];
 
 // Gallery collections for each service - organized to prioritize images
@@ -34,6 +36,11 @@ export const serviceGalleries = {
   'Corporate Headshots': [
     '/lovable-uploads/71dc637a-2ed8-42fe-b045-b78301739a30.png', // Updated primary corporate headshot
     'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800&h=600'
+  ],
+  'Concept shoot': [
+    'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800&h=600',
+    'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80&w=800&h=600',
+    'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800&h=600'
   ],
   'Wedding Photography': [
     '/lovable-uploads/615d3ac6-4345-48d6-9ed9-b794c68b0307.png',
