@@ -1,4 +1,3 @@
-
 import { memo, useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -9,7 +8,7 @@ import SlideshowHeader from './slideshow/SlideshowHeader';
 import ServiceImageCarousel from './slideshow/ServiceImageCarousel';
 import BackgroundDecorators from './slideshow/BackgroundDecorators';
 import serviceImages from './slideshow/serviceImages';
-import ServicesGrid from './ServicesGrid';
+import ServicesGrid from './ServicesGrid'; // Direct import instead of dynamic import
 
 // Create service thumbnails with proper image mapping
 const serviceThumbnails = servicesList.map(service => ({

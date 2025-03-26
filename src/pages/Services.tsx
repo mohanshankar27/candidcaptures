@@ -1,4 +1,3 @@
-
 import { useState, useEffect, lazy, Suspense } from 'react';
 import { useLocation } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
@@ -10,15 +9,13 @@ import servicesList, { Service } from '@/data/servicesList';
 import { Grid, List } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ServicesLoading from '@/components/ServicesLoading';
-import { preloadCriticalImages, deferNonCriticalJS } from '@/utils/performance'; // Updated import
+import { preloadCriticalImages, deferNonCriticalJS } from '@/utils/performance';
 import { criticalImages } from '@/components/slideshow/serviceImages';
+import ServicesGrid from '@/components/ServicesGrid';
 
-// Lazy-load non-critical components with reduced loading delay
 const ServiceContent = lazy(() => import('@/components/ServiceContent'));
-const ServicesGrid = lazy(() => import('@/components/ServicesGrid'));
 const PricePackages = lazy(() => import('@/components/PricePackages'));
 
-// Simple loading state for better perceived performance
 const SimpleLoadingState = () => (
   <div className="w-full h-20 flex items-center justify-center">
     <div className="w-8 h-8 border-4 border-primary/30 border-t-primary rounded-full animate-spin"></div>
@@ -33,13 +30,10 @@ const Services = () => {
   const [contentLoaded, setContentLoaded] = useState(false);
 
   useEffect(() => {
-    // Initial performance optimizations
     const startTime = performance.now();
     
-    // Preload critical images immediately
     preloadCriticalImages(criticalImages);
     
-    // Ultra-fast initial loading time - further reduced from 700ms to 200ms
     const timer = setTimeout(() => {
       setIsLoading(false);
       const loadTime = performance.now() - startTime;
@@ -48,29 +42,26 @@ const Services = () => {
       }
     }, 200);
     
-    // Smooth scroll to top
     window.scrollTo({
       top: 0,
-      behavior: 'instant' // Changed from 'smooth' for faster perceived performance
+      behavior: 'instant'
     });
     
-    // Defer loading of non-critical content with reduced delay
     deferNonCriticalJS(() => {
       setContentLoaded(true);
-    }, 50); // Reduced from 200ms to 50ms
+    }, 50);
     
     return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
-    // Check if location state contains a selected service
     if (location.state && location.state.selectedService) {
       const serviceName = location.state.selectedService;
       const matchingService = servicesList.find(service => service.name === serviceName);
       
       if (matchingService) {
         setSelectedService(matchingService);
-        setViewMode('detailed'); // Switch to detailed view when a service is selected
+        setViewMode('detailed');
       }
     }
   }, [location.state]);
@@ -84,7 +75,6 @@ const Services = () => {
     setSelectedService(service);
     setViewMode('detailed');
     
-    // Scroll to top when changing services - using instant for better performance
     window.scrollTo({
       top: 0,
       behavior: 'instant'
@@ -122,9 +112,7 @@ const Services = () => {
             <ServicesLoading />
           ) : viewMode === 'grid' ? (
             <div className="bg-white/50 backdrop-blur-sm p-4 rounded-lg shadow-sm border border-primary/5 mx-4 animate-fade-in">
-              <Suspense fallback={<SimpleLoadingState />}>
-                <ServicesGrid services={servicesList} onServiceClick={handleServiceClick} />
-              </Suspense>
+              <ServicesGrid services={servicesList} onServiceClick={handleServiceClick} />
             </div>
           ) : (
             <>
@@ -167,7 +155,6 @@ const Services = () => {
             </>
           )}
           
-          {/* Price Packages section - deferred loading with earlier trigger */}
           {!isLoading && contentLoaded && (
             <div className="px-4 mt-8 animate-fade-in">
               <Suspense fallback={<SimpleLoadingState />}>
