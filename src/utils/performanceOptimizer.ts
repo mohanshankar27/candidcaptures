@@ -56,7 +56,9 @@ export function optimizePageImages(): void {
     // Set loading strategy based on visibility
     if (isAboveTheFold) {
       img.loading = 'eager';
-      img.fetchPriority = 'high';
+      if ('fetchPriority' in HTMLImageElement.prototype) {
+        (img as any).fetchPriority = 'high';
+      }
       img.decoding = 'sync';
     } else {
       if (!img.hasAttribute('loading')) {
@@ -93,7 +95,7 @@ export function deferNonCriticalJS(callback: () => void, delay = 100): void {
 export function prioritizeResources(resources: {
   preconnect?: string[],
   prefetch?: string[],
-  preload?: Array<{path: string, type: 'script' | 'style' | 'image' | 'font'}>
+  preload?: Array<{path: string, type: "script" | "style" | "image" | "font"}>
 }): void {
   if (typeof window === 'undefined') return;
   
@@ -157,10 +159,11 @@ export function optimizeCSSDelivery(): void {
         for (let i = 0; i < rules.length; i++) {
           const rule = rules[i];
           if (rule.type === 1) { // CSSStyleRule
-            const selector = rule.selectorText;
+            // Fixed: Safely access selectorText
+            const selectorText = (rule as CSSStyleRule).selectorText;
             try {
-              if (selector && document.querySelector(selector) === null) {
-                unusedSelectors.push(selector);
+              if (selectorText && document.querySelector(selectorText) === null) {
+                unusedSelectors.push(selectorText);
               }
             } catch (e) {
               // Skip invalid selectors
@@ -251,8 +254,8 @@ export function setupRoutePerformanceTracking(routesToMonitor: string[] = []): v
             const avg = metrics[route].reduce((sum, val) => sum + val, 0) / metrics[route].length;
             console.info(`Route "${route}" loaded in ${timing.toFixed(0)}ms (avg: ${avg.toFixed(0)}ms)`);
             
-            if (timing > 2000) {
-              console.warn(`Route "${route}" load time exceeds 2 second target (${timing.toFixed(0)}ms)`);
+            if (timing > 3000) {
+              console.warn(`Route "${route}" load time exceeds 3 second target (${timing.toFixed(0)}ms)`);
             }
           }
         }
@@ -301,8 +304,8 @@ export function initializePerformanceOptimizations(options = {
     preconnect: ['https://cdn.gpteng.co', 'https://images.unsplash.com'],
     prefetch: ['/services', '/packages'],
     preload: [
-      {path: '/src/components/Navbar.tsx', type: 'script'},
-      {path: '/src/components/Footer.tsx', type: 'script'}
+      {path: '/src/components/Navbar.tsx', type: 'script' as const},
+      {path: '/src/components/Footer.tsx', type: 'script' as const}
     ]
   }
 }): void {

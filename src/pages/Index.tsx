@@ -56,7 +56,7 @@ const Index = () => {
     // Defer loading of secondary content with reduced delay
     deferNonCriticalJS(() => {
       setSecondaryContent(true);
-    }, 100); // Reduced from 200ms to 100ms
+    }, 75); // Reduced from 100ms to 75ms for faster perceived performance
 
     return () => {
       document.removeEventListener('readystatechange', markLoadComplete);

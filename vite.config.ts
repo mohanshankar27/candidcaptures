@@ -14,17 +14,14 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react({
-      // Using SWC options to optimize build
-      swcOptions: {
-        jsc: {
-          transform: {
-            react: {
-              runtime: 'automatic',
-              refresh: mode === 'development'
-            }
-          }
-        }
-      }
+      // Use SWC features for better performance
+      plugins: [[
+        '@swc/plugin-emotion',
+        {
+          sourceMap: mode === 'development',
+          autoLabel: 'dev-only',
+        },
+      ]],
     }),
     mode === 'development' &&
     componentTagger(),
