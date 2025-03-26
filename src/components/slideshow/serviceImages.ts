@@ -4,7 +4,7 @@
 // Primary service images (used in services grid and as featured images)
 const serviceImages = {
   'Concept shoot': "/lovable-uploads/a97ae0b1-6394-488d-a9f4-d17321650970.png", // Updated with new traditional deity costume image
-  'Corporate & Short Videos': "/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png",
+  'Corporate & Short Videos': "/lovable-uploads/28516f95-c696-478a-a1ca-2643222d0648.png", // Updated corporate event image with people taking selfie
   'Corporate Headshots': "/lovable-uploads/71dc637a-2ed8-42fe-b045-b78301739a30.png", // Updated corporate headshot image
   'E-Commerce & Catalogues': "/lovable-uploads/3346c7fa-c327-4873-a6e2-35da082a7f6e.png", // Catalogue image
   'Event Photography': "/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png",
@@ -30,7 +30,8 @@ export const criticalImages = [
   '/lovable-uploads/615d3ac6-4345-48d6-9ed9-b794c68b0307.png',  // Wedding photo
   '/lovable-uploads/a97ae0b1-6394-488d-a9f4-d17321650970.png', // Concept shoot image
   '/lovable-uploads/e330db14-6a26-4ead-b79f-e9aed137fc84.png',  // Food Photography image added to critical
-  '/lovable-uploads/1f924edb-9819-4bbc-91ac-8bdb224ff48e.png'  // Fashion Photography image added to critical
+  '/lovable-uploads/1f924edb-9819-4bbc-91ac-8bdb224ff48e.png',  // Fashion Photography image added to critical
+  '/lovable-uploads/28516f95-c696-478a-a1ca-2643222d0648.png'  // Corporate & Short Videos image added to critical
 ];
 
 // Gallery collections for each service - organized to prioritize images
@@ -53,6 +54,11 @@ export const serviceGalleries = {
     '/lovable-uploads/1f924edb-9819-4bbc-91ac-8bdb224ff48e.png', // New Fashion Photography image with traditional attire
     'https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&q=80&w=800&h=600',
     'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800&h=600'
+  ],
+  'Corporate & Short Videos': [
+    '/lovable-uploads/28516f95-c696-478a-a1ca-2643222d0648.png', // New corporate event image with people taking selfie
+    'https://images.unsplash.com/photo-1551836022-4c4c79ecde51?auto=format&fit=crop&q=80&w=800&h=600',
+    'https://images.unsplash.com/photo-1581091877018-dac6a371d50f?auto=format&fit=crop&q=80&w=800&h=600'
   ],
   'Wedding Photography': [
     '/lovable-uploads/615d3ac6-4345-48d6-9ed9-b794c68b0307.png',
@@ -77,10 +83,12 @@ export const packageImages = {
   'Corporate': {
     carousel: [
       '/lovable-uploads/71dc637a-2ed8-42fe-b045-b78301739a30.png', // Updated carousel image
+      '/lovable-uploads/28516f95-c696-478a-a1ca-2643222d0648.png', // Added new corporate event image to carousel
       'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800&h=600'
     ],
     gallery: [
       '/lovable-uploads/71dc637a-2ed8-42fe-b045-b78301739a30.png', // Updated gallery image
+      '/lovable-uploads/28516f95-c696-478a-a1ca-2643222d0648.png', // Added new corporate event image to gallery
     ]
   },
 };
