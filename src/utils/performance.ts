@@ -12,7 +12,8 @@ import {
   setupRoutePerformanceTracking,
   initializePerformanceOptimizations,
   measurePerformance,
-  optimizeImageLoading
+  optimizeImageLoading,
+  setupOnlineStatus
 } from './performance/index';
 
 // Re-export all functions
@@ -26,7 +27,8 @@ export {
   setupRoutePerformanceTracking,
   initializePerformanceOptimizations,
   measurePerformance,
-  optimizeImageLoading
+  optimizeImageLoading,
+  setupOnlineStatus
 };
 
 /**
@@ -74,5 +76,6 @@ export default {
   optimizeImageLoading,
   preloadImages,
   deferNonCriticalResources,
-  setupLazyLoading
+  setupLazyLoading,
+  setupOnlineStatus
 };

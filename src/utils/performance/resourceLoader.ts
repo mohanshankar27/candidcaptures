@@ -66,3 +66,77 @@ export function deferNonCriticalJS(callback: () => void, delay = 100): void {
     });
   }
 }
+
+/**
+ * Track online status of users
+ * @returns Object with methods to track online status
+ */
+export function setupOnlineStatus() {
+  if (typeof window === 'undefined') return {
+    isOnline: true,
+    startTracking: () => {},
+    stopTracking: () => {},
+  };
+  
+  const onlineUsers = new Set<string>();
+  let isTracking = false;
+  
+  // Update online status every 30 seconds
+  const updateInterval = 30 * 1000;
+  let intervalId: number | null = null;
+  
+  const updateOnlineStatus = () => {
+    // In a real app, this would sync with the server
+    const currentTime = new Date().toISOString();
+    console.log(`Online status updated at ${currentTime}`);
+    
+    // Display online badge in UI
+    const onlineBadge = document.getElementById('online-status-badge');
+    if (onlineBadge) {
+      onlineBadge.classList.remove('hidden');
+      onlineBadge.setAttribute('title', `Last seen: ${currentTime}`);
+    }
+  };
+  
+  const startTracking = () => {
+    if (isTracking) return;
+    
+    isTracking = true;
+    updateOnlineStatus();
+    
+    // Set up interval for periodic updates
+    intervalId = window.setInterval(updateOnlineStatus, updateInterval);
+    
+    // Listen for online/offline events
+    window.addEventListener('online', updateOnlineStatus);
+    window.addEventListener('offline', () => {
+      console.log('User went offline');
+      const onlineBadge = document.getElementById('online-status-badge');
+      if (onlineBadge) {
+        onlineBadge.classList.add('hidden');
+      }
+    });
+  };
+  
+  const stopTracking = () => {
+    if (!isTracking) return;
+    
+    isTracking = false;
+    
+    // Clear interval
+    if (intervalId !== null) {
+      window.clearInterval(intervalId);
+      intervalId = null;
+    }
+    
+    // Remove event listeners
+    window.removeEventListener('online', updateOnlineStatus);
+    window.removeEventListener('offline', updateOnlineStatus);
+  };
+  
+  return {
+    isOnline: navigator?.onLine ?? true,
+    startTracking,
+    stopTracking,
+  };
+}
