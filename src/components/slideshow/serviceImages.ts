@@ -10,7 +10,7 @@ const serviceImages = {
   'Event Photography': "/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png",
   'Family Portraits': "/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png",
   'Fashion Photography': "/lovable-uploads/44fdad37-1724-4cad-a878-bb2baf05b83b.png",
-  'Food Photography': "/lovable-uploads/615d3ac6-4345-48d6-9ed9-b794c68b0307.png",
+  'Food Photography': "/lovable-uploads/e330db14-6a26-4ead-b79f-e9aed137fc84.png", // Updated with new Indian curry dish image
   'Makeup shoot': "/lovable-uploads/e612e8f7-3f32-4c0d-a920-b83e95752820.png",
   'Maternity Photography': "/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png",
   'Matrimonial Portfolios': "/lovable-uploads/f981f530-98b4-46e6-8063-68406ae598e1.png",
@@ -28,7 +28,8 @@ export const criticalImages = [
   '/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png', // Hero image
   '/lovable-uploads/71dc637a-2ed8-42fe-b045-b78301739a30.png', // Corporate headshots
   '/lovable-uploads/615d3ac6-4345-48d6-9ed9-b794c68b0307.png',  // Wedding photo
-  '/lovable-uploads/a97ae0b1-6394-488d-a9f4-d17321650970.png' // New concept shoot image added to critical images
+  '/lovable-uploads/a97ae0b1-6394-488d-a9f4-d17321650970.png', // Concept shoot image
+  '/lovable-uploads/e330db14-6a26-4ead-b79f-e9aed137fc84.png'  // Food Photography image added to critical
 ];
 
 // Gallery collections for each service - organized to prioritize images
@@ -41,6 +42,11 @@ export const serviceGalleries = {
     '/lovable-uploads/a97ae0b1-6394-488d-a9f4-d17321650970.png', // New traditional deity costume image
     'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80&w=800&h=600',
     'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800&h=600'
+  ],
+  'Food Photography': [
+    '/lovable-uploads/e330db14-6a26-4ead-b79f-e9aed137fc84.png', // New Indian curry dish image
+    'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&q=80&w=800&h=600',
+    'https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?auto=format&fit=crop&q=80&w=800&h=600'
   ],
   'Wedding Photography': [
     '/lovable-uploads/615d3ac6-4345-48d6-9ed9-b794c68b0307.png',
