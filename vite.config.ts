@@ -13,16 +13,7 @@ export default defineConfig(({ mode }) => ({
     middlewareMode: false,
   },
   plugins: [
-    react({
-      // Use SWC features for better performance
-      plugins: [[
-        '@swc/plugin-emotion',
-        {
-          sourceMap: mode === 'development',
-          autoLabel: 'dev-only',
-        },
-      ]],
-    }),
+    react(),
     mode === 'development' &&
     componentTagger(),
   ].filter(Boolean),

@@ -10,7 +10,7 @@ import servicesList, { Service } from '@/data/servicesList';
 import { Grid, List } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ServicesLoading from '@/components/ServicesLoading';
-import { preloadCriticalImages, deferNonCriticalJS } from '@/utils/performanceOptimizer';
+import { preloadCriticalImages, deferNonCriticalJS } from '@/utils/performance'; // Updated import
 import { criticalImages } from '@/components/slideshow/serviceImages';
 
 // Lazy-load non-critical components with reduced loading delay

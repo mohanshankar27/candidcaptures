@@ -5,7 +5,7 @@ import Hero from "@/components/Hero";
 import Gallery from "@/components/Gallery";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
-import { preloadCriticalImages, deferNonCriticalJS } from '@/utils/performanceOptimizer';
+import { preloadCriticalImages, deferNonCriticalJS } from '@/utils/performance'; // Updated import
 import { criticalImages } from '@/components/slideshow/serviceImages';
 
 // Lazily load non-critical components

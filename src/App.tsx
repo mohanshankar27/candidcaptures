@@ -5,7 +5,7 @@ import './App.css'
 import Index from './pages/Index'
 import Services from './pages/Services'
 import Pricing from './pages/Pricing'
-import { initializePerformanceOptimizations } from './utils/performanceOptimizer'
+import { initializePerformanceOptimizations } from './utils/performance' // Updated import
 
 // Lazy load the performance monitor component (only in development)
 const PerformanceMonitor = lazy(() => 

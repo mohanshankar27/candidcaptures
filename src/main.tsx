@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App'
 import './index.css'
 import { measurePerformance, optimizeImageLoading } from './utils/performance'
-import { initializePerformanceOptimizations } from './utils/performanceOptimizer'
+import { initializePerformanceOptimizations } from './utils/performance' // Updated import
 
 // Start performance measurement in development
 if (import.meta.env.DEV) {
