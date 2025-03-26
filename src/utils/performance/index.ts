@@ -3,7 +3,7 @@
 // Re-exports all performance optimization functions for backward compatibility
 
 import { preloadCriticalImages, optimizePageImages } from './imageOptimizer';
-import { deferNonCriticalJS, prioritizeResources } from './resourceLoader';
+import { deferNonCriticalJS, prioritizeResources, setupOnlineStatus } from './resourceLoader';
 import { optimizeCSSDelivery } from './cssOptimizer';
 import { setupIntersectionObserver } from './intersectionObserver';
 import { setupRoutePerformanceTracking } from './performanceTracker';
@@ -18,7 +18,8 @@ export {
   optimizeCSSDelivery,
   setupIntersectionObserver,
   setupRoutePerformanceTracking,
-  initializePerformanceOptimizations
+  initializePerformanceOptimizations,
+  setupOnlineStatus
 };
 
 // Legacy exports for backward compatibility
@@ -56,5 +57,6 @@ export default {
   setupRoutePerformanceTracking,
   initializePerformanceOptimizations,
   measurePerformance,
-  optimizeImageLoading
+  optimizeImageLoading,
+  setupOnlineStatus
 };

@@ -9,6 +9,7 @@ import {
   MenubarMenu,
   MenubarTrigger,
 } from "@/components/ui/menubar";
+import OnlineStatusBadge from './OnlineStatusBadge';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -121,12 +122,14 @@ const Navbar = () => {
               {item.name}
             </a>
           ))}
+          <OnlineStatusBadge />
         </div>
 
         <div className="lg:hidden flex items-center pr-4">
+          <OnlineStatusBadge />
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="hover:text-primary transition-colors"
+            className="hover:text-primary transition-colors ml-2"
             aria-label="Toggle menu"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
