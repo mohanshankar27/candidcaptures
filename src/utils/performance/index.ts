@@ -18,12 +18,10 @@ export {
   optimizeCSSDelivery,
   setupIntersectionObserver,
   setupRoutePerformanceTracking,
-  initializePerformanceOptimizations,
-  measurePerformance,
-  optimizeImageLoading
+  initializePerformanceOptimizations
 };
 
-// Additional legacy exports for backward compatibility
+// Legacy exports for backward compatibility
 export function measurePerformance(): void {
   if (typeof window === 'undefined' || !window.performance) return;
   

@@ -1,4 +1,3 @@
-
 // Centralized image management file
 
 // Primary service images (used in services grid and as featured images)
