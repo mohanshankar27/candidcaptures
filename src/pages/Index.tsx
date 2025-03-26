@@ -5,7 +5,7 @@ import Hero from "@/components/Hero";
 import Gallery from "@/components/Gallery";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
-import { preloadImages, deferNonCriticalResources } from '@/utils/performance';
+import { preloadCriticalImages, deferNonCriticalJS } from '@/utils/performanceOptimizer';
 import { criticalImages } from '@/components/slideshow/serviceImages';
 
 // Lazily load non-critical components
@@ -27,28 +27,36 @@ const Index = () => {
   const [secondaryContent, setSecondaryContent] = useState(false);
 
   useEffect(() => {
+    // Start performance measurement
+    const startTime = performance.now();
+    
     // Preload critical images
-    preloadImages(criticalImages);
+    preloadCriticalImages(criticalImages);
     
     // Mark critical content as loaded
     const markLoadComplete = () => {
-      if (document.readyState === 'complete') {
+      if (document.readyState === 'complete' || document.readyState === 'interactive') {
         setLoadComplete(true);
         document.removeEventListener('readystatechange', markLoadComplete);
+        
+        if (process.env.NODE_ENV === 'development') {
+          const loadTime = performance.now() - startTime;
+          console.info(`Index critical content loaded: ${loadTime.toFixed(0)}ms`);
+        }
       }
     };
 
     // Check if document is already loaded
-    if (document.readyState === 'complete') {
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
       setLoadComplete(true);
     } else {
       document.addEventListener('readystatechange', markLoadComplete);
     }
     
-    // Defer loading of secondary content
-    deferNonCriticalResources(() => {
+    // Defer loading of secondary content with reduced delay
+    deferNonCriticalJS(() => {
       setSecondaryContent(true);
-    });
+    }, 100); // Reduced from 200ms to 100ms
 
     return () => {
       document.removeEventListener('readystatechange', markLoadComplete);

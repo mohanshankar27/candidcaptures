@@ -14,8 +14,17 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react({
-      // Fast refresh optimization
-      fastRefresh: true,
+      // Using SWC options to optimize build
+      swcOptions: {
+        jsc: {
+          transform: {
+            react: {
+              runtime: 'automatic',
+              refresh: mode === 'development'
+            }
+          }
+        }
+      }
     }),
     mode === 'development' &&
     componentTagger(),
@@ -64,6 +73,8 @@ export default defineConfig(({ mode }) => ({
         chunkFileNames: 'assets/js/[name]-[hash].js',
         entryFileNames: 'assets/js/[name]-[hash].js',
         assetFileNames: (assetInfo) => {
+          if (!assetInfo.name) return 'assets/[name]-[hash][extname]';
+          
           const info = assetInfo.name.split('.');
           let extType = info[info.length - 1];
           if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {

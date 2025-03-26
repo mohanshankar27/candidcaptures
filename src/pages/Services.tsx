@@ -10,15 +10,15 @@ import servicesList, { Service } from '@/data/servicesList';
 import { Grid, List } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ServicesLoading from '@/components/ServicesLoading';
-import { preloadImages, deferNonCriticalResources } from '@/utils/performance';
+import { preloadCriticalImages, deferNonCriticalJS } from '@/utils/performanceOptimizer';
 import { criticalImages } from '@/components/slideshow/serviceImages';
 
-// Lazy-load non-critical components
+// Lazy-load non-critical components with reduced loading delay
 const ServiceContent = lazy(() => import('@/components/ServiceContent'));
 const ServicesGrid = lazy(() => import('@/components/ServicesGrid'));
 const PricePackages = lazy(() => import('@/components/PricePackages'));
 
-// Simple loading state
+// Simple loading state for better perceived performance
 const SimpleLoadingState = () => (
   <div className="w-full h-20 flex items-center justify-center">
     <div className="w-8 h-8 border-4 border-primary/30 border-t-primary rounded-full animate-spin"></div>
@@ -33,23 +33,31 @@ const Services = () => {
   const [contentLoaded, setContentLoaded] = useState(false);
 
   useEffect(() => {
-    // Preload critical images immediately
-    preloadImages(criticalImages);
+    // Initial performance optimizations
+    const startTime = performance.now();
     
-    // Faster initial loading time
+    // Preload critical images immediately
+    preloadCriticalImages(criticalImages);
+    
+    // Ultra-fast initial loading time - further reduced from 700ms to 200ms
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 700); // Reduced from 3000ms to 700ms
+      const loadTime = performance.now() - startTime;
+      if (process.env.NODE_ENV === 'development') {
+        console.info(`Services initial render: ${loadTime.toFixed(0)}ms`);
+      }
+    }, 200);
     
+    // Smooth scroll to top
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: 'instant' // Changed from 'smooth' for faster perceived performance
     });
     
-    // Defer loading of non-critical content
-    deferNonCriticalResources(() => {
+    // Defer loading of non-critical content with reduced delay
+    deferNonCriticalJS(() => {
       setContentLoaded(true);
-    });
+    }, 50); // Reduced from 200ms to 50ms
     
     return () => clearTimeout(timer);
   }, []);
@@ -76,10 +84,10 @@ const Services = () => {
     setSelectedService(service);
     setViewMode('detailed');
     
-    // Scroll to top when changing services
+    // Scroll to top when changing services - using instant for better performance
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: 'instant'
     });
   };
 
@@ -159,7 +167,7 @@ const Services = () => {
             </>
           )}
           
-          {/* Price Packages section - deferred loading */}
+          {/* Price Packages section - deferred loading with earlier trigger */}
           {!isLoading && contentLoaded && (
             <div className="px-4 mt-8 animate-fade-in">
               <Suspense fallback={<SimpleLoadingState />}>
