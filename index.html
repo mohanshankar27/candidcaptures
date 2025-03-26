@@ -12,8 +12,12 @@
     <!-- Favicon -->
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     
-    <!-- Preload critical resources -->
-    <link rel="preload" href="/src/main.tsx" as="script" />
+    <!-- Performance optimizations -->
+    <!-- Preload critical JavaScript -->
+    <link rel="modulepreload" href="/src/main.tsx" as="script" />
+    <link rel="modulepreload" href="/src/App.tsx" as="script" />
+    
+    <!-- Preload critical images -->
     <link rel="preload" href="/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png" as="image" fetchpriority="high" />
     <link rel="preload" href="/lovable-uploads/71dc637a-2ed8-42fe-b045-b78301739a30.png" as="image" fetchpriority="high" />
     <link rel="preload" href="/lovable-uploads/615d3ac6-4345-48d6-9ed9-b794c68b0307.png" as="image" fetchpriority="high" />
@@ -26,14 +30,66 @@
     <link rel="dns-prefetch" href="https://images.unsplash.com" />
     <link rel="dns-prefetch" href="https://cdn.gpteng.co" />
     
+    <!-- Resource hints for fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
     <!-- Cache control -->
     <meta http-equiv="Cache-Control" content="max-age=86400" />
+    
+    <!-- Prefetch key routes -->
+    <link rel="prefetch" href="/services" as="document" />
+    <link rel="prefetch" href="/packages" as="document" />
+    
+    <!-- Critical CSS inlining (placeholder) -->
+    <style>
+      /* Inline critical CSS */
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      }
+      .critical-spinner {
+        width: 40px;
+        height: 40px;
+        border: 3px solid rgba(0, 0, 0, 0.1);
+        border-radius: 50%;
+        border-top-color: #ea384c;
+        animation: spin 1s ease-in-out infinite;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -20px 0 0 -20px;
+      }
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+    </style>
     
     <base href="/" />
   </head>
 
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Initial loading state -->
+      <div class="critical-spinner"></div>
+    </div>
+    
+    <!-- Loading sequence optimization -->
+    <script>
+      // Add browser-level hint that this page is performance-sensitive
+      document.documentElement.classList.add('js-focus-visible');
+      
+      // Record initial load timestamp
+      window.performance && window.performance.mark && window.performance.mark('initial_load');
+      
+      // Block rendering until critical resources are loaded
+      document.addEventListener('DOMContentLoaded', function() {
+        window.performance && window.performance.mark && window.performance.mark('dom_content_loaded');
+      });
+    </script>
+    
+    <!-- Deferred external scripts -->
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module" defer></script>
     <script type="module" src="/src/main.tsx"></script>
   </body>

@@ -5,6 +5,8 @@ import Hero from "@/components/Hero";
 import Gallery from "@/components/Gallery";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import { preloadImages, deferNonCriticalResources } from '@/utils/performance';
+import { criticalImages } from '@/components/slideshow/serviceImages';
 
 // Lazily load non-critical components
 const PhotoSlideshow = lazy(() => import('@/components/PhotoSlideshow'));
@@ -12,18 +14,22 @@ const ServiceSlider = lazy(() => import('@/components/ServiceSlider'));
 const About = lazy(() => import('@/components/About'));
 const Contact = lazy(() => import('@/components/Contact'));
 
-// Simple loading fallback
+// Optimized loading fallback
 const LoadingFallback = () => (
-  <div className="flex justify-center items-center py-16">
-    <div className="w-12 h-12 border-4 border-primary/30 border-t-primary rounded-full animate-spin"></div>
+  <div className="flex justify-center items-center py-8">
+    <div className="w-8 h-8 border-4 border-primary/30 border-t-primary rounded-full animate-spin"></div>
   </div>
 );
 
 const Index = () => {
   // Track visibility for delayed loading
   const [loadComplete, setLoadComplete] = useState(false);
+  const [secondaryContent, setSecondaryContent] = useState(false);
 
   useEffect(() => {
+    // Preload critical images
+    preloadImages(criticalImages);
+    
     // Mark critical content as loaded
     const markLoadComplete = () => {
       if (document.readyState === 'complete') {
@@ -38,6 +44,11 @@ const Index = () => {
     } else {
       document.addEventListener('readystatechange', markLoadComplete);
     }
+    
+    // Defer loading of secondary content
+    deferNonCriticalResources(() => {
+      setSecondaryContent(true);
+    });
 
     return () => {
       document.removeEventListener('readystatechange', markLoadComplete);
@@ -53,14 +64,16 @@ const Index = () => {
       <Gallery />
       
       {/* Lazy load additional components */}
-      <Suspense fallback={<LoadingFallback />}>
-        <PhotoSlideshow />
-      </Suspense>
+      {loadComplete && (
+        <Suspense fallback={<LoadingFallback />}>
+          <PhotoSlideshow />
+        </Suspense>
+      )}
       
       <CTA />
       
-      {/* Only load these components when initial page load is complete */}
-      {loadComplete && (
+      {/* Only load these components when initial page load is complete and user has scrolled down */}
+      {secondaryContent && (
         <>
           <Suspense fallback={<LoadingFallback />}>
             <ServiceSlider />

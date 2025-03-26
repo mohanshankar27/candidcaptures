@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { useLocation } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -10,25 +10,45 @@ import servicesList, { Service } from '@/data/servicesList';
 import { Grid, List } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ServicesLoading from '@/components/ServicesLoading';
-import ServiceContent from '@/components/ServiceContent';
-import ServicesGrid from '@/components/ServicesGrid';
-import PricePackages from '@/components/PricePackages';
+import { preloadImages, deferNonCriticalResources } from '@/utils/performance';
+import { criticalImages } from '@/components/slideshow/serviceImages';
+
+// Lazy-load non-critical components
+const ServiceContent = lazy(() => import('@/components/ServiceContent'));
+const ServicesGrid = lazy(() => import('@/components/ServicesGrid'));
+const PricePackages = lazy(() => import('@/components/PricePackages'));
+
+// Simple loading state
+const SimpleLoadingState = () => (
+  <div className="w-full h-20 flex items-center justify-center">
+    <div className="w-8 h-8 border-4 border-primary/30 border-t-primary rounded-full animate-spin"></div>
+  </div>
+);
 
 const Services = () => {
   const location = useLocation();
   const [selectedService, setSelectedService] = useState<Service>(servicesList[0]);
   const [viewMode, setViewMode] = useState<'detailed' | 'grid'>('grid');
   const [isLoading, setIsLoading] = useState(true);
+  const [contentLoaded, setContentLoaded] = useState(false);
 
   useEffect(() => {
-    // Mark as loaded after specified time
+    // Preload critical images immediately
+    preloadImages(criticalImages);
+    
+    // Faster initial loading time
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 3000); // 3 seconds initial page load
+    }, 700); // Reduced from 3000ms to 700ms
     
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
+    });
+    
+    // Defer loading of non-critical content
+    deferNonCriticalResources(() => {
+      setContentLoaded(true);
     });
     
     return () => clearTimeout(timer);
@@ -94,7 +114,9 @@ const Services = () => {
             <ServicesLoading />
           ) : viewMode === 'grid' ? (
             <div className="bg-white/50 backdrop-blur-sm p-4 rounded-lg shadow-sm border border-primary/5 mx-4 animate-fade-in">
-              <ServicesGrid services={servicesList} onServiceClick={handleServiceClick} />
+              <Suspense fallback={<SimpleLoadingState />}>
+                <ServicesGrid services={servicesList} onServiceClick={handleServiceClick} />
+              </Suspense>
             </div>
           ) : (
             <>
@@ -121,22 +143,28 @@ const Services = () => {
                   
                   <ResizablePanel defaultSize={75} minSize={60}>
                     <div className="h-full overflow-y-auto px-4">
-                      <ServiceContent service={selectedService} />
+                      <Suspense fallback={<SimpleLoadingState />}>
+                        <ServiceContent service={selectedService} />
+                      </Suspense>
                     </div>
                   </ResizablePanel>
                 </ResizablePanelGroup>
               </div>
               
               <div className="md:hidden mt-4 px-4 animate-fade-in">
-                <ServiceContent service={selectedService} />
+                <Suspense fallback={<SimpleLoadingState />}>
+                  <ServiceContent service={selectedService} />
+                </Suspense>
               </div>
             </>
           )}
           
-          {/* Price Packages section */}
-          {!isLoading && (
+          {/* Price Packages section - deferred loading */}
+          {!isLoading && contentLoaded && (
             <div className="px-4 mt-8 animate-fade-in">
-              <PricePackages />
+              <Suspense fallback={<SimpleLoadingState />}>
+                <PricePackages />
+              </Suspense>
             </div>
           )}
         </div>
