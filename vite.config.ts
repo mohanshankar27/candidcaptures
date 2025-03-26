@@ -23,6 +23,12 @@ export default defineConfig(({ mode }) => ({
   build: {
     // Enable minification for production builds
     minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+      },
+    },
     // Optimize large dependencies
     commonjsOptions: {
       include: [/node_modules/],
@@ -35,10 +41,19 @@ export default defineConfig(({ mode }) => ({
         manualChunks: {
           vendor: ['react', 'react-dom', 'react-router-dom'],
           ui: ['@/components/ui'],
+          framer: ['framer-motion'],
+          carousel: ['embla-carousel-react'],
         },
       },
     },
-    // Generate source maps for easier debugging
+    // Generate source maps for easier debugging in development only
     sourcemap: mode === 'development',
+    // Improve chunk loading strategy
+    chunkSizeWarningLimit: 1000,
+  },
+  // Add optimized image processing
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'react-router-dom', 'framer-motion', 'embla-carousel-react'],
+    exclude: [],
   },
 }));

@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { lazy, Suspense, useState } from 'react';
 import { Separator } from '@/components/ui/separator';
 import { useNavigate } from 'react-router-dom';
 import { Package, ArrowRight } from 'lucide-react';
@@ -73,6 +73,12 @@ const packageImages = [
 
 const PricePackages: React.FC = () => {
   const navigate = useNavigate();
+  const [imagesLoaded, setImagesLoaded] = useState<boolean[]>([]);
+
+  // Initialize image loading state
+  React.useEffect(() => {
+    setImagesLoaded(new Array(packageImages.length).fill(false));
+  }, []);
 
   const handlePackageClick = (pkg: PricePackageItem) => {
     // First navigate to the package page
@@ -82,6 +88,15 @@ const PricePackages: React.FC = () => {
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
+    });
+  };
+
+  // Handle image loading
+  const handleImageLoad = (index: number) => {
+    setImagesLoaded(prev => {
+      const newState = [...prev];
+      newState[index] = true;
+      return newState;
     });
   };
 
@@ -98,7 +113,7 @@ const PricePackages: React.FC = () => {
           Click on any package to view detailed pricing and what's included.
         </p>
         
-        {/* Add the image carousel */}
+        {/* Optimized image carousel */}
         <div className="mb-8 relative">
           <Carousel className="w-full">
             <CarouselContent>
@@ -109,7 +124,12 @@ const PricePackages: React.FC = () => {
                       <img 
                         src={image} 
                         alt={`Package preview ${index + 1}`}
+                        loading={index < 2 ? "eager" : "lazy"}
+                        decoding={index < 2 ? "sync" : "async"}
+                        onLoad={() => handleImageLoad(index)}
                         className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                        width="400"
+                        height="300"
                       />
                     </div>
                   </div>

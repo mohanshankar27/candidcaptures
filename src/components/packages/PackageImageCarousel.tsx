@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { 
   Carousel, 
   CarouselContent, 
@@ -21,16 +21,22 @@ const PackageImageCarousel: React.FC<PackageImageCarouselProps> = ({
   altPrefix = "Package image" 
 }) => {
   const [enlargedImageIndex, setEnlargedImageIndex] = useState<number | null>(null);
+  const [imagesLoaded, setImagesLoaded] = useState<boolean[]>([]);
 
-  const openImageView = (index: number) => {
+  // Initialize image loading state
+  React.useEffect(() => {
+    setImagesLoaded(new Array(images.length).fill(false));
+  }, [images.length]);
+
+  const openImageView = useCallback((index: number) => {
     setEnlargedImageIndex(index);
-  };
+  }, []);
 
-  const closeImageView = () => {
+  const closeImageView = useCallback(() => {
     setEnlargedImageIndex(null);
-  };
+  }, []);
 
-  const navigateImage = (direction: 'prev' | 'next') => {
+  const navigateImage = useCallback((direction: 'prev' | 'next') => {
     if (enlargedImageIndex === null) return;
     
     if (direction === 'prev') {
@@ -44,7 +50,19 @@ const PackageImageCarousel: React.FC<PackageImageCarouselProps> = ({
         return (prevIndex + 1) % images.length;
       });
     }
+  }, [enlargedImageIndex, images.length]);
+
+  // Handle image loading
+  const handleImageLoad = (index: number) => {
+    setImagesLoaded(prev => {
+      const newState = [...prev];
+      newState[index] = true;
+      return newState;
+    });
   };
+
+  // Determine if we should show the modal content
+  const showModalContent = enlargedImageIndex !== null;
 
   return (
     <div className="mb-10 relative">
@@ -64,7 +82,10 @@ const PackageImageCarousel: React.FC<PackageImageCarouselProps> = ({
                       alt={`${altPrefix} ${index + 1}`}
                       loading={isCritical || index < 2 ? "eager" : "lazy"}
                       decoding={isCritical || index < 2 ? "sync" : "async"}
+                      onLoad={() => handleImageLoad(index)}
                       className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                      width="400"
+                      height="300"
                     />
                   </div>
                 </div>
@@ -81,7 +102,7 @@ const PackageImageCarousel: React.FC<PackageImageCarouselProps> = ({
       </Carousel>
 
       {/* Enlarged Image View - Only render when needed */}
-      {enlargedImageIndex !== null && (
+      {showModalContent && (
         <Dialog open={enlargedImageIndex !== null} onOpenChange={closeImageView}>
           <DialogContent className="max-w-5xl p-0 border-4 border-orange-400 bg-black" onClick={(e) => e.stopPropagation()}>
             <div className="relative w-full h-[80vh]">

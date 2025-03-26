@@ -9,17 +9,25 @@
     <meta name="author" content="Candid Capture Photography" />
     <meta property="og:image" content="/og-image.png" />
     
-    <!-- Preload critical images -->
-    <link rel="preload" href="/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png" as="image" />
-    <link rel="preload" href="/lovable-uploads/71dc637a-2ed8-42fe-b045-b78301739a30.png" as="image" />
-    <link rel="preload" href="/lovable-uploads/615d3ac6-4345-48d6-9ed9-b794c68b0307.png" as="image" />
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/src/main.tsx" as="script" />
+    <link rel="preload" href="/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png" as="image" fetchpriority="high" />
+    <link rel="preload" href="/lovable-uploads/71dc637a-2ed8-42fe-b045-b78301739a30.png" as="image" fetchpriority="high" />
+    <link rel="preload" href="/lovable-uploads/615d3ac6-4345-48d6-9ed9-b794c68b0307.png" as="image" fetchpriority="high" />
     
     <!-- Preconnect to external domains -->
-    <link rel="preconnect" href="https://cdn.gpteng.co" />
+    <link rel="preconnect" href="https://cdn.gpteng.co" crossorigin />
     <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
     
     <!-- DNS prefetch for performance -->
     <link rel="dns-prefetch" href="https://images.unsplash.com" />
+    <link rel="dns-prefetch" href="https://cdn.gpteng.co" />
+    
+    <!-- Cache control -->
+    <meta http-equiv="Cache-Control" content="max-age=86400" />
     
     <base href="/" />
   </head>

@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { isImageCritical } from "@/components/slideshow/serviceImages";
@@ -33,6 +33,12 @@ const Gallery = () => {
   ];
 
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+  const [imagesLoaded, setImagesLoaded] = useState<boolean[]>([]);
+  
+  // Initialize image loading state
+  useEffect(() => {
+    setImagesLoaded(new Array(images.length).fill(false));
+  }, [images.length]);
   
   const openImageModal = (index: number) => {
     setSelectedImageIndex(index);
@@ -58,6 +64,18 @@ const Gallery = () => {
     }
   };
 
+  // Handle image loading
+  const handleImageLoad = (index: number) => {
+    setImagesLoaded(prev => {
+      const newState = [...prev];
+      newState[index] = true;
+      return newState;
+    });
+  };
+
+  // Determine if we should show the modal content
+  const showModalContent = selectedImageIndex !== null;
+
   return (
     <section id="gallery" className="py-20 bg-white">
       <div className="container mx-auto px-4">
@@ -76,9 +94,12 @@ const Gallery = () => {
                 <img
                   src={image.url}
                   alt={image.alt}
-                  loading={isCritical ? "eager" : "lazy"}
-                  decoding={isCritical ? "sync" : "async"}
+                  loading={isCritical || index < 2 ? "eager" : "lazy"}
+                  decoding={isCritical || index < 2 ? "sync" : "async"}
+                  onLoad={() => handleImageLoad(index)}
                   className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
+                  width="400"
+                  height="400"
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
               </div>
@@ -87,8 +108,8 @@ const Gallery = () => {
         </div>
       </div>
 
-      {/* Image Modal/Dialog - Only render when needed */}
-      {selectedImageIndex !== null && (
+      {/* Only render dialog when needed */}
+      {showModalContent && (
         <Dialog open={selectedImageIndex !== null} onOpenChange={closeImageModal}>
           <DialogContent className="max-w-5xl p-0 border-4 border-orange-400 bg-black" onClick={(e) => e.stopPropagation()}>
             <div className="relative w-full h-[80vh]">

@@ -1,4 +1,3 @@
-
 // Centralized image management file
 
 // Primary service images (used in services grid and as featured images)
@@ -23,18 +22,18 @@ const serviceImages = {
   'Wedding Photography': "/lovable-uploads/615d3ac6-4345-48d6-9ed9-b794c68b0307.png"
 };
 
-// Define critical images that should be preloaded
+// Define critical images that should be preloaded (keep this small - only truly critical)
 export const criticalImages = [
-  '/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png',
-  '/lovable-uploads/71dc637a-2ed8-42fe-b045-b78301739a30.png',
-  '/lovable-uploads/615d3ac6-4345-48d6-9ed9-b794c68b0307.png'
+  '/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png', // Hero image
+  '/lovable-uploads/71dc637a-2ed8-42fe-b045-b78301739a30.png', // Corporate headshots
+  '/lovable-uploads/615d3ac6-4345-48d6-9ed9-b794c68b0307.png'  // Wedding photo
 ];
 
-// Gallery collections for each service
+// Gallery collections for each service - organized to prioritize images
 export const serviceGalleries = {
   'Corporate Headshots': [
     '/lovable-uploads/71dc637a-2ed8-42fe-b045-b78301739a30.png', // Updated primary corporate headshot
-    'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80'
+    'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800&h=600'
   ],
   'Wedding Photography': [
     '/lovable-uploads/615d3ac6-4345-48d6-9ed9-b794c68b0307.png',
@@ -52,21 +51,19 @@ export const serviceGalleries = {
     '/lovable-uploads/932908b8-c3eb-4a8c-b97a-7948d2de4bce.png',
     '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png'
   ],
-  // You can add other services as needed
 };
 
-// Package-specific images
+// Package-specific images - optimized for performance
 export const packageImages = {
   'Corporate': {
     carousel: [
       '/lovable-uploads/71dc637a-2ed8-42fe-b045-b78301739a30.png', // Updated carousel image
-      'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80'
+      'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800&h=600'
     ],
     gallery: [
       '/lovable-uploads/71dc637a-2ed8-42fe-b045-b78301739a30.png', // Updated gallery image
     ]
   },
-  // Add other packages as needed
 };
 
 // Helper function to get gallery images for a service

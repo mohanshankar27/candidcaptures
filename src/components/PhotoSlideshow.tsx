@@ -1,5 +1,5 @@
 
-import { memo, useState } from 'react';
+import { memo, useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import servicesList from '@/data/servicesList';
@@ -19,8 +19,18 @@ const serviceThumbnails = servicesList.map(service => ({
 
 const PhotoSlideshow = () => {
   const navigate = useNavigate();
+  const [isVisible, setIsVisible] = useState(false);
   
-  const navigateToServices = (serviceName: string) => {
+  // Delayed rendering for non-critical components
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 100); // Small delay to prioritize critical content
+    
+    return () => clearTimeout(timer);
+  }, []);
+  
+  const navigateToServices = useCallback((serviceName: string) => {
     const matchingService = servicesList.find(service => service.name === serviceName);
     
     if (matchingService) {
@@ -28,7 +38,7 @@ const PhotoSlideshow = () => {
       // Navigate to services page and pass the selected service name through state
       navigate('/services', { state: { selectedService: serviceName } });
     }
-  };
+  }, [navigate]);
 
   // Animation variants for staggered children
   const containerVariants = {
@@ -43,34 +53,36 @@ const PhotoSlideshow = () => {
 
   return (
     <section id="gallery" className="py-20 bg-gradient-to-b from-white via-slate-50 to-orange-50 relative overflow-hidden">
-      {/* Background decorative elements */}
-      <BackgroundDecorators />
+      {/* Background decorative elements - only render when visible */}
+      {isVisible && <BackgroundDecorators />}
       
       <div className="container mx-auto px-4 relative z-10">
         {/* Header section */}
         <SlideshowHeader />
         
-        {/* Featured Services Carousel */}
+        {/* Featured Services Carousel - always render to show immediately */}
         <ServiceImageCarousel 
-          serviceThumbnails={serviceThumbnails}
+          serviceThumbnails={serviceThumbnails.slice(0, 6)} // Limit initial load to 6 items
           onServiceClick={navigateToServices}
         />
         
-        {/* Services Grid */}
-        <div className="mt-16">          
-          <motion.div 
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="w-full max-w-7xl mx-auto"
-          >
-            <ServicesGrid 
-              services={servicesList} 
-              onServiceClick={(service) => navigateToServices(service.name)} 
-            />
-          </motion.div>
-        </div>
+        {/* Services Grid - only render when visible */}
+        {isVisible && (
+          <div className="mt-16">          
+            <motion.div 
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              className="w-full max-w-7xl mx-auto"
+            >
+              <ServicesGrid 
+                services={servicesList} 
+                onServiceClick={(service) => navigateToServices(service.name)} 
+              />
+            </motion.div>
+          </div>
+        )}
       </div>
     </section>
   );
