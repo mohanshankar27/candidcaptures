@@ -1,4 +1,3 @@
-
 // Centralized image management file
 
 // Primary service images (used in services grid and as featured images)
@@ -17,8 +16,8 @@ const serviceImages = {
   'Naming Ceremony': "/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png",
   'New Born Baby Shoot': "/lovable-uploads/53584cdb-e83c-4e6f-8b99-37ba6c8fc6b8.png",
   'Product Photography': "/lovable-uploads/8d5e6443-143d-4c94-be94-b1e0b3cc76b2.png",
-  'Product shoot': "/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png",
-  'Special Services': "/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png",
+  'Product shoot': "/lovable-uploads/8d5e6443-143d-4c94-be94-b1e0b3cc76b2.png", // Changed to avoid duplicate
+  'Special Services': "/lovable-uploads/a6d35b17-76d1-4a77-89b4-5760943e213b.png", // Changed to avoid duplicate
   'Toddler & Children': "/lovable-uploads/44fdad37-1724-4cad-a878-bb2baf05b83b.png",
   'Wedding Photography': "/lovable-uploads/615d3ac6-4345-48d6-9ed9-b794c68b0307.png"
 };

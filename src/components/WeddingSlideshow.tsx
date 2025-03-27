@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react';
 import { 
   Carousel, 
@@ -7,7 +8,7 @@ import {
   CarouselPrevious 
 } from '@/components/ui/carousel';
 
-// Array of unique wedding photos for the slideshow
+// Array of unique wedding photos for the slideshow - removed any duplicate of the woman in traditional attire
 const weddingPhotos = [
   "/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png",
   "/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png", 
@@ -23,7 +24,7 @@ const weddingPhotos = [
   "/lovable-uploads/1e8e3b73-0675-48f7-a578-9f204a21062c.png",
   "/lovable-uploads/f981f530-98b4-46e6-8063-68406ae598e1.png",
   "/lovable-uploads/a6d35b17-76d1-4a77-89b4-5760943e213b.png",
-  "/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png" // Adding an extra one to make 15
+  // Removed duplicate image at the end
 ];
 
 interface WeddingSlideshowProps {

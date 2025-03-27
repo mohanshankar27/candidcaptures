@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
@@ -26,16 +25,11 @@ const Gallery = () => {
       url: "/lovable-uploads/8d5e6443-143d-4c94-be94-b1e0b3cc76b2.png",
       alt: "Traditional ceremony with floral garlands and festive lighting",
     },
-    {
-      url: "/lovable-uploads/53584cdb-e83c-4e6f-8b99-37ba6c8fc6b8.png",
-      alt: "Elegant portrait with traditional jewelry and attire in dramatic lighting",
-    },
   ];
 
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
   const [imagesLoaded, setImagesLoaded] = useState<boolean[]>([]);
   
-  // Initialize image loading state
   useEffect(() => {
     setImagesLoaded(new Array(images.length).fill(false));
   }, [images.length]);
@@ -64,7 +58,6 @@ const Gallery = () => {
     }
   };
 
-  // Handle image loading
   const handleImageLoad = (index: number) => {
     setImagesLoaded(prev => {
       const newState = [...prev];
@@ -73,13 +66,11 @@ const Gallery = () => {
     });
   };
 
-  // Determine if we should show the modal content
   const showModalContent = selectedImageIndex !== null;
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {images.map((image, index) => {
-        // Determine if this is a critical image that should be loaded eagerly
         const isCritical = isImageCritical(image.url);
         
         return (
@@ -103,7 +94,6 @@ const Gallery = () => {
         );
       })}
 
-      {/* Only render dialog when needed */}
       {showModalContent && (
         <Dialog open={selectedImageIndex !== null} onOpenChange={closeImageModal}>
           <DialogContent className="max-w-5xl p-0 border-4 border-orange-400 bg-black" onClick={(e) => e.stopPropagation()}>
