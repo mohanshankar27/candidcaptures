@@ -2,9 +2,10 @@
 import React from 'react';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Check } from 'lucide-react';
+import { Check, HelpCircle } from 'lucide-react';
 import BookingCTA from './BookingCTA';
 import PackageImageCarousel from './PackageImageCarousel';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 const FamilyPackage: React.FC = () => {
   // Images for the family package carousel
@@ -14,6 +15,33 @@ const FamilyPackage: React.FC = () => {
     '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png',
     '/lovable-uploads/8d5e6443-143d-4c94-be94-b1e0b3cc76b2.png',
     '/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png'
+  ];
+
+  const familyFAQs = [
+    {
+      question: "How should we prepare for our family portrait session?",
+      answer: "We recommend coordinating outfits with complementary colors rather than matching exactly. Avoid large logos or distracting patterns. Arrive well-rested, especially if young children are involved. For outdoor sessions, bring a change of clothes in case of accidents."
+    },
+    {
+      question: "What's the best age for baby/child photos?",
+      answer: "For newborns, the ideal time is within the first 10-14 days of life. For babies, milestone sessions are popular at 3, 6, 9, and 12 months. Toddlers are best photographed in the morning when they're refreshed. School-aged children can be scheduled any time of day."
+    },
+    {
+      question: "Can we include our pets in the family photos?",
+      answer: "Absolutely! Pets are family too. We recommend bringing them for part of the session, along with a handler who can take them home after their photos are complete, especially for longer sessions."
+    },
+    {
+      question: "How long does a typical family session take?",
+      answer: "Session length varies based on the package selected. Mini sessions run about 60-90 minutes, while our Classic and Signature sessions can take 2-4 hours depending on the number of family members, locations, and outfit changes."
+    },
+    {
+      question: "What if my child is uncooperative during the session?",
+      answer: "Don't worry, this happens often! Our photographers are experienced with children of all ages and temperaments. We take breaks as needed and use various techniques to engage reluctant participants. We never force poses and instead focus on creating a comfortable environment."
+    },
+    {
+      question: "How many outfit changes can we have?",
+      answer: "The number of outfit changes depends on your package. Mini sessions allow up to 2 changes, Classic up to 5, and Signature sessions are customized based on your needs. We're happy to discuss specific requirements during your consultation."
+    }
   ];
 
   return (
@@ -242,6 +270,28 @@ const FamilyPackage: React.FC = () => {
             <li>All packages include pre-session consultation</li>
             <li>Weekend and holiday sessions may incur additional charges</li>
           </ul>
+        </div>
+
+        <Separator />
+
+        <div className="mt-6">
+          <div className="flex items-center gap-3 mb-4">
+            <HelpCircle className="h-5 w-5 text-[#ea384c]" />
+            <h3 className="text-lg font-medium text-[#333333]">Frequently Asked Questions</h3>
+          </div>
+          
+          <Accordion type="single" collapsible className="w-full">
+            {familyFAQs.map((faq, index) => (
+              <AccordionItem key={index} value={`faq-${index}`} className="border-b border-slate-200">
+                <AccordionTrigger className="text-md font-medium text-slate-700 py-3">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-slate-600 pb-4 px-2">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
 
         <BookingCTA 
