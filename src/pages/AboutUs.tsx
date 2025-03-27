@@ -27,10 +27,10 @@ const AboutUs = () => {
       description: "Specializes in wedding photography with over 10 years of experience capturing love stories."
     },
     {
-      name: "Sam Rivera",
-      role: "Portrait Specialist",
+      name: "Raju",
+      role: "Lead Video Grapher",
       image: "/lovable-uploads/8d5e6443-143d-4c94-be94-b1e0b3cc76b2.png",
-      description: "Expert in bringing out the unique personality of every individual in portrait sessions."
+      description: "Expert in capturing cinematic moments with a keen eye for detail and storytelling through video."
     },
     {
       name: "Varun",
