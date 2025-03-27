@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -31,35 +32,66 @@ const FamilyPackage: React.FC = () => {
         <div className="grid md:grid-cols-3 gap-6">
           <Card className="border-primary/20 hover:shadow-lg transition-all duration-300">
             <CardHeader className="bg-gradient-to-r from-primary/10 to-primary/5 pb-2">
-              <CardTitle className="text-primary text-xl">Basic Family</CardTitle>
+              <CardTitle className="text-primary text-xl">MINI</CardTitle>
               <CardDescription className="text-slate-600 pt-1">Essential coverage</CardDescription>
               <div className="mt-4 mb-1">
-                <span className="text-3xl font-light text-[#ea384c]">₹15,000</span>
+                <div className="flex items-center gap-2">
+                  <span className="text-sm line-through text-slate-500">₹8,850 inclusive of GST</span>
+                  <span className="text-3xl font-light text-[#ea384c]">₹5,790 +GST</span>
+                </div>
+                <p className="text-xs mt-1 text-green-600 font-medium">
+                  Additional 15% Discount if all members are above 7 years (₹4,922 +GST)
+                </p>
               </div>
             </CardHeader>
             <CardContent className="pt-6">
               <ul className="space-y-3">
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Up to 1-hour photo session</span>
+                  <span className="text-slate-700">Studio Shoot: Yes, at our studio</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">10 edited digital images</span>
+                  <span className="text-slate-700">Outdoor Shoot: No</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">1 location (studio or outdoor)</span>
+                  <span className="text-slate-700">Duration: 60 - 90 mins</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Online gallery for viewing and downloading</span>
+                  <span className="text-slate-700">Look/Costumes Changes: Max 2</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Basic retouching included</span>
+                  <span className="text-slate-700">Props: Minimal</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Photographs Delivered: 15 (full res)</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Additional Images: @350/image</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Hard Copies: No (full res soft copies only)</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Makeup: No</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Mood-board: No</span>
                 </li>
               </ul>
+              <div className="mt-4 pt-4 border-t border-slate-100">
+                <a href="#book" className="block w-full text-center bg-[#ea384c] hover:bg-[#ea384c]/90 text-white py-2 rounded transition-colors">
+                  Schedule Online
+                </a>
+              </div>
             </CardContent>
           </Card>
 
