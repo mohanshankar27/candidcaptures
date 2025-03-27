@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -45,9 +44,10 @@ const MaternityPackage: React.FC = () => {
           {/* Mini Session */}
           <Card className="border-primary/20 hover:shadow-lg transition-all duration-300">
             <CardHeader className="bg-gradient-to-r from-primary/10 to-primary/5 pb-3">
-              <CardTitle className="text-primary text-xl">Mini Maternity Session</CardTitle>
-              <div className="mt-3 mb-1">
-                <span className="text-2xl font-medium text-[#ea384c]">₹7,500</span>
+              <CardTitle className="text-primary text-xl">MINI</CardTitle>
+              <div className="mt-3 mb-1 flex flex-col">
+                <span className="text-sm text-slate-600 line-through">Regular Price ₹8,490/-</span>
+                <span className="text-2xl font-medium text-[#ea384c]">Special OFFER ₹4,949 +GST</span>
               </div>
             </CardHeader>
             <CardContent className="pt-5">
@@ -55,34 +55,60 @@ const MaternityPackage: React.FC = () => {
                 <div className="space-y-4">
                   <div className="flex items-center gap-2">
                     <Clock className="h-5 w-5 text-primary" />
-                    <p className="text-slate-700 font-medium">30 Minute Session</p>
+                    <p className="text-slate-700 font-medium">60-90 Minute Session</p>
                   </div>
                   <ul className="space-y-2">
                     <li className="flex items-start">
                       <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                      <span className="text-slate-700">1 outfit</span>
+                      <span className="text-slate-700">Studio Shoot: Yes</span>
                     </li>
                     <li className="flex items-start">
                       <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                      <span className="text-slate-700">1 location</span>
+                      <span className="text-slate-700">Outdoor Shoot: No</span>
                     </li>
                     <li className="flex items-start">
                       <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                      <span className="text-slate-700">5 digital images</span>
+                      <span className="text-slate-700">Max 2 costume changes^</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                      <span className="text-slate-700">Basic props collection</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                      <span className="text-slate-700">12 full res photographs</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                      <span className="text-slate-700">Additional images: ₹375/image*</span>
                     </li>
                   </ul>
                 </div>
                 <div className="md:col-span-2">
                   <p className="text-slate-600 mb-4">
-                    Perfect for those wanting a quick session to document this special time. Ideal for indoor studio shots or a simple outdoor location.
+                    Perfect for those wanting a quick session to document this special time. Studio time included in this package is 90 mins with shoot time of approximately 45-60 mins.
                   </p>
-                  <div className="flex gap-3">
-                    <Button size="sm" variant="outline" className="border-primary text-primary hover:bg-primary/5">
-                      View Gallery
-                    </Button>
-                    <Button size="sm" className="bg-[#ea384c] hover:bg-[#ea384c]/90">
-                      Book Now
-                    </Button>
+                  <div className="flex flex-col gap-3">
+                    <div className="flex gap-3">
+                      <Button size="sm" variant="outline" className="border-primary text-primary hover:bg-primary/5">
+                        Sample-1
+                      </Button>
+                      <Button size="sm" variant="outline" className="border-primary text-primary hover:bg-primary/5">
+                        Sample-2
+                      </Button>
+                    </div>
+                    <div className="mt-2">
+                      <Button size="sm" className="bg-[#ea384c] hover:bg-[#ea384c]/90">
+                        Check Availability
+                      </Button>
+                    </div>
+                  </div>
+                  <div className="mt-4 text-xs text-slate-500 space-y-1">
+                    <p>*Progressively decreases, i.e. more images means lesser per image cost</p>
+                    <p>^Note: This is a base plan and costumes & option for makeup at the studio are not provided.</p>
+                    <p>Hard Copies: No (full res soft copies only)</p>
+                    <p>Makeup: Not Included</p>
+                    <p>Prior Creative Planning: No</p>
                   </div>
                 </div>
               </div>
