@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -92,39 +93,62 @@ const FamilyPackage: React.FC = () => {
 
           <Card className="border-primary/20 shadow-md hover:shadow-xl relative transition-all duration-300">
             <CardHeader className="bg-gradient-to-r from-primary/20 to-primary/10 pb-2">
-              <CardTitle className="text-primary text-xl">Premium Family</CardTitle>
+              <CardTitle className="text-primary text-xl">CLASSIC</CardTitle>
               <CardDescription className="text-slate-600 pt-1">Enhanced coverage</CardDescription>
               <div className="mt-4 mb-1">
-                <span className="text-3xl font-light text-[#ea384c]">₹25,000</span>
+                <div className="flex items-center gap-2">
+                  <span className="text-sm line-through text-slate-500">₹17,700 inclusive of GST</span>
+                  <span className="text-3xl font-light text-[#ea384c]">₹12,360 +GST</span>
+                </div>
+                <p className="text-xs mt-1 text-green-600 font-medium">
+                  Additional 15% Discount if all members are above 7 years (₹10,505 +GST)
+                </p>
               </div>
             </CardHeader>
             <CardContent className="pt-6">
               <ul className="space-y-3">
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Up to 2-hour photo session</span>
+                  <span className="text-slate-700">Studio Shoot: Yes, at our studio</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">20 edited digital images</span>
+                  <span className="text-slate-700">Outdoor Shoot: No</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Multiple poses and groupings</span>
+                  <span className="text-slate-700">Duration: 150 - 180 mins</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">1-2 outfit changes</span>
+                  <span className="text-slate-700">Look/Costumes Changes: Max 5</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">1 location (studio or outdoor)</span>
+                  <span className="text-slate-700">Props: Basic Toys/books</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">5 printed 8×10″ photographs</span>
+                  <span className="text-slate-700">Photographs Delivered: 30 (full res)</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Additional Images: @300/image</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Hard Copies: Yes, starting ₹35/- per print (min 10)</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Makeup: Optional, starting 3,750/-</span>
                 </li>
               </ul>
+              <div className="mt-4 pt-4 border-t border-slate-100">
+                <a href="tel:+919886156696" className="block w-full text-center bg-[#ea384c] hover:bg-[#ea384c]/90 text-white py-2 rounded transition-colors">
+                  Call us on: +91.98861-56696
+                </a>
+              </div>
             </CardContent>
           </Card>
 
