@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -227,6 +226,13 @@ const NewBornPackage: React.FC = () => {
             <li>Travel fees may apply for at-home sessions</li>
             <li>All packages include pre-session consultation</li>
           </ul>
+        </div>
+
+        <div className="mt-6 bg-slate-50 p-5 rounded-lg border border-slate-100">
+          <h3 className="text-lg font-medium mb-3 text-[#333333]">Birthdays Parties, & Other Events</h3>
+          <p className="text-slate-600">
+            We do know from experience that no two clients have the same set of requirements. The customised packages we offer is specific to your requirements. The final cost is dependant on several factors including but not limited to the dates of your event (booking us early also allows us offer you a good deal), the size of our team covering your event, the type of prints / albums that you choose, duration of the shoot, timelines of deliveries etc.
+          </p>
         </div>
 
         <BookingCTA 
