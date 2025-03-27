@@ -19,9 +19,9 @@ const CorporatePackage: React.FC = () => {
         <div className="container mx-auto px-4 py-16 relative">
           <div className="text-center mb-8">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#1A1F2C] leading-tight">
-              Corporate Headshot <span className="text-[#ea384c]">Excellence</span>
+              Corporate <span className="text-[#ea384c]">Professionals</span>
             </h2>
-            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+            <p className="text-xl text-slate-600 max-w-2xl mx-auto font-boulas">
               Professional portraits that elevate your brand and showcase your team's personality
             </p>
           </div>
@@ -30,14 +30,14 @@ const CorporatePackage: React.FC = () => {
 
       {/* Add the image carousel component with enhanced styling and new images */}
       <div className="max-w-6xl mx-auto mb-16 px-4">
-        <PackageImageCarousel images={corporateImages} altPrefix="Corporate Headshot" />
+        <PackageImageCarousel images={corporateImages} altPrefix="Corporate Professional" />
       </div>
       
       <div className="space-y-12 max-w-6xl mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center">
-          <h3 className="text-3xl font-bold mb-4 text-[#1A1F2C]">Corporate Headshot Packages</h3>
-          <p className="mb-6 text-slate-600 text-lg">
-            Professional headshots for business profiles, websites, and marketing materials. Choose the package 
+          <h3 className="text-3xl font-bold mb-4 text-[#1A1F2C]">Corporate Professional Packages</h3>
+          <p className="mb-6 text-slate-600 text-lg font-boulas">
+            Professional portraits for business profiles, websites, and marketing materials. Choose the package 
             that best suits your team's requirements.
           </p>
         </div>
@@ -53,12 +53,13 @@ const CorporatePackage: React.FC = () => {
               
               <div className="mt-6 space-y-3">
                 <div className="flex flex-col items-center">
-                  <div className="text-sm text-slate-500 line-through">₹8,890 (inc. GST)</div>
+                  <div className="text-sm text-slate-500 line-through">₹1,599 (inc. GST)</div>
                   <div className="flex items-center gap-2">
-                    <span className="bg-[#ea384c]/10 px-3 py-1 rounded-full text-[#ea384c] font-medium">15% OFF</span>
-                    <span className="text-3xl font-bold text-slate-800">₹7,550</span>
+                    <span className="bg-[#ea384c]/10 px-3 py-1 rounded-full text-[#ea384c] font-medium">Special Offer</span>
+                    <span className="text-3xl font-bold text-slate-800">₹995</span>
                     <span className="text-sm text-slate-500">+GST</span>
                   </div>
+                  <p className="text-sm mt-1 font-boulas">per image</p>
                 </div>
                 
                 <div className="bg-gradient-to-r from-slate-50 to-white rounded-lg p-4 shadow-sm border border-slate-100">
@@ -91,46 +92,48 @@ const CorporatePackage: React.FC = () => {
               <div className="space-y-4">
                 <div className="flex justify-between py-2 border-b border-slate-100">
                   <span className="text-sm font-medium text-slate-700">Studio Shoot:</span>
-                  <span className="text-sm text-slate-600 flex items-center">
+                  <span className="text-sm text-slate-600 flex items-center font-boulas">
                     <Check className="h-4 w-4 text-green-500 mr-1" /> Yes, at our studio
                   </span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-slate-100">
                   <span className="text-sm font-medium text-slate-700">Outdoor Shoot:</span>
-                  <span className="text-sm text-slate-600 flex items-center">
+                  <span className="text-sm text-slate-600 flex items-center font-boulas">
                     <X className="h-4 w-4 text-red-500 mr-1" /> No
                   </span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-slate-100">
                   <span className="text-sm font-medium text-slate-700">Duration:</span>
-                  <span className="text-sm text-slate-600">15 - 30 mins per person</span>
+                  <span className="text-sm text-slate-600 font-boulas">5 - 10 mins per person</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-slate-100">
                   <span className="text-sm font-medium text-slate-700">Look Changes:</span>
-                  <span className="text-sm text-slate-600">Max 1</span>
+                  <span className="text-sm text-slate-600 flex items-center font-boulas">
+                    <X className="h-4 w-4 text-red-500 mr-1" /> Not allowed
+                  </span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-slate-100">
                   <span className="text-sm font-medium text-slate-700">Props:</span>
-                  <span className="text-sm text-slate-600">Minimal</span>
+                  <span className="text-sm text-slate-600 font-boulas">Minimal</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-slate-100">
                   <span className="text-sm font-medium text-slate-700">Photos Delivered:</span>
-                  <span className="text-sm text-slate-600">3 (full res)</span>
+                  <span className="text-sm text-slate-600 font-boulas">3 (full res)</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-slate-100">
                   <span className="text-sm font-medium text-slate-700">Additional Images:</span>
-                  <span className="text-sm text-slate-600">₹300/image</span>
+                  <span className="text-sm text-slate-600 font-boulas">₹300/image</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-slate-100">
                   <span className="text-sm font-medium text-slate-700">Hard Copies:</span>
-                  <span className="text-sm text-slate-600 flex items-center">
+                  <span className="text-sm text-slate-600 flex items-center font-boulas">
                     <X className="h-4 w-4 text-red-500 mr-1" /> No (digital files only)
                   </span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-slate-100">
                   <span className="text-sm font-medium text-slate-700">Makeup:</span>
-                  <span className="text-sm text-slate-600 flex items-center">
-                    <X className="h-4 w-4 text-red-500 mr-1" /> No
+                  <span className="text-sm text-slate-600 flex items-center font-boulas">
+                    <X className="h-4 w-4 text-red-500 mr-1" /> Not available
                   </span>
                 </div>
               </div>
@@ -321,14 +324,14 @@ const CorporatePackage: React.FC = () => {
         
         {/* Photo Gallery Section with updated images */}
         <div className="mt-12">
-          <h3 className="text-3xl font-bold mb-10 text-center text-[#1A1F2C]">Sample Corporate Headshots</h3>
+          <h3 className="text-3xl font-bold mb-10 text-center text-[#1A1F2C]">Sample Corporate Professionals</h3>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-8">
             {galleryImages.map((image, index) => (
               <div key={index} className="overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-all duration-300 group">
                 <img 
                   src={image} 
-                  alt={`Corporate Headshot Sample ${index + 1}`} 
+                  alt={`Corporate Professional Sample ${index + 1}`} 
                   className="w-full h-64 md:h-72 object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
@@ -338,7 +341,7 @@ const CorporatePackage: React.FC = () => {
         
         <div className="bg-gradient-to-r from-[#f5f7fa] to-[#c3cfe2] p-10 rounded-2xl mt-12 text-center shadow-lg">
           <h3 className="text-3xl font-bold mb-5 text-[#1A1F2C]">Ready to elevate your team's professional image?</h3>
-          <p className="text-slate-700 mb-8 text-lg max-w-2xl mx-auto">
+          <p className="text-slate-700 mb-8 text-lg max-w-2xl mx-auto font-boulas">
             Contact us to schedule a consultation and discuss your specific corporate photography needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-5 justify-center">
