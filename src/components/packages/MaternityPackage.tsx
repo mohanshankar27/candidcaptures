@@ -57,7 +57,7 @@ const MaternityPackage: React.FC = () => {
                     <p>60-90 Minute Session</p>
                   </div>
                   <ul className="space-y-2">
-                    {['Studio Shoot: Yes', 'Outdoor Shoot: No', 'Max 2 costume changes^', 'Basic props collection', '12 full res photographs', 'Additional images: ₹375/image*'].map((item, i) => (
+                    {['Outdoor Shoot: Yes', 'Max 2 costume changes^', 'Basic props collection', '12 full res photographs', 'Additional images: ₹375/image*'].map((item, i) => (
                       <li key={i} className="flex items-start text-sm">
                         <div className="mt-0.5 mr-2 bg-primary/5 p-1 rounded-full">
                           <Check className="h-3 w-3 text-primary" />
@@ -108,8 +108,7 @@ const MaternityPackage: React.FC = () => {
                   </div>
                   <ul className="space-y-2">
                     {[
-                      'Studio Shoot: Yes', 
-                      'Outdoor Shoot: No', 
+                      'Outdoor Shoot: Yes', 
                       'Look Costumes Changes: Max 4', 
                       'Props: Basic + Custom (may be chargable)', 
                       '25 full res photographs', 
@@ -163,8 +162,7 @@ const MaternityPackage: React.FC = () => {
                   </div>
                   <ul className="space-y-2">
                     {[
-                      'Studio Shoot: Yes', 
-                      'Outdoor Shoot: Yes, optional', 
+                      'Outdoor Shoot: Yes', 
                       'Look Costumes Changes: Max 4', 
                       'Props: At actuals as per concept', 
                       '35 full res photographs',
