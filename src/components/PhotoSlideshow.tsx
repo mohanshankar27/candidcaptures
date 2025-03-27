@@ -1,6 +1,6 @@
 
 import { memo, useState, useEffect, useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import servicesList from '@/data/servicesList';
 
@@ -20,7 +20,11 @@ const serviceThumbnails = servicesList.map(service => ({
 
 const PhotoSlideshow = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [isVisible, setIsVisible] = useState(false);
+  
+  // Check if we're on the services page
+  const isServicesPage = location.pathname === '/services';
   
   // Delayed rendering for non-critical components
   useEffect(() => {
@@ -52,6 +56,11 @@ const PhotoSlideshow = () => {
     }
   };
 
+  // Don't render this component on the services page
+  if (isServicesPage) {
+    return null;
+  }
+
   return (
     <section id="gallery" className="py-20 bg-gradient-to-b from-white via-slate-50 to-orange-50 relative overflow-hidden">
       {/* Background decorative elements - only render when visible */}
@@ -82,7 +91,7 @@ const PhotoSlideshow = () => {
           <Gallery />
         </div>
         
-        {/* Services Grid - only render when visible */}
+        {/* Services Grid - only render when visible and not on services page */}
         {isVisible && (
           <div className="mt-16">          
             <motion.div 

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import { useLocation } from 'react-router-dom';
 
 interface ServiceThumbnail {
   name: string;
@@ -20,6 +21,12 @@ const ServiceImageCarousel: React.FC<ServiceImageCarouselProps> = ({
   onServiceClick 
 }) => {
   const [hoveredItem, setHoveredItem] = useState<number | null>(null);
+  const location = useLocation();
+  
+  // Don't render this component if we're on the services page
+  if (location.pathname === '/services') {
+    return null;
+  }
 
   return (
     <motion.div 

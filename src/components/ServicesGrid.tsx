@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Service } from '@/data/servicesList';
 import { Card, CardContent } from '@/components/ui/card';
@@ -5,6 +6,7 @@ import { ExternalLink, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
 import serviceImages from '@/components/slideshow/serviceImages';
+import { useLocation } from 'react-router-dom';
 
 interface ServicesGridProps {
   services: Service[];
@@ -14,6 +16,14 @@ interface ServicesGridProps {
 const ServicesGrid: React.FC<ServicesGridProps> = ({ services, onServiceClick }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [clickedService, setClickedService] = useState<Service | null>(null);
+  const location = useLocation();
+  
+  // Only show the service grid on the services page
+  const isServicesPage = location.pathname === '/services';
+  
+  if (!isServicesPage && !location.pathname.includes('/pricing')) {
+    return null;
+  }
 
   const isHighlighted = (index: number): boolean => {
     if (hoveredIndex === null) return false;
