@@ -6,6 +6,7 @@ import { Check, Camera, Clock, Image, CheckCircle2, Star, Medal, Award, ThumbsUp
 import BookingCTA from './BookingCTA';
 import { Button } from '@/components/ui/button';
 import PackageImageCarousel from './PackageImageCarousel';
+import { motion } from 'framer-motion';
 
 const MaternityPackage: React.FC = () => {
   const packageImages = [
@@ -33,269 +34,166 @@ const MaternityPackage: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-8">
+        {/* Package cards in a flex row */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* MINI Session */}
-          <Card className="border-primary/20 hover:shadow-lg transition-all duration-300 overflow-hidden group">
-            <CardHeader className="bg-gradient-to-r from-primary/10 to-primary/5 pb-3 relative">
-              <div className="absolute -right-12 -top-12 w-32 h-32 bg-[#ea384c]/10 rounded-full blur-xl group-hover:bg-[#ea384c]/20 transition-all duration-500"></div>
-              <CardTitle className="text-primary text-2xl font-serif">MINI</CardTitle>
-              <div className="mt-3 mb-1 flex flex-col">
-                <span className="text-sm text-slate-600 line-through">Regular Price ₹8,490/-</span>
-                <span className="text-2xl font-medium text-[#ea384c]">Special OFFER ₹4,949 +GST</span>
-              </div>
-            </CardHeader>
-            <CardContent className="pt-5">
-              <div className="grid md:grid-cols-3 gap-6">
-                <div className="space-y-4">
-                  <div className="flex items-center gap-2 font-medium text-primary">
-                    <Clock className="h-5 w-5 text-[#ea384c]" />
+          <motion.div
+            whileHover={{ y: -5 }}
+            transition={{ duration: 0.3 }}
+          >
+            <Card className="border-primary/20 hover:shadow-lg transition-all duration-300 overflow-hidden group h-full">
+              <CardHeader className="bg-gradient-to-r from-primary/10 to-primary/5 pb-3 relative">
+                <div className="absolute -right-12 -top-12 w-32 h-32 bg-[#ea384c]/10 rounded-full blur-xl group-hover:bg-[#ea384c]/20 transition-all duration-500"></div>
+                <CardTitle className="text-primary text-xl font-serif">MINI</CardTitle>
+                <div className="mt-2 mb-1 flex flex-col">
+                  <span className="text-sm text-slate-600 line-through">Regular Price ₹8,490/-</span>
+                  <span className="text-xl font-medium text-[#ea384c]">Special OFFER ₹4,949 +GST</span>
+                </div>
+              </CardHeader>
+              <CardContent className="pt-4">
+                <div className="space-y-3">
+                  <div className="flex items-center gap-2 text-sm font-medium text-primary">
+                    <Clock className="h-4 w-4 text-[#ea384c]" />
                     <p>60-90 Minute Session</p>
                   </div>
-                  <ul className="space-y-3">
-                    <li className="flex items-start">
-                      <div className="mt-0.5 mr-2 bg-primary/5 p-1 rounded-full">
-                        <Check className="h-4 w-4 text-primary" />
-                      </div>
-                      <span className="text-slate-700">Studio Shoot: Yes</span>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="mt-0.5 mr-2 bg-primary/5 p-1 rounded-full">
-                        <Check className="h-4 w-4 text-primary" />
-                      </div>
-                      <span className="text-slate-700">Outdoor Shoot: No</span>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="mt-0.5 mr-2 bg-primary/5 p-1 rounded-full">
-                        <Check className="h-4 w-4 text-primary" />
-                      </div>
-                      <span className="text-slate-700">Max 2 costume changes^</span>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="mt-0.5 mr-2 bg-primary/5 p-1 rounded-full">
-                        <Check className="h-4 w-4 text-primary" />
-                      </div>
-                      <span className="text-slate-700">Basic props collection</span>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="mt-0.5 mr-2 bg-primary/5 p-1 rounded-full">
-                        <Check className="h-4 w-4 text-primary" />
-                      </div>
-                      <span className="text-slate-700">12 full res photographs</span>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="mt-0.5 mr-2 bg-primary/5 p-1 rounded-full">
-                        <Check className="h-4 w-4 text-primary" />
-                      </div>
-                      <span className="text-slate-700">Additional images: ₹375/image*</span>
-                    </li>
+                  <ul className="space-y-2">
+                    {['Studio Shoot: Yes', 'Outdoor Shoot: No', 'Max 2 costume changes^', 'Basic props collection', '12 full res photographs', 'Additional images: ₹375/image*'].map((item, i) => (
+                      <li key={i} className="flex items-start text-sm">
+                        <div className="mt-0.5 mr-2 bg-primary/5 p-1 rounded-full">
+                          <Check className="h-3 w-3 text-primary" />
+                        </div>
+                        <span className="text-slate-700">{item}</span>
+                      </li>
+                    ))}
                   </ul>
-                </div>
-                <div className="md:col-span-2">
-                  <p className="text-slate-600 mb-6 leading-relaxed">
-                    Perfect for those wanting a quick session to document this special time. Studio time included in this package is 90 mins with shoot time of approximately 45-60 mins.
-                  </p>
-                  <div className="flex flex-col gap-3">
-                    <div className="flex gap-3">
-                      <Button size="sm" variant="outline" className="border-primary text-primary hover:bg-primary/5 group relative overflow-hidden">
-                        <span className="absolute inset-0 w-0 bg-primary/10 transition-all duration-300 ease-out group-hover:w-full"></span>
-                        <span className="relative">Sample-1</span>
-                      </Button>
-                      <Button size="sm" variant="outline" className="border-primary text-primary hover:bg-primary/5 group relative overflow-hidden">
-                        <span className="absolute inset-0 w-0 bg-primary/10 transition-all duration-300 ease-out group-hover:w-full"></span>
-                        <span className="relative">Sample-2</span>
-                      </Button>
-                    </div>
-                    <div className="mt-4">
-                      <Button className="bg-[#ea384c] hover:bg-[#ea384c]/90 shadow-md relative overflow-hidden group">
-                        <span className="absolute inset-0 w-3 bg-white/20 skew-x-[-20deg] transform -translate-x-10 group-hover:translate-x-[400px] transition-all duration-1000 ease-out"></span>
-                        <span className="relative">Check Availability</span>
-                      </Button>
-                    </div>
+                  <div className="pt-3 flex justify-center">
+                    <Button className="bg-[#ea384c] hover:bg-[#ea384c]/90 shadow-md relative overflow-hidden group w-full">
+                      <span className="absolute inset-0 w-3 bg-white/20 skew-x-[-20deg] transform -translate-x-10 group-hover:translate-x-[400px] transition-all duration-1000 ease-out"></span>
+                      <span className="relative">Check Availability</span>
+                    </Button>
                   </div>
-                  <div className="mt-4 text-xs text-slate-500 space-y-1 border-t border-slate-100 pt-4">
-                    <p>*Progressively decreases, i.e. more images means lesser per image cost</p>
-                    <p>^Note: This is a base plan and costumes & option for makeup at the studio are not provided.</p>
-                    <p>Hard Copies: No (full res soft copies only)</p>
-                    <p>Makeup: Not Included</p>
-                    <p>Prior Creative Planning: No</p>
+                  <div className="mt-3 text-xs text-slate-500 border-t border-slate-100 pt-3">
+                    <p>*Progressively decreases with more images</p>
+                    <p>^Costumes not provided</p>
                   </div>
                 </div>
-              </div>
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
+          </motion.div>
 
           {/* CLASSIC Session */}
-          <Card className="border-primary/20 shadow-md hover:shadow-xl relative transition-all duration-300 overflow-hidden group">
-            <div className="absolute -top-4 right-0 left-0 mx-auto w-fit px-4 py-1 bg-gradient-to-r from-[#ea384c] to-[#fb6340] text-white text-sm rounded-full font-medium shadow-lg z-10">
-              Most Popular
-            </div>
-            <CardHeader className="bg-gradient-to-r from-primary/20 to-primary/10 pb-3 relative overflow-hidden">
-              <div className="absolute -right-10 -top-10 w-32 h-32 bg-[#fb6340]/20 rounded-full blur-xl group-hover:bg-[#fb6340]/30 transition-all duration-500"></div>
-              <div className="absolute -left-10 -bottom-10 w-32 h-32 bg-[#ea384c]/20 rounded-full blur-xl group-hover:bg-[#ea384c]/30 transition-all duration-500"></div>
-              <CardTitle className="text-primary text-2xl font-serif relative z-10">CLASSIC</CardTitle>
-              <div className="mt-3 mb-1 flex flex-col relative z-10">
-                <span className="text-sm text-slate-600 line-through">Regular Price ₹14,199/-</span>
-                <span className="text-2xl font-medium text-[#ea384c]">HAPPY Mom's OFFER ₹8,888 +GST</span>
+          <motion.div
+            whileHover={{ y: -10 }}
+            transition={{ duration: 0.3 }}
+            className="md:-mt-4 md:-mb-4 z-10"
+          >
+            <Card className="border-primary/20 shadow-xl hover:shadow-2xl relative transition-all duration-300 overflow-hidden group h-full scale-105">
+              <div className="absolute -top-4 right-0 left-0 mx-auto w-fit px-4 py-1 bg-gradient-to-r from-[#ea384c] to-[#fb6340] text-white text-sm rounded-full font-medium shadow-lg z-10">
+                Most Popular
               </div>
-            </CardHeader>
-            <CardContent className="pt-5">
-              <div className="grid md:grid-cols-3 gap-6">
-                <div className="space-y-4">
-                  <div className="flex items-center gap-2 font-medium text-primary">
-                    <Clock className="h-5 w-5 text-[#ea384c]" />
+              <CardHeader className="bg-gradient-to-r from-primary/20 to-primary/10 pb-3 relative overflow-hidden">
+                <div className="absolute -right-10 -top-10 w-32 h-32 bg-[#fb6340]/20 rounded-full blur-xl group-hover:bg-[#fb6340]/30 transition-all duration-500"></div>
+                <div className="absolute -left-10 -bottom-10 w-32 h-32 bg-[#ea384c]/20 rounded-full blur-xl group-hover:bg-[#ea384c]/30 transition-all duration-500"></div>
+                <CardTitle className="text-primary text-xl font-serif relative z-10">CLASSIC</CardTitle>
+                <div className="mt-2 mb-1 flex flex-col relative z-10">
+                  <span className="text-sm text-slate-600 line-through">Regular Price ₹14,199/-</span>
+                  <span className="text-xl font-medium text-[#ea384c]">HAPPY Mom's OFFER ₹8,888 +GST</span>
+                </div>
+              </CardHeader>
+              <CardContent className="pt-4">
+                <div className="space-y-3">
+                  <div className="flex items-center gap-2 text-sm font-medium text-primary">
+                    <Clock className="h-4 w-4 text-[#ea384c]" />
                     <p>150-180 Minute Session</p>
                   </div>
-                  <ul className="space-y-3">
-                    <li className="flex items-start">
-                      <div className="mt-0.5 mr-2 bg-primary/5 p-1 rounded-full">
-                        <Check className="h-4 w-4 text-primary" />
-                      </div>
-                      <span className="text-slate-700">Studio Shoot: Yes</span>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="mt-0.5 mr-2 bg-primary/5 p-1 rounded-full">
-                        <Check className="h-4 w-4 text-primary" />
-                      </div>
-                      <span className="text-slate-700">Outdoor Shoot: No</span>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="mt-0.5 mr-2 bg-primary/5 p-1 rounded-full">
-                        <Check className="h-4 w-4 text-primary" />
-                      </div>
-                      <span className="text-slate-700">Look Costumes Changes: Max 4</span>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="mt-0.5 mr-2 bg-primary/5 p-1 rounded-full">
-                        <Check className="h-4 w-4 text-primary" />
-                      </div>
-                      <span className="text-slate-700">Props: Basic + Custom (may be chargable)</span>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="mt-0.5 mr-2 bg-primary/5 p-1 rounded-full">
-                        <Check className="h-4 w-4 text-primary" />
-                      </div>
-                      <span className="text-slate-700">25 full res photographs</span>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="mt-0.5 mr-2 bg-primary/5 p-1 rounded-full">
-                        <Check className="h-4 w-4 text-primary" />
-                      </div>
-                      <span className="text-slate-700">Additional images: ₹350/image*</span>
-                    </li>
+                  <ul className="space-y-2">
+                    {[
+                      'Studio Shoot: Yes', 
+                      'Outdoor Shoot: No', 
+                      'Look Costumes Changes: Max 4', 
+                      'Props: Basic + Custom (may be chargable)', 
+                      '25 full res photographs', 
+                      'Additional images: ₹350/image*',
+                      'Hard Copies: Yes, starting ₹25/- per print',
+                      'Makeup: Optional, starting ₹4,750/-'
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-start text-sm">
+                        <div className="mt-0.5 mr-2 bg-primary/5 p-1 rounded-full">
+                          <Check className="h-3 w-3 text-primary" />
+                        </div>
+                        <span className="text-slate-700">{item}</span>
+                      </li>
+                    ))}
                   </ul>
-                </div>
-                <div className="md:col-span-2">
-                  <p className="text-slate-600 mb-6 leading-relaxed">
-                    Our popular option with ample time for multiple outfits and creative shots. Studio time included in this package is 180 mins with shoot time of approximately 120 mins.
-                  </p>
-                  <div className="flex flex-col gap-3">
-                    <div className="flex gap-3 flex-wrap">
-                      <Button size="sm" variant="outline" className="border-primary text-primary hover:bg-primary/5 group relative overflow-hidden">
-                        <span className="absolute inset-0 w-0 bg-primary/10 transition-all duration-300 ease-out group-hover:w-full"></span>
-                        <span className="relative">Sample-1</span>
-                      </Button>
-                      <Button size="sm" variant="outline" className="border-primary text-primary hover:bg-primary/5 group relative overflow-hidden">
-                        <span className="absolute inset-0 w-0 bg-primary/10 transition-all duration-300 ease-out group-hover:w-full"></span>
-                        <span className="relative">Sample-2</span>
-                      </Button>
-                      <Button size="sm" variant="outline" className="border-primary text-primary hover:bg-primary/5 group relative overflow-hidden">
-                        <span className="absolute inset-0 w-0 bg-primary/10 transition-all duration-300 ease-out group-hover:w-full"></span>
-                        <span className="relative">Sample-3</span>
-                      </Button>
-                    </div>
-                    <div className="mt-4">
-                      <Button className="bg-[#ea384c] hover:bg-[#ea384c]/90 shadow-md relative overflow-hidden group">
-                        <span className="absolute inset-0 w-3 bg-white/20 skew-x-[-20deg] transform -translate-x-10 group-hover:translate-x-[400px] transition-all duration-1000 ease-out"></span>
-                        <span className="relative">Schedule Online</span>
-                      </Button>
-                    </div>
+                  <div className="pt-3 flex justify-center">
+                    <Button className="bg-[#ea384c] hover:bg-[#ea384c]/90 shadow-md relative overflow-hidden group w-full">
+                      <span className="absolute inset-0 w-3 bg-white/20 skew-x-[-20deg] transform -translate-x-10 group-hover:translate-x-[400px] transition-all duration-1000 ease-out"></span>
+                      <span className="relative">Schedule Online</span>
+                    </Button>
                   </div>
-                  <div className="mt-4 text-xs text-slate-500 space-y-1 border-t border-slate-100 pt-4">
-                    <p>*Progressively decreases, i.e. more images means lesser per image cost</p>
-                    <p>^Note: This is a base plan and costumes are not provided.</p>
-                    <p>Hard Copies: Yes, starting ₹25/- per print (min 10)</p>
-                    <p>Makeup: Optional, starting 4,750/-</p>
+                  <div className="mt-3 text-xs text-slate-500 border-t border-slate-100 pt-3">
+                    <p>*Progressively decreases with more images</p>
+                    <p>^Costumes not provided</p>
                     <p>Creative Planning: Basic Mood-board</p>
-                    <p>Cost for composites is dependent on complexity and starts at 1550/composite image</p>
                   </div>
                 </div>
-              </div>
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
+          </motion.div>
 
           {/* SIGNATURE Session */}
-          <Card className="border-primary/20 hover:shadow-lg transition-all duration-300 overflow-hidden group">
-            <CardHeader className="bg-gradient-to-r from-primary/15 to-primary/5 pb-3 relative">
-              <div className="absolute -left-12 -top-12 w-32 h-32 bg-primary/10 rounded-full blur-xl group-hover:bg-primary/20 transition-all duration-500"></div>
-              <CardTitle className="text-primary text-2xl font-serif">SIGNATURE</CardTitle>
-              <div className="mt-3 mb-1">
-                <span className="text-2xl font-medium text-[#ea384c]">Prices start ₹37,290 +GST*</span>
-                <p className="text-sm text-slate-600 mt-1">*Variable based on Location/Styling/Props/Costumes etc.</p>
-              </div>
-            </CardHeader>
-            <CardContent className="pt-5">
-              <div className="grid md:grid-cols-3 gap-6">
-                <div className="space-y-4">
-                  <div className="flex items-center gap-2 font-medium text-primary">
-                    <Clock className="h-5 w-5 text-[#ea384c]" />
+          <motion.div
+            whileHover={{ y: -5 }}
+            transition={{ duration: 0.3 }}
+          >
+            <Card className="border-primary/20 hover:shadow-lg transition-all duration-300 overflow-hidden group h-full">
+              <CardHeader className="bg-gradient-to-r from-primary/15 to-primary/5 pb-3 relative">
+                <div className="absolute -left-12 -top-12 w-32 h-32 bg-primary/10 rounded-full blur-xl group-hover:bg-primary/20 transition-all duration-500"></div>
+                <CardTitle className="text-primary text-xl font-serif">SIGNATURE</CardTitle>
+                <div className="mt-2 mb-1">
+                  <span className="text-xl font-medium text-[#ea384c]">Prices start ₹37,290 +GST*</span>
+                  <p className="text-xs text-slate-600 mt-1">*Variable based on Location/Styling/Props/Costumes</p>
+                </div>
+              </CardHeader>
+              <CardContent className="pt-4">
+                <div className="space-y-3">
+                  <div className="flex items-center gap-2 text-sm font-medium text-primary">
+                    <Clock className="h-4 w-4 text-[#ea384c]" />
                     <p>3-6 Hour Session</p>
                   </div>
-                  <ul className="space-y-3">
-                    <li className="flex items-start">
-                      <div className="mt-0.5 mr-2 bg-primary/5 p-1 rounded-full">
-                        <Check className="h-4 w-4 text-primary" />
-                      </div>
-                      <span className="text-slate-700">Studio Shoot: Yes</span>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="mt-0.5 mr-2 bg-primary/5 p-1 rounded-full">
-                        <Check className="h-4 w-4 text-primary" />
-                      </div>
-                      <span className="text-slate-700">Outdoor Shoot: Yes, optional</span>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="mt-0.5 mr-2 bg-primary/5 p-1 rounded-full">
-                        <Check className="h-4 w-4 text-primary" />
-                      </div>
-                      <span className="text-slate-700">Look Costumes Changes: Max 4</span>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="mt-0.5 mr-2 bg-primary/5 p-1 rounded-full">
-                        <Check className="h-4 w-4 text-primary" />
-                      </div>
-                      <span className="text-slate-700">Props: At actuals as per concept</span>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="mt-0.5 mr-2 bg-primary/5 p-1 rounded-full">
-                        <Check className="h-4 w-4 text-primary" />
-                      </div>
-                      <span className="text-slate-700">35 full res photographs</span>
-                    </li>
+                  <ul className="space-y-2">
+                    {[
+                      'Studio Shoot: Yes', 
+                      'Outdoor Shoot: Yes, optional', 
+                      'Look Costumes Changes: Max 4', 
+                      'Props: At actuals as per concept', 
+                      '35 full res photographs',
+                      'Location/Prop Charges: At actuals',
+                      'Makeup/hair: 2 Looks included',
+                      'Creative Planning: Mood-board, Stylist'
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-start text-sm">
+                        <div className="mt-0.5 mr-2 bg-primary/5 p-1 rounded-full">
+                          <Check className="h-3 w-3 text-primary" />
+                        </div>
+                        <span className="text-slate-700">{item}</span>
+                      </li>
+                    ))}
                   </ul>
-                </div>
-                <div className="md:col-span-2">
-                  <p className="text-slate-600 mb-6 leading-relaxed">
-                    The ultimate maternity experience with professional styling, creative direction, and premium locations. Perfect for the mom-to-be who wants to create truly artistic, magazine-quality photographs.
-                  </p>
-                  <div className="flex flex-col gap-3">
-                    <div className="flex gap-3">
-                      <Button size="sm" variant="outline" className="border-primary text-primary hover:bg-primary/5 group relative overflow-hidden">
-                        <span className="absolute inset-0 w-0 bg-primary/10 transition-all duration-300 ease-out group-hover:w-full"></span>
-                        <span className="relative">Free Consultation</span>
-                      </Button>
-                    </div>
+                  <div className="pt-3 flex justify-center">
+                    <Button className="bg-[#ea384c] hover:bg-[#ea384c]/90 shadow-md relative overflow-hidden group w-full">
+                      <span className="absolute inset-0 w-3 bg-white/20 skew-x-[-20deg] transform -translate-x-10 group-hover:translate-x-[400px] transition-all duration-1000 ease-out"></span>
+                      <span className="relative">Free Consultation</span>
+                    </Button>
                   </div>
-                  <div className="mt-4 text-xs text-slate-500 space-y-1 border-t border-slate-100 pt-4">
-                    <p>*Progressively decreases, i.e. more images means lesser per image cost</p>
-                    <p>Cost for composites is dependent on complexity and starts at 1550/composite image</p>
-                    <p>Location/Prop Charges: At actuals</p>
-                    <p>Makeup/hair: 2 Looks included</p>
-                    <p>Creative Planning: Mood-board, Stylist</p>
+                  <div className="mt-3 text-xs text-slate-500 border-t border-slate-100 pt-3">
+                    <p>*Progressively decreases with more images</p>
+                    <p>Cost for composites starting at ₹1,550/image</p>
                   </div>
                 </div>
-              </div>
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
+          </motion.div>
         </div>
 
         <Separator className="my-8" />
