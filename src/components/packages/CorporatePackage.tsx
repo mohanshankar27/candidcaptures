@@ -10,7 +10,6 @@ import { getPackageImages } from '@/components/slideshow/serviceImages';
 const CorporatePackage: React.FC = () => {
   // Get corporate package images from our central image management
   const corporateImages = getPackageImages('Corporate', 'carousel');
-  const galleryImages = getPackageImages('Corporate', 'gallery');
 
   return (
     <div className="package-details bg-white">
@@ -341,20 +340,21 @@ const CorporatePackage: React.FC = () => {
         
         <Separator className="my-16" />
         
-        {/* Photo Gallery Section with updated images */}
-        <div className="mt-12">
-          <h3 className="text-3xl font-bold mb-10 text-center text-[#1A1F2C]">Sample Corporate Professionals</h3>
+        {/* Add the note section instead of Sample Corporate Professionals */}
+        <div className="mt-12 bg-slate-50 p-8 rounded-xl shadow-sm border border-slate-200">
+          <h3 className="text-2xl font-bold mb-6 text-center text-[#1A1F2C]">Note:</h3>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-8">
-            {galleryImages.map((image, index) => (
-              <div key={index} className="overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-all duration-300 group">
-                <img 
-                  src={image} 
-                  alt={`Corporate Professional Sample ${index + 1}`} 
-                  className="w-full h-64 md:h-72 object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-            ))}
+          <div className="prose prose-slate max-w-3xl mx-auto">
+            <p className="mb-4 text-slate-700 font-boulas">
+              When you are considering having a portfolio shot, it helps for you to have a fair idea of how you want your photographs to be and who would be seeing your photographs.
+            </p>
+            
+            <ul className="space-y-3 list-disc pl-5 text-slate-700 font-boulas">
+              <li>Do plan your costumes & carry multiple options for a change</li>
+              <li>Generally formals works for most businesses.</li>
+              <li>Creative professionals can be more casual or even include work attires.</li>
+              <li>We offer a free in person consultation with our lead photographer for shoots with special requirements.</li>
+            </ul>
           </div>
         </div>
         
