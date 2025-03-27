@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -13,7 +12,6 @@ import {
 } from '@/components/ui/carousel';
 
 const NewBornPackage: React.FC = () => {
-  // Images for the newborn package carousel
   const newbornImages = [
     '/lovable-uploads/b977d3f5-fd63-468d-ac7f-09766c3ab6c1.png',
     '/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png',
@@ -116,39 +114,52 @@ const NewBornPackage: React.FC = () => {
               Most Popular
             </div>
             <CardHeader className="bg-gradient-to-r from-primary/20 to-primary/10 pb-2">
-              <CardTitle className="text-primary text-xl">Standard Package</CardTitle>
+              <CardTitle className="text-primary text-xl">Tiny Tots - PLUS</CardTitle>
               <CardDescription className="text-slate-600 pt-1">Premium coverage</CardDescription>
               <div className="mt-4 mb-1">
-                <span className="text-3xl font-light text-[#ea384c]">₹15,000</span>
+                <span className="text-3xl font-light text-[#ea384c]">₹12,500 +GST</span>
               </div>
             </CardHeader>
             <CardContent className="pt-6">
               <ul className="space-y-3">
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Up to 3-hour photo session</span>
+                  <span className="text-slate-700">Studio Shoot: Yes</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">20 edited digital images</span>
+                  <span className="text-slate-700">Outdoor Shoot: No</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">2 outfits/setups included</span>
+                  <span className="text-slate-700">Duration: 2 - 5 hrs</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Family portraits included</span>
+                  <span className="text-slate-700">Look/Costumes Changes: 3 to 5</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">In-studio session with props</span>
+                  <span className="text-slate-700">Props: charges/set applicable</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">5 printed 5×7″ photographs</span>
+                  <span className="text-slate-700">Photographs Delivered: 20+</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Hard Copies: Yes</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Makeup: Optional, ₹3,500 for 2 looks, additional ₹1,500</span>
                 </li>
               </ul>
+              <div className="mt-4 pt-4 border-t border-slate-100">
+                <a href="tel:+919632288815" className="block w-full text-center bg-[#ea384c] hover:bg-[#ea384c]/90 text-white py-2 rounded transition-colors">
+                  Call Us
+                </a>
+              </div>
             </CardContent>
           </Card>
 
