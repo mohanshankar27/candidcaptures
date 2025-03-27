@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
@@ -15,6 +16,7 @@ import { ArrowLeft, Package, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import ServicesFAQ from '@/components/ServicesFAQ';
+import CorporateHeadshotsFAQ from '@/components/CorporateHeadshotsFAQ';
 
 const PackageDetails: React.FC = () => {
   const { packageId } = useParams();
@@ -161,7 +163,11 @@ const PackageDetails: React.FC = () => {
               {getPackageComponent()}
             </div>
             
-            {showGeneralFAQ && (
+            {packageId === 'corporate' ? (
+              <div className="mt-12">
+                <CorporateHeadshotsFAQ />
+              </div>
+            ) : showGeneralFAQ && (
               <div className="mt-12">
                 <ServicesFAQ />
               </div>
