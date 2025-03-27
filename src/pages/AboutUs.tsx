@@ -33,10 +33,10 @@ const AboutUs = () => {
       description: "Expert in bringing out the unique personality of every individual in portrait sessions."
     },
     {
-      name: "Jordan Lee",
-      role: "Event Photographer",
+      name: "Varun",
+      role: "Marketing & Communication Head",
       image: "/lovable-uploads/e612e8f7-3f32-4c0d-a920-b83e95752820.png",
-      description: "Captures the energy and emotion of special events from corporate functions to celebrations."
+      description: "Leads our brand strategy and client communications, ensuring we connect with our audience effectively."
     }
   ];
 
