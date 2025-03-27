@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -165,39 +166,52 @@ const NewBornPackage: React.FC = () => {
 
           <Card className="border-primary/20 hover:shadow-lg transition-all duration-300">
             <CardHeader className="bg-gradient-to-r from-primary/15 to-primary/5 pb-2">
-              <CardTitle className="text-primary text-xl">Premium Package</CardTitle>
+              <CardTitle className="text-primary text-xl">Customised</CardTitle>
               <CardDescription className="text-slate-600 pt-1">Complete coverage</CardDescription>
               <div className="mt-4 mb-1">
-                <span className="text-3xl font-light text-[#ea384c]">₹25,000</span>
+                <span className="text-3xl font-light text-[#ea384c]">₹25,000 +GST</span>
               </div>
             </CardHeader>
             <CardContent className="pt-6">
               <ul className="space-y-3">
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Up to 4-hour photo session</span>
+                  <span className="text-slate-700">Studio Shoot: Yes</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">30 edited digital images</span>
+                  <span className="text-slate-700">Outdoor Shoot: Yes (Optional)</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">3 outfits/setups included</span>
+                  <span className="text-slate-700">Duration: 1 - 2 days / sessions</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Family and sibling photos</span>
+                  <span className="text-slate-700">Look/Costumes Changes: 3 to 5</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">10 printed 5×7″ photographs</span>
+                  <span className="text-slate-700">Photographs Delivered: 20+</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">1 custom photo album (8×8″)</span>
+                  <span className="text-slate-700">Hard Copies: Yes</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Makeup: Included</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Concept & Planning: Yes, for concept, props, location</span>
                 </li>
               </ul>
+              <div className="mt-4 pt-4 border-t border-slate-100">
+                <a href="mailto:candidcapture4@gmail.com" className="block w-full text-center bg-[#ea384c] hover:bg-[#ea384c]/90 text-white py-2 rounded transition-colors">
+                  Discuss your requirements
+                </a>
+              </div>
             </CardContent>
           </Card>
         </div>
