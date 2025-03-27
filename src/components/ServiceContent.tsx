@@ -5,6 +5,7 @@ import { Service } from '@/data/servicesList';
 import ServiceGallery from '@/components/ServiceGallery';
 import ArtistsCelebritiesGallery from '@/components/ArtistsCelebritiesGallery';
 import { getServiceGallery } from '@/components/slideshow/serviceImages';
+import CorporateHeadshotsFAQ from '@/components/CorporateHeadshotsFAQ';
 
 // Lazy-load components that aren't needed immediately
 const WeddingSlideshow = React.lazy(() => import('@/components/WeddingSlideshow'));
@@ -63,7 +64,6 @@ const ServiceContent: React.FC<ServiceContentProps> = ({ service }) => {
     return <ArtistsCelebritiesGallery service={service} />;
   }
 
-  // Use our ServiceGallery component for all other regular services
   return (
     <>
       <ServiceGallery service={service} images={serviceImageArray} />
@@ -73,6 +73,12 @@ const ServiceContent: React.FC<ServiceContentProps> = ({ service }) => {
         </div>}>
           <WeddingSlideshow />
         </React.Suspense>
+      )}
+      
+      {isCorporateHeadshots && (
+        <div className="mt-12">
+          <CorporateHeadshotsFAQ />
+        </div>
       )}
     </>
   );
