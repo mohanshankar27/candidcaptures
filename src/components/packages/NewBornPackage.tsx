@@ -62,35 +62,52 @@ const NewBornPackage: React.FC = () => {
         <div className="grid md:grid-cols-3 gap-6">
           <Card className="border-primary/20 hover:shadow-lg transition-all duration-300">
             <CardHeader className="bg-gradient-to-r from-primary/10 to-primary/5 pb-2">
-              <CardTitle className="text-primary text-xl">Basic Package</CardTitle>
+              <CardTitle className="text-primary text-xl">Tiny Tots - Basic</CardTitle>
               <CardDescription className="text-slate-600 pt-1">Essential coverage</CardDescription>
               <div className="mt-4 mb-1">
-                <span className="text-3xl font-light text-[#ea384c]">₹10,000</span>
+                <span className="text-3xl font-light text-[#ea384c]">₹8,790 +GST</span>
               </div>
             </CardHeader>
             <CardContent className="pt-6">
               <ul className="space-y-3">
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Up to 2-hour photo session</span>
+                  <span className="text-slate-700">Studio Shoot: No</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">10 edited digital images</span>
+                  <span className="text-slate-700">Outdoor Shoot: Yes</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">1 outfit/setup included</span>
+                  <span className="text-slate-700">Duration: 1 - 2.5 hrs</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">In-studio session with props</span>
+                  <span className="text-slate-700">Look/Costumes Changes: 2</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Online gallery for downloading</span>
+                  <span className="text-slate-700">Props: No</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Photographs Delivered: 10 to 15</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Hard Copies: No</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Makeup: Optional, ₹3,500 for 1 look, additional ₹1,500</span>
                 </li>
               </ul>
+              <div className="mt-4 pt-4 border-t border-slate-100">
+                <a href="#book" className="block w-full text-center bg-[#ea384c] hover:bg-[#ea384c]/90 text-white py-2 rounded transition-colors">
+                  Schedule Online
+                </a>
+              </div>
             </CardContent>
           </Card>
 
