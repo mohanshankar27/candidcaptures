@@ -47,6 +47,14 @@
   * {
     @apply border-border;
   }
+  
+  @font-face {
+    font-family: 'Boulas OT-Bold';
+    src: url('/fonts/BoulasOT-Bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
 }
 
 /* Utility classes for styling */
@@ -56,4 +64,8 @@
 
 .title-elegant {
   @apply font-akaya text-primary font-bold;
+}
+
+.font-boulas {
+  font-family: 'Boulas OT-Bold', serif;
 }

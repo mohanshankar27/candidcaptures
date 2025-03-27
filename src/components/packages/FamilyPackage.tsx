@@ -50,14 +50,14 @@ const FamilyPackage: React.FC = () => {
       <div className="space-y-6">
         <div>
           <h3 className="text-xl font-semibold mb-3 text-[#333333]">Family Portrait Sessions</h3>
-          <p className="mb-3 text-slate-600">
+          <p className="mb-3 text-slate-600 font-boulas">
             Capture the essence of your family's bond with our professional portrait photography services.
             Our expertly designed packages ensure that your family's unique dynamics and personalities shine through in every image.
           </p>
-          <p className="mb-4 text-slate-600">
+          <p className="mb-4 text-slate-600 font-boulas">
             Capture your journey with your loved ones through their stages of growth. Our shoots are candid and capture your loved one's unique personality for you to remember for years to come.
           </p>
-          <p className="mb-4 text-slate-600 italic font-medium">
+          <p className="mb-4 text-slate-600 italic font-medium font-boulas">
             NOTE: Each session is unique & duration of shoot varies slightly for your comfort to create a range of beautiful & personalised images.
           </p>
         </div>
@@ -255,7 +255,7 @@ const FamilyPackage: React.FC = () => {
               <Columns2 className="h-5 w-5 text-[#ea384c]" />
               <h4 className="text-lg font-medium text-[#ea384c]">Extended Family Package - ₹45,000</h4>
             </div>
-            <ul className="list-disc pl-5 space-y-2 text-slate-600">
+            <ul className="list-disc pl-5 space-y-2 text-slate-600 font-boulas">
               <li>Up to 4-hour photo session</li>
               <li>40 edited digital images</li>
               <li>Ideal for large family groups and multiple generations</li>
@@ -273,7 +273,7 @@ const FamilyPackage: React.FC = () => {
               <Columns2 className="h-5 w-5 text-[#ea384c]" />
               <h3 className="text-lg font-medium text-[#333333]">Important Information</h3>
             </div>
-            <ul className="list-disc pl-5 space-y-2 text-slate-600">
+            <ul className="list-disc pl-5 space-y-2 text-slate-600 font-boulas">
               <li>A 50% deposit is required to secure your booking</li>
               <li>Additional digital images can be purchased at ₹1,500 per image</li>
               <li>Travel fees may apply for locations beyond 20km from our studio</li>
@@ -297,7 +297,7 @@ const FamilyPackage: React.FC = () => {
                 <AccordionTrigger className="text-md font-medium text-slate-700 py-3">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-slate-600 pb-4 px-2">
+                <AccordionContent className="text-slate-600 pb-4 px-2 font-boulas">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>

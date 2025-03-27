@@ -22,6 +22,7 @@ export default {
         akaya: ['Akaya Kanadaka', 'cursive'],
         serif: ['Playfair Display', 'Georgia', 'serif'],
         sans: ['Poppins', 'Helvetica', 'Arial', 'sans-serif'],
+        boulas: ['Boulas OT-Bold', 'serif'],
       },
       colors: {
         border: "hsl(var(--border))",
