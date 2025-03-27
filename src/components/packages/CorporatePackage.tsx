@@ -1,5 +1,6 @@
+
 import React from 'react';
-import { Check, X, Info, Star, Crown, Sparkles } from 'lucide-react';
+import { Check, X, Info, Star, Crown, Sparkles, MapPin } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import PackageImageCarousel from '../packages/PackageImageCarousel';
@@ -42,7 +43,7 @@ const CorporatePackage: React.FC = () => {
           </p>
         </div>
         
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* BASIC PACKAGE */}
           <Card className="overflow-hidden border-none hover:shadow-xl transition-all duration-300 bg-white rounded-2xl shadow-md">
             <CardHeader className="bg-gradient-to-r from-white to-slate-50 p-8 text-center relative">
@@ -141,13 +142,10 @@ const CorporatePackage: React.FC = () => {
           </Card>
 
           {/* STANDARD PACKAGE - Updated with Executive Headshot Session information */}
-          <Card className="overflow-hidden border-none shadow-xl hover:shadow-2xl transition-all duration-300 relative bg-white rounded-2xl scale-105 z-10">
-            <div className="absolute -top-4 right-0 left-0 mx-auto w-fit px-6 py-1.5 bg-gradient-to-r from-[#ea384c] to-[#ea384c]/80 text-white text-sm rounded-full font-semibold shadow-md">
-              Most Popular
-            </div>
-            <CardHeader className="bg-gradient-to-r from-[#f5f7fa] to-[#c3cfe2] p-8 text-center relative">
+          <Card className="overflow-hidden border-none hover:shadow-xl transition-all duration-300 bg-white rounded-2xl shadow-md">
+            <CardHeader className="bg-gradient-to-r from-white to-slate-50 p-8 text-center relative">
               <div className="absolute top-6 right-6">
-                <Crown className="h-6 w-6 text-[#ea384c]" />
+                <Crown className="h-5 w-5 text-[#ea384c]" />
               </div>
               <h4 className="text-2xl uppercase font-bold tracking-wide text-slate-800 mb-2">Executive Headshot Session</h4>
               
@@ -210,7 +208,7 @@ const CorporatePackage: React.FC = () => {
             </CardContent>
           </Card>
 
-          {/* PREMIUM PACKAGE - Replaced with Personal Branding For Business Leaders */}
+          {/* PREMIUM PACKAGE - Personal Branding For Business Leaders */}
           <Card className="overflow-hidden border-none hover:shadow-xl transition-all duration-300 bg-white rounded-2xl shadow-md">
             <CardHeader className="bg-gradient-to-r from-white to-slate-50 p-8 text-center relative">
               <div className="absolute top-6 right-6">
@@ -269,6 +267,72 @@ const CorporatePackage: React.FC = () => {
                 <div className="flex justify-between py-2 border-b border-slate-100">
                   <span className="text-sm font-medium text-slate-700">ALL Images:</span>
                   <span className="text-sm text-slate-600 font-boulas">₹5,750/- (basic edits)</span>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+          
+          {/* NEW: On Location Personal Branding */}
+          <Card className="overflow-hidden border-none hover:shadow-xl transition-all duration-300 bg-white rounded-2xl shadow-md">
+            <CardHeader className="bg-gradient-to-r from-white to-slate-50 p-8 text-center relative">
+              <div className="absolute top-6 right-6">
+                <MapPin className="h-5 w-5 text-[#ea384c]" />
+              </div>
+              <h4 className="text-2xl uppercase font-bold tracking-wide text-slate-800 mb-2">On Location Personal Branding</h4>
+              <p className="text-xs text-slate-600 italic">(For ONE Person)</p>
+              
+              <div className="mt-6">
+                <div className="bg-gradient-to-r from-[#f5f7fa] to-[#c3cfe2] p-6 rounded-lg shadow-sm">
+                  <div className="flex items-center justify-center gap-2">
+                    <span className="text-3xl font-bold text-[#ea384c]">₹35,499</span>
+                    <span className="text-sm text-slate-500">+GST onwards</span>
+                  </div>
+                </div>
+              </div>
+              
+              <button className="mt-6 bg-gradient-to-r from-[#ea384c] to-[#ea384c]/90 text-white rounded-full px-6 py-3 text-sm hover:shadow-lg transition-all w-full font-medium">
+                Contact Us Now
+              </button>
+            </CardHeader>
+            <CardContent className="p-8">
+              <div className="space-y-4">
+                <div className="flex justify-between py-2 border-b border-slate-100">
+                  <span className="text-sm font-medium text-slate-700">Consultation:</span>
+                  <span className="text-sm text-slate-600 flex items-center font-boulas">
+                    <Check className="h-4 w-4 text-green-500 mr-1" /> Free
+                  </span>
+                </div>
+                <div className="flex justify-between py-2 border-b border-slate-100">
+                  <span className="text-sm font-medium text-slate-700">Location:</span>
+                  <span className="text-sm text-slate-600 font-boulas">Your location/co-working space</span>
+                </div>
+                <div className="flex justify-between py-2 border-b border-slate-100">
+                  <span className="text-sm font-medium text-slate-700">Outstation:</span>
+                  <span className="text-sm text-slate-600 font-boulas">Travel charges applicable</span>
+                </div>
+                <div className="flex justify-between py-2 border-b border-slate-100">
+                  <span className="text-sm font-medium text-slate-700">Costume Changes:</span>
+                  <span className="text-sm text-slate-600 font-boulas">Yes (recommended)</span>
+                </div>
+                <div className="flex justify-between py-2 border-b border-slate-100">
+                  <span className="text-sm font-medium text-slate-700">Makeup:</span>
+                  <span className="text-sm text-slate-600 font-boulas">Additional at actuals</span>
+                </div>
+                <div className="flex justify-between py-2 border-b border-slate-100">
+                  <span className="text-sm font-medium text-slate-700">Duration:</span>
+                  <span className="text-sm text-slate-600 font-boulas">Upto 4hrs</span>
+                </div>
+                <div className="flex justify-between py-2 border-b border-slate-100">
+                  <span className="text-sm font-medium text-slate-700">Deliverables:</span>
+                  <span className="text-sm text-slate-600 font-boulas">Customisable</span>
+                </div>
+                <div className="flex justify-between py-2 border-b border-slate-100">
+                  <span className="text-sm font-medium text-slate-700">Planning:</span>
+                  <span className="text-sm text-slate-600 font-boulas">Included</span>
+                </div>
+                <div className="flex justify-between py-2 border-b border-slate-100">
+                  <span className="text-sm font-medium text-slate-700">Location Reece:</span>
+                  <span className="text-sm text-slate-600 font-boulas">Extra @ Actuals</span>
                 </div>
               </div>
             </CardContent>
