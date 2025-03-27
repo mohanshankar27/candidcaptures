@@ -105,7 +105,7 @@ const Navbar = () => {
             alt="Candid Capture Photography" 
             className="h-48 w-auto object-contain" 
             loading="eager"
-            fetchPriority="high"
+            // Remove the fetchPriority attribute causing the error
           />
         </button>
 
