@@ -1,4 +1,3 @@
-
 import { useState, useEffect, lazy, Suspense } from 'react';
 import { useLocation } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
@@ -13,7 +12,8 @@ import ServicesLoading from '@/components/ServicesLoading';
 import { preloadCriticalImages, deferNonCriticalJS } from '@/utils/performance';
 import { criticalImages } from '@/components/slideshow/serviceImages';
 import ServicesGrid from '@/components/ServicesGrid';
-import FAQAccordion from '@/components/FAQAccordion';
+// Remove FAQAccordion import
+// import FAQAccordion from '@/components/FAQAccordion';
 
 const ServiceContent = lazy(() => import('@/components/ServiceContent'));
 const PricePackages = lazy(() => import('@/components/PricePackages'));
@@ -165,14 +165,7 @@ const Services = () => {
             </div>
           )}
           
-          {/* FAQ Section */}
-          {!isLoading && contentLoaded && (
-            <div className="px-4 mt-12 mb-8 animate-fade-in">
-              <Suspense fallback={<SimpleLoadingState />}>
-                <FAQAccordion />
-              </Suspense>
-            </div>
-          )}
+          {/* Remove FAQ Section */}
         </div>
       </div>
       
