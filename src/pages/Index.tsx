@@ -2,7 +2,6 @@
 import { lazy, Suspense, useState, useEffect } from 'react';
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Gallery from "@/components/Gallery";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import { preloadCriticalImages, deferNonCriticalJS } from '@/utils/performance'; // Updated import
@@ -68,10 +67,9 @@ const Index = () => {
       <Navbar />
       <Hero />
       
-      {/* Immediate load for Gallery (visible above the fold) */}
-      <Gallery />
+      {/* Remove Gallery from here since we moved it into PhotoSlideshow */}
       
-      {/* Lazy load additional components */}
+      {/* Lazy load PhotoSlideshow which now contains Gallery */}
       {loadComplete && (
         <Suspense fallback={<LoadingFallback />}>
           <PhotoSlideshow />

@@ -77,36 +77,31 @@ const Gallery = () => {
   const showModalContent = selectedImageIndex !== null;
 
   return (
-    <section id="gallery" className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">Featured Work</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {images.map((image, index) => {
-            // Determine if this is a critical image that should be loaded eagerly
-            const isCritical = isImageCritical(image.url);
-            
-            return (
-              <div
-                key={index}
-                className="relative overflow-hidden group aspect-square cursor-pointer"
-                onClick={() => openImageModal(index)}
-              >
-                <img
-                  src={image.url}
-                  alt={image.alt}
-                  loading={isCritical || index < 2 ? "eager" : "lazy"}
-                  decoding={isCritical || index < 2 ? "sync" : "async"}
-                  onLoad={() => handleImageLoad(index)}
-                  className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
-                  width="400"
-                  height="400"
-                />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
-              </div>
-            );
-          })}
-        </div>
-      </div>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {images.map((image, index) => {
+        // Determine if this is a critical image that should be loaded eagerly
+        const isCritical = isImageCritical(image.url);
+        
+        return (
+          <div
+            key={index}
+            className="relative overflow-hidden group aspect-square cursor-pointer"
+            onClick={() => openImageModal(index)}
+          >
+            <img
+              src={image.url}
+              alt={image.alt}
+              loading={isCritical || index < 2 ? "eager" : "lazy"}
+              decoding={isCritical || index < 2 ? "sync" : "async"}
+              onLoad={() => handleImageLoad(index)}
+              className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
+              width="400"
+              height="400"
+            />
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+          </div>
+        );
+      })}
 
       {/* Only render dialog when needed */}
       {showModalContent && (
@@ -154,7 +149,7 @@ const Gallery = () => {
           </DialogContent>
         </Dialog>
       )}
-    </section>
+    </div>
   );
 };
 
