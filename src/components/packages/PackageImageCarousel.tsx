@@ -122,7 +122,7 @@ const PackageImageCarousel: React.FC<PackageImageCarouselProps> = ({
                         width="400"
                         height="300"
                         srcSet={generateSrcSet(image)}
-                        // Remove fetchPriority attribute
+                        fetchPriority={isCritical || index < 2 ? "high" : "auto"}
                       />
                     ) : (
                       <div className={`${imageStyles} bg-slate-100 flex items-center justify-center`}>
