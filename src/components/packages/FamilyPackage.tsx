@@ -50,9 +50,15 @@ const FamilyPackage: React.FC = () => {
       <div className="space-y-6">
         <div>
           <h3 className="text-xl font-semibold mb-3 text-[#333333]">Family Portrait Sessions</h3>
-          <p className="mb-4 text-slate-600">
+          <p className="mb-3 text-slate-600">
             Capture the essence of your family's bond with our professional portrait photography services.
             Our expertly designed packages ensure that your family's unique dynamics and personalities shine through in every image.
+          </p>
+          <p className="mb-4 text-slate-600">
+            Capture your journey with your loved ones through their stages of growth. Our shoots are candid and capture your loved one's unique personality for you to remember for years to come.
+          </p>
+          <p className="mb-4 text-slate-600 italic font-medium">
+            NOTE: Each session is unique & duration of shoot varies slightly for your comfort to create a range of beautiful & personalised images.
           </p>
         </div>
 
