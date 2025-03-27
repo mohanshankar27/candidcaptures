@@ -2,8 +2,9 @@
 import React from 'react';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Check } from 'lucide-react';
+import { Check, Camera, Clock, Image, CheckCircle2 } from 'lucide-react';
 import BookingCTA from './BookingCTA';
+import { Button } from '@/components/ui/button';
 
 const MaternityPackage: React.FC = () => {
   return (
@@ -30,182 +31,237 @@ const MaternityPackage: React.FC = () => {
       
       <div className="space-y-6">
         <div>
-          <h3 className="text-xl font-semibold mb-3 text-[#333333]">Maternity Photography Sessions</h3>
+          <h3 className="text-xl font-semibold mb-3 text-[#333333]">Maternity Photography</h3>
           <p className="mb-4 text-slate-600">
-            Celebrate the beauty and miracle of pregnancy with our professional maternity photography sessions. 
-            We capture this special time in your life with elegant, intimate portraits that you will cherish forever.
+            Our maternity photography sessions are designed to celebrate and capture the beauty of your pregnancy journey. 
+            We offer a variety of packages to suit your needs and budget, ensuring you have beautiful memories to cherish for a lifetime.
+          </p>
+          <p className="mb-6 text-slate-600">
+            All sessions include professional editing, online gallery delivery, and a pre-session consultation to plan your perfect shoot.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 gap-8">
+          {/* Mini Session */}
           <Card className="border-primary/20 hover:shadow-lg transition-all duration-300">
-            <CardHeader className="bg-gradient-to-r from-primary/10 to-primary/5 pb-2">
-              <CardTitle className="text-primary text-lg">Basic</CardTitle>
-              <CardDescription className="text-slate-600 pt-1">Simple session</CardDescription>
-              <div className="mt-4 mb-1">
-                <span className="text-2xl font-light text-[#ea384c]">₹6,000</span>
+            <CardHeader className="bg-gradient-to-r from-primary/10 to-primary/5 pb-3">
+              <CardTitle className="text-primary text-xl">Mini Maternity Session</CardTitle>
+              <div className="mt-3 mb-1">
+                <span className="text-2xl font-medium text-[#ea384c]">₹7,500</span>
               </div>
             </CardHeader>
-            <CardContent className="pt-6">
-              <ul className="space-y-3">
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">1-hour photo session</span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">10 edited digital images</span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">1 outfit change</span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Indoor studio session</span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Basic retouching</span>
-                </li>
-              </ul>
+            <CardContent className="pt-5">
+              <div className="grid md:grid-cols-3 gap-6">
+                <div className="space-y-4">
+                  <div className="flex items-center gap-2">
+                    <Clock className="h-5 w-5 text-primary" />
+                    <p className="text-slate-700 font-medium">30 Minute Session</p>
+                  </div>
+                  <ul className="space-y-2">
+                    <li className="flex items-start">
+                      <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                      <span className="text-slate-700">1 outfit</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                      <span className="text-slate-700">1 location</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                      <span className="text-slate-700">5 digital images</span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="md:col-span-2">
+                  <p className="text-slate-600 mb-4">
+                    Perfect for those wanting a quick session to document this special time. Ideal for indoor studio shots or a simple outdoor location.
+                  </p>
+                  <div className="flex gap-3">
+                    <Button size="sm" variant="outline" className="border-primary text-primary hover:bg-primary/5">
+                      View Gallery
+                    </Button>
+                    <Button size="sm" className="bg-[#ea384c] hover:bg-[#ea384c]/90">
+                      Book Now
+                    </Button>
+                  </div>
+                </div>
+              </div>
             </CardContent>
           </Card>
 
-          <Card className="border-primary/20 hover:shadow-lg transition-all duration-300">
-            <CardHeader className="bg-gradient-to-r from-primary/20 to-primary/10 pb-2">
-              <CardTitle className="text-primary text-lg">Standard</CardTitle>
-              <CardDescription className="text-slate-600 pt-1">Popular choice</CardDescription>
-              <div className="mt-4 mb-1">
-                <span className="text-2xl font-light text-[#ea384c]">₹12,000</span>
-              </div>
-            </CardHeader>
-            <CardContent className="pt-6">
-              <ul className="space-y-3">
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">2-hour photo session</span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">20 edited digital images</span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">2 outfit changes</span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Studio or outdoor location</span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Partner inclusion</span>
-                </li>
-              </ul>
-            </CardContent>
-          </Card>
-
+          {/* Standard Session */}
           <Card className="border-primary/20 shadow-md hover:shadow-xl relative transition-all duration-300">
             <div className="absolute -top-4 right-0 left-0 mx-auto w-fit px-3 py-1 bg-[#ea384c] text-white text-sm rounded-full">
               Most Popular
             </div>
-            <CardHeader className="bg-gradient-to-r from-primary/20 to-primary/10 pb-2">
-              <CardTitle className="text-primary text-lg">Premium</CardTitle>
-              <CardDescription className="text-slate-600 pt-1">Complete coverage</CardDescription>
-              <div className="mt-4 mb-1">
-                <span className="text-2xl font-light text-[#ea384c]">₹18,000</span>
+            <CardHeader className="bg-gradient-to-r from-primary/20 to-primary/10 pb-3">
+              <CardTitle className="text-primary text-xl">Standard Maternity Session</CardTitle>
+              <div className="mt-3 mb-1">
+                <span className="text-2xl font-medium text-[#ea384c]">₹15,000</span>
               </div>
             </CardHeader>
-            <CardContent className="pt-6">
-              <ul className="space-y-3">
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">3-hour photo session</span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">30 edited digital images</span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">3 outfit changes</span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Studio and outdoor locations</span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Hair and makeup artist</span>
-                </li>
-              </ul>
+            <CardContent className="pt-5">
+              <div className="grid md:grid-cols-3 gap-6">
+                <div className="space-y-4">
+                  <div className="flex items-center gap-2">
+                    <Clock className="h-5 w-5 text-primary" />
+                    <p className="text-slate-700 font-medium">1 Hour Session</p>
+                  </div>
+                  <ul className="space-y-2">
+                    <li className="flex items-start">
+                      <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                      <span className="text-slate-700">2 outfits</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                      <span className="text-slate-700">1-2 locations</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                      <span className="text-slate-700">15 digital images</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                      <span className="text-slate-700">Partner photos included</span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="md:col-span-2">
+                  <p className="text-slate-600 mb-4">
+                    Our most popular option that provides enough time to capture a variety of beautiful maternity portraits. Includes both indoor and outdoor options if desired.
+                  </p>
+                  <div className="flex gap-3">
+                    <Button size="sm" variant="outline" className="border-primary text-primary hover:bg-primary/5">
+                      View Gallery
+                    </Button>
+                    <Button size="sm" className="bg-[#ea384c] hover:bg-[#ea384c]/90">
+                      Book Now
+                    </Button>
+                  </div>
+                </div>
+              </div>
             </CardContent>
           </Card>
 
+          {/* Luxury Session */}
           <Card className="border-primary/20 hover:shadow-lg transition-all duration-300">
-            <CardHeader className="bg-gradient-to-r from-primary/15 to-primary/5 pb-2">
-              <CardTitle className="text-primary text-lg">Deluxe</CardTitle>
-              <CardDescription className="text-slate-600 pt-1">Luxury experience</CardDescription>
-              <div className="mt-4 mb-1">
-                <span className="text-2xl font-light text-[#ea384c]">₹25,000</span>
+            <CardHeader className="bg-gradient-to-r from-primary/15 to-primary/5 pb-3">
+              <CardTitle className="text-primary text-xl">Luxury Maternity Session</CardTitle>
+              <div className="mt-3 mb-1">
+                <span className="text-2xl font-medium text-[#ea384c]">₹25,000</span>
               </div>
             </CardHeader>
-            <CardContent className="pt-6">
-              <ul className="space-y-3">
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">4-hour photo session</span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">40 edited digital images</span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">4 outfit changes</span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Multiple locations (up to 3)</span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Hair and makeup with touch-ups</span>
-                </li>
-              </ul>
+            <CardContent className="pt-5">
+              <div className="grid md:grid-cols-3 gap-6">
+                <div className="space-y-4">
+                  <div className="flex items-center gap-2">
+                    <Clock className="h-5 w-5 text-primary" />
+                    <p className="text-slate-700 font-medium">2 Hour Session</p>
+                  </div>
+                  <ul className="space-y-2">
+                    <li className="flex items-start">
+                      <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                      <span className="text-slate-700">3-4 outfits</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                      <span className="text-slate-700">Multiple locations</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                      <span className="text-slate-700">25 digital images</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                      <span className="text-slate-700">Hair and makeup included</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                      <span className="text-slate-700">8×10 matted print</span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="md:col-span-2">
+                  <p className="text-slate-600 mb-4">
+                    The ultimate maternity experience with professional hair and makeup, multiple outfit changes, and a variety of stunning locations. Perfect for the mom-to-be who wants the complete luxury package.
+                  </p>
+                  <div className="flex gap-3">
+                    <Button size="sm" variant="outline" className="border-primary text-primary hover:bg-primary/5">
+                      View Gallery
+                    </Button>
+                    <Button size="sm" className="bg-[#ea384c] hover:bg-[#ea384c]/90">
+                      Book Now
+                    </Button>
+                  </div>
+                </div>
+              </div>
             </CardContent>
           </Card>
         </div>
 
-        <Separator />
+        <Separator className="my-8" />
 
-        <div className="mt-6">
-          <h3 className="text-lg font-medium mb-3 text-[#333333]">Add-On Services</h3>
-          <ul className="list-disc pl-5 space-y-2 text-slate-600">
-            <li>Additional digital images - ₹800 per image</li>
-            <li>Hair and makeup artist - ₹4,000</li>
-            <li>Additional location - ₹3,000 per location</li>
-            <li>Partner/family photos - ₹2,000 (if not included in package)</li>
-            <li>Custom photo album - Starting at ₹5,000</li>
-            <li>Canvas prints - Starting at ₹3,000</li>
-          </ul>
-        </div>
-
-        <div className="mt-6">
-          <h3 className="text-lg font-medium mb-3 text-[#333333]">Important Information</h3>
-          <ul className="list-disc pl-5 space-y-2 text-slate-600">
-            <li>Maternity sessions are best scheduled between 28-34 weeks of pregnancy</li>
-            <li>A 50% deposit is required to secure your booking</li>
-            <li>Rescheduling must be done at least 48 hours in advance</li>
-            <li>We have maternity gowns available for use during the session</li>
-            <li>Travel fees may apply for locations beyond 20km from our studio</li>
-          </ul>
+        <div className="space-y-6">
+          <h3 className="text-xl font-semibold text-[#333333]">Additional Information</h3>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <h4 className="text-lg font-medium mb-3 text-primary">Add-On Services</h4>
+              <ul className="space-y-2 pl-5 list-disc text-slate-600">
+                <li>Hair and makeup styling: ₹4,000</li>
+                <li>Additional digital images: ₹750 per image</li>
+                <li>Partner/family add-on: ₹2,500</li>
+                <li>Additional location: ₹3,000</li>
+                <li>8×10 matted print: ₹2,000</li>
+                <li>Custom photo album: Starting at ₹8,000</li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className="text-lg font-medium mb-3 text-primary">When to Book</h4>
+              <p className="text-slate-600 mb-3">
+                The ideal time for maternity photos is between 28-34 weeks of pregnancy when your bump is beautifully visible but you're still comfortable moving around.
+              </p>
+              <p className="text-slate-600">
+                We recommend booking your session at least 1-2 months in advance to ensure availability, especially during peak seasons.
+              </p>
+            </div>
+          </div>
+          
+          <div>
+            <h4 className="text-lg font-medium mb-3 text-primary">What to Expect</h4>
+            <div className="grid md:grid-cols-3 gap-4">
+              <div className="bg-slate-50 p-4 rounded-lg">
+                <h5 className="font-medium text-slate-800 mb-2 flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-[#ea384c]" /> Before Your Session
+                </h5>
+                <p className="text-slate-600 text-sm">
+                  We'll have a consultation to discuss your vision, outfit choices, and location preferences. We'll provide guidance on how to prepare for your session.
+                </p>
+              </div>
+              <div className="bg-slate-50 p-4 rounded-lg">
+                <h5 className="font-medium text-slate-800 mb-2 flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-[#ea384c]" /> During Your Session
+                </h5>
+                <p className="text-slate-600 text-sm">
+                  Our experienced photographers will guide you through natural poses that highlight your pregnancy. We focus on creating a comfortable, enjoyable experience.
+                </p>
+              </div>
+              <div className="bg-slate-50 p-4 rounded-lg">
+                <h5 className="font-medium text-slate-800 mb-2 flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-[#ea384c]" /> After Your Session
+                </h5>
+                <p className="text-slate-600 text-sm">
+                  You'll receive your professionally edited images in an online gallery within 2 weeks. From there, you can download your included images and order prints or albums.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
         <BookingCTA 
-          title="Book Your Maternity Photography Session" 
-          serviceType="precious pregnancy journey"
+          title="Capture Your Beautiful Pregnancy Journey" 
+          serviceType="maternity photography session"
         />
       </div>
     </div>
