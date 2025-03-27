@@ -10,6 +10,7 @@ import PerformanceMonitor from './components/PerformanceMonitor' // Direct impor
 
 // Lazy load other routes to improve initial load time
 const PackageDetails = lazy(() => import('./pages/PackageDetails'))
+const AboutUs = lazy(() => import('./pages/AboutUs'))
 
 function App() {
   // Initialize performance optimizations
@@ -38,6 +39,15 @@ function App() {
         <Route path="/" element={<Index />} />
         <Route path="/services" element={<Services />} />
         <Route path="/pricing" element={<Pricing />} />
+        <Route path="/about" element={
+          <Suspense fallback={
+            <div className="flex items-center justify-center h-screen">
+              <div className="w-12 h-12 border-4 border-primary/30 border-t-primary rounded-full animate-spin"></div>
+            </div>
+          }>
+            <AboutUs />
+          </Suspense>
+        } />
         <Route 
           path="/packages/:packageId" 
           element={
