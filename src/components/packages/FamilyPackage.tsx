@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -145,8 +144,8 @@ const FamilyPackage: React.FC = () => {
                 </li>
               </ul>
               <div className="mt-4 pt-4 border-t border-slate-100">
-                <a href="tel:+919886156696" className="block w-full text-center bg-[#ea384c] hover:bg-[#ea384c]/90 text-white py-2 rounded transition-colors">
-                  Call us on: +91.98861-56696
+                <a href="tel:+919632288815" className="block w-full text-center bg-[#ea384c] hover:bg-[#ea384c]/90 text-white py-2 rounded transition-colors">
+                  Call us on: +91 9632288815
                 </a>
               </div>
             </CardContent>
