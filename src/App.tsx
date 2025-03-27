@@ -6,7 +6,7 @@ import Index from './pages/Index'
 import Services from './pages/Services'
 import Pricing from './pages/Pricing'
 import { initializePerformanceOptimizations } from './utils/performance'
-import PerformanceMonitor from './components/PerformanceMonitor' // Direct import instead of lazy loading
+import GoogleReview from './components/GoogleReview' // Changed from PerformanceMonitor
 
 // Lazy load other routes to improve initial load time
 const PackageDetails = lazy(() => import('./pages/PackageDetails'))
@@ -62,8 +62,8 @@ function App() {
         />
       </Routes>
       
-      {/* Performance Monitor (development only) - now directly imported */}
-      {process.env.NODE_ENV === 'development' && <PerformanceMonitor />}
+      {/* Display Google Review component instead of PerformanceMonitor */}
+      {process.env.NODE_ENV === 'development' && <GoogleReview />}
     </Router>
   )
 }

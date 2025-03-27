@@ -2,7 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
-import { Button } from './ui/button';
+import { Button } from '@/components/ui/button'; // Make sure this is importing from a specific file
 
 const GoogleReview: React.FC = () => {
   return (
