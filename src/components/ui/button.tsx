@@ -10,16 +10,16 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm hover:shadow-md",
+        default: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm hover:shadow-md hover:translate-y-[-2px]",
         destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90 shadow-sm hover:shadow-md",
+          "bg-destructive text-destructive-foreground hover:bg-destructive/90 shadow-sm hover:shadow-md hover:translate-y-[-2px]",
         outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+          "border border-input bg-background hover:bg-accent hover:text-accent-foreground hover:translate-y-[-2px]",
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80 shadow-sm hover:shadow-md",
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80 shadow-sm hover:shadow-md hover:translate-y-[-2px]",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        premium: "bg-gradient-to-r from-[#ea384c] to-[#fb6340] text-white hover:from-[#d33144] hover:to-[#e85a3a] shadow-md hover:shadow-lg",
+        premium: "bg-gradient-to-r from-[#ea384c] to-[#fb6340] text-white hover:from-[#d33144] hover:to-[#e85a3a] shadow-md hover:shadow-lg hover:translate-y-[-2px]",
       },
       size: {
         default: "h-10 px-4 py-2",
