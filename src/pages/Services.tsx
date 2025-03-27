@@ -17,6 +17,7 @@ import ServicesGrid from '@/components/ServicesGrid';
 
 const ServiceContent = lazy(() => import('@/components/ServiceContent'));
 const PricePackages = lazy(() => import('@/components/PricePackages'));
+const ServicesFAQ = lazy(() => import('@/components/ServicesFAQ'));
 
 const SimpleLoadingState = () => (
   <div className="w-full h-20 flex items-center justify-center">
@@ -165,7 +166,14 @@ const Services = () => {
             </div>
           )}
           
-          {/* Remove FAQ Section */}
+          {/* Add FAQ Section under Packages & Price Lists */}
+          {!isLoading && contentLoaded && (
+            <div className="px-4 mt-8 mb-8 animate-fade-in">
+              <Suspense fallback={<SimpleLoadingState />}>
+                <ServicesFAQ />
+              </Suspense>
+            </div>
+          )}
         </div>
       </div>
       
