@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -115,15 +116,16 @@ const MaternityPackage: React.FC = () => {
             </CardContent>
           </Card>
 
-          {/* Standard Session */}
+          {/* CLASSIC Session - Replacing Standard */}
           <Card className="border-primary/20 shadow-md hover:shadow-xl relative transition-all duration-300">
             <div className="absolute -top-4 right-0 left-0 mx-auto w-fit px-3 py-1 bg-[#ea384c] text-white text-sm rounded-full">
               Most Popular
             </div>
             <CardHeader className="bg-gradient-to-r from-primary/20 to-primary/10 pb-3">
-              <CardTitle className="text-primary text-xl">Standard Maternity Session</CardTitle>
-              <div className="mt-3 mb-1">
-                <span className="text-2xl font-medium text-[#ea384c]">₹15,000</span>
+              <CardTitle className="text-primary text-xl">CLASSIC</CardTitle>
+              <div className="mt-3 mb-1 flex flex-col">
+                <span className="text-sm text-slate-600 line-through">Regular Price ₹14,199/-</span>
+                <span className="text-2xl font-medium text-[#ea384c]">HAPPY Mom's OFFER ₹8,888 +GST</span>
               </div>
             </CardHeader>
             <CardContent className="pt-5">
@@ -131,38 +133,64 @@ const MaternityPackage: React.FC = () => {
                 <div className="space-y-4">
                   <div className="flex items-center gap-2">
                     <Clock className="h-5 w-5 text-primary" />
-                    <p className="text-slate-700 font-medium">1 Hour Session</p>
+                    <p className="text-slate-700 font-medium">150-180 Minute Session</p>
                   </div>
                   <ul className="space-y-2">
                     <li className="flex items-start">
                       <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                      <span className="text-slate-700">2 outfits</span>
+                      <span className="text-slate-700">Studio Shoot: Yes</span>
                     </li>
                     <li className="flex items-start">
                       <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                      <span className="text-slate-700">1-2 locations</span>
+                      <span className="text-slate-700">Outdoor Shoot: No</span>
                     </li>
                     <li className="flex items-start">
                       <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                      <span className="text-slate-700">15 digital images</span>
+                      <span className="text-slate-700">Look Costumes Changes: Max 4</span>
                     </li>
                     <li className="flex items-start">
                       <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                      <span className="text-slate-700">Partner photos included</span>
+                      <span className="text-slate-700">Props: Basic + Custom (may be chargable)</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                      <span className="text-slate-700">25 full res photographs</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                      <span className="text-slate-700">Additional images: ₹350/image*</span>
                     </li>
                   </ul>
                 </div>
                 <div className="md:col-span-2">
                   <p className="text-slate-600 mb-4">
-                    Our most popular option that provides enough time to capture a variety of beautiful maternity portraits. Includes both indoor and outdoor options if desired.
+                    Our popular option with ample time for multiple outfits and creative shots. Studio time included in this package is 180 mins with shoot time of approximately 120 mins.
                   </p>
-                  <div className="flex gap-3">
-                    <Button size="sm" variant="outline" className="border-primary text-primary hover:bg-primary/5">
-                      View Gallery
-                    </Button>
-                    <Button size="sm" className="bg-[#ea384c] hover:bg-[#ea384c]/90">
-                      Book Now
-                    </Button>
+                  <div className="flex flex-col gap-3">
+                    <div className="flex gap-3 flex-wrap">
+                      <Button size="sm" variant="outline" className="border-primary text-primary hover:bg-primary/5">
+                        Sample-1
+                      </Button>
+                      <Button size="sm" variant="outline" className="border-primary text-primary hover:bg-primary/5">
+                        Sample-2
+                      </Button>
+                      <Button size="sm" variant="outline" className="border-primary text-primary hover:bg-primary/5">
+                        Sample-3
+                      </Button>
+                    </div>
+                    <div className="mt-2">
+                      <Button size="sm" className="bg-[#ea384c] hover:bg-[#ea384c]/90">
+                        Schedule Online
+                      </Button>
+                    </div>
+                  </div>
+                  <div className="mt-4 text-xs text-slate-500 space-y-1">
+                    <p>*Progressively decreases, i.e. more images means lesser per image cost</p>
+                    <p>^Note: This is a base plan and costumes are not provided.</p>
+                    <p>Hard Copies: Yes, starting ₹25/- per print (min 10)</p>
+                    <p>Makeup: Optional, starting 4,750/-</p>
+                    <p>Creative Planning: Basic Mood-board</p>
+                    <p>Cost for composites is dependent on complexity and starts at 1550/composite image</p>
                   </div>
                 </div>
               </div>
