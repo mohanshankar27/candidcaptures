@@ -5,14 +5,8 @@ import './App.css'
 import Index from './pages/Index'
 import Services from './pages/Services'
 import Pricing from './pages/Pricing'
-import { initializePerformanceOptimizations } from './utils/performance' // Updated import
-
-// Lazy load the performance monitor component (only in development)
-const PerformanceMonitor = lazy(() => 
-  process.env.NODE_ENV === 'development' 
-    ? import('./components/PerformanceMonitor')
-    : Promise.resolve({ default: () => null })
-)
+import { initializePerformanceOptimizations } from './utils/performance'
+import PerformanceMonitor from './components/PerformanceMonitor' // Direct import instead of lazy loading
 
 // Lazy load other routes to improve initial load time
 const PackageDetails = lazy(() => import('./pages/PackageDetails'))
@@ -58,12 +52,8 @@ function App() {
         />
       </Routes>
       
-      {/* Performance Monitor (development only) */}
-      {process.env.NODE_ENV === 'development' && (
-        <Suspense fallback={null}>
-          <PerformanceMonitor />
-        </Suspense>
-      )}
+      {/* Performance Monitor (development only) - now directly imported */}
+      {process.env.NODE_ENV === 'development' && <PerformanceMonitor />}
     </Router>
   )
 }
