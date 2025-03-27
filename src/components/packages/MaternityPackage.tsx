@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -197,12 +196,13 @@ const MaternityPackage: React.FC = () => {
             </CardContent>
           </Card>
 
-          {/* Luxury Session */}
+          {/* SIGNATURE Session - Replacing Luxury */}
           <Card className="border-primary/20 hover:shadow-lg transition-all duration-300">
             <CardHeader className="bg-gradient-to-r from-primary/15 to-primary/5 pb-3">
-              <CardTitle className="text-primary text-xl">Luxury Maternity Session</CardTitle>
+              <CardTitle className="text-primary text-xl">SIGNATURE</CardTitle>
               <div className="mt-3 mb-1">
-                <span className="text-2xl font-medium text-[#ea384c]">₹25,000</span>
+                <span className="text-2xl font-medium text-[#ea384c]">Prices start ₹37,290 +GST*</span>
+                <p className="text-sm text-slate-600 mt-1">*Variable based on Location/Styling/Props/Costumes etc.</p>
               </div>
             </CardHeader>
             <CardContent className="pt-5">
@@ -210,42 +210,48 @@ const MaternityPackage: React.FC = () => {
                 <div className="space-y-4">
                   <div className="flex items-center gap-2">
                     <Clock className="h-5 w-5 text-primary" />
-                    <p className="text-slate-700 font-medium">2 Hour Session</p>
+                    <p className="text-slate-700 font-medium">3-6 Hour Session</p>
                   </div>
                   <ul className="space-y-2">
                     <li className="flex items-start">
                       <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                      <span className="text-slate-700">3-4 outfits</span>
+                      <span className="text-slate-700">Studio Shoot: Yes</span>
                     </li>
                     <li className="flex items-start">
                       <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                      <span className="text-slate-700">Multiple locations</span>
+                      <span className="text-slate-700">Outdoor Shoot: Yes, optional</span>
                     </li>
                     <li className="flex items-start">
                       <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                      <span className="text-slate-700">25 digital images</span>
+                      <span className="text-slate-700">Look Costumes Changes: Max 4</span>
                     </li>
                     <li className="flex items-start">
                       <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                      <span className="text-slate-700">Hair and makeup included</span>
+                      <span className="text-slate-700">Props: At actuals as per concept</span>
                     </li>
                     <li className="flex items-start">
                       <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                      <span className="text-slate-700">8×10 matted print</span>
+                      <span className="text-slate-700">35 full res photographs</span>
                     </li>
                   </ul>
                 </div>
                 <div className="md:col-span-2">
                   <p className="text-slate-600 mb-4">
-                    The ultimate maternity experience with professional hair and makeup, multiple outfit changes, and a variety of stunning locations. Perfect for the mom-to-be who wants the complete luxury package.
+                    The ultimate maternity experience with professional styling, creative direction, and premium locations. Perfect for the mom-to-be who wants to create truly artistic, magazine-quality photographs.
                   </p>
-                  <div className="flex gap-3">
-                    <Button size="sm" variant="outline" className="border-primary text-primary hover:bg-primary/5">
-                      View Gallery
-                    </Button>
-                    <Button size="sm" className="bg-[#ea384c] hover:bg-[#ea384c]/90">
-                      Book Now
-                    </Button>
+                  <div className="flex flex-col gap-3">
+                    <div className="flex gap-3">
+                      <Button size="sm" variant="outline" className="border-primary text-primary hover:bg-primary/5">
+                        Free Consultation
+                      </Button>
+                    </div>
+                  </div>
+                  <div className="mt-4 text-xs text-slate-500 space-y-1">
+                    <p>*Progressively decreases, i.e. more images means lesser per image cost</p>
+                    <p>Cost for composites is dependent on complexity and starts at 1550/composite image</p>
+                    <p>Location/Prop Charges: At actuals</p>
+                    <p>Makeup/hair: 2 Looks included</p>
+                    <p>Creative Planning: Mood-board, Stylist</p>
                   </div>
                 </div>
               </div>
