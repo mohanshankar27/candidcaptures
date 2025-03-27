@@ -10,7 +10,6 @@ import ServiceImageCarousel from './slideshow/ServiceImageCarousel';
 import BackgroundDecorators from './slideshow/BackgroundDecorators';
 import serviceImages from './slideshow/serviceImages';
 import ServicesGrid from './ServicesGrid'; // Direct import instead of dynamic import
-import Gallery from './Gallery'; // Import Gallery for Featured Work
 
 // Create service thumbnails with proper image mapping
 const serviceThumbnails = servicesList.map(service => ({
@@ -76,20 +75,7 @@ const PhotoSlideshow = () => {
           onServiceClick={navigateToServices}
         />
         
-        {/* Featured Work section - moved here from separate section */}
-        <div className="mt-16">
-          <motion.h2 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true }}
-            className="text-3xl font-bold text-center mb-12"
-          >
-            Featured Work
-          </motion.h2>
-          
-          <Gallery />
-        </div>
+        {/* Removed Featured Work section */}
         
         {/* Services Grid - only render when visible and not on services page */}
         {isVisible && (
