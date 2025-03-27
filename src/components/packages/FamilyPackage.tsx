@@ -1,8 +1,7 @@
-
 import React from 'react';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Check, HelpCircle } from 'lucide-react';
+import { Check, HelpCircle, Columns2 } from 'lucide-react';
 import BookingCTA from './BookingCTA';
 import PackageImageCarousel from './PackageImageCarousel';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
@@ -244,32 +243,38 @@ const FamilyPackage: React.FC = () => {
 
         <Separator />
 
-        <div className="package">
-          <h4 className="text-lg font-medium mb-2 text-[#ea384c]">Extended Family Package - ₹45,000</h4>
-          <ul className="list-disc pl-5 space-y-2 text-slate-600">
-            <li>Up to 4-hour photo session</li>
-            <li>40 edited digital images</li>
-            <li>Ideal for large family groups and multiple generations</li>
-            <li>Multiple poses, groupings, and individual family units</li>
-            <li>2-3 outfit changes</li>
-            <li>2 locations (studio and/or outdoor)</li>
-            <li>15 printed 8×10″ photographs</li>
-            <li>1 custom photo album (12×12″)</li>
-            <li>2 mounted wall prints (16×20″)</li>
-          </ul>
-        </div>
+        <div className="grid md:grid-cols-2 gap-6 my-6">
+          <div className="package bg-white/70 p-5 rounded-lg border border-primary/20 hover:shadow-md transition-all duration-300">
+            <div className="flex items-center gap-2 mb-3">
+              <Columns2 className="h-5 w-5 text-[#ea384c]" />
+              <h4 className="text-lg font-medium text-[#ea384c]">Extended Family Package - ₹45,000</h4>
+            </div>
+            <ul className="list-disc pl-5 space-y-2 text-slate-600">
+              <li>Up to 4-hour photo session</li>
+              <li>40 edited digital images</li>
+              <li>Ideal for large family groups and multiple generations</li>
+              <li>Multiple poses, groupings, and individual family units</li>
+              <li>2-3 outfit changes</li>
+              <li>2 locations (studio and/or outdoor)</li>
+              <li>15 printed 8×10″ photographs</li>
+              <li>1 custom photo album (12×12″)</li>
+              <li>2 mounted wall prints (16×20″)</li>
+            </ul>
+          </div>
 
-        <Separator />
-
-        <div className="mt-6">
-          <h3 className="text-lg font-medium mb-3 text-[#333333]">Important Information</h3>
-          <ul className="list-disc pl-5 space-y-2 text-slate-600">
-            <li>A 50% deposit is required to secure your booking</li>
-            <li>Additional digital images can be purchased at ₹1,500 per image</li>
-            <li>Travel fees may apply for locations beyond 20km from our studio</li>
-            <li>All packages include pre-session consultation</li>
-            <li>Weekend and holiday sessions may incur additional charges</li>
-          </ul>
+          <div className="important-info bg-white/70 p-5 rounded-lg border border-primary/20 hover:shadow-md transition-all duration-300">
+            <div className="flex items-center gap-2 mb-3">
+              <Columns2 className="h-5 w-5 text-[#ea384c]" />
+              <h3 className="text-lg font-medium text-[#333333]">Important Information</h3>
+            </div>
+            <ul className="list-disc pl-5 space-y-2 text-slate-600">
+              <li>A 50% deposit is required to secure your booking</li>
+              <li>Additional digital images can be purchased at ₹1,500 per image</li>
+              <li>Travel fees may apply for locations beyond 20km from our studio</li>
+              <li>All packages include pre-session consultation</li>
+              <li>Weekend and holiday sessions may incur additional charges</li>
+            </ul>
+          </div>
         </div>
 
         <Separator />
