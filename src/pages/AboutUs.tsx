@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import TeamMember from "@/components/TeamMember";
+import GoogleReview from "@/components/GoogleReview"; // Replace PerformanceMonitor with GoogleReview
 
 const AboutUs = () => {
   useEffect(() => {
@@ -271,6 +272,7 @@ const AboutUs = () => {
       </main>
       
       <Footer />
+      <GoogleReview /> {/* Replace PerformanceMonitor with GoogleReview */}
     </div>
   );
 };
