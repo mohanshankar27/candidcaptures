@@ -14,6 +14,13 @@ const AboutUs = () => {
 
   const teamMembers = [
     {
+      name: "Sathya Prakash",
+      role: "Creative Director",
+      image: "/lovable-uploads/b0d50296-3c5f-41b2-afcf-af58d024d712.png",
+      description: "Visionary photographer with a passion for capturing life's authentic moments and building Candid Capture from the ground up.",
+      isFounder: true
+    },
+    {
       name: "Alex Morgan",
       role: "Lead Photographer",
       image: "/lovable-uploads/5d90fcb0-8d52-441c-92d9-ab63b40d0b9c.png",
