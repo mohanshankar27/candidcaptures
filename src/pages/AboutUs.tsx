@@ -21,7 +21,7 @@ const AboutUs = () => {
       isFounder: true
     },
     {
-      name: "Alex Morgan",
+      name: "Puneeth K",
       role: "Lead Photographer",
       image: "/lovable-uploads/5d90fcb0-8d52-441c-92d9-ab63b40d0b9c.png",
       description: "Specializes in wedding photography with over 10 years of experience capturing love stories."
