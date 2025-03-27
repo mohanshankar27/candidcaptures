@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
@@ -104,6 +105,7 @@ const Navbar = () => {
             alt="Candid Capture Photography" 
             className="h-48 w-auto object-contain" 
             loading="eager"
+            fetchPriority="high"
           />
         </button>
 
