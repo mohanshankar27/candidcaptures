@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
@@ -15,6 +14,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowLeft, Package, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
+import ServicesFAQ from '@/components/ServicesFAQ';
 
 const PackageDetails: React.FC = () => {
   const { packageId } = useParams();
@@ -81,6 +81,8 @@ const PackageDetails: React.FC = () => {
     const foundPackage = packageList.find(pkg => pkg.id === packageId);
     return foundPackage ? foundPackage.title : 'Photography Package';
   };
+
+  const showGeneralFAQ = packageId !== 'corporate';
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-white to-slate-50">
@@ -158,6 +160,12 @@ const PackageDetails: React.FC = () => {
             <div className="package-container animate-fadeIn">
               {getPackageComponent()}
             </div>
+            
+            {showGeneralFAQ && (
+              <div className="mt-12">
+                <ServicesFAQ />
+              </div>
+            )}
             
             <div className="mt-10 pt-8 border-t border-slate-200">
               <h3 className="text-xl font-medium mb-4 text-slate-800">Explore Other Photography Packages</h3>
