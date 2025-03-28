@@ -134,46 +134,25 @@ const ServiceSlider = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
-              className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70"
+              className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80"
               onClick={closeExpandedView}
             >
               <motion.div 
-                className="bg-white rounded-xl overflow-hidden shadow-2xl w-full max-w-5xl max-h-[75vh] md:h-[75vh]"
+                className="relative w-full h-[75vh] max-w-[90vw]"
                 onClick={(e) => e.stopPropagation()}
-                layoutId={`service-box-${expandedService.id}`}
+                layoutId={`service-image-${expandedService.id}`}
               >
-                <div className="flex flex-col md:flex-row h-full">
-                  <div className="w-full md:w-1/2 h-64 md:h-full relative">
-                    <img 
-                      src={expandedService.image} 
-                      alt={expandedService.name}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
-                    <button 
-                      className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm text-white p-2 rounded-full hover:bg-white/40 transition-colors"
-                      onClick={closeExpandedView}
-                    >
-                      <X size={24} />
-                    </button>
-                  </div>
-                  <div className="w-full md:w-1/2 p-6 md:p-8 flex flex-col justify-between overflow-y-auto">
-                    <div>
-                      <h3 className="text-2xl md:text-3xl font-bold mb-4">{expandedService.name}</h3>
-                      <p className="text-lg mb-4 text-gray-600">{expandedService.description}</p>
-                      <p className="mb-6 text-gray-700">{expandedService.details}</p>
-                    </div>
-                    <Button 
-                      onClick={() => {
-                        closeExpandedView();
-                        navigate('/services', { state: { selectedService: expandedService.name } });
-                      }}
-                      className="bg-primary hover:bg-primary/90 text-white font-medium px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 mt-auto"
-                    >
-                      Explore This Service
-                    </Button>
-                  </div>
-                </div>
+                <img 
+                  src={expandedService.image} 
+                  alt={expandedService.name}
+                  className="w-full h-full object-contain transform scale-[5]"
+                />
+                <button 
+                  className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm text-white p-2 rounded-full hover:bg-white/40 transition-colors z-20"
+                  onClick={closeExpandedView}
+                >
+                  <X size={24} />
+                </button>
               </motion.div>
             </motion.div>
           )}
@@ -190,9 +169,10 @@ const ServiceSlider = () => {
               whileHover={{ y: -5 }}
             >
               <div className="h-48 overflow-hidden relative">
-                <img 
+                <motion.img 
                   src={service.image} 
                   alt={service.name}
+                  layoutId={`service-image-${service.id}`}
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-80"></div>
