@@ -1,4 +1,3 @@
-
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
@@ -53,61 +52,50 @@ const ServiceSlider = () => {
   const servicesRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
 
-  // Preload service images for better performance
   useState(() => {
     preloadCriticalImages(serviceItems.map(service => service.image));
   });
 
-  // Get current service data
   const currentService = serviceItems[currentIndex];
 
-  // Handle next slide
   const nextSlide = () => {
     if (expandedService) return;
     setDirection(1);
     setCurrentIndex((prevIndex) => (prevIndex + 1) % serviceItems.length);
   };
 
-  // Handle previous slide
   const prevSlide = () => {
     if (expandedService) return;
     setDirection(-1);
     setCurrentIndex((prevIndex) => (prevIndex - 1 + serviceItems.length) % serviceItems.length);
   };
 
-  // Handle service selection
   const handleServiceClick = () => {
     if (expandedService) return;
     setIsLoading(true);
     
-    // Find the corresponding service in the servicesList
     const serviceName = currentService.name;
     
-    // Navigate after a delay
     setTimeout(() => {
       setIsLoading(false);
       navigate('/services', { state: { selectedService: serviceName } });
     }, 3000);
   };
 
-  // Handle expanding a service box
   const handleExpandService = (service: ServiceItem, e: React.MouseEvent) => {
     e.stopPropagation();
     if (expandedService?.id === service.id) {
       setExpandedService(null);
     } else {
       setExpandedService(service);
-      // Scroll to services section to ensure expanded view is visible
       servicesRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
-  // Close expanded view
   const closeExpandedView = () => {
     setExpandedService(null);
   };
 
-  // Animation variants
   const slideVariants = {
     enter: (direction: number) => ({
       x: direction > 0 ? 1000 : -1000,
@@ -116,7 +104,7 @@ const ServiceSlider = () => {
     center: {
       x: 0,
       opacity: 1
-    },
+    }),
     exit: (direction: number) => ({
       x: direction < 0 ? 1000 : -1000,
       opacity: 0
@@ -133,18 +121,17 @@ const ServiceSlider = () => {
           <div className="h-1 w-24 bg-primary mx-auto rounded-full mt-4"></div>
         </div>
         
-        {/* Expanded Service View */}
         <AnimatePresence>
           {expandedService && (
             <motion.div 
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
-              className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90"
+              className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/95"
               onClick={closeExpandedView}
             >
               <motion.div 
-                className="relative w-full h-[80vh] max-w-[90vw]"
+                className="relative w-full h-[90vh] max-w-[95vw]"
                 onClick={(e) => e.stopPropagation()}
                 layoutId={`service-image-${expandedService.id}`}
               >
@@ -174,7 +161,6 @@ const ServiceSlider = () => {
           )}
         </AnimatePresence>
         
-        {/* Service Boxes Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {serviceItems.map((service) => (
             <motion.div
@@ -211,7 +197,6 @@ const ServiceSlider = () => {
         </div>
         
         <div className="relative h-[500px] w-full flex items-center justify-center">
-          {/* Loading overlay */}
           {isLoading && (
             <div className="absolute inset-0 bg-white/80 z-50 flex flex-col items-center justify-center">
               <div className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin mb-4"></div>
@@ -219,7 +204,6 @@ const ServiceSlider = () => {
             </div>
           )}
 
-          {/* Main content */}
           <div className="w-full max-w-5xl relative overflow-hidden rounded-xl shadow-2xl bg-white">
             <AnimatePresence initial={false} custom={direction} mode="wait">
               <motion.div
@@ -236,7 +220,6 @@ const ServiceSlider = () => {
                 className="absolute inset-0"
               >
                 <div className="flex flex-col md:flex-row h-full">
-                  {/* Image section */}
                   <div className="w-full md:w-3/5 h-64 md:h-full relative overflow-hidden">
                     <div 
                       className="w-full h-full bg-cover bg-center transform transition-transform duration-700 hover:scale-110"
@@ -252,7 +235,6 @@ const ServiceSlider = () => {
                     </div>
                   </div>
                   
-                  {/* Text section */}
                   <div className="w-full md:w-2/5 p-6 md:p-8 flex flex-col justify-center">
                     <p className="text-gray-700 mb-8">{currentService.description}</p>
                     <Button 
@@ -266,7 +248,6 @@ const ServiceSlider = () => {
               </motion.div>
             </AnimatePresence>
             
-            {/* Navigation buttons */}
             <button 
               onClick={prevSlide}
               className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/30 backdrop-blur-sm text-white p-2 rounded-full z-10 hover:bg-white/50 transition-colors"
@@ -284,7 +265,6 @@ const ServiceSlider = () => {
               <ChevronRight size={24} />
             </button>
             
-            {/* Indicator dots */}
             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-10">
               {serviceItems.map((_, index) => (
                 <button
