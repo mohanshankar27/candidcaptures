@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { preloadCriticalImages } from '@/utils/performance/imageOptimizer';
 
 interface ServiceItem {
   id: number;
@@ -51,6 +52,11 @@ const ServiceSlider = () => {
   const [expandedService, setExpandedService] = useState<ServiceItem | null>(null);
   const servicesRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
+
+  // Preload service images for better performance
+  useState(() => {
+    preloadCriticalImages(serviceItems.map(service => service.image));
+  });
 
   // Get current service data
   const currentService = serviceItems[currentIndex];
@@ -147,7 +153,7 @@ const ServiceSlider = () => {
                   alt={expandedService.name}
                   className="w-full h-full object-contain transform scale-[5] image-rendering-crisp"
                   style={{ 
-                    imageRendering: 'high-quality',
+                    imageRendering: "crisp-edges" as const,
                     WebkitFontSmoothing: 'antialiased',
                     MozOsxFontSmoothing: 'grayscale'
                   }}
@@ -189,7 +195,7 @@ const ServiceSlider = () => {
                   loading="eager"
                   decoding="sync"
                   fetchPriority="high"
-                  style={{ imageRendering: 'high-quality' }}
+                  style={{ imageRendering: "crisp-edges" as const }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-80"></div>
                 <div className="absolute bottom-0 left-0 p-4 text-white">
@@ -237,7 +243,7 @@ const ServiceSlider = () => {
                       style={{ 
                         backgroundImage: `url(${currentService.image})`,
                         backgroundPosition: `${25 * currentIndex}% center`,
-                        imageRendering: 'high-quality'
+                        imageRendering: "crisp-edges" as const
                       }}
                     ></div>
                     <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent"></div>
