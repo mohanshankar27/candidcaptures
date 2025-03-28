@@ -134,18 +134,28 @@ const ServiceSlider = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
-              className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80"
+              className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90"
               onClick={closeExpandedView}
             >
               <motion.div 
-                className="relative w-full h-[75vh] max-w-[90vw]"
+                className="relative w-full h-[80vh] max-w-[90vw]"
                 onClick={(e) => e.stopPropagation()}
                 layoutId={`service-image-${expandedService.id}`}
               >
                 <img 
                   src={expandedService.image} 
                   alt={expandedService.name}
-                  className="w-full h-full object-contain transform scale-[5]"
+                  className="w-full h-full object-contain transform scale-[5] image-rendering-crisp"
+                  style={{ 
+                    imageRendering: 'high-quality',
+                    WebkitFontSmoothing: 'antialiased',
+                    MozOsxFontSmoothing: 'grayscale'
+                  }}
+                  width="1200"
+                  height="900"
+                  loading="eager"
+                  decoding="sync"
+                  fetchPriority="high"
                 />
                 <button 
                   className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm text-white p-2 rounded-full hover:bg-white/40 transition-colors z-20"
@@ -174,6 +184,12 @@ const ServiceSlider = () => {
                   alt={service.name}
                   layoutId={`service-image-${service.id}`}
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                  width="600"
+                  height="450"
+                  loading="eager"
+                  decoding="sync"
+                  fetchPriority="high"
+                  style={{ imageRendering: 'high-quality' }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-80"></div>
                 <div className="absolute bottom-0 left-0 p-4 text-white">
@@ -220,7 +236,8 @@ const ServiceSlider = () => {
                       className="w-full h-full bg-cover bg-center transform transition-transform duration-700 hover:scale-110"
                       style={{ 
                         backgroundImage: `url(${currentService.image})`,
-                        backgroundPosition: `${25 * currentIndex}% center`
+                        backgroundPosition: `${25 * currentIndex}% center`,
+                        imageRendering: 'high-quality'
                       }}
                     ></div>
                     <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent"></div>
