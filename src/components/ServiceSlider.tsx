@@ -1,5 +1,5 @@
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -53,9 +53,9 @@ const ServiceSlider = () => {
   const servicesRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
 
-  useState(() => {
+  useEffect(() => {
     preloadCriticalImages(serviceItems.map(service => service.image));
-  });
+  }, []);
 
   const currentService = serviceItems[currentIndex];
 
@@ -80,7 +80,7 @@ const ServiceSlider = () => {
     setTimeout(() => {
       setIsLoading(false);
       navigate('/services', { state: { selectedService: serviceName } });
-    }, 3000);
+    }, 1500);
   };
 
   const handleExpandService = (service: ServiceItem, e: React.MouseEvent) => {
@@ -105,7 +105,7 @@ const ServiceSlider = () => {
     center: {
       x: 0,
       opacity: 1
-    }, // Fixed: removed the extra closing parenthesis
+    },
     exit: (direction: number) => ({
       x: direction < 0 ? 1000 : -1000,
       opacity: 0
@@ -113,13 +113,23 @@ const ServiceSlider = () => {
   };
 
   return (
-    <section id="services" ref={servicesRef} className="py-16 relative bg-gradient-to-b from-white to-slate-50 overflow-hidden">
+    <section id="services" ref={servicesRef} className="py-20 relative bg-gradient-to-b from-white to-slate-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70 font-serif italic">
+        <div className="text-center mb-16">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-5xl sm:text-6xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70 font-serif italic"
+          >
             Premium Photography Services
-          </h2>
-          <div className="h-1 w-24 bg-primary mx-auto rounded-full mt-4"></div>
+          </motion.h2>
+          <motion.div 
+            initial={{ width: 0 }}
+            whileInView={{ width: "120px" }}
+            transition={{ duration: 1, delay: 0.3 }}
+            className="h-1.5 bg-gradient-to-r from-primary to-primary/50 mx-auto rounded-full mt-6"
+          ></motion.div>
         </div>
         
         <AnimatePresence>
@@ -162,21 +172,29 @@ const ServiceSlider = () => {
           )}
         </AnimatePresence>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {serviceItems.map((service) => (
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20"
+        >
+          {serviceItems.map((service, idx) => (
             <motion.div
               key={service.id}
               layoutId={`service-box-${service.id}`}
-              className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer h-80"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer h-96"
               onClick={(e) => handleExpandService(service, e)}
-              whileHover={{ y: -5 }}
+              whileHover={{ y: -10, scale: 1.02 }}
             >
-              <div className="h-48 overflow-hidden relative">
+              <div className="h-72 overflow-hidden relative">
                 <motion.img 
                   src={service.image} 
                   alt={service.name}
                   layoutId={`service-image-${service.id}`}
-                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-1000 hover:scale-110"
                   width="600"
                   height="450"
                   loading="eager"
@@ -185,19 +203,24 @@ const ServiceSlider = () => {
                   style={{ imageRendering: "crisp-edges" as const }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-80"></div>
-                <div className="absolute bottom-0 left-0 p-4 text-white">
-                  <h3 className="text-xl font-bold">{service.name}</h3>
+                <div className="absolute bottom-0 left-0 p-6 text-white">
+                  <h3 className="text-2xl font-bold font-serif italic">{service.name}</h3>
                 </div>
               </div>
-              <div className="p-4">
-                <p className="text-gray-700 line-clamp-3">{service.description}</p>
+              <div className="p-5">
+                <p className="text-gray-700 line-clamp-2 text-sm">{service.description}</p>
                 <div className="mt-2 text-primary font-medium text-sm">Click to expand</div>
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
         
-        <div className="relative h-[500px] w-full flex items-center justify-center">
+        <motion.div 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="relative h-[600px] w-full flex items-center justify-center"
+        >
           {isLoading && (
             <div className="absolute inset-0 bg-white/80 z-50 flex flex-col items-center justify-center">
               <div className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin mb-4"></div>
@@ -205,7 +228,7 @@ const ServiceSlider = () => {
             </div>
           )}
 
-          <div className="w-full max-w-5xl relative overflow-hidden rounded-xl shadow-2xl bg-white">
+          <div className="w-full max-w-6xl relative overflow-hidden rounded-3xl shadow-2xl bg-white">
             <AnimatePresence initial={false} custom={direction} mode="wait">
               <motion.div
                 key={currentIndex}
@@ -221,9 +244,9 @@ const ServiceSlider = () => {
                 className="absolute inset-0"
               >
                 <div className="flex flex-col md:flex-row h-full">
-                  <div className="w-full md:w-3/5 h-64 md:h-full relative overflow-hidden">
+                  <div className="w-full h-full relative overflow-hidden">
                     <div 
-                      className="w-full h-full bg-cover bg-center transform transition-transform duration-700 hover:scale-110"
+                      className="w-full h-full bg-cover bg-center transform transition-transform duration-1000 hover:scale-105"
                       style={{ 
                         backgroundImage: `url(${currentService.image})`,
                         backgroundPosition: `${25 * currentIndex}% center`,
@@ -231,19 +254,16 @@ const ServiceSlider = () => {
                       }}
                     ></div>
                     <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent"></div>
-                    <div className="absolute bottom-0 left-0 p-6 text-white">
-                      <h3 className="text-2xl md:text-3xl font-bold mb-2">{currentService.name}</h3>
+                    <div className="absolute bottom-0 left-0 p-8 text-white max-w-2xl">
+                      <h3 className="text-3xl md:text-4xl font-bold mb-3 font-serif italic">{currentService.name}</h3>
+                      <p className="text-white/90 mb-8 text-lg">{currentService.description}</p>
+                      <Button 
+                        onClick={handleServiceClick}
+                        className="bg-primary hover:bg-primary/90 text-white font-medium px-8 py-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 text-lg"
+                      >
+                        Explore This Service
+                      </Button>
                     </div>
-                  </div>
-                  
-                  <div className="w-full md:w-2/5 p-6 md:p-8 flex flex-col justify-center">
-                    <p className="text-gray-700 mb-8">{currentService.description}</p>
-                    <Button 
-                      onClick={handleServiceClick}
-                      className="bg-primary hover:bg-primary/90 text-white font-medium px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1"
-                    >
-                      Explore This Service
-                    </Button>
                   </div>
                 </div>
               </motion.div>
@@ -251,22 +271,22 @@ const ServiceSlider = () => {
             
             <button 
               onClick={prevSlide}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/30 backdrop-blur-sm text-white p-2 rounded-full z-10 hover:bg-white/50 transition-colors"
+              className="absolute left-6 top-1/2 -translate-y-1/2 bg-white/30 backdrop-blur-sm text-white p-3 rounded-full z-10 hover:bg-white/50 transition-colors"
               aria-label="Previous service"
               disabled={!!expandedService}
             >
-              <ChevronLeft size={24} />
+              <ChevronLeft size={28} />
             </button>
             <button 
               onClick={nextSlide}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/30 backdrop-blur-sm text-white p-2 rounded-full z-10 hover:bg-white/50 transition-colors"
+              className="absolute right-6 top-1/2 -translate-y-1/2 bg-white/30 backdrop-blur-sm text-white p-3 rounded-full z-10 hover:bg-white/50 transition-colors"
               aria-label="Next service"
               disabled={!!expandedService}
             >
-              <ChevronRight size={24} />
+              <ChevronRight size={28} />
             </button>
             
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-10">
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-3 z-10">
               {serviceItems.map((_, index) => (
                 <button
                   key={index}
@@ -275,8 +295,8 @@ const ServiceSlider = () => {
                     setDirection(index > currentIndex ? 1 : -1);
                     setCurrentIndex(index);
                   }}
-                  className={`w-3 h-3 rounded-full transition-colors ${
-                    index === currentIndex ? 'bg-white' : 'bg-white/50'
+                  className={`w-4 h-4 rounded-full transition-colors ${
+                    index === currentIndex ? 'bg-white' : 'bg-white/40'
                   }`}
                   aria-label={`Go to slide ${index + 1}`}
                   disabled={!!expandedService}
@@ -284,7 +304,7 @@ const ServiceSlider = () => {
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
