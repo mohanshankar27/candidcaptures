@@ -1,3 +1,4 @@
+
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
@@ -104,7 +105,7 @@ const ServiceSlider = () => {
     center: {
       x: 0,
       opacity: 1
-    }),
+    }, // Fixed: removed the extra closing parenthesis
     exit: (direction: number) => ({
       x: direction < 0 ? 1000 : -1000,
       opacity: 0
