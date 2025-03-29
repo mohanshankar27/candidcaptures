@@ -3,8 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Service } from '@/data/services';
 import { Card, CardContent } from '@/components/ui/card';
-import { Dialog, DialogContent, DialogClose } from '@/components/ui/dialog';
-import { AspectRatio } from '@/components/ui/aspect-ratio';
+import { Dialog, DialogContent } from '@/components/ui/dialog';
 
 interface ServiceGalleryProps {
   service: Service;

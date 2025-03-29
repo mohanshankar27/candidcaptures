@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ExternalLink, Calendar } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import WeddingSlideshow from '@/components/WeddingSlideshow';
 import { Service } from '@/data/services';
 import ServiceGallery from '@/components/ServiceGallery';
@@ -101,13 +101,17 @@ const ServiceContent: React.FC<ServiceContentProps> = ({ service }) => {
     return <ArtistsCelebritiesGallery service={service} />;
   }
 
-  // Special case for Event Photography - use an icon instead of images
+  // Special case for Event Photography - now using an image instead of an icon
   if (isEventService) {
     return (
       <div className="p-6 h-full">
         <div className="flex flex-col items-center justify-center bg-white rounded-lg shadow-sm p-10 mb-8 ring-1 ring-purple-400">
-          <div className="bg-white p-6 rounded-full border border-primary/10 mb-4">
-            <Calendar className="h-24 w-24 text-[#ea384c]" strokeWidth={1} />
+          <div className="mb-6 w-full max-w-2xl overflow-hidden rounded-lg">
+            <img 
+              src={serviceImageArray[0]} 
+              alt={service.name}
+              className="w-full h-auto object-contain"
+            />
           </div>
           <h2 className="text-2xl font-semibold text-primary mb-4">Event Management Services</h2>
           <p className="text-center text-slate-600 max-w-2xl">
