@@ -67,14 +67,19 @@ const SlideshowHeader = () => {
           className="text-slate-600 max-w-2xl mx-auto font-light text-lg leading-relaxed relative"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 1.2, delay: 0.7 }}
-          viewport={{ once: true }}
           animate={{ 
             rotateX: [0, 2, 0]
           }}
           transition={{ 
-            rotateX: { duration: 7, repeat: Infinity, repeatType: "reverse" }
+            duration: 1.2, 
+            delay: 0.7,
+            rotateX: { 
+              duration: 7, 
+              repeat: Infinity, 
+              repeatType: "reverse" 
+            }
           }}
+          viewport={{ once: true }}
         >
           <span className="relative">
             Extraordinary masterpieces from our exclusive fine art collection, where every meticulously crafted frame captures the essence of unparalleled luxury and artistic excellence
