@@ -1,8 +1,8 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Separator } from '@/components/ui/separator';
 import { useNavigate } from 'react-router-dom';
-import { Package, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import PackageHeader from './packages/PackageHeader';
 
@@ -55,7 +55,6 @@ const pricePackages: PricePackageItem[] = [
   },
 ];
 
-// Simplified component without carousel
 const PricePackages: React.FC = () => {
   const navigate = useNavigate();
 
@@ -116,7 +115,10 @@ const PricePackages: React.FC = () => {
                   variant="ghost" 
                   size="sm" 
                   className="text-[#ea384c] hover:bg-[#ea384c]/10 hover:text-[#ea384c] p-0 h-auto mt-1"
-                  onClick={() => handlePackageClick(pkg)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handlePackageClick(pkg);
+                  }}
                 >
                   View pricing details
                 </Button>
