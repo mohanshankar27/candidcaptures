@@ -4,7 +4,7 @@ import { Sparkles, ExternalLink } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
-import { Service } from '@/data/servicesList';
+import { Service } from '@/data/services';
 
 interface ServiceCardProps {
   service: Service;
@@ -64,7 +64,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         onMouseLeave={() => !isClicked && setHoveredIndex(null)}
       >
         <div className="p-2 bg-white">
-          <div className="aspect-[4/3] relative overflow-hidden rounded-lg">
+          <div className="relative overflow-hidden rounded-lg">
             <motion.div 
               className="w-full h-full"
               whileHover={{ scale: isClicked ? 1 : 1.08 }}
@@ -74,7 +74,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
                 src={imageSrc}
                 alt={service.name}
                 className={cn(
-                  "w-full h-full object-cover",
+                  "w-full h-auto object-contain",
                   isClicked ? "blur-sm" : ""
                 )}
                 loading={index < 8 ? "eager" : "lazy"}

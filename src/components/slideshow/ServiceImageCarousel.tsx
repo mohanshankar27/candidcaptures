@@ -47,7 +47,7 @@ const ServiceImageCarousel: React.FC<ServiceImageCarouselProps> = ({
                   className="overflow-hidden group cursor-pointer transition-all duration-300 bg-white shadow-xl h-full border-none"
                   onClick={() => onServiceClick(service.name)}
                 >
-                  <div className="aspect-[4/3] relative overflow-hidden">
+                  <div className="relative overflow-hidden">
                     <div className="absolute inset-0 bg-transparent group-hover:bg-transparent transition-colors duration-300 z-10"></div>
                     <motion.div
                       whileHover={{ scale: 1.05 }}
@@ -57,8 +57,8 @@ const ServiceImageCarousel: React.FC<ServiceImageCarouselProps> = ({
                       <img 
                         src={service.image} 
                         alt={service.name}
-                        className="w-full h-full object-cover"
-                        loading="lazy" // Add lazy loading
+                        className="w-full h-auto object-contain"
+                        loading="lazy"
                       />
                     </motion.div>
                   </div>

@@ -25,10 +25,10 @@ const ImageModal = ({
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent 
-        className="max-w-[75vw] w-[75vw] p-0 border-none bg-black/95 rounded-xl shadow-2xl" 
+        className="max-w-[90vw] w-[90vw] p-0 border-none bg-black/95 rounded-xl shadow-2xl" 
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="relative w-full h-[80vh] flex items-center justify-center">
+        <div className="relative w-full h-[85vh] flex items-center justify-center">
           <motion.img 
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}

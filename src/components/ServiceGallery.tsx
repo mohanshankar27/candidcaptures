@@ -4,6 +4,7 @@ import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Service } from '@/data/services';
 import { Card, CardContent } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogClose } from '@/components/ui/dialog';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 interface ServiceGalleryProps {
   service: Service;
@@ -67,12 +68,12 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, images }) => {
         <span>{service.name}</span>
       </h2>
       
-      {/* Featured hero image - larger and prominent */}
+      {/* Featured hero image - with natural aspect ratio */}
       <div className="mb-6 w-full overflow-hidden rounded-lg border-2 border-orange-400">
         <img 
           src={limitedImages[0]} 
           alt={`${service.name} featured`}
-          className="w-full h-[300px] md:h-[400px] object-cover transition-transform duration-300 hover:scale-105 cursor-pointer"
+          className="w-full object-contain transition-transform duration-300 hover:scale-105 cursor-pointer"
           onClick={() => handleImageClick(0)}
         />
       </div>
@@ -99,18 +100,18 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, images }) => {
       
       <h3 className="text-xl font-medium mb-3">{service.name} Showcase</h3>
       
-      {/* Gallery grid with consistent sizing - only 5 more images after the hero */}
+      {/* Gallery grid with natural aspect ratio preserving */}
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 md:gap-3">
         {limitedImages.slice(1).map((image, index) => (
           <div 
             key={index} 
-            className="overflow-hidden rounded-lg cursor-pointer bg-muted border-2 border-orange-300 aspect-square"
+            className="overflow-hidden rounded-lg cursor-pointer bg-muted border-2 border-orange-300"
             onClick={() => handleImageClick(index + 1)}
           >
             <img 
               src={image} 
               alt={`${service.name} ${index + 1}`} 
-              className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+              className="w-full h-auto object-contain transition-transform duration-300 hover:scale-110"
             />
           </div>
         ))}
@@ -123,15 +124,15 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, images }) => {
         </div>
       )}
 
-      {/* Image slideshow dialog */}
+      {/* Image slideshow dialog - preserving original aspect ratio */}
       {enlargedImageIndex !== null && (
         <Dialog open={enlargedImageIndex !== null} onOpenChange={handleClose}>
           <DialogContent className="max-w-5xl p-0 border-4 border-orange-400 bg-black" onClick={e => e.stopPropagation()}>
-            <div className="relative w-full h-[80vh]">
+            <div className="relative w-full h-[80vh] flex items-center justify-center">
               <img 
                 src={limitedImages[enlargedImageIndex]} 
                 alt="Enlarged view" 
-                className="w-full h-full object-contain"
+                className="max-w-full max-h-full object-contain"
               />
               
               <button 

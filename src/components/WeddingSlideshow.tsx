@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react';
 import { 
   Carousel, 
@@ -55,11 +56,11 @@ const WeddingSlideshow = ({ autoplay = true, interval = 5000 }: WeddingSlideshow
           {weddingPhotos.map((photo, index) => (
             <CarouselItem key={index}>
               <div className="p-1">
-                <div className="overflow-hidden rounded-lg aspect-[16/9] bg-muted">
+                <div className="overflow-hidden rounded-lg bg-muted">
                   <img 
                     src={photo} 
                     alt={`Wedding photo ${index + 1}`} 
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                    className="w-full h-auto object-contain transition-transform duration-500 hover:scale-105"
                   />
                 </div>
               </div>
