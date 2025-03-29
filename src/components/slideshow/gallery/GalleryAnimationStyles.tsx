@@ -4,13 +4,12 @@ const GalleryAnimationStyles = () => {
     <style>
       {`
         @keyframes shine {
-          0% { transform: translateX(-100%) skewX(-12deg); }
-          60% { transform: translateX(150%) skewX(-12deg); }
-          100% { transform: translateX(150%) skewX(-12deg); }
+          0% { transform: translateX(-200%) skewX(-15deg); }
+          100% { transform: translateX(200%) skewX(-15deg); }
         }
         
         .animate-shine {
-          animation: shine 3s ease-out infinite;
+          animation: shine 4s ease-in-out infinite;
         }
         
         .swiper-container {
@@ -21,14 +20,22 @@ const GalleryAnimationStyles = () => {
         .swiper-wrapper {
           display: flex;
           align-items: center;
-          perspective: 1200px;
+          perspective: 1500px;
           transform-style: preserve-3d;
         }
         
         .swiper-slide {
-          transition: transform 0.9s cubic-bezier(0.25, 0.1, 0.25, 1);
+          transition: transform 0.7s cubic-bezier(0.25, 0.1, 0.25, 1);
           transform-origin: center center;
           transform-style: preserve-3d;
+        }
+        
+        .bg-gradient-gold {
+          background: linear-gradient(135deg, rgba(251,191,36,0.1) 0%, rgba(252,211,77,0.1) 50%, rgba(251,191,36,0.1) 100%);
+        }
+        
+        .text-shadow-gold {
+          text-shadow: 0 0 2px rgba(251,191,36,0.3), 0 0 4px rgba(251,191,36,0.2);
         }
       `}
     </style>

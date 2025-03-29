@@ -16,10 +16,11 @@ interface GalleryCarouselProps {
 const GalleryCarousel = ({ images }: GalleryCarouselProps) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ 
     loop: true,
-    align: "start",
+    align: "center",
     dragFree: false,
     skipSnaps: false,
     duration: 50, // Slower transitions for smooth movement
+    containScroll: "trimSnaps",
   });
   
   // State to track which card is flipped
@@ -69,7 +70,7 @@ const GalleryCarousel = ({ images }: GalleryCarouselProps) => {
       className="w-full max-w-6xl mx-auto"
     >
       <div className="overflow-hidden rounded-xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.4)] swiper-container" ref={emblaRef}>
-        <div className="flex gap-5 md:gap-8 py-8 swiper-wrapper">
+        <div className="flex gap-4 md:gap-6 py-8 swiper-wrapper">
           {images.map((image, index) => (
             <GallerySlide
               key={index}
