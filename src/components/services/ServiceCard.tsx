@@ -74,7 +74,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
                 src={imageSrc}
                 alt={service.name}
                 className={cn(
-                  "w-full h-auto object-contain",
+                  "w-full h-auto object-cover",
                   isClicked ? "blur-sm" : ""
                 )}
                 loading={index < 8 ? "eager" : "lazy"}

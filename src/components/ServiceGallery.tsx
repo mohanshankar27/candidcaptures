@@ -68,12 +68,12 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, images }) => {
         <span>{service.name}</span>
       </h2>
       
-      {/* Featured hero image - with natural aspect ratio */}
+      {/* Featured hero image - preserving original aspect ratio */}
       <div className="mb-6 w-full overflow-hidden rounded-lg border-2 border-orange-400">
         <img 
           src={limitedImages[0]} 
           alt={`${service.name} featured`}
-          className="w-full object-contain transition-transform duration-300 hover:scale-105 cursor-pointer"
+          className="w-full h-auto object-contain transition-transform duration-300 hover:scale-105 cursor-pointer"
           onClick={() => handleImageClick(0)}
         />
       </div>
@@ -100,7 +100,7 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, images }) => {
       
       <h3 className="text-xl font-medium mb-3">{service.name} Showcase</h3>
       
-      {/* Gallery grid with natural aspect ratio preserving */}
+      {/* Gallery grid with original aspect ratio preservation */}
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 md:gap-3">
         {limitedImages.slice(1).map((image, index) => (
           <div 
