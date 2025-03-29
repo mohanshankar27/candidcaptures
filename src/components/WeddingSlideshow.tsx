@@ -30,7 +30,7 @@ interface WeddingSlideshowProps {
   interval?: number;
 }
 
-const WeddingSlideshow = ({ autoplay = true, interval = 2000 }: WeddingSlideshowProps) => {
+const WeddingSlideshow = ({ autoplay = true, interval = 4000 }: WeddingSlideshowProps) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [api, setApi] = useState<any>(null);
 

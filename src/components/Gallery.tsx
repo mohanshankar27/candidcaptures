@@ -26,13 +26,13 @@ const Gallery = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  // Auto-advance carousel every 2 seconds
+  // Auto-advance carousel every 4 seconds
   useEffect(() => {
     if (!autoplayEnabled) return;
     
     const interval = setInterval(() => {
       setCurrent((current) => (current === galleryImages.length - 1 ? 0 : current + 1));
-    }, 2000); // Changed to 2000ms (2 seconds)
+    }, 4000); // Changed to 4000ms (4 seconds)
     
     return () => clearInterval(interval);
   }, [autoplayEnabled]);

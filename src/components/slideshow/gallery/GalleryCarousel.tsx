@@ -39,7 +39,7 @@ const GalleryCarousel = ({ images }: GalleryCarouselProps) => {
     if (!isInteracting && emblaApi) {
       autoplayTimerRef.current = window.setTimeout(() => {
         emblaApi.scrollNext();
-      }, 2000); // Set to 2 seconds per slide
+      }, 4000); // Set to 4 seconds per slide
     }
   }, [emblaApi, isInteracting]);
   
