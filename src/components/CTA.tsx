@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
@@ -13,7 +14,7 @@ const CTA = () => {
     <section className="bg-primary/10 py-20">
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-4xl font-bold mb-6">Ready to Capture Your Special Moments?</h2>
-        <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+        <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto font-akaya">
           Let's create beautiful memories together. Book a session now and let's discuss how we can tell your story through stunning photographs.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

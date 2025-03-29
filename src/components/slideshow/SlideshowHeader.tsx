@@ -8,7 +8,7 @@ const SlideshowHeader = () => {
         {/* Subtle static glow behind heading */}
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-20 bg-orange-300/10 blur-3xl rounded-full"></div>
         
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif italic text-primary mb-4 tracking-wide relative">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-arjulian italic text-primary mb-4 tracking-wide relative">
           <motion.span
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -36,7 +36,7 @@ const SlideshowHeader = () => {
         ></motion.div>
         
         <motion.p 
-          className="text-slate-600 max-w-2xl mx-auto font-light text-lg leading-relaxed relative"
+          className="text-slate-600 max-w-2xl mx-auto font-akaya text-lg leading-relaxed relative"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1.2 }}

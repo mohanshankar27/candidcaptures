@@ -10,7 +10,7 @@ const BookingCTA: React.FC<BookingCTAProps> = ({ title, serviceType }) => {
   return (
     <div className="bg-slate-50 p-6 rounded-lg mt-8 text-center">
       <h3 className="text-xl font-medium mb-3 text-[#ea384c]">{title}</h3>
-      <p className="text-slate-600 mb-4">
+      <p className="text-slate-600 mb-4 font-akaya">
         Contact us to schedule a consultation and discuss how we can capture your {serviceType}.
       </p>
       <div className="flex flex-col sm:flex-row gap-3 justify-center">

@@ -15,7 +15,7 @@ const FeatureItem = ({ title, description }: FeatureItemProps) => {
       </div>
       <div>
         <h3 className="text-xl font-semibold mb-2">{title}</h3>
-        <p className="text-gray-600">
+        <p className="text-gray-600 font-akaya">
           {description}
         </p>
       </div>
