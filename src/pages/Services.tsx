@@ -1,4 +1,3 @@
-
 import { useState, useEffect, lazy, Suspense } from 'react';
 import { useLocation } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
@@ -12,9 +11,8 @@ import { Button } from '@/components/ui/button';
 import ServicesLoading from '@/components/ServicesLoading';
 import { preloadCriticalImages, deferNonCriticalJS } from '@/utils/performance';
 import { criticalImages } from '@/components/slideshow/serviceImages';
-import PricePackages from '@/components/PricePackages'; // Direct import instead of lazy loading
+import PricePackages from '@/components/PricePackages';
 
-// Only lazy load these components
 const ServiceContent = lazy(() => import('@/components/ServiceContent'));
 const ServicesFAQ = lazy(() => import('@/components/ServicesFAQ'));
 
@@ -146,14 +144,12 @@ const Services = () => {
             </>
           )}
           
-          {!isLoading && contentLoaded && (
+          {!isLoading && (
             <div className="px-4 mt-8 animate-fade-in">
-              {/* Use the direct import with no Suspense needed */}
               <PricePackages />
             </div>
           )}
           
-          {/* Add FAQ Section under Packages & Price Lists */}
           {!isLoading && contentLoaded && (
             <div className="px-4 mt-8 mb-8 animate-fade-in">
               <Suspense fallback={<SimpleLoadingState />}>

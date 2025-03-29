@@ -6,7 +6,7 @@ import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import { preloadCriticalImages, deferNonCriticalJS } from '@/utils/performance';
 import { criticalImages } from '@/components/slideshow/serviceImages';
-import PhotoSlideshow from '@/components/PhotoSlideshow'; // Direct import instead of lazy loading
+import PhotoSlideshow from '@/components/PhotoSlideshow'; // Direct import
 
 // Lazily load non-critical components
 const About = lazy(() => import('@/components/About'));
