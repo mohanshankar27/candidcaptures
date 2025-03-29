@@ -36,70 +36,53 @@ const ModellingPackage: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-4 gap-5">
+        <div className="grid md:grid-cols-3 gap-5">
           <Card className="border-primary/20 hover:shadow-lg transition-all duration-300">
             <CardHeader className="bg-gradient-to-r from-primary/10 to-primary/5 pb-2">
-              <CardTitle className="text-primary text-lg">Basic Polaroid</CardTitle>
-              <CardDescription className="text-slate-600 pt-1">Agency submissions</CardDescription>
+              <CardTitle className="text-primary text-lg">Test Shoot</CardTitle>
+              <CardDescription className="text-slate-600 pt-1">Perfect for beginners</CardDescription>
               <div className="mt-4 mb-1">
-                <span className="text-2xl font-light text-[#ea384c]">₹5,000</span>
+                <span className="text-2xl font-light text-[#ea384c]">₹16,067</span>
+                <span className="text-sm text-slate-500">+GST</span>
               </div>
             </CardHeader>
             <CardContent className="pt-6">
               <ul className="space-y-3">
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">2-hour studio session</span>
+                  <span className="text-slate-700">Location: Studio Only</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">3 outfit changes</span>
+                  <span className="text-slate-700">Duration: ~4hrs +</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">10 edited digital images</span>
+                  <span className="text-slate-700">25+ photographs</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">5 printed polaroid-style photos</span>
+                  <span className="text-slate-700">Basic(20), Advanced Retouch(5)</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Basic styling advice</span>
-                </li>
-              </ul>
-            </CardContent>
-          </Card>
-
-          <Card className="border-primary/20 hover:shadow-lg transition-all duration-300">
-            <CardHeader className="bg-gradient-to-r from-primary/15 to-primary/5 pb-2">
-              <CardTitle className="text-primary text-lg">Standard</CardTitle>
-              <CardDescription className="text-slate-600 pt-1">Portfolio beginners</CardDescription>
-              <div className="mt-4 mb-1">
-                <span className="text-2xl font-light text-[#ea384c]">₹12,000</span>
-              </div>
-            </CardHeader>
-            <CardContent className="pt-6">
-              <ul className="space-y-3">
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">4-hour studio session</span>
+                  <span className="text-slate-700">Up to 4 looks</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">5 outfit changes</span>
+                  <span className="text-slate-700">Planning: Yes, test shoot followed by planning</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">20 edited digital images</span>
+                  <span className="text-slate-700">Intro Video: Yes, Basic (45 sec)</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">10 printed polaroid-style photos</span>
+                  <span className="text-slate-700">MUA/H: additional @ actuals</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">10 printed comp cards</span>
+                  <span className="text-slate-700">Stylist: Optional, @ actuals</span>
                 </li>
               </ul>
             </CardContent>
@@ -110,33 +93,49 @@ const ModellingPackage: React.FC = () => {
               Most Popular
             </div>
             <CardHeader className="bg-gradient-to-r from-primary/20 to-primary/10 pb-2">
-              <CardTitle className="text-primary text-lg">Premium</CardTitle>
-              <CardDescription className="text-slate-600 pt-1">Professional portfolio</CardDescription>
+              <CardTitle className="text-primary text-lg">Get Started with Polaroids</CardTitle>
+              <CardDescription className="text-slate-600 pt-1">Quick agency submissions</CardDescription>
               <div className="mt-4 mb-1">
-                <span className="text-2xl font-light text-[#ea384c]">₹25,000</span>
+                <div className="flex items-center gap-2">
+                  <span className="text-lg font-light text-slate-400 line-through">₹6,067</span>
+                  <span className="text-2xl font-light text-[#ea384c]">₹4,237</span>
+                  <span className="text-sm text-slate-500">+GST</span>
+                </div>
               </div>
             </CardHeader>
             <CardContent className="pt-6">
               <ul className="space-y-3">
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Full-day photoshoot (6-8 hours)</span>
+                  <span className="text-slate-700">Location: Studio Only</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Multiple locations</span>
+                  <span className="text-slate-700">Duration: ~30mins</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">8 outfit changes</span>
+                  <span className="text-slate-700">12 polaroid images</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">40 edited digital images</span>
+                  <span className="text-slate-700">Retouching: Basic</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Hair and makeup artist included</span>
+                  <span className="text-slate-700">Changes/Looks: 1 (no changes allowed)</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Planning: Basic</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Intro Video: Extra @995+GST</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">MUA/H: optional @actuals</span>
                 </li>
               </ul>
             </CardContent>
@@ -144,33 +143,58 @@ const ModellingPackage: React.FC = () => {
 
           <Card className="border-primary/20 hover:shadow-lg transition-all duration-300">
             <CardHeader className="bg-gradient-to-r from-primary/15 to-primary/5 pb-2">
-              <CardTitle className="text-primary text-lg">Elite</CardTitle>
-              <CardDescription className="text-slate-600 pt-1">Agency-ready portfolio</CardDescription>
+              <CardTitle className="text-primary text-lg">Portfolio Shoot</CardTitle>
+              <CardDescription className="text-slate-600 pt-1">Professional portfolio</CardDescription>
               <div className="mt-4 mb-1">
-                <span className="text-2xl font-light text-[#ea384c]">₹40,000</span>
+                <span className="text-2xl font-light text-[#ea384c]">₹66,067</span>
+                <span className="text-sm text-slate-500">+GST</span>
               </div>
             </CardHeader>
             <CardContent className="pt-6">
               <ul className="space-y-3">
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Two-day comprehensive shoot</span>
+                  <span className="text-slate-700">Location: Studio & outdoor</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Multiple premium locations</span>
+                  <span className="text-slate-700">Duration: ~ 1-2 days +</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">12 outfit changes</span>
+                  <span className="text-slate-700">40+ photographs</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">60 edited digital images</span>
+                  <span className="text-slate-700">Basic(20), Advanced Retouch(20)</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Video clips for motion portfolio</span>
+                  <span className="text-slate-700">4 looks or more</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Complete Planning Support</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Intro Video: Yes, personalised</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Look Book/Hard Prints: Yes</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">MUA/H: additional @ actuals</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Stylist/Art Direction: Yes, @ actuals</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Extras: location charges, website</span>
                 </li>
               </ul>
             </CardContent>
@@ -189,17 +213,6 @@ const ModellingPackage: React.FC = () => {
               </div>
             ))}
           </div>
-        </div>
-
-        <div className="mt-6">
-          <h3 className="text-lg font-medium mb-3 text-[#333333]">Important Information</h3>
-          <ul className="list-disc pl-5 space-y-2 text-slate-600">
-            <li>A 50% deposit is required to secure your booking</li>
-            <li>Rescheduling is possible with at least 48 hours notice</li>
-            <li>We can provide recommendations for hair stylists, makeup artists, and wardrobe stylists</li>
-            <li>Travel fees may apply for locations outside Bangalore city limits</li>
-            <li>Customized packages available upon request</li>
-          </ul>
         </div>
 
         <BookingCTA 
