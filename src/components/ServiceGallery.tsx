@@ -4,6 +4,7 @@ import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Service } from '@/data/services';
 import { Card, CardContent } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 interface ServiceGalleryProps {
   service: Service;
@@ -62,9 +63,9 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, images }) => {
     }
   };
   
-  // Fix for fashion photography showcase image display
-  const imageHeight = isFashionService ? 'h-[500px]' : '';
-  const imageObjectFit = isFashionService ? 'object-cover' : 'object-contain';
+  // Preserve aspect ratio for fashion photography images
+  const imageHeight = isFashionService ? 'h-auto max-h-[650px]' : '';
+  const imageObjectFit = isFashionService ? 'object-contain' : 'object-contain';
   
   return (
     <div className="p-4 md:p-6 h-full overflow-y-auto">
@@ -74,12 +75,14 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, images }) => {
       
       {/* Featured hero image - preserving original aspect ratio */}
       <div className="mb-6 w-full overflow-hidden rounded-lg border-2 border-orange-400">
-        <img 
-          src={limitedImages[0]} 
-          alt={`${service.name} featured`}
-          className="w-full h-auto object-contain transition-transform duration-300 hover:scale-105 cursor-pointer"
-          onClick={() => handleImageClick(0)}
-        />
+        <AspectRatio ratio={isFashionService ? 3/4 : 16/9}>
+          <img 
+            src={limitedImages[0]} 
+            alt={`${service.name} featured`}
+            className="w-full h-full object-contain transition-transform duration-300 hover:scale-105 cursor-pointer"
+            onClick={() => handleImageClick(0)}
+          />
+        </AspectRatio>
       </div>
       
       <div className="mb-6">
@@ -105,18 +108,28 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, images }) => {
       <h3 className="text-xl font-medium mb-3">{service.name} Showcase</h3>
       
       {/* Gallery grid with special case for Fashion Photography */}
-      <div className={`grid ${isFashionService ? 'grid-cols-1 gap-4' : 'grid-cols-2 sm:grid-cols-3 gap-2 md:gap-3'}`}>
+      <div className={`grid ${isFashionService ? 'grid-cols-1 gap-6' : 'grid-cols-2 sm:grid-cols-3 gap-2 md:gap-3'}`}>
         {limitedImages.slice(1).map((image, index) => (
           <div 
             key={index} 
             className={`overflow-hidden rounded-lg cursor-pointer bg-muted border-2 border-orange-300 ${imageHeight}`}
             onClick={() => handleImageClick(index + 1)}
           >
-            <img 
-              src={image} 
-              alt={`${service.name} ${index + 1}`} 
-              className={`w-full h-full ${imageObjectFit} transition-transform duration-300 hover:scale-110`}
-            />
+            {isFashionService ? (
+              <AspectRatio ratio={3/4}>
+                <img 
+                  src={image} 
+                  alt={`${service.name} ${index + 1}`} 
+                  className={`w-full h-full ${imageObjectFit} transition-transform duration-300 hover:scale-110`}
+                />
+              </AspectRatio>
+            ) : (
+              <img 
+                src={image} 
+                alt={`${service.name} ${index + 1}`} 
+                className={`w-full h-full ${imageObjectFit} transition-transform duration-300 hover:scale-110`}
+              />
+            )}
           </div>
         ))}
       </div>

@@ -41,7 +41,9 @@ const allAvailableImages = [
   '/lovable-uploads/f12b1de3-4046-4f12-9356-1a42efab959a.png',
   '/lovable-uploads/2a120d28-a47c-45a6-ad27-4f52aaf8ef7d.png',
   '/lovable-uploads/cc9a7822-da60-4d41-8c97-94aca630e4bb.png',
-  '/lovable-uploads/6d4124cf-49f7-422e-a39a-0fc50e817f81.png'
+  '/lovable-uploads/6d4124cf-49f7-422e-a39a-0fc50e817f81.png',
+  '/lovable-uploads/92b87e5e-0ec2-44ab-8160-c7335b0d66a0.png',
+  '/lovable-uploads/84376a5b-2662-4bb5-9e37-8e83ca5c09c8.png'
 ];
 
 // Map of service names to 6 unique images per service using indices from allAvailableImages
@@ -52,7 +54,7 @@ const serviceImageIndices = {
   'E-Commerce & Catalogues': [15, 10, 11, 13, 0, 1],
   'Event Photography': [2, 3, 4, 5, 6, 7],
   'Family Portraits': [8, 9, 10, 11, 12, 13],
-  'Fashion Photography': [21, 22, 23, 24, 25, 28],
+  'Fashion Photography': [30, 31, 21, 22, 23, 28],
   'Food Photography': [1, 3, 5, 7, 9, 11],
   'Makeup shoot': [12, 0, 2, 4, 6, 8],
   'Maternity Photography': [13, 1, 3, 5, 7, 9],
@@ -79,13 +81,13 @@ const ServiceContent: React.FC<ServiceContentProps> = ({ service }) => {
   const isEventService = service.name === 'Event Photography';
   const isFashionService = service.name === 'Fashion Photography';
   
-  // For Fashion Photography, use the specific updated images
+  // For Fashion Photography, use the specific updated images including the new ones
   const fashionImages = [
+    '/lovable-uploads/84376a5b-2662-4bb5-9e37-8e83ca5c09c8.png', // Main image - yellow traditional outfit
+    '/lovable-uploads/92b87e5e-0ec2-44ab-8160-c7335b0d66a0.png', // Second image - burgundy background model
     '/lovable-uploads/712d4c19-063a-497c-999e-ae3cffcbbf74.png',
     '/lovable-uploads/4c8884df-c0c2-4516-8e86-d559a104323b.png',
     '/lovable-uploads/03f657a2-cad6-4dd8-9d1f-1438954294dd.png',
-    '/lovable-uploads/96435422-8cf4-471d-a984-f6a25491973b.png',
-    '/lovable-uploads/2a120d28-a47c-45a6-ad27-4f52aaf8ef7d.png',
     '/lovable-uploads/6d4124cf-49f7-422e-a39a-0fc50e817f81.png'
   ];
   
