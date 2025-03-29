@@ -7,6 +7,7 @@ import Contact from "@/components/Contact";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import PhotoSlideshow from "@/components/PhotoSlideshow";
+import WeddingSlideshow from "@/components/WeddingSlideshow";
 
 const Index = () => {
   return (
@@ -14,9 +15,10 @@ const Index = () => {
       <Navbar />
       <Hero />
       <Gallery />
-      <CTA />
       <PhotoSlideshow />
       <About />
+      <WeddingSlideshow />
+      <CTA />
       <Contact />
       <Footer />
     </div>
