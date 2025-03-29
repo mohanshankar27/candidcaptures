@@ -12,7 +12,7 @@ const portraitServices: Service[] = [
       'Digital touch-ups included',
       'Corporate branding integration'
     ],
-    pricing: 'Starting at ₹2,500 per person with group discounts'
+    pricing: 'Starting at ₹995 + GST per image'
   },
   { 
     name: 'Maternity Photography',
@@ -24,7 +24,7 @@ const portraitServices: Service[] = [
       'Indoor or outdoor options',
       'Timeline photo series available'
     ],
-    pricing: 'Starting at ₹8,000 per session'
+    pricing: 'Starting at ₹4,499 + GST per session'
   },
   { 
     name: 'Matrimonial Portfolios',

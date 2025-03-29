@@ -43,32 +43,42 @@ const MaternityPackage: React.FC = () => {
               <CardTitle className="text-primary text-lg">Basic</CardTitle>
               <CardDescription className="text-slate-600 pt-1">Simple session</CardDescription>
               <div className="mt-4 mb-1">
-                <span className="text-2xl font-light text-[#ea384c]">₹6,000</span>
+                <span className="text-2xl font-light text-[#ea384c]">₹4,499</span>
+                <span className="text-sm text-slate-500">+GST</span>
               </div>
             </CardHeader>
             <CardContent className="pt-6">
               <ul className="space-y-3">
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">1-hour photo session</span>
+                  <span className="text-slate-700">Location: Your Premises</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">10 edited digital images</span>
+                  <span className="text-slate-700">Duration: 60-90 mins</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">1 outfit change</span>
+                  <span className="text-slate-700">Costume Changes: Max 2</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Indoor studio session</span>
+                  <span className="text-slate-700">Props: Basic collection</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Basic retouching</span>
+                  <span className="text-slate-700">15 full res photos</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Additional Images: ₹200/image</span>
                 </li>
               </ul>
+              <div className="mt-4 text-center">
+                <a href="tel:+919632288815" className="text-primary hover:underline text-sm font-medium">
+                  Check Availability
+                </a>
+              </div>
             </CardContent>
           </Card>
 
@@ -77,32 +87,49 @@ const MaternityPackage: React.FC = () => {
               <CardTitle className="text-primary text-lg">Standard</CardTitle>
               <CardDescription className="text-slate-600 pt-1">Popular choice</CardDescription>
               <div className="mt-4 mb-1">
-                <span className="text-2xl font-light text-[#ea384c]">₹12,000</span>
+                <span className="text-2xl font-light text-[#ea384c]">₹8,999</span>
+                <span className="text-sm text-slate-500">+GST</span>
               </div>
             </CardHeader>
             <CardContent className="pt-6">
               <ul className="space-y-3">
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">2-hour photo session</span>
+                  <span className="text-slate-700">Location: Your Premises</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">20 edited digital images</span>
+                  <span className="text-slate-700">Duration: 2-3 hours</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">2 outfit changes</span>
+                  <span className="text-slate-700">Costume Changes: Max 4</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Studio or outdoor location</span>
+                  <span className="text-slate-700">Short Video: 1</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Partner inclusion</span>
+                  <span className="text-slate-700">Props: Basic + Custom</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">30 full res photos</span>
                 </li>
               </ul>
+              <div className="mt-4 text-center">
+                <a href="https://calendly.com/candidcapture/30min" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline text-sm font-medium">
+                  Schedule Online
+                </a>
+              </div>
+              <div className="mt-3 text-center space-x-2">
+                <a href="#" className="text-xs text-primary/80 hover:underline">Sample-1</a>
+                <span className="text-xs text-slate-400">|</span>
+                <a href="#" className="text-xs text-primary/80 hover:underline">Sample-2</a>
+                <span className="text-xs text-slate-400">|</span>
+                <a href="#" className="text-xs text-primary/80 hover:underline">Sample-3</a>
+              </div>
             </CardContent>
           </Card>
 
@@ -115,6 +142,7 @@ const MaternityPackage: React.FC = () => {
               <CardDescription className="text-slate-600 pt-1">Complete coverage</CardDescription>
               <div className="mt-4 mb-1">
                 <span className="text-2xl font-light text-[#ea384c]">₹18,000</span>
+                <span className="text-sm text-slate-500">+GST</span>
               </div>
             </CardHeader>
             <CardContent className="pt-6">
@@ -145,35 +173,46 @@ const MaternityPackage: React.FC = () => {
 
           <Card className="border-primary/20 hover:shadow-lg transition-all duration-300">
             <CardHeader className="bg-gradient-to-r from-primary/15 to-primary/5 pb-2">
-              <CardTitle className="text-primary text-lg">Deluxe</CardTitle>
+              <CardTitle className="text-primary text-lg">Signature</CardTitle>
               <CardDescription className="text-slate-600 pt-1">Luxury experience</CardDescription>
               <div className="mt-4 mb-1">
-                <span className="text-2xl font-light text-[#ea384c]">₹25,000</span>
+                <span className="text-2xl font-light text-[#ea384c]">₹24,999</span>
+                <span className="text-sm text-slate-500">+GST*</span>
+                <div className="text-xs text-slate-500 mt-1">*Variable based on Location/Styling/Props/Costumes</div>
               </div>
             </CardHeader>
             <CardContent className="pt-6">
               <ul className="space-y-3">
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">4-hour photo session</span>
+                  <span className="text-slate-700">Location: Your Premises</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">40 edited digital images</span>
+                  <span className="text-slate-700">Duration: 3-6 hours</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">4 outfit changes</span>
+                  <span className="text-slate-700">Look Costume Changes: Max 4</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Multiple locations (up to 3)</span>
+                  <span className="text-slate-700">50 full res photos</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Hair and makeup with touch-ups</span>
+                  <span className="text-slate-700">Short Videos: 4</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Album Book: 1</span>
                 </li>
               </ul>
+              <div className="mt-4 text-center">
+                <a href="tel:+919632288815" className="text-primary hover:underline text-sm font-medium">
+                  Free Consultation
+                </a>
+              </div>
             </CardContent>
           </Card>
         </div>
@@ -183,12 +222,11 @@ const MaternityPackage: React.FC = () => {
         <div className="mt-6">
           <h3 className="text-lg font-medium mb-3 text-[#333333]">Add-On Services</h3>
           <ul className="list-disc pl-5 space-y-2 text-slate-600">
-            <li>Additional digital images - ₹800 per image</li>
-            <li>Hair and makeup artist - ₹4,000</li>
-            <li>Additional location - ₹3,000 per location</li>
-            <li>Partner/family photos - ₹2,000 (if not included in package)</li>
-            <li>Custom photo album - Starting at ₹5,000</li>
-            <li>Canvas prints - Starting at ₹3,000</li>
+            <li>Additional digital images - ₹200 per image (Basic & Standard packages)</li>
+            <li>Hair and makeup artist - Starting at ₹4,750</li>
+            <li>Custom props - Price varies based on requirements</li>
+            <li>Partner/family photos - Included in Standard and above packages</li>
+            <li>Location/Prop charges - At actuals</li>
           </ul>
         </div>
 
@@ -198,7 +236,7 @@ const MaternityPackage: React.FC = () => {
             <li>Maternity sessions are best scheduled between 28-34 weeks of pregnancy</li>
             <li>A 50% deposit is required to secure your booking</li>
             <li>Rescheduling must be done at least 48 hours in advance</li>
-            <li>We have maternity gowns available for use during the session</li>
+            <li>Creative planning and mood-board included in Signature package</li>
             <li>Travel fees may apply for locations beyond 20km from our studio</li>
           </ul>
         </div>
@@ -213,3 +251,4 @@ const MaternityPackage: React.FC = () => {
 };
 
 export default MaternityPackage;
+
