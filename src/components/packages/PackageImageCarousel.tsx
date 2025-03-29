@@ -105,10 +105,10 @@ const PackageImageCarousel: React.FC<PackageImageCarouselProps> = ({
             const imageStyles = 'w-full h-full object-cover transition-transform duration-500 hover:scale-110';
             
             return (
-              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+              <CarouselItem key={index} className="md:basis-1/1 lg:basis-1/1">
                 <div className="p-1">
                   <div 
-                    className="overflow-hidden rounded-xl h-52 md:h-64 lg:h-72 shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer bg-slate-100"
+                    className="overflow-hidden rounded-xl h-[260px] md:h-[320px] lg:h-[360px] shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer bg-slate-100"
                     onClick={() => openImageView(index)}
                   >
                     {shouldLoad ? (
@@ -119,8 +119,8 @@ const PackageImageCarousel: React.FC<PackageImageCarouselProps> = ({
                         decoding={isCritical || index < 2 ? "sync" : "async"}
                         onLoad={() => handleImageLoad(index)}
                         className={imageStyles}
-                        width="400"
-                        height="300"
+                        width="800"
+                        height="600"
                         srcSet={generateSrcSet(image)}
                         fetchPriority={isCritical || index < 2 ? "high" : "auto"}
                       />
@@ -146,8 +146,8 @@ const PackageImageCarousel: React.FC<PackageImageCarouselProps> = ({
       {/* Enlarged Image View - Only render when needed */}
       {showModalContent && (
         <Dialog open={enlargedImageIndex !== null} onOpenChange={closeImageView}>
-          <DialogContent className="max-w-5xl p-0 border-4 border-orange-400 bg-black" onClick={(e) => e.stopPropagation()}>
-            <div className="relative w-full h-[80vh]">
+          <DialogContent className="max-w-7xl p-0 border-none bg-black/90" onClick={(e) => e.stopPropagation()}>
+            <div className="relative w-full h-[90vh]">
               <img 
                 src={images[enlargedImageIndex]} 
                 alt={`${altPrefix} ${enlargedImageIndex + 1}`} 
@@ -174,17 +174,6 @@ const PackageImageCarousel: React.FC<PackageImageCarouselProps> = ({
               >
                 <ChevronRight className="w-6 h-6" />
               </button>
-              
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2">
-                {images.map((_, index) => (
-                  <div 
-                    key={index}
-                    className={`w-2 h-2 rounded-full ${
-                      index === enlargedImageIndex ? 'bg-orange-400' : 'bg-white/50'
-                    }`}
-                  />
-                ))}
-              </div>
             </div>
           </DialogContent>
         </Dialog>
