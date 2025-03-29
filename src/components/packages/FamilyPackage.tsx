@@ -2,9 +2,10 @@
 import React from 'react';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Check, X } from 'lucide-react';
+import { Check, X, HelpCircle } from 'lucide-react';
 import BookingCTA from './BookingCTA';
 import PackageImageCarousel from './PackageImageCarousel';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 const FamilyPackage: React.FC = () => {
   // Images for the family package carousel
@@ -187,6 +188,63 @@ const FamilyPackage: React.FC = () => {
             <li>All packages include pre-session consultation</li>
             <li>Weekend and holiday sessions may incur additional charges</li>
           </ul>
+        </div>
+        
+        <div className="mt-8">
+          <div className="flex items-center gap-2 mb-4">
+            <HelpCircle className="h-5 w-5 text-primary" />
+            <h3 className="text-lg font-medium text-[#333333]">Frequently Asked Questions</h3>
+          </div>
+          
+          <Accordion type="single" collapsible className="w-full">
+            <AccordionItem value="faq-1">
+              <AccordionTrigger className="text-left">
+                Can I include siblings/myself in the shoot?
+              </AccordionTrigger>
+              <AccordionContent className="text-slate-600">
+                Absolutely yes, in fact we recommend you to. We are more about framing memories and do not restrict the shoots only to the child being photographed, instead we want this to be that your family can remember by and in fact recommend you to be involved in the shoot.
+              </AccordionContent>
+            </AccordionItem>
+            
+            <AccordionItem value="faq-2">
+              <AccordionTrigger className="text-left">
+                Can I customize my shoot?
+              </AccordionTrigger>
+              <AccordionContent className="text-slate-600">
+                Yes, you can. SIGNATURE & above plans provide you with options to customize. In fact, we use a couple of your suggestions as a starting point to understand your likes and plan the mood board accordingly.
+              </AccordionContent>
+            </AccordionItem>
+            
+            <AccordionItem value="faq-3">
+              <AccordionTrigger className="text-left">
+                How do I pick costumes / What should I wear for the shoot?
+              </AccordionTrigger>
+              <AccordionContent className="text-slate-600">
+                <p>We keep our shoots simple, and solid colors work best. You can share your wardrobe options over WhatsApp and we can help you with the selection you have confirmed your shoot with us.</p>
+                <p className="mt-2">Keep your selections simple, stripes and patterns can hide the stomach or distract attention from it. It is safe to stick to solid colors.</p>
+              </AccordionContent>
+            </AccordionItem>
+            
+            <AccordionItem value="faq-4">
+              <AccordionTrigger className="text-left">
+                Will we get all the photos? Can we get the RAW images?
+              </AccordionTrigger>
+              <AccordionContent className="text-slate-600">
+                <p>The short answer is no. Only the absolute best of the best make it, which will in the end be about 10 – 30 images as per the selected plan.</p>
+                <p className="mt-2">Additional images beyond the discussed number are available for a small fee. These images will be fully edited, cropped, and prepared for final presentation and in the full resolution (with an embedded color profile, that can printed later on).</p>
+              </AccordionContent>
+            </AccordionItem>
+            
+            <AccordionItem value="faq-5">
+              <AccordionTrigger className="text-left">
+                Can I include Uncles/Aunts/Grand Parents/Cousins etc.?
+              </AccordionTrigger>
+              <AccordionContent className="text-slate-600">
+                <p>Absolutely yes, the shoot is not just for your kid, but for the immediate family.</p>
+                <p className="mt-2">Please let us know in advance in order to plan the shoot for accommodating your relatives in the shoot (Pricing variations may apply where number of people in the shoot exceeds 8pax).</p>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
         </div>
 
         <BookingCTA 
