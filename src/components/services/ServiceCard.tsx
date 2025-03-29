@@ -58,7 +58,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
             : isHighlighted(index) 
               ? "shadow-[0_10px_20px_rgba(0,0,0,0.1)]" 
               : "shadow-[0_5px_15px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_25px_rgba(0,0,0,0.12)]",
-          isClicked ? "opacity-70" : ""
+          isClicked ? "opacity-70" : "",
+          isEventPhotography ? "ring-1 ring-purple-400" : ""
         )}
         onClick={() => !isClicked && onServiceClick(service)}
         onMouseEnter={() => !isClicked && setHoveredIndex(index)}

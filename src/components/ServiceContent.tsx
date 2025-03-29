@@ -105,7 +105,7 @@ const ServiceContent: React.FC<ServiceContentProps> = ({ service }) => {
   if (isEventService) {
     return (
       <div className="p-6 h-full">
-        <div className="flex flex-col items-center justify-center bg-white rounded-lg shadow-sm p-10 mb-8">
+        <div className="flex flex-col items-center justify-center bg-white rounded-lg shadow-sm p-10 mb-8 ring-1 ring-purple-400">
           <div className="bg-white p-6 rounded-full border border-primary/10 mb-4">
             <Calendar className="h-24 w-24 text-[#ea384c]" strokeWidth={1} />
           </div>
