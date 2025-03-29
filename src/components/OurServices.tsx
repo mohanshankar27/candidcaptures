@@ -2,7 +2,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { Package, Camera, Users, ShoppingBag, Video, Pencil } from 'lucide-react';
 import servicesList from '@/data/services';
 
 const OurServices = () => {
@@ -25,24 +24,12 @@ const OurServices = () => {
     "Video Services": { path: "/services", state: { selectedService: "Video Services" } }
   };
 
-  // Group services by category for visual organization
-  const categories = [
-    {
-      name: "Photography Services",
-      services: ["Wedding Photography", "Event Coverage", "Fashion Photography", "Food Photography"]
-    },
-    {
-      name: "Portrait Services",
-      services: ["Portrait Sessions", "Corporate Headshots", "Family Portraits", "Maternity Photography", "New Born Baby Shoot"]
-    },
-    {
-      name: "Product Services",
-      services: ["Product Photography", "E-Commerce Photography"]
-    },
-    {
-      name: "Specialty Services",
-      services: ["Concept Shoot", "Video Services"]
-    }
+  // Create a flat list of all services
+  const allServices = [
+    "Wedding Photography", "Event Coverage", "Fashion Photography", "Food Photography",
+    "Portrait Sessions", "Corporate Headshots", "Family Portraits", "Maternity Photography", "New Born Baby Shoot",
+    "Product Photography", "E-Commerce Photography",
+    "Concept Shoot", "Video Services"
   ];
 
   const handleServiceClick = (serviceName: string) => {
@@ -99,51 +86,41 @@ const OurServices = () => {
           </p>
         </motion.div>
 
-        {/* Services by category - all using the premium button style */}
-        {categories.map((category, categoryIndex) => (
-          <motion.div 
-            key={category.name}
-            className="mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: categoryIndex * 0.1 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="text-2xl font-bold text-primary mb-8 font-arjulian text-center">
-              {category.name}
-              <div className="h-0.5 w-16 bg-gradient-to-r from-amber-300 to-amber-500 mx-auto rounded-full mt-2"></div>
-            </h3>
-
-            <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6">
-              {category.services.map((serviceName, index) => (
-                <motion.button
-                  key={serviceName}
-                  className="relative group"
-                  onClick={() => handleServiceClick(serviceName)}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  whileHover={{ y: -5 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <div className="px-6 py-3 border border-amber-200/50 rounded-full bg-white shadow-md backdrop-blur-sm relative overflow-hidden group-hover:border-amber-300 transition-all duration-300">
-                    {/* Animated glow effect */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-amber-50/0 via-amber-100/30 to-amber-50/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                    
-                    <span className="relative z-10 text-primary/90 font-akaya tracking-wide text-base md:text-lg whitespace-nowrap">
-                      {serviceName}
-                    </span>
-                  </div>
-                  
-                  {/* Bottom subtle line animation */}
-                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-amber-300 to-amber-500 group-hover:w-full transition-all duration-300 ease-out"></div>
-                </motion.button>
-              ))}
-            </div>
-          </motion.div>
-        ))}
+        {/* All services using the premium button style */}
+        <motion.div 
+          className="flex flex-wrap justify-center items-center gap-4 md:gap-6 mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+        >
+          {allServices.map((serviceName, index) => (
+            <motion.button
+              key={serviceName}
+              className="relative group"
+              onClick={() => handleServiceClick(serviceName)}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ y: -5 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <div className="px-6 py-3 border border-amber-200/50 rounded-full bg-white shadow-md backdrop-blur-sm relative overflow-hidden group-hover:border-amber-300 transition-all duration-300">
+                {/* Animated glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-amber-50/0 via-amber-100/30 to-amber-50/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                
+                <span className="relative z-10 text-primary/90 font-akaya tracking-wide text-base md:text-lg whitespace-nowrap">
+                  {serviceName}
+                </span>
+              </div>
+              
+              {/* Bottom subtle line animation */}
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-amber-300 to-amber-500 group-hover:w-full transition-all duration-300 ease-out"></div>
+            </motion.button>
+          ))}
+        </motion.div>
 
         {/* Bottom CTA */}
         <motion.div
