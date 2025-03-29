@@ -24,11 +24,11 @@ const GalleryImageGrid: React.FC<GalleryImageGridProps> = ({
           onClick={() => onImageClick(index)}
         >
           {isFashionService ? (
-            <div className="h-[150px] w-full flex items-center justify-center bg-white">
+            <div className="h-auto w-full flex items-center justify-center bg-white p-2">
               <img 
                 src={image} 
                 alt={`${serviceName} ${index + 1}`} 
-                className="max-w-full max-h-[150px] object-contain transition-transform duration-300 hover:scale-110"
+                className="w-auto h-auto object-contain transition-transform duration-300 hover:scale-110"
               />
             </div>
           ) : (

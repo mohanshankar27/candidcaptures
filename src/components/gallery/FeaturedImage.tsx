@@ -18,11 +18,11 @@ const FeaturedImage: React.FC<FeaturedImageProps> = ({
   return (
     <div className="mb-6 w-full overflow-hidden rounded-lg">
       {isFashionService ? (
-        <div className="w-full h-[400px] flex justify-center items-center bg-white">
+        <div className="w-full h-auto flex justify-center items-center bg-white">
           <img 
             src={imageSrc} 
             alt={altText}
-            className="max-w-full max-h-[400px] object-contain transition-transform duration-300 hover:scale-105 cursor-pointer"
+            className="w-auto h-auto object-contain transition-transform duration-300 hover:scale-105 cursor-pointer"
             onClick={onClick}
           />
         </div>
