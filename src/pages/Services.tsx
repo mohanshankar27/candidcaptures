@@ -1,3 +1,4 @@
+
 import { useState, useEffect, lazy, Suspense } from 'react';
 import { useLocation } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
@@ -6,14 +7,11 @@ import { ResizablePanelGroup, ResizableHandle, ResizablePanel } from '@/componen
 import ServiceSidebar from '@/components/ServiceSidebar';
 import MobileServiceMenu from '@/components/MobileServiceMenu';
 import servicesList, { Service } from '@/data/servicesList';
-import { Grid, List } from 'lucide-react';
+import { List } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ServicesLoading from '@/components/ServicesLoading';
 import { preloadCriticalImages, deferNonCriticalJS } from '@/utils/performance';
 import { criticalImages } from '@/components/slideshow/serviceImages';
-import ServicesGrid from '@/components/ServicesGrid';
-// Remove FAQAccordion import
-// import FAQAccordion from '@/components/FAQAccordion';
 
 const ServiceContent = lazy(() => import('@/components/ServiceContent'));
 const PricePackages = lazy(() => import('@/components/PricePackages'));
@@ -28,7 +26,7 @@ const SimpleLoadingState = () => (
 const Services = () => {
   const location = useLocation();
   const [selectedService, setSelectedService] = useState<Service>(servicesList[0]);
-  const [viewMode, setViewMode] = useState<'detailed' | 'grid'>('grid');
+  const [viewMode, setViewMode] = useState<'detailed'>('detailed');
   const [isLoading, setIsLoading] = useState(true);
   const [contentLoaded, setContentLoaded] = useState(false);
 
@@ -64,7 +62,6 @@ const Services = () => {
       
       if (matchingService) {
         setSelectedService(matchingService);
-        setViewMode('detailed');
       }
     }
   }, [location.state]);
@@ -76,16 +73,11 @@ const Services = () => {
     }
     
     setSelectedService(service);
-    setViewMode('detailed');
     
     window.scrollTo({
       top: 0,
       behavior: 'instant'
     });
-  };
-
-  const toggleViewMode = () => {
-    setViewMode(viewMode === 'detailed' ? 'grid' : 'detailed');
   };
 
   return (
@@ -96,27 +88,22 @@ const Services = () => {
         <div className="w-full mx-0 px-0">
           <div className="flex justify-between items-center mb-3 px-4">
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#003c72]">
-              {viewMode === 'grid' ? 'Premium Services' : selectedService.name}
+              {selectedService.name}
             </h1>
             <div className="flex items-center gap-2">
               <Button 
                 variant="outline" 
                 size="icon" 
-                onClick={toggleViewMode}
                 className="ml-auto"
-                aria-label={viewMode === 'detailed' ? "Switch to grid view" : "Switch to detailed view"}
+                aria-label="View details"
               >
-                {viewMode === 'detailed' ? <Grid className="h-5 w-5" /> : <List className="h-5 w-5" />}
+                <List className="h-5 w-5" />
               </Button>
             </div>
           </div>
           
           {isLoading ? (
             <ServicesLoading />
-          ) : viewMode === 'grid' ? (
-            <div className="bg-white/50 backdrop-blur-sm p-4 rounded-lg shadow-sm border border-primary/5 mx-4 animate-fade-in">
-              <ServicesGrid services={servicesList} onServiceClick={handleServiceClick} />
-            </div>
           ) : (
             <>
               <div className="px-4 animate-fade-in">

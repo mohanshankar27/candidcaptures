@@ -9,7 +9,6 @@ import { criticalImages } from '@/components/slideshow/serviceImages';
 import PhotoSlideshow from '@/components/PhotoSlideshow'; // Direct import instead of lazy loading
 
 // Lazily load non-critical components, but not PhotoSlideshow which was causing issues
-const ServiceSlider = lazy(() => import('@/components/ServiceSlider'));
 const About = lazy(() => import('@/components/About'));
 const Contact = lazy(() => import('@/components/Contact'));
 
@@ -75,10 +74,6 @@ const Index = () => {
       {/* Only load these components when initial page load is complete and user has scrolled down */}
       {secondaryContent && (
         <>
-          <Suspense fallback={<LoadingFallback />}>
-            <ServiceSlider />
-          </Suspense>
-          
           <Suspense fallback={<LoadingFallback />}>
             <About />
           </Suspense>
