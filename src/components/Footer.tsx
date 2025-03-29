@@ -2,6 +2,7 @@
 import { Facebook, Instagram, Linkedin, Youtube, Phone, Mail, MapPin, Heart, ArrowRight } from "lucide-react";
 import { Button } from "./ui/button";
 import { Separator } from "./ui/separator";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -22,11 +23,11 @@ const Footer = () => {
   ];
 
   const services = [
-    { name: "Wedding Photography", href: "/services#wedding" },
-    { name: "Product Shoot", href: "/services#product" },
-    { name: "Maternity Shoot", href: "/services#maternity" },
-    { name: "Newborn Shoot", href: "/services#newborn" },
-    { name: "Concept Shoot", href: "/services#concept" },
+    { name: "Wedding Photography", href: "/services", state: { selectedService: "Wedding Photography" } },
+    { name: "Product Shoot", href: "/services", state: { selectedService: "Product Photography" } },
+    { name: "Maternity Shoot", href: "/services", state: { selectedService: "Maternity Photography" } },
+    { name: "Newborn Shoot", href: "/services", state: { selectedService: "Newborn Photography" } },
+    { name: "Concept Shoot", href: "/services", state: { selectedService: "Concept Photography" } },
   ];
 
   return (
@@ -65,12 +66,12 @@ const Footer = () => {
               {quickLinks.map(link => (
                 <li key={link.name} className="group flex items-center">
                   <ArrowRight className="h-3 w-3 text-primary mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  <a 
-                    href={link.href} 
+                  <Link 
+                    to={link.href} 
                     className="text-gray-600 hover:text-primary transition-colors"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -83,12 +84,13 @@ const Footer = () => {
               {services.map(service => (
                 <li key={service.name} className="group flex items-center">
                   <ArrowRight className="h-3 w-3 text-primary mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  <a 
-                    href={service.href} 
+                  <Link 
+                    to={service.href}
+                    state={service.state}
                     className="text-gray-600 hover:text-primary transition-colors"
                   >
                     {service.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
