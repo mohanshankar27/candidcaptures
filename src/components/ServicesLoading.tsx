@@ -31,7 +31,7 @@ const ServicesLoading = () => {
     <div className="space-y-6 p-4">
       <div className="flex flex-col items-center justify-center my-8">
         <div className="w-16 h-16 rounded-full border-4 border-orange-400 border-t-transparent animate-spin mb-4"></div>
-        <h3 className="text-primary font-serif italic text-2xl mb-2">Loading Premium Services</h3>
+        <h3 className="text-primary font-serif italic text-2xl mb-2">Candid Capture</h3>
         <div className="w-full max-w-md mb-2">
           <Progress value={progress} className="h-2 bg-orange-100" />
         </div>
