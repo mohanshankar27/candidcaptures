@@ -7,11 +7,13 @@ import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import PhotoSlideshow from "@/components/PhotoSlideshow";
 import WeddingSlideshow from "@/components/WeddingSlideshow";
+import GoogleReviewButton from "@/components/GoogleReviewButton";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
+      <GoogleReviewButton />
       <Hero />
       <Gallery />
       <PhotoSlideshow />
