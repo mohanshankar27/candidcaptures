@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ExternalLink } from 'lucide-react';
 import WeddingSlideshow from '@/components/WeddingSlideshow';
@@ -35,13 +34,13 @@ const allAvailableImages = [
   '/lovable-uploads/507c487a-ec87-4401-ace4-4b27d7bcd2e0.png',
   '/lovable-uploads/fb019637-e8cb-4a43-9303-075fd194e2b8.png',
   '/lovable-uploads/0abd204c-da72-4a05-87ae-39929aeedd9f.png',
-  // New Fashion Photography images
-  '/lovable-uploads/ab48c040-6ad9-45cd-8b7d-be0c150875cd.png',
-  '/lovable-uploads/deee8e40-73dc-4f50-8215-88b2687d1ba5.png',
-  '/lovable-uploads/50326e42-24cd-4824-8449-392b7a085694.png',
-  '/lovable-uploads/876ea58e-ceff-4b81-b3d1-76c1e3edd218.png',
-  '/lovable-uploads/2a12cbb2-c275-45ef-9e87-97f981e05c17.png',
-  '/lovable-uploads/e56c6d5d-e420-4d17-87f8-038d765ac926.png'
+  // New Fashion Photography images (updated with the new uploads)
+  '/lovable-uploads/65cd52a7-4657-4c73-8fd9-7dc01d0e0b67.png',
+  '/lovable-uploads/4ffa91ba-a3ad-45fb-8f2f-9a63fb1f13c2.png',
+  '/lovable-uploads/bc867053-7387-4641-9a58-90924bd26fb6.png',
+  '/lovable-uploads/bb1055e2-a963-40f9-b18a-022e84a2562f.png',
+  '/lovable-uploads/303ac396-1d2b-4063-9a34-2b8b4aeaf389.png',
+  '/lovable-uploads/f12b1de3-4046-4f12-9356-1a42efab959a.png'
 ];
 
 // Map of service names to 6 unique images per service using indices from allAvailableImages
@@ -81,14 +80,12 @@ const ServiceContent: React.FC<ServiceContentProps> = ({ service }) => {
   
   // For Fashion Photography, use the specific new images
   const fashionImages = [
-    '/lovable-uploads/ab48c040-6ad9-45cd-8b7d-be0c150875cd.png',
-    '/lovable-uploads/deee8e40-73dc-4f50-8215-88b2687d1ba5.png',
-    '/lovable-uploads/50326e42-24cd-4824-8449-392b7a085694.png',
-    '/lovable-uploads/876ea58e-ceff-4b81-b3d1-76c1e3edd218.png',
-    '/lovable-uploads/2a12cbb2-c275-45ef-9e87-97f981e05c17.png',
-    '/lovable-uploads/e56c6d5d-e420-4d17-87f8-038d765ac926.png',
-    '/lovable-uploads/9a3d5161-152d-4b5b-a404-5cae5044c90c.png',
-    '/lovable-uploads/99b9a2ab-77b4-433f-8283-eeb5360baf22.png'
+    '/lovable-uploads/65cd52a7-4657-4c73-8fd9-7dc01d0e0b67.png',
+    '/lovable-uploads/4ffa91ba-a3ad-45fb-8f2f-9a63fb1f13c2.png',
+    '/lovable-uploads/bc867053-7387-4641-9a58-90924bd26fb6.png',
+    '/lovable-uploads/bb1055e2-a963-40f9-b18a-022e84a2562f.png',
+    '/lovable-uploads/303ac396-1d2b-4063-9a34-2b8b4aeaf389.png',
+    '/lovable-uploads/f12b1de3-4046-4f12-9356-1a42efab959a.png'
   ];
   
   let serviceImageArray = serviceImages[service.name] || Array(6).fill(getServiceImage('Concept shoot'));
