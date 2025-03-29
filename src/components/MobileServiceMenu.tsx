@@ -1,8 +1,7 @@
-
 import React, { useState } from 'react';
 import { Menu, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Service } from '@/data/servicesList';
+import { Service } from '@/data/services';
 
 interface MobileServiceMenuProps {
   services: Service[];

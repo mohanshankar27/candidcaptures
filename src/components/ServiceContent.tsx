@@ -2,7 +2,7 @@
 import React from 'react';
 import { ExternalLink } from 'lucide-react';
 import WeddingSlideshow from '@/components/WeddingSlideshow';
-import { Service } from '@/data/servicesList';
+import { Service } from '@/data/services';
 import ServiceGallery from '@/components/ServiceGallery';
 import ArtistsCelebritiesGallery from '@/components/ArtistsCelebritiesGallery';
 

@@ -6,7 +6,7 @@ import Footer from '@/components/Footer';
 import { ResizablePanelGroup, ResizableHandle, ResizablePanel } from '@/components/ui/resizable';
 import ServiceSidebar from '@/components/ServiceSidebar';
 import MobileServiceMenu from '@/components/MobileServiceMenu';
-import servicesList, { Service } from '@/data/servicesList';
+import servicesList, { Service } from '@/data/services';
 import { Grid, List } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 

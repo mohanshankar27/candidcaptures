@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Service } from '@/data/servicesList';
+import { Service } from '@/data/services';
 import ServiceGallery from './ServiceGallery';
 
 interface ArtistsCelebritiesGalleryProps {
