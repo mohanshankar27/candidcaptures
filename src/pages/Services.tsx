@@ -24,10 +24,10 @@ const Services = () => {
   const [isServiceLoading, setIsServiceLoading] = useState(false);
 
   useEffect(() => {
-    // Mark as loaded after specified time
+    // Reduced loading time to 2 seconds from 3 seconds
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 3000); // 3 seconds initial page load
+    }, 2000);
     
     window.scrollTo({
       top: 0,
@@ -56,16 +56,19 @@ const Services = () => {
       return;
     }
     
-    // We've already added the delay in the ServicesGrid component
-    // This will execute after the delay
-    setSelectedService(service);
-    setViewMode('detailed');
-    
-    // Scroll to top when changing services
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+    // Reduced the delay for better UX
+    setIsServiceLoading(true);
+    setTimeout(() => {
+      setSelectedService(service);
+      setViewMode('detailed');
+      setIsServiceLoading(false);
+      
+      // Scroll to top when changing services
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }, 500); // Reduced from longer delay
   };
 
   const toggleViewMode = () => {

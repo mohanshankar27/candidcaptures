@@ -67,14 +67,14 @@ const ServiceSlider = () => {
     // Find the corresponding service in the servicesList
     const serviceName = currentService.name;
     
-    // Navigate after a delay
+    // Navigate after a shorter delay (2 seconds instead of 3)
     setTimeout(() => {
       setIsLoading(false);
       navigate('/services', { state: { selectedService: serviceName } });
-    }, 3000);
+    }, 2000);
   };
 
-  // Animation variants
+  // Animation variants - optimized for faster transitions
   const slideVariants = {
     enter: (direction: number) => ({
       x: direction > 0 ? 1000 : -1000,
@@ -120,8 +120,8 @@ const ServiceSlider = () => {
                 animate="center"
                 exit="exit"
                 transition={{
-                  x: { type: "spring", stiffness: 300, damping: 30 },
-                  opacity: { duration: 0.2 }
+                  x: { type: "spring", stiffness: 400, damping: 30 }, // Faster spring animation
+                  opacity: { duration: 0.15 } // Faster fade
                 }}
                 className="absolute inset-0"
               >

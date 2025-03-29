@@ -8,23 +8,16 @@ const ServicesLoading = () => {
   const [progress, setProgress] = React.useState(0);
   
   React.useEffect(() => {
+    // Use a single timeout with requestAnimationFrame for better performance
     const timer = setTimeout(() => {
-      setProgress(33);
-    }, 1000);
+      requestAnimationFrame(() => setProgress(50));
+      
+      setTimeout(() => {
+        requestAnimationFrame(() => setProgress(100));
+      }, 800); // Complete in 800ms total
+    }, 200);
     
-    const timer2 = setTimeout(() => {
-      setProgress(66);
-    }, 2000);
-    
-    const timer3 = setTimeout(() => {
-      setProgress(100);
-    }, 2800);
-    
-    return () => {
-      clearTimeout(timer);
-      clearTimeout(timer2);
-      clearTimeout(timer3);
-    };
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -38,18 +31,18 @@ const ServicesLoading = () => {
         <p className="text-gray-500 text-sm">{progress}% complete</p>
       </div>
       
-      {/* Loading skeleton for grid view with staggered animations */}
+      {/* Loading skeleton for grid view with optimized animations */}
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 w-full">
-        {Array(12).fill(0).map((_, index) => (
+        {Array(6).fill(0).map((_, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0 }}
-            animate={{ opacity: [0, 0.5, 1] }}
+            animate={{ opacity: [0, 0.7, 1] }}
             transition={{
               repeat: Infinity,
               repeatType: "reverse",
-              duration: 2,
-              delay: index * 0.1
+              duration: 1.5,
+              delay: index * 0.05 // Reduced delay for faster loading perception
             }}
           >
             <Skeleton 
@@ -60,36 +53,29 @@ const ServicesLoading = () => {
         ))}
       </div>
       
-      {/* Loading skeleton for detailed view content with professional staggered animations */}
+      {/* Loading skeleton with optimized animations */}
       <div className="space-y-4 mt-8">
         <Skeleton 
           className="h-8 w-3/4 max-w-md bg-secondary/80" 
-          style={{ animationDuration: '1.2s' }} // Faster animation
+          style={{ animationDuration: '1s' }}
         />
         <Skeleton 
-          className="h-[300px] w-full bg-secondary/80 relative overflow-hidden" 
-          style={{ animationDuration: '1.5s' }} // Faster animation
-        >
-          {/* Professional shimmer effect overlay */}
-          <div className="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-        </Skeleton>
-        <Skeleton 
-          className="h-20 w-full bg-secondary/80 relative overflow-hidden" 
-          style={{ animationDuration: '1.2s' }} // Faster animation
+          className="h-[200px] w-full bg-secondary/80 relative overflow-hidden" 
+          style={{ animationDuration: '1.2s' }}
         >
           <div className="absolute inset-0 -translate-x-full animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
         </Skeleton>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-          {Array(5).fill(0).map((_, index) => (
+          {Array(3).fill(0).map((_, index) => (
             <Skeleton
               key={`detail-${index}`}
               className="aspect-square bg-secondary/80 relative overflow-hidden"
               style={{
-                animationDelay: `${index * 75}ms`, // Faster staggered delay (reduced from 150ms to 75ms)
-                animationDuration: '1.2s' // Faster animation
+                animationDelay: `${index * 50}ms`,
+                animationDuration: '1s'
               }}
             >
-              <div className="absolute inset-0 -translate-x-full animate-[shimmer_1.8s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+              <div className="absolute inset-0 -translate-x-full animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
             </Skeleton>
           ))}
         </div>

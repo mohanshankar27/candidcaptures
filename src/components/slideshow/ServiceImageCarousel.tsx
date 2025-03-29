@@ -25,7 +25,7 @@ const ServiceImageCarousel: React.FC<ServiceImageCarouselProps> = ({
     <motion.div 
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.7, delay: 0.3 }}
+      transition={{ duration: 0.5, delay: 0.2 }}
       className="mb-16"
     >
       <Carousel 
@@ -40,24 +40,25 @@ const ServiceImageCarousel: React.FC<ServiceImageCarouselProps> = ({
             <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
               <motion.div
                 whileHover={{ y: -5 }}
-                transition={{ duration: 0.3 }}
+                transition={{ duration: 0.2 }}
                 className="p-2 h-full"
               >
                 <Card 
-                  className="overflow-hidden group cursor-pointer transition-all duration-500 bg-white shadow-xl h-full border-none"
+                  className="overflow-hidden group cursor-pointer transition-all duration-300 bg-white shadow-xl h-full border-none"
                   onClick={() => onServiceClick(service.name)}
                 >
                   <div className="aspect-[4/3] relative overflow-hidden">
                     <div className="absolute inset-0 bg-transparent group-hover:bg-transparent transition-colors duration-300 z-10"></div>
                     <motion.div
-                      whileHover={{ scale: 1.08 }}
-                      transition={{ duration: 0.7 }}
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.5 }}
                       className="w-full h-full"
                     >
                       <img 
                         src={service.image} 
                         alt={service.name}
                         className="w-full h-full object-cover"
+                        loading="lazy" // Add lazy loading
                       />
                     </motion.div>
                   </div>

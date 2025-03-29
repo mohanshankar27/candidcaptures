@@ -45,3 +45,11 @@ export const galleryImages = [
     alt: "Outdoor portrait of a man with long hair wearing dark green shirt against blurred nature background",
   },
 ];
+
+// Preload important images for faster rendering
+export const preloadGalleryImages = () => {
+  galleryImages.slice(0, 5).forEach(image => {
+    const img = new Image();
+    img.src = image.url;
+  });
+};
