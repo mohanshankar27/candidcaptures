@@ -27,6 +27,22 @@ const ServiceImageCarousel: React.FC<ServiceImageCarouselProps> = ({
     return null;
   }
 
+  // Updated set of images to use
+  const carouselImages = [
+    "/lovable-uploads/a97ae0b1-6394-488d-a9f4-d17321650970.png", // Traditional deity costume
+    "/lovable-uploads/e330db14-6a26-4ead-b79f-e9aed137fc84.png", // Food Photography
+    "/lovable-uploads/1f924edb-9819-4bbc-91ac-8bdb224ff48e.png", // Fashion Photography
+    "/lovable-uploads/28516f95-c696-478a-a1ca-2643222d0648.png", // Corporate event
+    "/lovable-uploads/615d3ac6-4345-48d6-9ed9-b794c68b0307.png", // Wedding Photography
+    "/lovable-uploads/71dc637a-2ed8-42fe-b045-b78301739a30.png"  // Corporate headshots
+  ];
+
+  // Replace the service thumbnails' images with the new ones
+  const updatedThumbnails = serviceThumbnails.map((service, index) => ({
+    ...service,
+    image: carouselImages[index % carouselImages.length]
+  }));
+
   return (
     <motion.div 
       initial={{ opacity: 0 }}
@@ -42,7 +58,7 @@ const ServiceImageCarousel: React.FC<ServiceImageCarouselProps> = ({
         className="w-full"
       >
         <CarouselContent>
-          {serviceThumbnails.map((service, index) => (
+          {updatedThumbnails.map((service, index) => (
             <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
               <motion.div
                 whileHover={{ y: -5 }}
