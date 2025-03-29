@@ -22,9 +22,8 @@ const FeaturedImage: React.FC<FeaturedImageProps> = ({
           <img 
             src={imageSrc} 
             alt={altText}
-            className="w-auto max-h-[600px] object-contain transition-transform duration-300 hover:scale-105 cursor-pointer rounded-lg"
+            className="w-full h-auto object-contain transition-transform duration-300 hover:scale-105 cursor-pointer rounded-lg"
             onClick={onClick}
-            style={{ maxWidth: '100%' }}
           />
         </div>
       ) : (

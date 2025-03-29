@@ -25,7 +25,7 @@ const GallerySlideshow: React.FC<GallerySlideshowProps> = ({
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent 
-        className="max-w-6xl p-0 bg-black" 
+        className="max-w-7xl p-0 bg-black" 
         onClick={e => e.stopPropagation()}
       >
         {/* Fixed accessibility by adding proper DialogTitle and DialogDescription */}
@@ -36,11 +36,11 @@ const GallerySlideshow: React.FC<GallerySlideshowProps> = ({
           Navigate through {serviceName} images using left and right arrows
         </DialogDescription>
         
-        <div className="relative w-full h-[85vh] flex items-center justify-center">
+        <div className="relative w-full h-[90vh] flex items-center justify-center">
           <img 
             src={images[currentIndex]} 
             alt={`${serviceName} image ${currentIndex + 1}`} 
-            className={`${isFashionService ? 'max-h-full max-w-[90%]' : 'max-h-full w-auto'} object-contain rounded-lg`}
+            className={`${isFashionService ? 'max-h-full w-auto' : 'max-h-full w-auto'} object-contain rounded-lg`}
           />
           
           <button 
