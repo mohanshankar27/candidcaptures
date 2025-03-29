@@ -13,8 +13,6 @@ const Gallery = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalImageIndex, setModalImageIndex] = useState(0);
 
-  const imageUrls = galleryImages.map(img => img.url);
-
   const nextImage = () => {
     setCurrent((prev) => (prev === galleryImages.length - 1 ? 0 : prev + 1));
   };
@@ -30,6 +28,18 @@ const Gallery = () => {
 
   const handleClickImage = () => {
     openModal(current);
+  };
+
+  const handleModalNavigate = (direction: "prev" | "next") => {
+    if (direction === "prev") {
+      setModalImageIndex((prev) => 
+        prev === 0 ? galleryImages.length - 1 : prev - 1
+      );
+    } else {
+      setModalImageIndex((prev) => 
+        prev === galleryImages.length - 1 ? 0 : prev + 1
+      );
+    }
   };
   
   return (
@@ -108,8 +118,10 @@ const Gallery = () => {
         <ImageModal 
           isOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}
-          images={imageUrls}
-          initialIndex={modalImageIndex}
+          images={galleryImages}
+          selectedIndex={modalImageIndex}
+          onNavigate={handleModalNavigate}
+          onSelectImage={setModalImageIndex}
         />
       </div>
     </section>

@@ -1,14 +1,16 @@
 
+import React from 'react';
+
 interface GalleryThumbnailsProps {
   images: { url: string; alt: string }[];
-  activeSlide: number;
-  onThumbnailClick: (index: number) => void;
+  current: number;
+  setCurrent: (index: number) => void;
 }
 
 const GalleryThumbnails = ({ 
   images, 
-  activeSlide, 
-  onThumbnailClick 
+  current, 
+  setCurrent 
 }: GalleryThumbnailsProps) => {
   return (
     <div className="flex justify-center gap-2 overflow-x-auto pb-4 max-w-4xl mx-auto">
@@ -16,9 +18,9 @@ const GalleryThumbnails = ({
         <div
           key={index}
           className={`w-20 h-20 flex-shrink-0 cursor-pointer overflow-hidden rounded-md border-2 transition-all ${
-            activeSlide === index ? "border-orange-500" : "border-transparent"
+            current === index ? "border-orange-500" : "border-transparent"
           }`}
-          onClick={() => onThumbnailClick(index)}
+          onClick={() => setCurrent(index)}
         >
           <img
             src={image.url}

@@ -1,24 +1,26 @@
 
+import React from 'react';
+
 interface GalleryIndicatorsProps {
-  count: number;
-  activeIndex: number;
-  onIndicatorClick: (index: number) => void;
+  images: { url: string; alt: string }[];
+  current: number;
+  setCurrent: (index: number) => void;
 }
 
 const GalleryIndicators = ({ 
-  count, 
-  activeIndex, 
-  onIndicatorClick 
+  images, 
+  current, 
+  setCurrent 
 }: GalleryIndicatorsProps) => {
   return (
     <div className="flex justify-center mt-4 gap-2">
-      {Array.from({ length: count }).map((_, index) => (
+      {images.map((_, index) => (
         <button
           key={index}
           className={`w-2 h-2 rounded-full transition-all ${
-            activeIndex === index ? "bg-orange-500 w-4" : "bg-gray-300"
+            current === index ? "bg-orange-500 w-4" : "bg-gray-300"
           }`}
-          onClick={() => onIndicatorClick(index)}
+          onClick={() => setCurrent(index)}
         />
       ))}
     </div>
