@@ -48,7 +48,7 @@ const portraitServices: Service[] = [
       'Parent and sibling portraits included',
       'Flexible scheduling for newborns'
     ],
-    pricing: 'Starting at ₹8,000 per session'
+    pricing: 'Starting at ₹8,560 per session'
   },
   { 
     name: 'Toddler & Children',
