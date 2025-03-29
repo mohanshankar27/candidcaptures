@@ -192,14 +192,15 @@ const MatrimonialPackage: React.FC = () => {
         </Alert>
 
         <div className="mt-6">
-          <h3 className="text-lg font-medium mb-3 text-[#333333]">Important Information</h3>
+          <h3 className="text-lg font-medium mb-3 text-[#333333]">Note:</h3>
+          <p className="mb-2 text-slate-600">
+            Matrimonial / Dating portfolio shoots are about you, your style & personality.
+          </p>
           <ul className="list-disc pl-5 space-y-2 text-slate-600">
-            <li>A 50% deposit is required to secure your booking</li>
-            <li>We recommend booking your session at least 2 weeks in advance</li>
-            <li>Bring multiple outfits for variety (formal, casual, traditional)</li>
-            <li>Matrimonial portfolios typically include a mix of traditional and contemporary looks</li>
-            <li>Travel fees may apply for locations beyond 20km from our studio</li>
-            <li>All packages include pre-session consultation</li>
+            <li>Do carry some of your personal items that can be used for styling</li>
+            <li>Images can be customised based on audience - a prospective life partner / elder family members etc.</li>
+            <li>You will get a combination of headshots, medium & full length shots.</li>
+            <li>Have a hobby / practice a sport? We might be able to tastefully create a shot to show that off too</li>
           </ul>
         </div>
 
