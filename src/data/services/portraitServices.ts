@@ -36,7 +36,7 @@ const portraitServices: Service[] = [
       'Digital touch-ups included',
       'Perfect for all matrimonial platforms'
     ],
-    pricing: 'Starting at ₹5,000 per portfolio'
+    pricing: 'Starting at ₹1,999 + GST per portfolio'
   },
   { 
     name: 'New Born Baby Shoot',

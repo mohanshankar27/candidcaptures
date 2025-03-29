@@ -1,9 +1,16 @@
+
 import React from 'react';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Check } from 'lucide-react';
 import BookingCTA from './BookingCTA';
 import PackageImageCarousel from './PackageImageCarousel';
+import { 
+  Accordion, 
+  AccordionContent, 
+  AccordionItem, 
+  AccordionTrigger 
+} from '@/components/ui/accordion';
 
 const MatrimonialPackage: React.FC = () => {
   // Images for the matrimonial package carousel
@@ -34,30 +41,31 @@ const MatrimonialPackage: React.FC = () => {
               <CardTitle className="text-primary text-xl">Basic Portfolio</CardTitle>
               <CardDescription className="text-slate-600 pt-1">Essential coverage</CardDescription>
               <div className="mt-4 mb-1">
-                <span className="text-3xl font-light text-[#ea384c]">₹10,000</span>
+                <span className="text-3xl font-light text-[#ea384c]">₹1,999</span>
+                <span className="text-sm text-slate-500 ml-1">+GST</span>
               </div>
             </CardHeader>
             <CardContent className="pt-6">
               <ul className="space-y-3">
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">1-hour photo session</span>
+                  <span className="text-slate-700">Location: Your Premises</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">2 outfit changes</span>
+                  <span className="text-slate-700">Shoot Duration: 15-30 mins</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">10 edited digital images</span>
+                  <span className="text-slate-700">Costumes Changes: 1 only</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Indoor studio session</span>
+                  <span className="text-slate-700">5 edited digital images (full res)</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Basic retouching included</span>
+                  <span className="text-slate-700">Additional Images: ₹200/image</span>
                 </li>
               </ul>
             </CardContent>
@@ -68,37 +76,38 @@ const MatrimonialPackage: React.FC = () => {
               Most Popular
             </div>
             <CardHeader className="bg-gradient-to-r from-primary/20 to-primary/10 pb-2">
-              <CardTitle className="text-primary text-xl">Premium Portfolio</CardTitle>
+              <CardTitle className="text-primary text-xl">Standard Portfolio</CardTitle>
               <CardDescription className="text-slate-600 pt-1">Enhanced coverage</CardDescription>
               <div className="mt-4 mb-1">
-                <span className="text-3xl font-light text-[#ea384c]">₹15,000</span>
+                <span className="text-3xl font-light text-[#ea384c]">₹4,599</span>
+                <span className="text-sm text-slate-500 ml-1">+GST</span>
               </div>
             </CardHeader>
             <CardContent className="pt-6">
               <ul className="space-y-3">
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">2-hour photo session</span>
+                  <span className="text-slate-700">Studio Session: Yes</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">3 outfit changes</span>
+                  <span className="text-slate-700">Shoot Duration: 1-1.5 hours</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">15 edited digital images</span>
+                  <span className="text-slate-700">Studio Time: 2 hrs (additional chargeable)</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Indoor studio and outdoor location</span>
+                  <span className="text-slate-700">Costumes Changes: 2</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Advanced retouching included</span>
+                  <span className="text-slate-700">15 edited digital images (full res)</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">5 printed 5×7″ photographs</span>
+                  <span className="text-slate-700">Styling: Minimal</span>
                 </li>
               </ul>
             </CardContent>
@@ -106,37 +115,38 @@ const MatrimonialPackage: React.FC = () => {
 
           <Card className="border-primary/20 hover:shadow-lg transition-all duration-300">
             <CardHeader className="bg-gradient-to-r from-primary/15 to-primary/5 pb-2">
-              <CardTitle className="text-primary text-xl">Deluxe Portfolio</CardTitle>
-              <CardDescription className="text-slate-600 pt-1">Complete coverage</CardDescription>
+              <CardTitle className="text-primary text-xl">Signature Portfolio</CardTitle>
+              <CardDescription className="text-slate-600 pt-1">Premium experience</CardDescription>
               <div className="mt-4 mb-1">
-                <span className="text-3xl font-light text-[#ea384c]">₹20,000</span>
+                <span className="text-3xl font-light text-[#ea384c]">₹9,499</span>
+                <span className="text-sm text-slate-500 ml-1">+GST</span>
               </div>
             </CardHeader>
             <CardContent className="pt-6">
               <ul className="space-y-3">
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">3-hour photo session</span>
+                  <span className="text-slate-700">Outdoor Session: Yes</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">4 outfit changes</span>
+                  <span className="text-slate-700">Duration: ~4 hours</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">20 edited digital images</span>
+                  <span className="text-slate-700">Costumes Changes: 3+</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Multiple locations</span>
+                  <span className="text-slate-700">Styling: Yes</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Hair and makeup included</span>
+                  <span className="text-slate-700">20+ edited digital images (full res)</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">10 printed 5×7″ photographs</span>
+                  <span className="text-slate-700">Non-refundable Booking: ₹5,500/-</span>
                 </li>
               </ul>
             </CardContent>
@@ -144,18 +154,6 @@ const MatrimonialPackage: React.FC = () => {
         </div>
 
         <Separator />
-
-        <div className="mt-6">
-          <h3 className="text-lg font-medium mb-3 text-[#333333]">Add-On Services</h3>
-          <ul className="list-disc pl-5 space-y-2 text-slate-600">
-            <li>Additional digital images - ₹750 per image</li>
-            <li>Hair and makeup services - ₹4,000</li>
-            <li>Additional location - ₹3,000 per location</li>
-            <li>Extra outfit change - ₹1,500 per outfit</li>
-            <li>Custom-designed digital portfolio (if not included) - ₹5,000</li>
-            <li>Extended session time - ₹5,000 per hour</li>
-          </ul>
-        </div>
 
         <div className="mt-6">
           <h3 className="text-lg font-medium mb-3 text-[#333333]">Important Information</h3>
@@ -167,6 +165,63 @@ const MatrimonialPackage: React.FC = () => {
             <li>Travel fees may apply for locations beyond 20km from our studio</li>
             <li>All packages include pre-session consultation</li>
           </ul>
+        </div>
+        
+        <div className="mt-8 bg-slate-50/70 rounded-lg border border-slate-200 p-6">
+          <h3 className="text-xl font-semibold mb-4 text-[#333333]">Frequently Asked Questions</h3>
+          <Accordion type="single" collapsible className="w-full">
+            <AccordionItem value="item-1">
+              <AccordionTrigger className="text-left font-medium text-slate-800">
+                What should I wear for my matrimonial portfolio?
+              </AccordionTrigger>
+              <AccordionContent className="text-slate-600">
+                <p>We recommend bringing a variety of outfits including:</p>
+                <ul className="list-disc pl-5 mt-2 space-y-1">
+                  <li>Traditional attire (saree, lehenga, sherwani, etc.)</li>
+                  <li>Formal western wear (suit, formal dress)</li>
+                  <li>Smart casual outfits</li>
+                  <li>Simple, solid colored clothing that highlights your features</li>
+                </ul>
+                <p className="mt-2">Avoid busy patterns or logos that might distract from your face.</p>
+              </AccordionContent>
+            </AccordionItem>
+            
+            <AccordionItem value="item-2">
+              <AccordionTrigger className="text-left font-medium text-slate-800">
+                How long will it take to receive my photos?
+              </AccordionTrigger>
+              <AccordionContent className="text-slate-600">
+                <p>You will typically receive your edited photos within 7-10 business days after your session. For urgent requests, we offer expedited delivery options at an additional fee.</p>
+              </AccordionContent>
+            </AccordionItem>
+            
+            <AccordionItem value="item-3">
+              <AccordionTrigger className="text-left font-medium text-slate-800">
+                Can I bring someone with me to the shoot?
+              </AccordionTrigger>
+              <AccordionContent className="text-slate-600">
+                <p>Yes, you're welcome to bring one person with you for support or assistance with outfits. Having someone you trust can help you feel more comfortable during the session.</p>
+              </AccordionContent>
+            </AccordionItem>
+            
+            <AccordionItem value="item-4">
+              <AccordionTrigger className="text-left font-medium text-slate-800">
+                Do you provide hair and makeup services?
+              </AccordionTrigger>
+              <AccordionContent className="text-slate-600">
+                <p>Professional hair and makeup services are available as add-ons to any package. We work with experienced stylists who specialize in photoshoot-ready looks that photograph beautifully. Please inquire for current rates.</p>
+              </AccordionContent>
+            </AccordionItem>
+            
+            <AccordionItem value="item-5">
+              <AccordionTrigger className="text-left font-medium text-slate-800">
+                Can I customize my package?
+              </AccordionTrigger>
+              <AccordionContent className="text-slate-600">
+                <p>Absolutely! While we offer standard packages, we understand that everyone's needs are unique. Contact us to discuss customizing a package that perfectly matches your requirements and budget.</p>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
         </div>
 
         <BookingCTA 
