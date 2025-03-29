@@ -68,7 +68,7 @@ const PhotoSlideshow = () => {
     }
   };
 
-  // Handle card flip
+  // Handle card flip - enhanced to match the Gallery component
   const handleCardFlip = (index: number) => {
     setFlippedIndex(flippedIndex === index ? null : index);
   };
@@ -110,10 +110,11 @@ const PhotoSlideshow = () => {
                     key={index}
                     variants={itemVariants}
                     className="flex-[0_0_280px] sm:flex-[0_0_320px] md:flex-[0_0_380px] relative"
+                    style={{ perspective: '1000px' }}
                   >
-                    <Card 
+                    <div
                       className={cn(
-                        "flip-card cursor-pointer h-[320px] perspective-1000 transition-transform duration-500 bg-transparent border-0 overflow-visible shadow-none",
+                        "flip-card cursor-pointer h-[400px] perspective-1000 transition-transform duration-500 bg-transparent overflow-visible",
                         flippedIndex === index ? "is-flipped" : ""
                       )}
                       onClick={() => handleCardFlip(index)}
@@ -122,39 +123,48 @@ const PhotoSlideshow = () => {
                       <div className="flip-card-inner relative w-full h-full transition-transform duration-700 transform-style-3d">
                         
                         {/* Front of Card */}
-                        <div className="flip-card-front absolute w-full h-full backface-hidden rounded-xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.12)]">
+                        <div className="flip-card-front absolute w-full h-full backface-hidden rounded-lg overflow-hidden shadow-2xl border border-white/20">
                           <img 
                             src={image.url} 
                             alt={image.alt}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover transition-transform duration-3000 group-hover:scale-105"
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end opacity-0 hover:opacity-100 transition-opacity duration-300">
-                            <div className="text-white p-5 transform translate-y-4 hover:translate-y-0 transition-transform duration-300 w-full">
-                              <h3 className="text-xl font-semibold mb-1">{image.alt}</h3>
-                              <p className="text-sm font-light opacity-90">Click to view details</p>
-                            </div>
-                          </div>
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-black/5 opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
+                          <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
+                          
+                          <motion.div 
+                            className="absolute bottom-0 left-0 w-full p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500"
+                            whileHover={{ y: 0 }}
+                          >
+                            <h3 className="text-2xl font-semibold mb-2 text-shadow">{image.alt}</h3>
+                            <div className="h-0.5 w-16 bg-orange-400 mb-3" />
+                            <p className="text-sm text-white/90 max-w-md">
+                              Tap to view details or swipe to explore more
+                            </p>
+                          </motion.div>
                         </div>
                         
                         {/* Back of Card */}
-                        <div className="flip-card-back absolute w-full h-full backface-hidden rounded-xl overflow-hidden bg-white shadow-[0_8px_30px_rgba(0,0,0,0.12)] transform-rotate-y-180">
-                          <div className="p-6 flex flex-col justify-between h-full bg-gradient-to-br from-orange-50 to-white">
+                        <div className="flip-card-back absolute w-full h-full backface-hidden rounded-lg overflow-hidden bg-white shadow-2xl transform-rotate-y-180">
+                          <div className="p-8 flex flex-col justify-between h-full bg-gradient-to-br from-orange-50 to-white">
                             <div>
-                              <h3 className="text-xl font-bold text-primary mb-2">{image.alt}</h3>
+                              <h3 className="text-2xl font-bold text-primary mb-2">{image.alt}</h3>
                               <div className="w-12 h-0.5 bg-gradient-to-r from-orange-300 to-orange-500 mb-3"></div>
-                              <p className="text-slate-700 text-sm mb-4">
+                              <p className="text-slate-700 mb-4">
                                 This captivating moment exemplifies our commitment to creative photography that tells a unique story.
                               </p>
                             </div>
-                            <div className="mt-auto">
-                              <button className="text-white bg-gradient-to-r from-orange-400 to-orange-600 hover:from-orange-500 hover:to-orange-700 px-5 py-2 rounded-full text-sm transition-colors duration-300 shadow-md hover:shadow-lg">
-                                View Gallery
-                              </button>
-                            </div>
+                            <motion.button 
+                              className="mt-auto w-full py-3 rounded-full bg-gradient-to-r from-orange-400 to-orange-600 text-white font-medium shadow-lg"
+                              whileHover={{ scale: 1.03 }}
+                              whileTap={{ scale: 0.98 }}
+                            >
+                              View in Gallery
+                            </motion.button>
                           </div>
                         </div>
                       </div>
-                    </Card>
+                    </div>
                   </motion.div>
                 ))}
               </div>
