@@ -8,117 +8,13 @@
     <meta name="description" content="Professional Photography Services" />
     <meta name="author" content="Candid Capture Photography" />
     <meta property="og:image" content="/og-image.png" />
-    
-    <!-- Favicon -->
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    
-    <!-- Performance optimizations -->
-    <!-- Preload critical JavaScript -->
-    <link rel="modulepreload" href="/src/main.tsx" as="script" />
-    <link rel="modulepreload" href="/src/App.tsx" as="script" />
-    <link rel="modulepreload" href="/src/utils/performanceOptimizer.ts" as="script" />
-    
-    <!-- Preload critical images -->
-    <link rel="preload" href="/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png" as="image" fetchpriority="high" />
-    <link rel="preload" href="/lovable-uploads/71dc637a-2ed8-42fe-b045-b78301739a30.png" as="image" fetchpriority="high" />
-    <link rel="preload" href="/lovable-uploads/615d3ac6-4345-48d6-9ed9-b794c68b0307.png" as="image" fetchpriority="high" />
-    
-    <!-- Critical CSS -->
-    <style>
-      /* Expanded inline critical CSS */
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-        text-rendering: optimizeSpeed;
-      }
-      .critical-spinner {
-        width: 40px;
-        height: 40px;
-        border: 3px solid rgba(0, 0, 0, 0.1);
-        border-radius: 50%;
-        border-top-color: #ea384c;
-        animation: spin 1s ease-in-out infinite;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin: -20px 0 0 -20px;
-      }
-      @keyframes spin {
-        to { transform: rotate(360deg); }
-      }
-      /* Early access to key UI elements */
-      .bg-white { background-color: white; }
-      .text-primary { color: #ea384c; }
-      .rounded-lg { border-radius: 0.5rem; }
-      .shadow-lg { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
-      .py-4 { padding-top: 1rem; padding-bottom: 1rem; }
-      .px-4 { padding-left: 1rem; padding-right: 1rem; }
-      .flex { display: flex; }
-      .items-center { align-items: center; }
-      .justify-center { justify-content: center; }
-    </style>
-    
-    <!-- Preconnect to external domains -->
-    <link rel="preconnect" href="https://cdn.gpteng.co" crossorigin />
-    <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
-    
-    <!-- DNS prefetch for performance -->
-    <link rel="dns-prefetch" href="https://images.unsplash.com" />
-    <link rel="dns-prefetch" href="https://cdn.gpteng.co" />
-    
-    <!-- Improved resource hints for fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    
-    <!-- Cache control -->
-    <meta http-equiv="Cache-Control" content="max-age=86400" />
-    
-    <!-- Prefetch key routes -->
-    <link rel="prefetch" href="/services" as="document" />
-    <link rel="prefetch" href="/packages" as="document" />
-    <link rel="prefetch" href="/packages/corporate" as="document" />
-    <link rel="prefetch" href="/packages/wedding" as="document" />
-    
+    <link rel="preload" href="/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png" as="image" />
+    <link rel="preconnect" href="https://cdn.gpteng.co" />
     <base href="/" />
-    
-    <!-- Resource hints -->
-    <link rel="preload" href="/src/index.css" as="style" />
   </head>
 
   <body>
-    <div id="root">
-      <!-- Initial loading state -->
-      <div class="critical-spinner"></div>
-    </div>
-    
-    <!-- Loading sequence optimization -->
-    <script>
-      // Add browser-level hint that this page is performance-sensitive
-      document.documentElement.classList.add('js-focus-visible');
-      
-      // Record initial load timestamp
-      window.performance && window.performance.mark && window.performance.mark('initial_load');
-      
-      // Block rendering until critical resources are loaded
-      document.addEventListener('DOMContentLoaded', function() {
-        window.performance && window.performance.mark && window.performance.mark('dom_content_loaded');
-      });
-      
-      // Add support for native lazy loading
-      if ('loading' in HTMLImageElement.prototype) {
-        document.documentElement.classList.add('native-lazy-loading');
-      }
-      
-      // Optimize font loading
-      if ('fonts' in document) {
-        document.fonts.ready.then(function() {
-          document.documentElement.classList.add('fonts-loaded');
-        });
-      }
-    </script>
-    
-    <!-- Deferred external scripts -->
+    <div id="root"></div>
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module" defer></script>
     <script type="module" src="/src/main.tsx"></script>
   </body>

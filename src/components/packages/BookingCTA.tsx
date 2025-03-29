@@ -1,8 +1,5 @@
 
 import React from 'react';
-import { Badge } from "@/components/ui/badge";
-import { Wifi } from "lucide-react";
-import OnlineStatusBadge from '../OnlineStatusBadge';
 
 interface BookingCTAProps {
   title: string;
@@ -12,10 +9,7 @@ interface BookingCTAProps {
 const BookingCTA: React.FC<BookingCTAProps> = ({ title, serviceType }) => {
   return (
     <div className="bg-slate-50 p-6 rounded-lg mt-8 text-center">
-      <div className="flex items-center justify-center gap-2 mb-3">
-        <h3 className="text-xl font-medium text-[#ea384c]">{title}</h3>
-        <OnlineStatusBadge />
-      </div>
+      <h3 className="text-xl font-medium mb-3 text-[#ea384c]">{title}</h3>
       <p className="text-slate-600 mb-4">
         Contact us to schedule a consultation and discuss how we can capture your {serviceType}.
       </p>

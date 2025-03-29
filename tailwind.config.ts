@@ -22,7 +22,6 @@ export default {
         akaya: ['Akaya Kanadaka', 'cursive'],
         serif: ['Playfair Display', 'Georgia', 'serif'],
         sans: ['Poppins', 'Helvetica', 'Arial', 'sans-serif'],
-        boulas: ['Boulas OT-Bold', 'serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -50,31 +49,12 @@ export default {
         },
         shimmer: {
           "100%": { transform: "translateX(100%)" }
-        },
-        pulse: {
-          "0%, 100%": { opacity: "1" },
-          "50%": { opacity: "0.5" }
-        },
-        shine: {
-          "0%": { 
-            backgroundPosition: "200% 0",
-          },
-          "100%": {
-            backgroundPosition: "-200% 0",
-          }
-        },
-        float: {
-          "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-10px)" }
         }
       },
       animation: {
         fadeIn: "fadeIn 0.5s ease-in-out",
         "fadeIn-delay": "fadeIn 0.5s ease-in-out 0.3s forwards",
         "ken-burns": "ken-burns 20s ease-out infinite alternate",
-        pulse: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
-        shine: "shine 3s linear infinite",
-        float: "float 6s ease-in-out infinite"
       },
       textShadow: {
         'lg': '2px 2px 4px rgba(0, 0, 0, 0.5)',
@@ -84,9 +64,6 @@ export default {
         '500': '500ms',
         '700': '700ms',
       },
-      backgroundImage: {
-        'shine-gradient': 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent)',
-      }
     },
   },
   plugins: [require("tailwindcss-animate")],

@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import { 
   Carousel, 
@@ -8,7 +7,7 @@ import {
   CarouselPrevious 
 } from '@/components/ui/carousel';
 
-// Array of unique wedding photos for the slideshow - removed any duplicate of the woman in traditional attire
+// Array of unique wedding photos for the slideshow
 const weddingPhotos = [
   "/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png",
   "/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png", 
@@ -24,7 +23,7 @@ const weddingPhotos = [
   "/lovable-uploads/1e8e3b73-0675-48f7-a578-9f204a21062c.png",
   "/lovable-uploads/f981f530-98b4-46e6-8063-68406ae598e1.png",
   "/lovable-uploads/a6d35b17-76d1-4a77-89b4-5760943e213b.png",
-  // Removed duplicate image at the end
+  "/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png" // Adding an extra one to make 15
 ];
 
 interface WeddingSlideshowProps {
@@ -32,29 +31,23 @@ interface WeddingSlideshowProps {
   interval?: number;
 }
 
-const WeddingSlideshow = ({ autoplay = true, interval = 3000 }: WeddingSlideshowProps) => {
+const WeddingSlideshow = ({ autoplay = true, interval = 5000 }: WeddingSlideshowProps) => {
+  const [currentSlide, setCurrentSlide] = useState(0);
   const [api, setApi] = useState<any>(null);
-  const [isPaused, setIsPaused] = useState(false);
 
   // Set up autoplay functionality
   useEffect(() => {
     if (!autoplay || !api) return;
     
     const timer = setInterval(() => {
-      if (!isPaused) {
-        api.scrollNext();
-      }
+      api.scrollNext();
     }, interval);
     
     return () => clearInterval(timer);
-  }, [api, autoplay, interval, isPaused]);
+  }, [api, autoplay, interval]);
 
   return (
-    <div 
-      className="w-full max-w-5xl mx-auto px-4 py-8"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-    >
+    <div className="w-full max-w-5xl mx-auto px-4 py-8">
       <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">Wedding Photoshoot Gallery</h2>
       
       <Carousel setApi={setApi} className="w-full">
@@ -67,7 +60,6 @@ const WeddingSlideshow = ({ autoplay = true, interval = 3000 }: WeddingSlideshow
                     src={photo} 
                     alt={`Wedding photo ${index + 1}`} 
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                    loading={index < 3 ? "eager" : "lazy"}
                   />
                 </div>
               </div>

@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { useLocation } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -7,60 +7,45 @@ import { ResizablePanelGroup, ResizableHandle, ResizablePanel } from '@/componen
 import ServiceSidebar from '@/components/ServiceSidebar';
 import MobileServiceMenu from '@/components/MobileServiceMenu';
 import servicesList, { Service } from '@/data/servicesList';
-import { List } from 'lucide-react';
+import { Grid, List } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ServicesLoading from '@/components/ServicesLoading';
-import { preloadCriticalImages, deferNonCriticalJS } from '@/utils/performance';
-import { criticalImages } from '@/components/slideshow/serviceImages';
-import PricePackages from '@/components/PricePackages';
-import ServiceContent from '@/components/ServiceContent';
-import ServicesFAQ from '@/components/ServicesFAQ';
 
-const SimpleLoadingState = () => (
-  <div className="w-full h-20 flex items-center justify-center">
-    <div className="w-8 h-8 border-4 border-primary/30 border-t-primary rounded-full animate-spin"></div>
-  </div>
-);
+// Lazy load components that aren't needed immediately
+const ServiceContent = lazy(() => import('@/components/ServiceContent'));
+const ServicesGrid = lazy(() => import('@/components/ServicesGrid'));
+const PricePackages = lazy(() => import('@/components/PricePackages'));
 
 const Services = () => {
   const location = useLocation();
   const [selectedService, setSelectedService] = useState<Service>(servicesList[0]);
-  const [viewMode, setViewMode] = useState<'detailed'>('detailed');
+  const [viewMode, setViewMode] = useState<'detailed' | 'grid'>('grid');
   const [isLoading, setIsLoading] = useState(true);
-  const [contentLoaded, setContentLoaded] = useState(false);
+  const [isServiceLoading, setIsServiceLoading] = useState(false);
 
   useEffect(() => {
-    const startTime = performance.now();
-    
-    preloadCriticalImages(criticalImages);
-    
+    // Mark as loaded after specified time
     const timer = setTimeout(() => {
       setIsLoading(false);
-      const loadTime = performance.now() - startTime;
-      if (process.env.NODE_ENV === 'development') {
-        console.info(`Services initial render: ${loadTime.toFixed(0)}ms`);
-      }
-    }, 200);
+    }, 3000); // 3 seconds initial page load
     
     window.scrollTo({
       top: 0,
-      behavior: 'instant'
+      behavior: 'smooth'
     });
-    
-    deferNonCriticalJS(() => {
-      setContentLoaded(true);
-    }, 50);
     
     return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
+    // Check if location state contains a selected service
     if (location.state && location.state.selectedService) {
       const serviceName = location.state.selectedService;
       const matchingService = servicesList.find(service => service.name === serviceName);
       
       if (matchingService) {
         setSelectedService(matchingService);
+        setViewMode('detailed'); // Switch to detailed view when a service is selected
       }
     }
   }, [location.state]);
@@ -71,12 +56,20 @@ const Services = () => {
       return;
     }
     
+    // We've already added the delay in the ServicesGrid component
+    // This will execute after the delay
     setSelectedService(service);
+    setViewMode('detailed');
     
+    // Scroll to top when changing services
     window.scrollTo({
       top: 0,
-      behavior: 'instant'
+      behavior: 'smooth'
     });
+  };
+
+  const toggleViewMode = () => {
+    setViewMode(viewMode === 'detailed' ? 'grid' : 'detailed');
   };
 
   return (
@@ -87,70 +80,72 @@ const Services = () => {
         <div className="w-full mx-0 px-0">
           <div className="flex justify-between items-center mb-3 px-4">
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#003c72]">
-              {selectedService.name}
+              {viewMode === 'grid' ? 'Premium Services' : selectedService.name}
             </h1>
             <div className="flex items-center gap-2">
               <Button 
                 variant="outline" 
                 size="icon" 
+                onClick={toggleViewMode}
                 className="ml-auto"
-                aria-label="View details"
+                aria-label={viewMode === 'detailed' ? "Switch to grid view" : "Switch to detailed view"}
               >
-                <List className="h-5 w-5" />
+                {viewMode === 'detailed' ? <Grid className="h-5 w-5" /> : <List className="h-5 w-5" />}
               </Button>
             </div>
           </div>
           
-          {isLoading ? (
-            <ServicesLoading />
-          ) : (
-            <>
-              <div className="px-4 animate-fade-in">
-                <MobileServiceMenu 
-                  services={servicesList} 
-                  selectedService={selectedService} 
-                  onServiceClick={handleServiceClick} 
-                />
+          <Suspense fallback={<ServicesLoading />}>
+            {isLoading ? (
+              <ServicesLoading />
+            ) : viewMode === 'grid' ? (
+              <div className="bg-white/50 backdrop-blur-sm p-4 rounded-lg shadow-sm border border-primary/5 mx-4 animate-fade-in">
+                <ServicesGrid services={servicesList} onServiceClick={handleServiceClick} />
               </div>
-              
-              <div className="hidden md:block w-full animate-fade-in">
-                <ResizablePanelGroup 
-                  direction="horizontal" 
-                  className="min-h-[calc(100vh-200px)] w-full overflow-hidden"
-                >
-                  <ServiceSidebar 
+            ) : (
+              <>
+                <div className="px-4 animate-fade-in">
+                  <MobileServiceMenu 
                     services={servicesList} 
                     selectedService={selectedService} 
                     onServiceClick={handleServiceClick} 
                   />
-                  
-                  <ResizableHandle withHandle />
-                  
-                  <ResizablePanel defaultSize={75} minSize={60}>
-                    <div className="h-full overflow-y-auto px-4">
-                      {!isLoading && <ServiceContent service={selectedService} />}
-                    </div>
-                  </ResizablePanel>
-                </ResizablePanelGroup>
+                </div>
+                
+                <div className="hidden md:block w-full animate-fade-in">
+                  <ResizablePanelGroup 
+                    direction="horizontal" 
+                    className="min-h-[calc(100vh-200px)] w-full overflow-hidden"
+                  >
+                    <ServiceSidebar 
+                      services={servicesList} 
+                      selectedService={selectedService} 
+                      onServiceClick={handleServiceClick} 
+                    />
+                    
+                    <ResizableHandle withHandle />
+                    
+                    <ResizablePanel defaultSize={75} minSize={60}>
+                      <div className="h-full overflow-y-auto px-4">
+                        <ServiceContent service={selectedService} />
+                      </div>
+                    </ResizablePanel>
+                  </ResizablePanelGroup>
+                </div>
+                
+                <div className="md:hidden mt-4 px-4 animate-fade-in">
+                  <ServiceContent service={selectedService} />
+                </div>
+              </>
+            )}
+            
+            {/* Price Packages section */}
+            {!isLoading && (
+              <div className="px-4 mt-8 animate-fade-in">
+                <PricePackages />
               </div>
-              
-              <div className="md:hidden mt-4 px-4 animate-fade-in">
-                {!isLoading && <ServiceContent service={selectedService} />}
-              </div>
-            </>
-          )}
-          
-          {!isLoading && (
-            <div className="px-4 mt-8 animate-fade-in">
-              <PricePackages />
-            </div>
-          )}
-          
-          {!isLoading && contentLoaded && (
-            <div className="px-4 mt-8 mb-8 animate-fade-in">
-              <ServicesFAQ />
-            </div>
-          )}
+            )}
+          </Suspense>
         </div>
       </div>
       

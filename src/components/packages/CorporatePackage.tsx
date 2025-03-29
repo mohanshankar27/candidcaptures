@@ -1,15 +1,28 @@
 
 import React from 'react';
-import { Check, X, Info, Star, Crown, Sparkles, MapPin } from 'lucide-react';
+import { Check, X, Info, Star, Crown, Sparkles } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import PackageImageCarousel from '../packages/PackageImageCarousel';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import { getPackageImages } from '@/components/slideshow/serviceImages';
 
 const CorporatePackage: React.FC = () => {
-  // Get corporate package images from our central image management
-  const corporateImages = getPackageImages('Corporate', 'carousel');
+  // Define corporate package images for the carousel with updated professional photos
+  const corporateImages = [
+    'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80',
+    '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png'
+  ];
+  
+  // Define separate gallery images to avoid repetition
+  const galleryImages = [
+    'https://images.unsplash.com/photo-1559523161-0fc0d8b38a7a?auto=format&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1573497019236-61f323342eb3?auto=format&fit=crop&q=80'
+  ];
 
   return (
     <div className="package-details bg-white">
@@ -19,30 +32,30 @@ const CorporatePackage: React.FC = () => {
         <div className="container mx-auto px-4 py-16 relative">
           <div className="text-center mb-8">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#1A1F2C] leading-tight">
-              Corporate <span className="text-[#ea384c]">Professionals</span>
+              Corporate Headshot <span className="text-[#ea384c]">Excellence</span>
             </h2>
-            <p className="text-xl text-slate-600 max-w-2xl mx-auto font-boulas">
+            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
               Professional portraits that elevate your brand and showcase your team's personality
             </p>
           </div>
         </div>
       </div>
 
-      {/* Add the image carousel component with enhanced styling and new images */}
+      {/* Add the image carousel component with enhanced styling */}
       <div className="max-w-6xl mx-auto mb-16 px-4">
-        <PackageImageCarousel images={corporateImages} altPrefix="Corporate Professional" />
+        <PackageImageCarousel images={corporateImages} altPrefix="Corporate Headshot" />
       </div>
       
       <div className="space-y-12 max-w-6xl mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center">
-          <h3 className="text-3xl font-bold mb-4 text-[#1A1F2C]">Corporate Professional Packages</h3>
-          <p className="mb-6 text-slate-600 text-lg font-boulas">
-            Professional portraits for business profiles, websites, and marketing materials. Choose the package 
+          <h3 className="text-3xl font-bold mb-4 text-[#1A1F2C]">Corporate Headshot Packages</h3>
+          <p className="mb-6 text-slate-600 text-lg">
+            Professional headshots for business profiles, websites, and marketing materials. Choose the package 
             that best suits your team's requirements.
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-3 gap-8">
           {/* BASIC PACKAGE */}
           <Card className="overflow-hidden border-none hover:shadow-xl transition-all duration-300 bg-white rounded-2xl shadow-md">
             <CardHeader className="bg-gradient-to-r from-white to-slate-50 p-8 text-center relative">
@@ -53,13 +66,12 @@ const CorporatePackage: React.FC = () => {
               
               <div className="mt-6 space-y-3">
                 <div className="flex flex-col items-center">
-                  <div className="text-sm text-slate-500 line-through">₹1,599 (inc. GST)</div>
+                  <div className="text-sm text-slate-500 line-through">₹8,890 (inc. GST)</div>
                   <div className="flex items-center gap-2">
-                    <span className="bg-[#ea384c]/10 px-3 py-1 rounded-full text-[#ea384c] font-medium">Special Offer</span>
-                    <span className="text-3xl font-bold text-slate-800">₹995</span>
+                    <span className="bg-[#ea384c]/10 px-3 py-1 rounded-full text-[#ea384c] font-medium">15% OFF</span>
+                    <span className="text-3xl font-bold text-slate-800">₹7,550</span>
                     <span className="text-sm text-slate-500">+GST</span>
                   </div>
-                  <p className="text-sm mt-1 font-boulas">per image</p>
                 </div>
                 
                 <div className="bg-gradient-to-r from-slate-50 to-white rounded-lg p-4 shadow-sm border border-slate-100">
@@ -92,135 +104,171 @@ const CorporatePackage: React.FC = () => {
               <div className="space-y-4">
                 <div className="flex justify-between py-2 border-b border-slate-100">
                   <span className="text-sm font-medium text-slate-700">Studio Shoot:</span>
-                  <span className="text-sm text-slate-600 flex items-center font-boulas">
+                  <span className="text-sm text-slate-600 flex items-center">
                     <Check className="h-4 w-4 text-green-500 mr-1" /> Yes, at our studio
                   </span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-slate-100">
                   <span className="text-sm font-medium text-slate-700">Outdoor Shoot:</span>
-                  <span className="text-sm text-slate-600 flex items-center font-boulas">
+                  <span className="text-sm text-slate-600 flex items-center">
                     <X className="h-4 w-4 text-red-500 mr-1" /> No
                   </span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-slate-100">
                   <span className="text-sm font-medium text-slate-700">Duration:</span>
-                  <span className="text-sm text-slate-600 font-boulas">5 - 10 mins per person</span>
+                  <span className="text-sm text-slate-600">15 - 30 mins per person</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-slate-100">
                   <span className="text-sm font-medium text-slate-700">Look Changes:</span>
-                  <span className="text-sm text-slate-600 flex items-center font-boulas">
-                    <X className="h-4 w-4 text-red-500 mr-1" /> Not allowed
-                  </span>
+                  <span className="text-sm text-slate-600">Max 1</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-slate-100">
                   <span className="text-sm font-medium text-slate-700">Props:</span>
-                  <span className="text-sm text-slate-600 font-boulas">Minimal</span>
+                  <span className="text-sm text-slate-600">Minimal</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-slate-100">
                   <span className="text-sm font-medium text-slate-700">Photos Delivered:</span>
-                  <span className="text-sm text-slate-600 font-boulas">3 (full res)</span>
+                  <span className="text-sm text-slate-600">3 (full res)</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-slate-100">
                   <span className="text-sm font-medium text-slate-700">Additional Images:</span>
-                  <span className="text-sm text-slate-600 font-boulas">₹300/image</span>
+                  <span className="text-sm text-slate-600">₹300/image</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-slate-100">
                   <span className="text-sm font-medium text-slate-700">Hard Copies:</span>
-                  <span className="text-sm text-slate-600 flex items-center font-boulas">
+                  <span className="text-sm text-slate-600 flex items-center">
                     <X className="h-4 w-4 text-red-500 mr-1" /> No (digital files only)
                   </span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-slate-100">
                   <span className="text-sm font-medium text-slate-700">Makeup:</span>
-                  <span className="text-sm text-slate-600 flex items-center font-boulas">
-                    <X className="h-4 w-4 text-red-500 mr-1" /> Not available
+                  <span className="text-sm text-slate-600 flex items-center">
+                    <X className="h-4 w-4 text-red-500 mr-1" /> No
                   </span>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          {/* STANDARD PACKAGE - Updated with Executive Headshot Session information */}
-          <Card className="overflow-hidden border-none hover:shadow-xl transition-all duration-300 bg-white rounded-2xl shadow-md">
-            <CardHeader className="bg-gradient-to-r from-white to-slate-50 p-8 text-center relative">
+          {/* STANDARD PACKAGE */}
+          <Card className="overflow-hidden border-none shadow-xl hover:shadow-2xl transition-all duration-300 relative bg-white rounded-2xl scale-105 z-10">
+            <div className="absolute -top-4 right-0 left-0 mx-auto w-fit px-6 py-1.5 bg-gradient-to-r from-[#ea384c] to-[#ea384c]/80 text-white text-sm rounded-full font-semibold shadow-md">
+              Most Popular
+            </div>
+            <CardHeader className="bg-gradient-to-r from-[#f5f7fa] to-[#c3cfe2] p-8 text-center relative">
               <div className="absolute top-6 right-6">
-                <Crown className="h-5 w-5 text-[#ea384c]" />
+                <Crown className="h-6 w-6 text-[#ea384c]" />
               </div>
-              <h4 className="text-2xl uppercase font-bold tracking-wide text-slate-800 mb-2">Executive Headshot Session</h4>
+              <h4 className="text-2xl uppercase font-bold tracking-wide text-slate-800 mb-2">Classic</h4>
               
               <div className="mt-6 space-y-3">
                 <div className="flex flex-col items-center">
-                  <div className="text-sm text-slate-500 line-through">Regular Price ₹9,950+GST</div>
+                  <div className="text-sm text-slate-500 line-through">₹13,500 (inc. GST)</div>
                   <div className="flex items-center gap-2">
-                    <span className="bg-[#ea384c]/10 px-3 py-1 rounded-full text-[#ea384c] font-medium">OFFER !!</span>
-                    <span className="text-3xl font-bold text-slate-800">₹5,275</span>
+                    <span className="bg-[#ea384c]/10 px-3 py-1 rounded-full text-[#ea384c] font-medium">15% OFF</span>
+                    <span className="text-3xl font-bold text-slate-800">₹11,475</span>
                     <span className="text-sm text-slate-500">+GST</span>
                   </div>
+                </div>
+                
+                <div className="bg-white/70 backdrop-blur-sm rounded-lg p-4 shadow-sm border border-slate-100">
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <div className="flex items-center justify-center gap-1 cursor-help">
+                          <span className="font-medium">Team Discount</span>
+                          <Info className="h-4 w-4 text-slate-500" />
+                        </div>
+                      </TooltipTrigger>
+                      <TooltipContent className="max-w-xs bg-white shadow-lg p-3 rounded-lg border border-slate-100">
+                        <p>Additional 15% discount applied when booking for 5+ team members</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                  <div className="flex items-center justify-center mt-1">
+                    <span className="text-[#ea384c] font-semibold">₹9,754</span>
+                    <span className="text-sm text-slate-500 ml-1">+GST per person</span>
+                  </div>
+                  <div className="text-xs text-slate-500 mt-1">(for 5+ people)</div>
                 </div>
               </div>
               
               <button className="mt-6 bg-gradient-to-r from-[#ea384c] to-[#ea384c]/90 text-white rounded-full px-6 py-3 text-sm hover:shadow-lg transition-all w-full font-medium">
-                Book Your Appointment
+                Call us on: +919632288815
               </button>
             </CardHeader>
             <CardContent className="p-8">
               <div className="space-y-4">
                 <div className="flex justify-between py-2 border-b border-slate-100">
                   <span className="text-sm font-medium text-slate-700">Studio Shoot:</span>
-                  <span className="text-sm text-slate-600 flex items-center font-boulas">
-                    <Check className="h-4 w-4 text-green-500 mr-1" /> Yes
+                  <span className="text-sm text-slate-600 flex items-center">
+                    <Check className="h-4 w-4 text-green-500 mr-1" /> Yes, at our studio
                   </span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-slate-100">
                   <span className="text-sm font-medium text-slate-700">Outdoor Shoot:</span>
-                  <span className="text-sm text-slate-600 flex items-center font-boulas">
+                  <span className="text-sm text-slate-600 flex items-center">
                     <X className="h-4 w-4 text-red-500 mr-1" /> No
                   </span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-slate-100">
                   <span className="text-sm font-medium text-slate-700">Duration:</span>
-                  <span className="text-sm text-slate-600 font-boulas">30 Mins - 45 Mins</span>
+                  <span className="text-sm text-slate-600">30 - 45 mins per person</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-slate-100">
-                  <span className="text-sm font-medium text-slate-700">Costume Changes:</span>
-                  <span className="text-sm text-slate-600 font-boulas">Yes (upto 2 changes)</span>
+                  <span className="text-sm font-medium text-slate-700">Look Changes:</span>
+                  <span className="text-sm text-slate-600">Max 2</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-slate-100">
-                  <span className="text-sm font-medium text-slate-700">Consultation:</span>
-                  <span className="text-sm text-slate-600 font-boulas">Yes (basic 10-15 mins)</span>
+                  <span className="text-sm font-medium text-slate-700">Props:</span>
+                  <span className="text-sm text-slate-600">Basic Professional Setup</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-slate-100">
-                  <span className="text-sm font-medium text-slate-700">Makeup:</span>
-                  <span className="text-sm text-slate-600 flex items-center font-boulas">
-                    <X className="h-4 w-4 text-red-500 mr-1" /> No
-                  </span>
-                </div>
-                <div className="flex justify-between py-2 border-b border-slate-100">
-                  <span className="text-sm font-medium text-slate-700">Deliverables:</span>
-                  <span className="text-sm text-slate-600 font-boulas">10 fully edited images</span>
+                  <span className="text-sm font-medium text-slate-700">Photos Delivered:</span>
+                  <span className="text-sm text-slate-600">5 (full res)</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-slate-100">
                   <span className="text-sm font-medium text-slate-700">Additional Images:</span>
-                  <span className="text-sm text-slate-600 font-boulas">₹750/image</span>
+                  <span className="text-sm text-slate-600">₹250/image</span>
+                </div>
+                <div className="flex justify-between py-2 border-b border-slate-100">
+                  <span className="text-sm font-medium text-slate-700">Hard Copies:</span>
+                  <span className="text-sm text-slate-600 flex items-center">
+                    <Check className="h-4 w-4 text-green-500 mr-1" /> Yes, starting ₹350/- per print (min 5)
+                  </span>
+                </div>
+                <div className="flex justify-between py-2 border-b border-slate-100">
+                  <span className="text-sm font-medium text-slate-700">Makeup:</span>
+                  <span className="text-sm text-slate-600">Optional, starting ₹3,750/-</span>
+                </div>
+                <div className="flex justify-between py-2 border-b border-slate-100">
+                  <span className="text-sm font-medium text-slate-700">Retouching:</span>
+                  <span className="text-sm text-slate-600 flex items-center">
+                    <Check className="h-4 w-4 text-green-500 mr-1" /> Yes, professional level
+                  </span>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          {/* PREMIUM PACKAGE - Personal Branding For Business Leaders */}
+          {/* PREMIUM PACKAGE */}
           <Card className="overflow-hidden border-none hover:shadow-xl transition-all duration-300 bg-white rounded-2xl shadow-md">
             <CardHeader className="bg-gradient-to-r from-white to-slate-50 p-8 text-center relative">
               <div className="absolute top-6 right-6">
                 <Sparkles className="h-5 w-5 text-[#ea384c]" />
               </div>
-              <h4 className="text-2xl uppercase font-bold tracking-wide text-slate-800 mb-2">Personal Branding For Business Leaders</h4>
+              <h4 className="text-2xl uppercase font-bold tracking-wide text-slate-800 mb-2">Signature & On Location</h4>
               
               <div className="mt-6">
                 <div className="bg-gradient-to-r from-[#f5f7fa] to-[#c3cfe2] p-6 rounded-lg shadow-sm">
-                  <div className="text-sm text-slate-500 line-through">Market Price ₹29,990+GST</div>
+                  <div className="text-xl font-bold text-slate-800">Custom Pricing</div>
                   <div className="flex items-center justify-center gap-2 mt-2">
-                    <span className="text-3xl font-bold text-[#ea384c]">₹13,990</span>
+                    <span className="text-3xl font-bold text-[#ea384c]">₹17,500</span>
                     <span className="text-sm text-slate-500">+GST onwards</span>
+                  </div>
+                  <div className="mt-3 text-sm text-slate-600">
+                    Tailored to your specific requirements
+                    <div className="text-xs mt-1 italic">Price based on team size, location & needs</div>
                   </div>
                 </div>
               </div>
@@ -233,105 +281,49 @@ const CorporatePackage: React.FC = () => {
               <div className="space-y-4">
                 <div className="flex justify-between py-2 border-b border-slate-100">
                   <span className="text-sm font-medium text-slate-700">Studio Shoot:</span>
-                  <span className="text-sm text-slate-600 flex items-center font-boulas">
-                    <Check className="h-4 w-4 text-green-500 mr-1" /> Yes
+                  <span className="text-sm text-slate-600 flex items-center">
+                    <Check className="h-4 w-4 text-green-500 mr-1" /> Yes (our or any 3rd party location)
                   </span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-slate-100">
                   <span className="text-sm font-medium text-slate-700">Outdoor Shoot:</span>
-                  <span className="text-sm text-slate-600 flex items-center font-boulas">
-                    <Check className="h-4 w-4 text-green-500 mr-1" /> Optional
+                  <span className="text-sm text-slate-600 flex items-center">
+                    <Check className="h-4 w-4 text-green-500 mr-1" /> Yes, optional
                   </span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-slate-100">
                   <span className="text-sm font-medium text-slate-700">Duration:</span>
-                  <span className="text-sm text-slate-600 font-boulas">80 mins - 150 Mins</span>
+                  <span className="text-sm text-slate-600">As needed</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-slate-100">
-                  <span className="text-sm font-medium text-slate-700">Costume Changes:</span>
-                  <span className="text-sm text-slate-600 font-boulas">yes, up-to 3</span>
+                  <span className="text-sm font-medium text-slate-700">Look Changes:</span>
+                  <span className="text-sm text-slate-600">As discussed</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-slate-100">
-                  <span className="text-sm font-medium text-slate-700">Consultation:</span>
-                  <span className="text-sm text-slate-600 font-boulas">Yes (detailed planning)</span>
+                  <span className="text-sm font-medium text-slate-700">Props:</span>
+                  <span className="text-sm text-slate-600">Our / rental / company's assets</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-slate-100">
-                  <span className="text-sm font-medium text-slate-700">Makeup:</span>
-                  <span className="text-sm text-slate-600 font-boulas">Optional (Chargeable Extra)</span>
+                  <span className="text-sm font-medium text-slate-700">Photos Delivered:</span>
+                  <span className="text-sm text-slate-600">8+ per person (full res)</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-slate-100">
-                  <span className="text-sm font-medium text-slate-700">Deliverables:</span>
-                  <span className="text-sm text-slate-600 font-boulas">upto 40 (fully edited)</span>
+                  <span className="text-sm font-medium text-slate-700">Additional Images:</span>
+                  <span className="text-sm text-slate-600">₹200/image</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-slate-100">
-                  <span className="text-sm font-medium text-slate-700">ALL Images:</span>
-                  <span className="text-sm text-slate-600 font-boulas">₹5,750/- (basic edits)</span>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-          
-          {/* NEW: On Location Personal Branding */}
-          <Card className="overflow-hidden border-none hover:shadow-xl transition-all duration-300 bg-white rounded-2xl shadow-md">
-            <CardHeader className="bg-gradient-to-r from-white to-slate-50 p-8 text-center relative">
-              <div className="absolute top-6 right-6">
-                <MapPin className="h-5 w-5 text-[#ea384c]" />
-              </div>
-              <h4 className="text-2xl uppercase font-bold tracking-wide text-slate-800 mb-2">On Location Personal Branding</h4>
-              <p className="text-xs text-slate-600 italic">(For ONE Person)</p>
-              
-              <div className="mt-6">
-                <div className="bg-gradient-to-r from-[#f5f7fa] to-[#c3cfe2] p-6 rounded-lg shadow-sm">
-                  <div className="flex items-center justify-center gap-2">
-                    <span className="text-3xl font-bold text-[#ea384c]">₹35,499</span>
-                    <span className="text-sm text-slate-500">+GST onwards</span>
-                  </div>
-                </div>
-              </div>
-              
-              <button className="mt-6 bg-gradient-to-r from-[#ea384c] to-[#ea384c]/90 text-white rounded-full px-6 py-3 text-sm hover:shadow-lg transition-all w-full font-medium">
-                Contact Us Now
-              </button>
-            </CardHeader>
-            <CardContent className="p-8">
-              <div className="space-y-4">
-                <div className="flex justify-between py-2 border-b border-slate-100">
-                  <span className="text-sm font-medium text-slate-700">Consultation:</span>
-                  <span className="text-sm text-slate-600 flex items-center font-boulas">
-                    <Check className="h-4 w-4 text-green-500 mr-1" /> Free
-                  </span>
-                </div>
-                <div className="flex justify-between py-2 border-b border-slate-100">
-                  <span className="text-sm font-medium text-slate-700">Location:</span>
-                  <span className="text-sm text-slate-600 font-boulas">Your location/co-working space</span>
-                </div>
-                <div className="flex justify-between py-2 border-b border-slate-100">
-                  <span className="text-sm font-medium text-slate-700">Outstation:</span>
-                  <span className="text-sm text-slate-600 font-boulas">Travel charges applicable</span>
-                </div>
-                <div className="flex justify-between py-2 border-b border-slate-100">
-                  <span className="text-sm font-medium text-slate-700">Costume Changes:</span>
-                  <span className="text-sm text-slate-600 font-boulas">Yes (recommended)</span>
+                  <span className="text-sm font-medium text-slate-700">Location/Prop Charges:</span>
+                  <span className="text-sm text-slate-600">At actuals</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-slate-100">
                   <span className="text-sm font-medium text-slate-700">Makeup:</span>
-                  <span className="text-sm text-slate-600 font-boulas">Additional at actuals</span>
-                </div>
-                <div className="flex justify-between py-2 border-b border-slate-100">
-                  <span className="text-sm font-medium text-slate-700">Duration:</span>
-                  <span className="text-sm text-slate-600 font-boulas">Upto 4hrs</span>
-                </div>
-                <div className="flex justify-between py-2 border-b border-slate-100">
-                  <span className="text-sm font-medium text-slate-700">Deliverables:</span>
-                  <span className="text-sm text-slate-600 font-boulas">Customisable</span>
+                  <span className="text-sm text-slate-600">Optional, starting ₹3,750/-</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-slate-100">
                   <span className="text-sm font-medium text-slate-700">Planning:</span>
-                  <span className="text-sm text-slate-600 font-boulas">Included</span>
-                </div>
-                <div className="flex justify-between py-2 border-b border-slate-100">
-                  <span className="text-sm font-medium text-slate-700">Location Reece:</span>
-                  <span className="text-sm text-slate-600 font-boulas">Extra @ Actuals</span>
+                  <span className="text-sm text-slate-600 flex items-center">
+                    <Check className="h-4 w-4 text-green-500 mr-1" /> Yes, detailed consultation
+                  </span>
                 </div>
               </div>
             </CardContent>
@@ -340,27 +332,26 @@ const CorporatePackage: React.FC = () => {
         
         <Separator className="my-16" />
         
-        {/* Add the note section instead of Sample Corporate Professionals */}
-        <div className="mt-12 bg-slate-50 p-8 rounded-xl shadow-sm border border-slate-200">
-          <h3 className="text-2xl font-bold mb-6 text-center text-[#1A1F2C]">Note:</h3>
+        {/* Photo Gallery Section with enhanced styling */}
+        <div className="mt-12">
+          <h3 className="text-3xl font-bold mb-10 text-center text-[#1A1F2C]">Sample Corporate Headshots</h3>
           
-          <div className="prose prose-slate max-w-3xl mx-auto">
-            <p className="mb-4 text-slate-700 font-boulas">
-              When you are considering having a portfolio shot, it helps for you to have a fair idea of how you want your photographs to be and who would be seeing your photographs.
-            </p>
-            
-            <ul className="space-y-3 list-disc pl-5 text-slate-700 font-boulas">
-              <li>Do plan your costumes & carry multiple options for a change</li>
-              <li>Generally formals works for most businesses.</li>
-              <li>Creative professionals can be more casual or even include work attires.</li>
-              <li>We offer a free in person consultation with our lead photographer for shoots with special requirements.</li>
-            </ul>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-8">
+            {galleryImages.map((image, index) => (
+              <div key={index} className="overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-all duration-300 group">
+                <img 
+                  src={image} 
+                  alt={`Corporate Headshot Sample ${index + 1}`} 
+                  className="w-full h-64 md:h-72 object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            ))}
           </div>
         </div>
         
         <div className="bg-gradient-to-r from-[#f5f7fa] to-[#c3cfe2] p-10 rounded-2xl mt-12 text-center shadow-lg">
           <h3 className="text-3xl font-bold mb-5 text-[#1A1F2C]">Ready to elevate your team's professional image?</h3>
-          <p className="text-slate-700 mb-8 text-lg max-w-2xl mx-auto font-boulas">
+          <p className="text-slate-700 mb-8 text-lg max-w-2xl mx-auto">
             Contact us to schedule a consultation and discuss your specific corporate photography needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-5 justify-center">

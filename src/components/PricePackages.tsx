@@ -2,9 +2,15 @@
 import React from 'react';
 import { Separator } from '@/components/ui/separator';
 import { useNavigate } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { Package, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import PackageHeader from './packages/PackageHeader';
+import { 
+  Carousel, 
+  CarouselContent, 
+  CarouselItem, 
+  CarouselPrevious, 
+  CarouselNext 
+} from '@/components/ui/carousel';
 
 interface PricePackageItem {
   title: string;
@@ -55,11 +61,24 @@ const pricePackages: PricePackageItem[] = [
   },
 ];
 
+// Images for the carousel - these are shared across the site
+const packageImages = [
+  '/lovable-uploads/b977d3f5-fd63-468d-ac7f-09766c3ab6c1.png',
+  '/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png',
+  '/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png',
+  '/lovable-uploads/8d5e6443-143d-4c94-be94-b1e0b3cc76b2.png',
+  '/lovable-uploads/f981f530-98b4-46e6-8063-68406ae598e1.png',
+  '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png'
+];
+
 const PricePackages: React.FC = () => {
   const navigate = useNavigate();
 
   const handlePackageClick = (pkg: PricePackageItem) => {
+    // First navigate to the package page
     navigate(`/packages/${pkg.id}`);
+    
+    // Then scroll to the top of the page
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
@@ -69,25 +88,41 @@ const PricePackages: React.FC = () => {
   return (
     <div className="mt-16 mb-12">
       <div className="bg-white/70 backdrop-blur-sm p-6 md:p-8 rounded-xl shadow-lg border border-primary/10 transition-all duration-300 hover:shadow-xl">
-        <PackageHeader title="Packages & Price Lists" />
+        <div className="flex items-center gap-3 mb-6">
+          <Package className="h-6 w-6 text-[#ea384c]" />
+          <h2 className="text-3xl font-light text-[#ea384c]">Packages & Price Lists</h2>
+        </div>
         
         <p className="text-slate-600 mb-8">
           Explore our range of photography packages designed to meet your specific needs. 
           Click on any package to view detailed pricing and what's included.
         </p>
         
-        {/* Simple image display instead of carousel */}
-        <div className="mb-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {[1, 2, 3].map((index) => (
-            <div key={index} className="overflow-hidden rounded-xl h-52 md:h-64 lg:h-60 shadow-md border border-orange-100 bg-slate-50">
-              <img 
-                src={`/lovable-uploads/${['a97ae0b1-6394-488d-a9f4-d17321650970.png', 'e330db14-6a26-4ead-b79f-e9aed137fc84.png', '1f924edb-9819-4bbc-91ac-8bdb224ff48e.png'][index - 1]}`}
-                alt={`Package preview ${index}`}
-                loading="lazy"
-                className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
-              />
+        {/* Add the image carousel */}
+        <div className="mb-8 relative">
+          <Carousel className="w-full">
+            <CarouselContent>
+              {packageImages.map((image, index) => (
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                  <div className="p-1">
+                    <div className="overflow-hidden rounded-xl h-48 md:h-64">
+                      <img 
+                        src={image} 
+                        alt={`Package preview ${index + 1}`}
+                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                      />
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="absolute -right-12 top-1/2 -translate-y-1/2">
+              <CarouselNext className="right-2" />
             </div>
-          ))}
+            <div className="absolute -left-12 top-1/2 -translate-y-1/2">
+              <CarouselPrevious className="left-2" />
+            </div>
+          </Carousel>
         </div>
         
         <div className="grid md:grid-cols-2 gap-4">
@@ -115,10 +150,7 @@ const PricePackages: React.FC = () => {
                   variant="ghost" 
                   size="sm" 
                   className="text-[#ea384c] hover:bg-[#ea384c]/10 hover:text-[#ea384c] p-0 h-auto mt-1"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handlePackageClick(pkg);
-                  }}
+                  onClick={() => handlePackageClick(pkg)}
                 >
                   View pricing details
                 </Button>

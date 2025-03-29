@@ -11,7 +11,7 @@ interface ServiceGalleryProps {
 }
 
 const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, images }) => {
-  // Limit to 6 images or use all available if fewer than 6
+  // Limit to 6 images
   const limitedImages = images.slice(0, 6);
   const [enlargedImageIndex, setEnlargedImageIndex] = useState<number | null>(null);
   const [isSlideshow, setIsSlideshow] = useState(false);
@@ -68,16 +68,14 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, images }) => {
       </h2>
       
       {/* Featured hero image - larger and prominent */}
-      {limitedImages.length > 0 && (
-        <div className="mb-6 w-full overflow-hidden rounded-lg border-2 border-orange-400">
-          <img 
-            src={limitedImages[0]} 
-            alt={`${service.name} featured`}
-            className="w-full h-[300px] md:h-[400px] object-cover transition-transform duration-300 hover:scale-105 cursor-pointer"
-            onClick={() => handleImageClick(0)}
-          />
-        </div>
-      )}
+      <div className="mb-6 w-full overflow-hidden rounded-lg border-2 border-orange-400">
+        <img 
+          src={limitedImages[0]} 
+          alt={`${service.name} featured`}
+          className="w-full h-[300px] md:h-[400px] object-cover transition-transform duration-300 hover:scale-105 cursor-pointer"
+          onClick={() => handleImageClick(0)}
+        />
+      </div>
       
       <div className="mb-6">
         <p className="text-lg mb-6">{service.description}</p>
@@ -99,28 +97,24 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, images }) => {
         )}
       </div>
       
-      {limitedImages.length > 1 && (
-        <>
-          <h3 className="text-xl font-medium mb-3">{service.name} Showcase</h3>
-          
-          {/* Gallery grid with consistent sizing - only show remaining images after the hero */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 md:gap-3">
-            {limitedImages.slice(1).map((image, index) => (
-              <div 
-                key={index} 
-                className="overflow-hidden rounded-lg cursor-pointer bg-muted border-2 border-orange-300 aspect-square"
-                onClick={() => handleImageClick(index + 1)}
-              >
-                <img 
-                  src={image} 
-                  alt={`${service.name} ${index + 1}`} 
-                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
-                />
-              </div>
-            ))}
+      <h3 className="text-xl font-medium mb-3">{service.name} Showcase</h3>
+      
+      {/* Gallery grid with consistent sizing - only 5 more images after the hero */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 md:gap-3">
+        {limitedImages.slice(1).map((image, index) => (
+          <div 
+            key={index} 
+            className="overflow-hidden rounded-lg cursor-pointer bg-muted border-2 border-orange-300 aspect-square"
+            onClick={() => handleImageClick(index + 1)}
+          >
+            <img 
+              src={image} 
+              alt={`${service.name} ${index + 1}`} 
+              className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+            />
           </div>
-        </>
-      )}
+        ))}
+      </div>
       
       {service.pricing && (
         <div className="mt-8">

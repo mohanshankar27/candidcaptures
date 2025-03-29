@@ -1,50 +1,35 @@
 
-import { useEffect } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import './App.css'
-import Index from './pages/Index'
-import Services from './pages/Services'
-import Pricing from './pages/Pricing'
-import PackageDetails from './pages/PackageDetails' // Direct import instead of lazy loading
-import AboutUs from './pages/AboutUs' // Direct import instead of lazy loading
-import { initializePerformanceOptimizations } from './utils/performance'
-import GoogleReview from './components/GoogleReview' 
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import Index from "./pages/Index";
+import Services from "./pages/Services";
+import PackageDetails from "./pages/PackageDetails";
+import Pricing from "./pages/Pricing";
 
-function App() {
-  // Initialize performance optimizations
-  useEffect(() => {
-    initializePerformanceOptimizations({
-      monitorRoutes: ['/services', '/packages', '/packages/corporate', '/packages/wedding'],
-      criticalImages: [
-        '/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png',
-        '/lovable-uploads/71dc637a-2ed8-42fe-b045-b78301739a30.png',
-        '/lovable-uploads/615d3ac6-4345-48d6-9ed9-b794c68b0307.png'
-      ],
-      priorityResources: {
-        preconnect: ['https://cdn.gpteng.co', 'https://images.unsplash.com'],
-        prefetch: ['/services', '/packages'],
-        preload: [
-          {path: '/src/components/Navbar.tsx', type: 'script' as const},
-          {path: '/src/components/Footer.tsx', type: 'script' as const}
-        ]
-      }
-    });
-  }, []);
+const queryClient = new QueryClient();
 
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Index />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/pricing" element={<Pricing />} />
-        <Route path="/about" element={<AboutUs />} />
-        <Route path="/packages/:packageId" element={<PackageDetails />} />
-      </Routes>
-      
-      {/* Display Google Review component instead of PerformanceMonitor */}
-      {process.env.NODE_ENV === 'development' && <GoogleReview />}
-    </Router>
-  )
-}
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      <main className="min-h-screen w-full max-w-full overflow-x-hidden">
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/packages/:packageId" element={<PackageDetails />} />
+            <Route path="/pricing" element={<Pricing />} />
+            {/* Add a catch-all route that redirects to home */}
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </BrowserRouter>
+      </main>
+    </TooltipProvider>
+  </QueryClientProvider>
+);
 
-export default App
+export default App;

@@ -1,13 +1,9 @@
-
 import React from 'react';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Check, Clock, Camera } from 'lucide-react';
+import { Check } from 'lucide-react';
 import BookingCTA from './BookingCTA';
 import PackageImageCarousel from './PackageImageCarousel';
-import { Button } from '@/components/ui/button';
-import { motion } from 'framer-motion';
-import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
 
 const MatrimonialPackage: React.FC = () => {
   // Images for the matrimonial package carousel
@@ -35,46 +31,35 @@ const MatrimonialPackage: React.FC = () => {
         <div className="grid md:grid-cols-3 gap-6">
           <Card className="border-primary/20 hover:shadow-lg transition-all duration-300">
             <CardHeader className="bg-gradient-to-r from-primary/10 to-primary/5 pb-2">
-              <CardTitle className="text-primary text-xl">MINI Session</CardTitle>
-              <CardDescription className="text-slate-600 pt-1">Quick & Essential</CardDescription>
-              <div className="mt-2 mb-1 flex flex-col">
-                <span className="text-sm text-slate-600 line-through">Regular Price ₹2,999+GST</span>
-                <span className="text-3xl font-light text-[#ea384c]">Special OFFER ₹1,949 +GST</span>
+              <CardTitle className="text-primary text-xl">Basic Portfolio</CardTitle>
+              <CardDescription className="text-slate-600 pt-1">Essential coverage</CardDescription>
+              <div className="mt-4 mb-1">
+                <span className="text-3xl font-light text-[#ea384c]">₹10,000</span>
               </div>
             </CardHeader>
-            <CardContent className="pt-4">
-              <div className="space-y-3">
-                <div className="flex items-center gap-2 text-sm font-medium text-primary">
-                  <Clock className="h-4 w-4 text-[#ea384c]" />
-                  <p>15-30 Minute Session (Studio time: 45 mins)</p>
-                </div>
-                <ul className="space-y-2">
-                  {[
-                    'Studio Session: Yes', 
-                    'Outdoor Session: No', 
-                    'Look/Costumes Changes: 1 only', 
-                    'Styling: No', 
-                    '5 full res edited photographs', 
-                    'Additional images: ₹475/image',
-                    'Hard Copies: No',
-                    'Makeup: No',
-                    'Mood-board/planning: No'
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-start text-sm">
-                      <div className="mt-0.5 mr-2 bg-primary/5 p-1 rounded-full">
-                        <Check className="h-3 w-3 text-primary" />
-                      </div>
-                      <span className="text-slate-700">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="pt-3 flex justify-center">
-                  <Button className="bg-[#ea384c] hover:bg-[#ea384c]/90 shadow-md relative overflow-hidden group w-full">
-                    <span className="absolute inset-0 w-3 bg-white/20 skew-x-[-20deg] transform -translate-x-10 group-hover:translate-x-[400px] transition-all duration-1000 ease-out"></span>
-                    <span className="relative">Book an Appointment</span>
-                  </Button>
-                </div>
-              </div>
+            <CardContent className="pt-6">
+              <ul className="space-y-3">
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">1-hour photo session</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">2 outfit changes</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">10 edited digital images</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Indoor studio session</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Basic retouching included</span>
+                </li>
+              </ul>
             </CardContent>
           </Card>
 
@@ -83,124 +68,104 @@ const MatrimonialPackage: React.FC = () => {
               Most Popular
             </div>
             <CardHeader className="bg-gradient-to-r from-primary/20 to-primary/10 pb-2">
-              <CardTitle className="text-primary text-xl">Classic Session</CardTitle>
-              <CardDescription className="text-slate-600 pt-1">Complete coverage</CardDescription>
-              <div className="mt-2 mb-1 flex flex-col">
-                <span className="text-sm text-slate-600 line-through">Regular Price ₹7,999 +GST</span>
-                <span className="text-3xl font-light text-[#ea384c]">Weekday Offer ₹4,067 +GST</span>
+              <CardTitle className="text-primary text-xl">Premium Portfolio</CardTitle>
+              <CardDescription className="text-slate-600 pt-1">Enhanced coverage</CardDescription>
+              <div className="mt-4 mb-1">
+                <span className="text-3xl font-light text-[#ea384c]">₹15,000</span>
               </div>
             </CardHeader>
-            <CardContent className="pt-4">
-              <div className="space-y-3">
-                <div className="flex items-center gap-2 text-sm font-medium text-primary">
-                  <Clock className="h-4 w-4 text-[#ea384c]" />
-                  <p>45-90 Minute Session (Studio time: 150 mins)</p>
-                </div>
-                <ul className="space-y-2">
-                  {[
-                    'Studio Session: Yes', 
-                    'Outdoor Session: No', 
-                    'Look/Costumes Changes: 3', 
-                    'Additional Changes: ₹1,000/-', 
-                    'Styling: Minimal', 
-                    '15 full res photographs',
-                    'Additional images: ₹375/image',
-                    'Hard Copies: Optional',
-                    'Makeup: Optional, Starting ₹4,275/-'
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-start text-sm">
-                      <div className="mt-0.5 mr-2 bg-primary/5 p-1 rounded-full">
-                        <Check className="h-3 w-3 text-primary" />
-                      </div>
-                      <span className="text-slate-700">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="pt-3 flex justify-center">
-                  <Button className="bg-[#ea384c] hover:bg-[#ea384c]/90 shadow-md relative overflow-hidden group w-full">
-                    <span className="absolute inset-0 w-3 bg-white/20 skew-x-[-20deg] transform -translate-x-10 group-hover:translate-x-[400px] transition-all duration-1000 ease-out"></span>
-                    <span className="relative">Schedule Session</span>
-                  </Button>
-                </div>
-              </div>
+            <CardContent className="pt-6">
+              <ul className="space-y-3">
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">2-hour photo session</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">3 outfit changes</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">15 edited digital images</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Indoor studio and outdoor location</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Advanced retouching included</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">5 printed 5×7″ photographs</span>
+                </li>
+              </ul>
             </CardContent>
           </Card>
 
           <Card className="border-primary/20 hover:shadow-lg transition-all duration-300">
             <CardHeader className="bg-gradient-to-r from-primary/15 to-primary/5 pb-2">
-              <CardTitle className="text-primary text-xl">Signature Session</CardTitle>
-              <CardDescription className="text-slate-600 pt-1">Premium outdoor experience</CardDescription>
-              <div className="mt-2 mb-1">
-                <span className="text-3xl font-light text-[#ea384c]">₹12,499 +GST</span>
+              <CardTitle className="text-primary text-xl">Deluxe Portfolio</CardTitle>
+              <CardDescription className="text-slate-600 pt-1">Complete coverage</CardDescription>
+              <div className="mt-4 mb-1">
+                <span className="text-3xl font-light text-[#ea384c]">₹20,000</span>
               </div>
             </CardHeader>
-            <CardContent className="pt-4">
-              <div className="space-y-3">
-                <div className="flex items-center gap-2 text-sm font-medium text-primary">
-                  <Clock className="h-4 w-4 text-[#ea384c]" />
-                  <p>4-Hour Premium Session</p>
-                </div>
-                <ul className="space-y-2">
-                  {[
-                    'Free Consultation',
-                    'Studio Session: No', 
-                    'Outdoor Session: Yes (location charges @ actuals)', 
-                    '3+ outfit changes', 
-                    'Styling: Basic (Dedicated stylist optional)', 
-                    'Professional Styling: Optional, starting ₹7,999/-',
-                    'Makeup: Starting ₹4,275/-',
-                    '15+ delivered full res photographs',
-                    'Additional Images: Chargeable',
-                    'Hard Copies: Optional',
-                    'Non-refundable Planning/Booking Charges: ₹5,500/-'
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-start text-sm">
-                      <div className="mt-0.5 mr-2 bg-primary/5 p-1 rounded-full">
-                        <Check className="h-3 w-3 text-primary" />
-                      </div>
-                      <span className="text-slate-700">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="pt-3 flex justify-center">
-                  <Button className="bg-[#ea384c] hover:bg-[#ea384c]/90 shadow-md relative overflow-hidden group w-full">
-                    <span className="absolute inset-0 w-3 bg-white/20 skew-x-[-20deg] transform -translate-x-10 group-hover:translate-x-[400px] transition-all duration-1000 ease-out"></span>
-                    <span className="relative">Book Signature Session</span>
-                  </Button>
-                </div>
-              </div>
+            <CardContent className="pt-6">
+              <ul className="space-y-3">
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">3-hour photo session</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">4 outfit changes</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">20 edited digital images</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Multiple locations</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Hair and makeup included</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">10 printed 5×7″ photographs</span>
+                </li>
+              </ul>
             </CardContent>
           </Card>
         </div>
 
         <Separator />
 
-        <Alert className="bg-slate-50 border-primary/10 mt-6">
-          <AlertTitle className="text-lg font-medium text-[#333333]">IMPORTANT:</AlertTitle>
-          <AlertDescription className="text-slate-600 mt-2">
-            <p className="mb-2">
-              Relationships are built on authenticity, and we strongly believe that after your images have made the first impression your prospective spouse
-              "meets the same person who was/is in the images".
-            </p>
-            <ul className="list-disc pl-5 space-y-1 mt-3">
-              <li>We only do corrections - We only remove temporary blemishes (pimples), stains or lint on clothes, etc.</li>
-              <li>We rely on creative use of light, background colours and posing to make you look your best.</li>
-              <li>WE DO NOT - alter your physical (body) shape, skin tone, nor remove all of the skin texture.</li>
-              <li>We make Natural skin look great, by using some of the best available light modifiers to create a soft light.</li>
-            </ul>
-          </AlertDescription>
-        </Alert>
+        <div className="mt-6">
+          <h3 className="text-lg font-medium mb-3 text-[#333333]">Add-On Services</h3>
+          <ul className="list-disc pl-5 space-y-2 text-slate-600">
+            <li>Additional digital images - ₹750 per image</li>
+            <li>Hair and makeup services - ₹4,000</li>
+            <li>Additional location - ₹3,000 per location</li>
+            <li>Extra outfit change - ₹1,500 per outfit</li>
+            <li>Custom-designed digital portfolio (if not included) - ₹5,000</li>
+            <li>Extended session time - ₹5,000 per hour</li>
+          </ul>
+        </div>
 
         <div className="mt-6">
-          <h3 className="text-lg font-medium mb-3 text-[#333333]">Note:</h3>
-          <p className="mb-2 text-slate-600">
-            Matrimonial / Dating portfolio shoots are about you, your style & personality.
-          </p>
+          <h3 className="text-lg font-medium mb-3 text-[#333333]">Important Information</h3>
           <ul className="list-disc pl-5 space-y-2 text-slate-600">
-            <li>Do carry some of your personal items that can be used for styling</li>
-            <li>Images can be customised based on audience - a prospective life partner / elder family members etc.</li>
-            <li>You will get a combination of headshots, medium & full length shots.</li>
-            <li>Have a hobby / practice a sport? We might be able to tastefully create a shot to show that off too</li>
+            <li>A 50% deposit is required to secure your booking</li>
+            <li>We recommend booking your session at least 2 weeks in advance</li>
+            <li>Bring multiple outfits for variety (formal, casual, traditional)</li>
+            <li>Matrimonial portfolios typically include a mix of traditional and contemporary looks</li>
+            <li>Travel fees may apply for locations beyond 20km from our studio</li>
+            <li>All packages include pre-session consultation</li>
           </ul>
         </div>
 
