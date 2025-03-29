@@ -1,7 +1,15 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { 
+  Carousel, 
+  CarouselContent, 
+  CarouselItem, 
+  CarouselNext, 
+  CarouselPrevious 
+} from "@/components/ui/carousel";
 
 const Gallery = () => {
   const images = [
@@ -32,13 +40,28 @@ const Gallery = () => {
   ];
 
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [autoplay, setAutoplay] = useState(true);
+  
+  // Autoplay functionality
+  useEffect(() => {
+    if (!autoplay) return;
+    
+    const interval = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % images.length);
+    }, 5000);
+    
+    return () => clearInterval(interval);
+  }, [autoplay, images.length]);
   
   const openImageModal = (index: number) => {
     setSelectedImageIndex(index);
+    setAutoplay(false); // Pause autoplay when modal is open
   };
 
   const closeImageModal = () => {
     setSelectedImageIndex(null);
+    setAutoplay(true); // Resume autoplay when modal is closed
   };
 
   const navigateImage = (direction: "prev" | "next") => {
@@ -60,20 +83,84 @@ const Gallery = () => {
   return (
     <section id="gallery" className="py-20 bg-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">Featured Work</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <h2 className="text-3xl font-bold text-center mb-8">Featured Work</h2>
+        
+        {/* Horizontal Slideshow */}
+        <div className="max-w-5xl mx-auto mb-8">
+          <Carousel 
+            opts={{
+              loop: true,
+              align: "start",
+            }}
+            className="w-full"
+            setApi={(api) => {
+              if (api) {
+                api.on("select", () => {
+                  const selectedSlide = api.selectedScrollSnap();
+                  setActiveSlide(selectedSlide);
+                });
+              }
+            }}
+          >
+            <CarouselContent>
+              {images.map((image, index) => (
+                <CarouselItem key={index} className="basis-full">
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="relative aspect-[16/9] w-full cursor-pointer"
+                    onClick={() => openImageModal(index)}
+                  >
+                    <img
+                      src={image.url}
+                      alt={image.alt}
+                      className="w-full h-full object-cover rounded-lg"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/0 to-black/50 rounded-lg opacity-50" />
+                    <div className="absolute bottom-0 left-0 p-4 text-white">
+                      <p className="text-sm">{image.alt}</p>
+                    </div>
+                  </motion.div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="flex justify-center mt-4">
+              <CarouselPrevious className="relative static left-0 translate-y-0 mr-2 bg-white/80 hover:bg-white" />
+              <CarouselNext className="relative static right-0 translate-y-0 ml-2 bg-white/80 hover:bg-white" />
+            </div>
+          </Carousel>
+          
+          {/* Indicators */}
+          <div className="flex justify-center mt-4 gap-2">
+            {images.map((_, index) => (
+              <button
+                key={index}
+                className={`w-2 h-2 rounded-full transition-all ${
+                  activeSlide === index ? "bg-orange-500 w-4" : "bg-gray-300"
+                }`}
+                onClick={() => setActiveSlide(index)}
+              />
+            ))}
+          </div>
+        </div>
+        
+        {/* Thumbnails Row */}
+        <div className="flex justify-center gap-2 overflow-x-auto pb-4 max-w-4xl mx-auto">
           {images.map((image, index) => (
             <div
               key={index}
-              className="relative overflow-hidden group aspect-square cursor-pointer"
-              onClick={() => openImageModal(index)}
+              className={`w-20 h-20 flex-shrink-0 cursor-pointer overflow-hidden rounded-md border-2 transition-all ${
+                activeSlide === index ? "border-orange-500" : "border-transparent"
+              }`}
+              onClick={() => setActiveSlide(index)}
             >
               <img
                 src={image.url}
                 alt={image.alt}
-                className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
+                className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
             </div>
           ))}
         </div>
