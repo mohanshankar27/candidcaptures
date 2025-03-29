@@ -1,4 +1,5 @@
-import { useState, useEffect, lazy, Suspense } from 'react';
+
+import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -12,9 +13,8 @@ import ServicesLoading from '@/components/ServicesLoading';
 import { preloadCriticalImages, deferNonCriticalJS } from '@/utils/performance';
 import { criticalImages } from '@/components/slideshow/serviceImages';
 import PricePackages from '@/components/PricePackages';
-
-const ServiceContent = lazy(() => import('@/components/ServiceContent'));
-const ServicesFAQ = lazy(() => import('@/components/ServicesFAQ'));
+import ServiceContent from '@/components/ServiceContent';
+import ServicesFAQ from '@/components/ServicesFAQ';
 
 const SimpleLoadingState = () => (
   <div className="w-full h-20 flex items-center justify-center">
@@ -128,18 +128,14 @@ const Services = () => {
                   
                   <ResizablePanel defaultSize={75} minSize={60}>
                     <div className="h-full overflow-y-auto px-4">
-                      <Suspense fallback={<SimpleLoadingState />}>
-                        <ServiceContent service={selectedService} />
-                      </Suspense>
+                      {!isLoading && <ServiceContent service={selectedService} />}
                     </div>
                   </ResizablePanel>
                 </ResizablePanelGroup>
               </div>
               
               <div className="md:hidden mt-4 px-4 animate-fade-in">
-                <Suspense fallback={<SimpleLoadingState />}>
-                  <ServiceContent service={selectedService} />
-                </Suspense>
+                {!isLoading && <ServiceContent service={selectedService} />}
               </div>
             </>
           )}
@@ -152,9 +148,7 @@ const Services = () => {
           
           {!isLoading && contentLoaded && (
             <div className="px-4 mt-8 mb-8 animate-fade-in">
-              <Suspense fallback={<SimpleLoadingState />}>
-                <ServicesFAQ />
-              </Suspense>
+              <ServicesFAQ />
             </div>
           )}
         </div>

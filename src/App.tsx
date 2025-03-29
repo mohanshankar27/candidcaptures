@@ -1,16 +1,14 @@
 
-import { lazy, Suspense, useEffect } from 'react'
+import { useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import './App.css'
 import Index from './pages/Index'
 import Services from './pages/Services'
 import Pricing from './pages/Pricing'
+import PackageDetails from './pages/PackageDetails' // Direct import instead of lazy loading
+import AboutUs from './pages/AboutUs' // Direct import instead of lazy loading
 import { initializePerformanceOptimizations } from './utils/performance'
-import GoogleReview from './components/GoogleReview' // Changed from PerformanceMonitor
-
-// Lazy load other routes to improve initial load time
-const PackageDetails = lazy(() => import('./pages/PackageDetails'))
-const AboutUs = lazy(() => import('./pages/AboutUs'))
+import GoogleReview from './components/GoogleReview' 
 
 function App() {
   // Initialize performance optimizations
@@ -39,27 +37,8 @@ function App() {
         <Route path="/" element={<Index />} />
         <Route path="/services" element={<Services />} />
         <Route path="/pricing" element={<Pricing />} />
-        <Route path="/about" element={
-          <Suspense fallback={
-            <div className="flex items-center justify-center h-screen">
-              <div className="w-12 h-12 border-4 border-primary/30 border-t-primary rounded-full animate-spin"></div>
-            </div>
-          }>
-            <AboutUs />
-          </Suspense>
-        } />
-        <Route 
-          path="/packages/:packageId" 
-          element={
-            <Suspense fallback={
-              <div className="flex items-center justify-center h-screen">
-                <div className="w-12 h-12 border-4 border-primary/30 border-t-primary rounded-full animate-spin"></div>
-              </div>
-            }>
-              <PackageDetails />
-            </Suspense>
-          } 
-        />
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="/packages/:packageId" element={<PackageDetails />} />
       </Routes>
       
       {/* Display Google Review component instead of PerformanceMonitor */}

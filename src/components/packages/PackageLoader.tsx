@@ -1,15 +1,15 @@
 
-import React, { lazy, Suspense } from 'react';
+import React from 'react';
 
-// Lazy load package components
-const NewBornPackage = lazy(() => import('@/components/packages/NewBornPackage'));
-const WeddingPackage = lazy(() => import('@/components/packages/WeddingPackage'));
-const FamilyPackage = lazy(() => import('@/components/packages/FamilyPackage'));
-const CorporatePackage = lazy(() => import('@/components/packages/CorporatePackage'));
-const MaternityPackage = lazy(() => import('@/components/packages/MaternityPackage'));
-const MatrimonialPackage = lazy(() => import('@/components/packages/MatrimonialPackage'));
-const ModellingPackage = lazy(() => import('@/components/packages/ModellingPackage'));
-const EventPackage = lazy(() => import('@/components/packages/EventPackage'));
+// Direct imports instead of lazy-loading
+import NewBornPackage from '@/components/packages/NewBornPackage';
+import WeddingPackage from '@/components/packages/WeddingPackage';
+import FamilyPackage from '@/components/packages/FamilyPackage';
+import CorporatePackage from '@/components/packages/CorporatePackage';
+import MaternityPackage from '@/components/packages/MaternityPackage';
+import MatrimonialPackage from '@/components/packages/MatrimonialPackage';
+import ModellingPackage from '@/components/packages/ModellingPackage';
+import EventPackage from '@/components/packages/EventPackage';
 
 interface PackageLoaderProps {
   packageId: string | undefined;
@@ -44,13 +44,9 @@ const PackageLoader: React.FC<PackageLoaderProps> = ({ packageId }) => {
   };
 
   return (
-    <Suspense fallback={
-      <div className="flex items-center justify-center p-12">
-        <div className="w-10 h-10 border-4 border-primary/30 border-t-primary rounded-full animate-spin"></div>
-      </div>
-    }>
+    <>
       {renderPackageComponent()}
-    </Suspense>
+    </>
   );
 };
 
