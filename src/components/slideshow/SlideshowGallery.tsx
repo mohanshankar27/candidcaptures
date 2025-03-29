@@ -27,6 +27,8 @@ const SlideshowGallery = ({ images }: SlideshowGalleryProps) => {
   // State to track which card is flipped
   const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [prevIndex, setPrevIndex] = useState(0);
+  const [direction, setDirection] = useState<'left' | 'right' | null>(null);
   
   useEffect(() => {
     setIsClient(true);
@@ -38,7 +40,12 @@ const SlideshowGallery = ({ images }: SlideshowGalleryProps) => {
     
     // Update active index when carousel scrolls
     const onSelect = () => {
-      if (emblaApi) setActiveIndex(emblaApi.selectedScrollSnap());
+      if (emblaApi) {
+        const current = emblaApi.selectedScrollSnap();
+        setDirection(current > prevIndex ? 'right' : 'left');
+        setPrevIndex(current);
+        setActiveIndex(current);
+      }
     };
     
     if (emblaApi) {
@@ -50,7 +57,7 @@ const SlideshowGallery = ({ images }: SlideshowGalleryProps) => {
       clearInterval(autoplay);
       if (emblaApi) emblaApi.off('select', onSelect);
     };
-  }, [emblaApi]);
+  }, [emblaApi, prevIndex]);
 
   // Handle card flip
   const handleCardFlip = (index: number) => {
@@ -94,8 +101,15 @@ const SlideshowGallery = ({ images }: SlideshowGalleryProps) => {
                       alt={image.alt} 
                       className="w-full h-full object-cover transition-transform duration-7000 group-hover:scale-110"
                       initial={{ scale: 1.05 }}
-                      animate={{ scale: activeIndex === index ? 1 : 1.05 }}
-                      transition={{ duration: 1.5, ease: [0.25, 0.1, 0.25, 1.0] }}
+                      animate={{ 
+                        scale: activeIndex === index ? 1 : 1.05,
+                        x: activeIndex === index ? 0 : (prevIndex === index && direction === 'right' ? '-100%' : 0)
+                      }}
+                      transition={{ 
+                        duration: 1.5, 
+                        ease: [0.25, 0.1, 0.25, 1.0],
+                        x: { duration: 0.8, ease: [0.65, 0, 0.35, 1] }
+                      }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-90"></div>
                     
@@ -104,9 +118,14 @@ const SlideshowGallery = ({ images }: SlideshowGalleryProps) => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ 
                           opacity: activeIndex === index ? 1 : 0.5, 
-                          y: activeIndex === index ? 0 : 10
+                          y: activeIndex === index ? 0 : 10,
+                          x: prevIndex === index && direction === 'right' ? '-120%' : 0
                         }}
-                        transition={{ duration: 0.7, delay: 0.2 }}
+                        transition={{ 
+                          duration: 0.7, 
+                          delay: 0.2,
+                          x: { duration: 0.5, ease: [0.65, 0, 0.35, 1] }
+                        }}
                       >
                         <h3 className="text-2xl font-serif italic font-light mb-2 tracking-wide">{image.alt}</h3>
                         <div className="h-0.5 w-16 bg-orange-400 mb-3"></div>
