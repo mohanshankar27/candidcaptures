@@ -79,11 +79,11 @@ const ModellingPackage: React.FC = () => {
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">MUA/H: additional @ actuals</span>
+                  <span className="text-slate-700">MUA/H: additional</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Stylist: Optional, @ actuals</span>
+                  <span className="text-slate-700">Stylist: Optional</span>
                 </li>
               </ul>
               <div className="mt-4 pt-4 border-t border-slate-100">
@@ -141,7 +141,7 @@ const ModellingPackage: React.FC = () => {
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">MUA/H: optional @actuals</span>
+                  <span className="text-slate-700">MUA/H: optional</span>
                 </li>
               </ul>
               <div className="mt-4 pt-4 border-t border-slate-100">
@@ -197,11 +197,11 @@ const ModellingPackage: React.FC = () => {
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">MUA/H: additional @ actuals</span>
+                  <span className="text-slate-700">MUA/H: additional</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Stylist/Art Direction: Yes, @ actuals</span>
+                  <span className="text-slate-700">Stylist/Art Direction: Yes</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
@@ -210,7 +210,7 @@ const ModellingPackage: React.FC = () => {
               </ul>
               <div className="mt-4 pt-4 border-t border-slate-100">
                 <Button className="w-full bg-[#ea384c] hover:bg-[#ea384c]/90">
-                  Call +91.98861-56696
+                  Call +91.9632288815
                 </Button>
               </div>
             </CardContent>
