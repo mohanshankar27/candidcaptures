@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { motion } from 'framer-motion';
 
 interface GalleryIndicatorsProps {
   images: { url: string; alt: string }[];
@@ -7,21 +8,34 @@ interface GalleryIndicatorsProps {
   setCurrent: (index: number) => void;
 }
 
-const GalleryIndicators = ({ 
-  images, 
-  current, 
-  setCurrent 
+const GalleryIndicators = ({
+  images,
+  current,
+  setCurrent,
 }: GalleryIndicatorsProps) => {
   return (
-    <div className="flex justify-center mt-4 gap-2">
+    <div className="flex justify-center gap-2 mb-6">
       {images.map((_, index) => (
         <button
           key={index}
-          className={`w-2 h-2 rounded-full transition-all ${
-            current === index ? "bg-orange-500 w-4" : "bg-gray-300"
-          }`}
+          className="group focus:outline-none"
           onClick={() => setCurrent(index)}
-        />
+          aria-label={`Go to slide ${index + 1}`}
+        >
+          <div className="relative h-2 w-6 overflow-hidden rounded-full bg-orange-100">
+            <motion.div
+              className="absolute inset-0 origin-left bg-gradient-to-r from-orange-400 to-orange-500"
+              initial={false}
+              animate={{
+                scaleX: current === index ? 1 : 0,
+              }}
+              transition={{
+                duration: 0.6,
+                ease: [0.32, 0.72, 0, 1],
+              }}
+            />
+          </div>
+        </button>
       ))}
     </div>
   );
