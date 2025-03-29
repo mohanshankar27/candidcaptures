@@ -19,11 +19,15 @@ const GalleryAnimationStyles = () => {
         }
         
         .golden-light-effect {
-          background: radial-gradient(circle at center, rgba(251,191,36,0.5) 0%, rgba(251,191,36,0.2) 40%, rgba(251,191,36,0.1) 60%, transparent 80%);
-          filter: blur(20px);
+          box-shadow: 0 0 25px 5px rgba(251,191,36,0.6), 0 0 15px 2px rgba(251,191,36,0.4) inset;
           opacity: 0.8;
-          transform: scale(1.1);
           z-index: 1;
+          animation: pulseGlow 4s ease-in-out infinite;
+        }
+        
+        .golden-border-glow {
+          border: 2px solid rgba(251,191,36,0.2);
+          box-shadow: 0 0 15px rgba(251,191,36,0.5), 0 0 5px rgba(251,191,36,0.3) inset;
           animation: pulseGlow 4s ease-in-out infinite;
         }
         

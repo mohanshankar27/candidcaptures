@@ -64,12 +64,12 @@ const GallerySlide = ({
         className="h-[520px] w-full"
         frontContent={
           <div className="relative w-full h-full overflow-hidden group">
+            {/* Golden border glow effect */}
+            <div className="absolute inset-0 z-20 golden-border-glow rounded-lg"></div>
+            
             {/* Luxury gold border frame */}
             <div className="absolute inset-2 z-20 border-[1px] border-amber-300/40 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             <div className="absolute inset-[7px] z-20 border-[1px] border-amber-400/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100"></div>
-            
-            {/* Golden light effect behind image */}
-            <div className="absolute inset-0 golden-light-effect rounded-lg"></div>
             
             {/* Dynamic light effects */}
             <div className="absolute -inset-full z-10 bg-gradient-to-tr from-amber-300/10 via-white/20 to-amber-300/10 translate-x-[100%] skew-x-12 group-hover:animate-shine"></div>
