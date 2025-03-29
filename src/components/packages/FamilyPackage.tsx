@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -6,7 +5,6 @@ import { Check, X, HelpCircle } from 'lucide-react';
 import BookingCTA from './BookingCTA';
 import PackageImageCarousel from './PackageImageCarousel';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 
 const FamilyPackage: React.FC = () => {
   // Images for the family package carousel
@@ -192,87 +190,64 @@ const FamilyPackage: React.FC = () => {
         </div>
         
         <div className="mt-8">
-          <Collapsible className="w-full">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2 mb-2">
-                <HelpCircle className="h-5 w-5 text-[#ea384c]" />
-                <h3 className="text-lg font-medium text-[#333333]">Frequently Asked Questions</h3>
-              </div>
-              <CollapsibleTrigger className="rounded-full h-6 w-6 bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition-colors">
-                <span className="sr-only">Toggle FAQ</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="collapsible-icon"
-                >
-                  <path d="m18 15-6-6-6 6" />
-                </svg>
-              </CollapsibleTrigger>
-            </div>
-            
-            <CollapsibleContent>
-              <Card className="mt-3 border-primary/10 bg-slate-50/80 shadow-sm">
-                <CardContent className="pt-4 px-4 pb-2">
-                  <Accordion type="single" collapsible className="w-full text-sm">
-                    <AccordionItem value="faq-1" className="border-b border-primary/10">
-                      <AccordionTrigger className="text-left text-sm font-medium py-3 hover:text-primary">
-                        Can I include siblings/myself in the shoot?
-                      </AccordionTrigger>
-                      <AccordionContent className="text-slate-600 text-xs pb-3">
-                        Absolutely yes, in fact we recommend you to. We are more about framing memories and do not restrict the shoots only to the child being photographed, instead we want this to be that your family can remember by and in fact recommend you to be involved in the shoot.
-                      </AccordionContent>
-                    </AccordionItem>
-                    
-                    <AccordionItem value="faq-2" className="border-b border-primary/10">
-                      <AccordionTrigger className="text-left text-sm font-medium py-3 hover:text-primary">
-                        Can I customize my shoot?
-                      </AccordionTrigger>
-                      <AccordionContent className="text-slate-600 text-xs pb-3">
-                        Yes, you can. SIGNATURE & above plans provide you with options to customize. In fact, we use a couple of your suggestions as a starting point to understand your likes and plan the mood board accordingly.
-                      </AccordionContent>
-                    </AccordionItem>
-                    
-                    <AccordionItem value="faq-3" className="border-b border-primary/10">
-                      <AccordionTrigger className="text-left text-sm font-medium py-3 hover:text-primary">
-                        How do I pick costumes / What should I wear for the shoot?
-                      </AccordionTrigger>
-                      <AccordionContent className="text-slate-600 text-xs pb-3">
-                        <p>We keep our shoots simple, and solid colors work best. You can share your wardrobe options over WhatsApp and we can help you with the selection you have confirmed your shoot with us.</p>
-                        <p className="mt-2">Keep your selections simple, stripes and patterns can hide the stomach or distract attention from it. It is safe to stick to solid colors.</p>
-                      </AccordionContent>
-                    </AccordionItem>
-                    
-                    <AccordionItem value="faq-4" className="border-b border-primary/10">
-                      <AccordionTrigger className="text-left text-sm font-medium py-3 hover:text-primary">
-                        Will we get all the photos? Can we get the RAW images?
-                      </AccordionTrigger>
-                      <AccordionContent className="text-slate-600 text-xs pb-3">
-                        <p>The short answer is no. Only the absolute best of the best make it, which will in the end be about 10 – 30 images as per the selected plan.</p>
-                        <p className="mt-2">Additional images beyond the discussed number are available for a small fee. These images will be fully edited, cropped, and prepared for final presentation and in the full resolution (with an embedded color profile, that can printed later on).</p>
-                      </AccordionContent>
-                    </AccordionItem>
-                    
-                    <AccordionItem value="faq-5" className="border-b-0">
-                      <AccordionTrigger className="text-left text-sm font-medium py-3 hover:text-primary">
-                        Can I include Uncles/Aunts/Grand Parents/Cousins etc.?
-                      </AccordionTrigger>
-                      <AccordionContent className="text-slate-600 text-xs pb-3">
-                        <p>Absolutely yes, the shoot is not just for your kid, but for the immediate family.</p>
-                        <p className="mt-2">Please let us know in advance in order to plan the shoot for accommodating your relatives in the shoot (Pricing variations may apply where number of people in the shoot exceeds 8pax).</p>
-                      </AccordionContent>
-                    </AccordionItem>
-                  </Accordion>
-                </CardContent>
-              </Card>
-            </CollapsibleContent>
-          </Collapsible>
+          <div className="flex items-center gap-2 mb-3">
+            <HelpCircle className="h-5 w-5 text-[#ea384c]" />
+            <h3 className="text-lg font-medium text-[#333333]">Frequently Asked Questions</h3>
+          </div>
+          
+          <Card className="mt-3 border-primary/10 bg-slate-50/80 shadow-sm">
+            <CardContent className="pt-4 px-4 pb-2">
+              <Accordion type="single" collapsible className="w-full text-sm">
+                <AccordionItem value="faq-1" className="border-b border-primary/10">
+                  <AccordionTrigger className="text-left text-sm font-medium py-3 hover:text-primary">
+                    Can I include siblings/myself in the shoot?
+                  </AccordionTrigger>
+                  <AccordionContent className="text-slate-600 text-xs pb-3">
+                    Absolutely yes, in fact we recommend you to. We are more about framing memories and do not restrict the shoots only to the child being photographed, instead we want this to be that your family can remember by and in fact recommend you to be involved in the shoot.
+                  </AccordionContent>
+                </AccordionItem>
+                
+                <AccordionItem value="faq-2" className="border-b border-primary/10">
+                  <AccordionTrigger className="text-left text-sm font-medium py-3 hover:text-primary">
+                    Can I customize my shoot?
+                  </AccordionTrigger>
+                  <AccordionContent className="text-slate-600 text-xs pb-3">
+                    Yes, you can. SIGNATURE & above plans provide you with options to customize. In fact, we use a couple of your suggestions as a starting point to understand your likes and plan the mood board accordingly.
+                  </AccordionContent>
+                </AccordionItem>
+                
+                <AccordionItem value="faq-3" className="border-b border-primary/10">
+                  <AccordionTrigger className="text-left text-sm font-medium py-3 hover:text-primary">
+                    How do I pick costumes / What should I wear for the shoot?
+                  </AccordionTrigger>
+                  <AccordionContent className="text-slate-600 text-xs pb-3">
+                    <p>We keep our shoots simple, and solid colors work best. You can share your wardrobe options over WhatsApp and we can help you with the selection you have confirmed your shoot with us.</p>
+                    <p className="mt-2">Keep your selections simple, stripes and patterns can hide the stomach or distract attention from it. It is safe to stick to solid colors.</p>
+                  </AccordionContent>
+                </AccordionItem>
+                
+                <AccordionItem value="faq-4" className="border-b border-primary/10">
+                  <AccordionTrigger className="text-left text-sm font-medium py-3 hover:text-primary">
+                    Will we get all the photos? Can we get the RAW images?
+                  </AccordionTrigger>
+                  <AccordionContent className="text-slate-600 text-xs pb-3">
+                    <p>The short answer is no. Only the absolute best of the best make it, which will in the end be about 10 – 30 images as per the selected plan.</p>
+                    <p className="mt-2">Additional images beyond the discussed number are available for a small fee. These images will be fully edited, cropped, and prepared for final presentation and in the full resolution (with an embedded color profile, that can printed later on).</p>
+                  </AccordionContent>
+                </AccordionItem>
+                
+                <AccordionItem value="faq-5" className="border-b-0">
+                  <AccordionTrigger className="text-left text-sm font-medium py-3 hover:text-primary">
+                    Can I include Uncles/Aunts/Grand Parents/Cousins etc.?
+                  </AccordionTrigger>
+                  <AccordionContent className="text-slate-600 text-xs pb-3">
+                    <p>Absolutely yes, the shoot is not just for your kid, but for the immediate family.</p>
+                    <p className="mt-2">Please let us know in advance in order to plan the shoot for accommodating your relatives in the shoot (Pricing variations may apply where number of people in the shoot exceeds 8pax).</p>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            </CardContent>
+          </Card>
         </div>
 
         <BookingCTA 
