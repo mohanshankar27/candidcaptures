@@ -7,7 +7,7 @@ const serviceImages: Record<string, string> = {
   'E-Commerce & Catalogues': "/lovable-uploads/3346c7fa-c327-4873-a6e2-35da082a7f6e.png",
   'Event Photography': "/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png",
   'Family Portraits': "/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png",
-  'Fashion Photography': "/lovable-uploads/38c938f6-27b6-4b7c-80c8-02a42c8cf9d3.png", // Updated to show the new fitness fashion image
+  'Fashion Photography': "/lovable-uploads/92b87e5e-0ec2-44ab-8160-c7335b0d66a0.png", // Updated to show the burgundy background model
   'Food Photography': "/lovable-uploads/615d3ac6-4345-48d6-9ed9-b794c68b0307.png",
   'Makeup shoot': "/lovable-uploads/e612e8f7-3f32-4c0d-a920-b83e95752820.png",
   'Maternity Photography': "/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png",
