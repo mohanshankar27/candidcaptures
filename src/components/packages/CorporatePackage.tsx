@@ -16,14 +16,6 @@ const CorporatePackage: React.FC = () => {
     '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png'
   ];
   
-  // Define separate gallery images to avoid repetition
-  const galleryImages = [
-    'https://images.unsplash.com/photo-1559523161-0fc0d8b38a7a?auto=format&fit=crop&q=80',
-    'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80',
-    'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80',
-    'https://images.unsplash.com/photo-1573497019236-61f323342eb3?auto=format&fit=crop&q=80'
-  ];
-
   return (
     <div className="package-details bg-white">
       {/* Hero section with premium styling */}
@@ -63,7 +55,7 @@ const CorporatePackage: React.FC = () => {
                 <Star className="h-5 w-5 text-[#ea384c]" />
               </div>
               <h4 className="text-2xl uppercase font-bold tracking-wide text-slate-800 mb-2">Basic</h4>
-              <p className="text-sm uppercase tracking-wider font-medium text-slate-600">Headshots for Professionals</p>
+              <p className="text-sm uppercase tracking-wider font-medium text-slate-600">HEADSHOTS FOR PROFESSIONALS</p>
               
               <div className="mt-6 space-y-3">
                 <div className="flex flex-col items-center">
@@ -116,7 +108,7 @@ const CorporatePackage: React.FC = () => {
                 <Crown className="h-6 w-6 text-[#ea384c]" />
               </div>
               <h4 className="text-2xl uppercase font-bold tracking-wide text-slate-800 mb-2">Standard</h4>
-              <p className="text-sm uppercase tracking-wider font-medium text-slate-600">Executive Headshot Session</p>
+              <p className="text-sm uppercase tracking-wider font-medium text-slate-600">EXECUTIVE HEADSHOT SESSION</p>
               
               <div className="mt-6 space-y-3">
                 <div className="flex flex-col items-center">
@@ -183,14 +175,14 @@ const CorporatePackage: React.FC = () => {
                 <Sparkles className="h-5 w-5 text-[#ea384c]" />
               </div>
               <h4 className="text-2xl uppercase font-bold tracking-wide text-slate-800 mb-2">Signature</h4>
-              <p className="text-sm uppercase tracking-wider font-medium text-slate-600">Customised Shoots for Organisations</p>
+              <p className="text-sm uppercase tracking-wider font-medium text-slate-600">CUSTOMISED SHOOTS FOR ORGANISATIONS</p>
               
               <div className="mt-6">
                 <div className="bg-gradient-to-r from-[#f5f7fa] to-[#c3cfe2] p-6 rounded-lg shadow-sm">
-                  <div className="text-xl font-bold text-slate-800">Custom Pricing</div>
+                  <div className="text-xl font-bold text-slate-800">Starts</div>
                   <div className="flex items-center justify-center gap-2 mt-2">
                     <span className="text-3xl font-bold text-[#ea384c]">₹12,000</span>
-                    <span className="text-sm text-slate-500">+GST onwards</span>
+                    <span className="text-sm text-slate-500">+GST</span>
                   </div>
                 </div>
               </div>
@@ -244,20 +236,87 @@ const CorporatePackage: React.FC = () => {
         
         <Separator className="my-16" />
         
-        {/* Photo Gallery Section with enhanced styling */}
+        {/* Frequently Asked Questions Section */}
         <div className="mt-12">
-          <h3 className="text-3xl font-bold mb-10 text-center text-[#1A1F2C]">Sample Corporate Headshots</h3>
+          <h3 className="text-3xl font-bold mb-10 text-center text-[#1A1F2C]">Frequently Asked Questions</h3>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-8">
-            {galleryImages.map((image, index) => (
-              <div key={index} className="overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-all duration-300 group">
-                <img 
-                  src={image} 
-                  alt={`Corporate Headshot Sample ${index + 1}`} 
-                  className="w-full h-64 md:h-72 object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-            ))}
+          <div className="space-y-8 max-w-4xl mx-auto">
+            <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-all">
+              <h4 className="text-xl font-bold mb-4 text-[#1A1F2C]">Posing for Corporate Headshots</h4>
+              <p className="text-slate-700 mb-3">
+                We making posing super simple, we do try to make you feel comfortable and get to know you and what you do before we click any picture.
+              </p>
+              <p className="text-slate-700 mb-3">
+                Our approach to portraits is retaining elements of who you are and how your peers/subordinates see you (OR how you want to be viewed as by your clients, bosses, employees etc)
+              </p>
+              <p className="text-slate-700">
+                We do shoot every pose with several subtle variations which you can not just use a s Social media profile picture on LinkedIn but also to use on meeting apps for calls on Zoom, Teams etc.
+              </p>
+            </div>
+            
+            <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-all">
+              <h4 className="text-xl font-bold mb-4 text-[#1A1F2C]">Styling for Corporate Headshots</h4>
+              <p className="text-slate-700 mb-3">
+                We keep styling natural & minimalistic and include it as a variation only if your profession/role calls for it.
+              </p>
+              <p className="text-slate-700">
+                Do take some time to discuss your role/profession with us (WhatsApp preferred, as it allows us to respond during micro breaks in our shoots. We will call back/schedule a call if we feel discussing over a call would be faster).
+              </p>
+            </div>
+            
+            <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-all">
+              <h4 className="text-xl font-bold mb-4 text-[#1A1F2C]">Retouching / Editing</h4>
+              <p className="text-slate-700 mb-3">
+                We take the extra effort to keep pictures as natural as possible. In fact our colour calibrated workflow ensues super accurate colours and skin tones.
+              </p>
+              <p className="text-slate-700 mb-3">
+                Most of our tricks is with how we use our extended collection of light modifiers at our studio (for example: soft light instead of smoothening the skin).
+                We balance your skin tone with a suitable brightness level/colour for the background such that the need for modifying the skin tones is eliminated.
+              </p>
+              <p className="text-slate-700 mb-3">
+                We believe authenticity and a sense of realness has the maximum impact for Professional/Corporate Portraits.
+              </p>
+              <p className="text-slate-700 mb-3">
+                Our editing is mostly limited to removing blemishes (pimples, stray hairs, specks of dust/fibres on clothing etc) without giving an appearance of the image being edited.
+              </p>
+              <p className="text-slate-700">
+                Don't believe what we say/unsure. Do take some time to view our extensive portfolio of Corporate Headshots (several of which have now appeared in print and other media)
+              </p>
+            </div>
+            
+            <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-all">
+              <h4 className="text-xl font-bold mb-4 text-[#1A1F2C]">Costume Rentals, What to wear etc...</h4>
+              <ul className="list-disc pl-5 space-y-2 text-slate-700">
+                <li>Corporate Headshots is about perfection and suits fit best when tailor made by a master for your fitting. Hence we do not stock business attire for Corporate Headshots.</li>
+                <li>We do have smaller props like a good pen, squares and a few neckties, but we do recommend that you carry your own attire and props to maintain a look that is unique to you.</li>
+                <li>Small imperfections in your attire are OK, we can usually clone the area from a clear spot while maintaining an unedited look.</li>
+                <li>For choice of colours, do give us a call/message us over WhatsApp. Selection of colours, attire and some profession related props are dependent on your profession and your role. (for example: we avoid using a Stethoscope while shooting a surgeon/Orthopaedist, while it is perfect for a physician)</li>
+                <li>Some colours like red could suggest aggressiveness, and hence it is better you do discuss with us when in doubt.</li>
+              </ul>
+            </div>
+            
+            <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-all">
+              <h4 className="text-xl font-bold mb-4 text-[#1A1F2C]">Tie / Knot - How to Videos</h4>
+              <ul className="list-disc pl-5 space-y-2 text-slate-700">
+                <li>
+                  <a href="https://www.youtube.com/watch?v=flONEDCEGNQ" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                    https://www.youtube.com/watch?v=flONEDCEGNQ
+                  </a>
+                  <span className="text-slate-500 ml-2">(Shot through Mirror / May be easier for some)</span>
+                </li>
+                <li>
+                  <a href="https://www.youtube.com/watch?v=7AbCQghx0R0" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                    https://www.youtube.com/watch?v=7AbCQghx0R0
+                  </a>
+                  <span className="text-slate-500 ml-2">(Shot through Mirror / May be easier for some)</span>
+                </li>
+                <li>
+                  <a href="https://www.youtube.com/watch?v=7AbCQghx0R0&list=RDCMUCzmT0dA02GW90IvIQsJaCXQ&start_radio=1&rv=7AbCQghx0R0&t=8" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                    https://www.youtube.com/watch?v=7AbCQghx0R0&list=RDCMUCzmT0dA02GW90IvIQsJaCXQ&start_radio=1&rv=7AbCQghx0R0&t=8
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
         
