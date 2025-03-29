@@ -1,13 +1,14 @@
+
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { galleryImages } from './gallery/GalleryData';
 import BackgroundDecorators from './slideshow/BackgroundDecorators';
 import GalleryHeader from './gallery/GalleryHeader';
 import GallerySlider from './gallery/GallerySlider';
-import GalleryThumbnails from './gallery/GalleryThumbnails';
 import GalleryIndicators from './gallery/GalleryIndicators';
 import ImageModal from './gallery/ImageModal';
 import StyleProvider from './gallery/StyleProvider';
+import PremiumGalleryEffects from './gallery/PremiumGalleryEffects';
 
 const Gallery = () => {
   const [current, setCurrent] = useState(0);
@@ -46,6 +47,7 @@ const Gallery = () => {
   return (
     <section id="gallery" className="py-24 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
       <BackgroundDecorators />
+      <PremiumGalleryEffects />
       
       <div className="container mx-auto px-4 relative z-10">
         <GalleryHeader />
@@ -72,18 +74,6 @@ const Gallery = () => {
               current={current}
               setCurrent={setCurrent}
             />
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.5 }}
-            >
-              <GalleryThumbnails 
-                images={galleryImages}
-                current={current}
-                setCurrent={setCurrent}
-              />
-            </motion.div>
           </div>
         </div>
 
