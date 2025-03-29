@@ -2,8 +2,9 @@
 import React from 'react';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Check } from 'lucide-react';
+import { Check, Info } from 'lucide-react';
 import BookingCTA from './BookingCTA';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 const ModellingPackage: React.FC = () => {
   return (
@@ -223,15 +224,70 @@ const ModellingPackage: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-6">
-          <h3 className="text-lg font-medium mb-3 text-[#333333]">Important Information</h3>
-          <ul className="list-disc pl-5 space-y-2 text-slate-600">
-            <li>A 50% deposit is required to secure your booking</li>
-            <li>Rescheduling is possible with at least 48 hours notice</li>
-            <li>We can provide recommendations for hair stylists, makeup artists, and wardrobe stylists</li>
-            <li>Travel fees may apply for locations outside Bangalore city limits</li>
-            <li>Customized packages available upon request</li>
-          </ul>
+        <div className="mt-8">
+          <h3 className="text-lg font-medium mb-4 text-[#333333]">Modelling FAQ's</h3>
+          
+          <Accordion type="single" collapsible className="w-full">
+            <AccordionItem value="do-dont">
+              <AccordionTrigger className="text-[#333333] font-medium">Do's & Don'ts before your Portfolio Shoot</AccordionTrigger>
+              <AccordionContent>
+                <ul className="space-y-2 text-slate-600 pl-2">
+                  <li>• A portfolio is valid until it is a close representation of your current look, hence plan any makeovers before your Portfolio Shoot</li>
+                  <li>• Sleep, get enough sleep in the days prior to any shoot (an extra hour of nap during the day / night's sleep should do)</li>
+                  <li>• Work with your photographer or team (MUAH, Stylist etc) to decide on the looks that suit you well</li>
+                  <li>• Chill !! Be Relaxed, Have fun during your shoot. (NOT A PARTY PLEASE)</li>
+                </ul>
+              </AccordionContent>
+            </AccordionItem>
+            
+            <AccordionItem value="how-to-become">
+              <AccordionTrigger className="text-[#333333] font-medium">How to become a Model in India?</AccordionTrigger>
+              <AccordionContent>
+                <ul className="space-y-2 text-slate-600 pl-2">
+                  <li>• A Portfolio is your degree/certificate that showcases your abilities in modelling/acting abilities and forms the basis for your entry into the world of modelling/acting</li>
+                  <li>• Its a myth only the fit/young can get into modelling, in fact people of any age/build etc can get into modelling. You just need to be realistic about the genre/roles that you can get into</li>
+                  <li>• Work with a good photographer on creating a good portfolio that showcases your characteristics (Ex. facial structures, expressions, height, build etc)</li>
+                  <li>• Remember it is you who has to stand out in your portfolio (and not the location/surroundings)</li>
+                  <li>• An exception to the above point is how well you can carry off products, hence you can work with stylists/art directors during the time of updating your portfolio</li>
+                  <li>• The portfolio forms the basis on which you can then reach out to Casting Agencies/Directors</li>
+                  <li>• For better opportunities it is also essential to have a short video showcasing your posing/modelling abilities (a showreel for actors)</li>
+                  <li>• Casting Agencies expect your portfolio to be realistic to your real/actual/current look(s)</li>
+                  <li>• You can then register on portfolio website(s) where you can upload photos from your portfolio</li>
+                </ul>
+              </AccordionContent>
+            </AccordionItem>
+            
+            <AccordionItem value="what-to-do-after">
+              <AccordionTrigger className="text-[#333333] font-medium">What to do after a Portfolio Shoot?</AccordionTrigger>
+              <AccordionContent>
+                <ul className="space-y-2 text-slate-600 pl-2">
+                  <li>• Ensure that you have an exceptionally good Portfolio and realistic (Ex. Avoid images with unrealistic body shaping, skin colour changes etc.)</li>
+                  <li>• Work on your grooming, Modelling is all about how you carry yourself apart from your looks</li>
+                  <li>• Good grooming helps you make an impactful first impression during auditions</li>
+                  <li>• Share your Portfolio with Agencies (look for ones that provide you with good grooming support, or join a grooming course)</li>
+                  <li>• Continuously evaluate yourself (in terms of your portfolio & grooming) until you start getting selected at auditions / projects</li>
+                  <li>• Give time, keep trying (do have a parallel profession to sustain you during the initial parts of your career)</li>
+                  <li>• Meet the right people, network!! Be Professional, expect professionalism</li>
+                  <li>• It is quite common to run into people who just boast about their credentials/connections. Always be realistic about what is being promised. Ex. Anyone asking for a payment/favour in return for being selected in an audition is a serious red-flag. Stay away from such people</li>
+                </ul>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+          
+          <div className="bg-blue-50 border border-blue-100 rounded-lg p-5 mt-6">
+            <div className="flex items-start gap-3">
+              <Info className="h-5 w-5 text-blue-500 mt-0.5 shrink-0" />
+              <div>
+                <h4 className="text-blue-700 font-medium mb-2">Note:</h4>
+                <ul className="space-y-2 text-blue-700">
+                  <li>• A portfolio is valid until it is a close representation of your current look (say almost a year, more if you have maintained your current look)</li>
+                  <li>• An exception is when you change your look (cut your hair, gain/lose weight abs etc), in which case it could as as short as a few weeks/days</li>
+                  <li>• Remember to have any makeovers before your Portfolio Shoot</li>
+                  <li>• Additionally, you may choose to upgrade your portfolio to better showcase your modelling abilities (in posing etc., you may be able to additionally add select photographs from recent shoots for a short while)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
 
         <BookingCTA 
