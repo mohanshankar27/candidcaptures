@@ -10,14 +10,14 @@ const BackgroundDecorators = () => {
     <motion.div 
       className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none"
       initial={{ opacity: 0 }}
-      animate={{ opacity: 0.3 }}
-      transition={{ duration: 2, ease: "easeOut", delay: 0.5 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 2.5, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
     >
-      {/* Visual elements, grouped by type with middle highlight */}
-      <GlowElements />
-      <DecorativeElements />
+      {/* Premium visual layers, stacked for depth and richness */}
       <ShimmerEffects />
+      <GlowElements />
       <LightRays />
+      <DecorativeElements />
     </motion.div>
   );
 };
