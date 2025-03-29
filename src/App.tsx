@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import Services from "./pages/Services";
 import PackageDetails from "./pages/PackageDetails";
 import Pricing from "./pages/Pricing";
+import About from "./pages/About";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +24,7 @@ const App = () => (
             <Route path="/services" element={<Services />} />
             <Route path="/packages/:packageId" element={<PackageDetails />} />
             <Route path="/pricing" element={<Pricing />} />
+            <Route path="/about" element={<About />} />
             {/* Add a catch-all route that redirects to home */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
