@@ -1,8 +1,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { useLocation } from 'react-router-dom';
 
@@ -68,24 +67,6 @@ const ServiceImageCarousel: React.FC<ServiceImageCarouselProps> = ({
                       />
                     </motion.div>
                   </div>
-                  <CardContent className="p-4 bg-white">
-                    <div className="flex flex-col items-center justify-center">
-                      <h3 className="text-primary font-serif italic text-xl font-medium mb-2 text-center">
-                        {service.name}
-                      </h3>
-                      <motion.div 
-                        className="h-0.5 w-12 bg-gradient-to-r from-orange-400 to-orange-300 mb-2"
-                        whileHover={{ width: "4rem" }}
-                      ></motion.div>
-                      <Button 
-                        variant="ghost" 
-                        size="sm" 
-                        className="text-xs text-primary/70 font-medium hover:text-primary transition-colors"
-                      >
-                        View Details
-                      </Button>
-                    </div>
-                  </CardContent>
                 </Card>
               </motion.div>
             </CarouselItem>
