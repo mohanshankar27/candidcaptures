@@ -34,11 +34,17 @@ const allAvailableImages = [
   '/lovable-uploads/6401c725-7910-476d-b26c-898ff561ccaf.png',
   '/lovable-uploads/507c487a-ec87-4401-ace4-4b27d7bcd2e0.png',
   '/lovable-uploads/fb019637-e8cb-4a43-9303-075fd194e2b8.png',
-  '/lovable-uploads/0abd204c-da72-4a05-87ae-39929aeedd9f.png' // Changed from 0da1d025 to 0abd204c
+  '/lovable-uploads/0abd204c-da72-4a05-87ae-39929aeedd9f.png',
+  // New Fashion Photography images
+  '/lovable-uploads/ab48c040-6ad9-45cd-8b7d-be0c150875cd.png',
+  '/lovable-uploads/deee8e40-73dc-4f50-8215-88b2687d1ba5.png',
+  '/lovable-uploads/50326e42-24cd-4824-8449-392b7a085694.png',
+  '/lovable-uploads/876ea58e-ceff-4b81-b3d1-76c1e3edd218.png',
+  '/lovable-uploads/2a12cbb2-c275-45ef-9e87-97f981e05c17.png',
+  '/lovable-uploads/e56c6d5d-e420-4d17-87f8-038d765ac926.png'
 ];
 
 // Map of service names to 6 unique images per service using indices from allAvailableImages
-// Each service gets a unique set of 6 images with no repetition across services
 const serviceImageIndices = {
   'Artists / Celebrities': [0, 1, 2, 3, 4, 5],
   'Concept shoot': [16, 17, 18, 19, 20, 15], // Updated to use the new concept shoot images
@@ -46,7 +52,7 @@ const serviceImageIndices = {
   'E-Commerce & Catalogues': [15, 10, 11, 13, 0, 1],
   'Event Photography': [2, 3, 4, 5, 6, 7],
   'Family Portraits': [8, 9, 10, 11, 12, 13],
-  'Fashion Photography': [0, 2, 4, 6, 8, 10],
+  'Fashion Photography': [21, 22, 23, 24, 25, 26], // Updated to use new fashion photography images
   'Food Photography': [1, 3, 5, 7, 9, 11],
   'Makeup shoot': [12, 0, 2, 4, 6, 8],
   'Maternity Photography': [13, 1, 3, 5, 7, 9],
@@ -71,7 +77,26 @@ const serviceImages = Object.entries(serviceImageIndices).reduce((acc, [serviceN
 const ServiceContent: React.FC<ServiceContentProps> = ({ service }) => {
   const isWeddingService = service.name === 'Wedding Photography';
   const isEventService = service.name === 'Event Photography';
-  const serviceImageArray = serviceImages[service.name] || Array(6).fill(getServiceImage('Concept shoot'));
+  const isFashionService = service.name === 'Fashion Photography';
+  
+  // For Fashion Photography, use the specific new images
+  const fashionImages = [
+    '/lovable-uploads/ab48c040-6ad9-45cd-8b7d-be0c150875cd.png',
+    '/lovable-uploads/deee8e40-73dc-4f50-8215-88b2687d1ba5.png',
+    '/lovable-uploads/50326e42-24cd-4824-8449-392b7a085694.png',
+    '/lovable-uploads/876ea58e-ceff-4b81-b3d1-76c1e3edd218.png',
+    '/lovable-uploads/2a12cbb2-c275-45ef-9e87-97f981e05c17.png',
+    '/lovable-uploads/e56c6d5d-e420-4d17-87f8-038d765ac926.png',
+    '/lovable-uploads/9a3d5161-152d-4b5b-a404-5cae5044c90c.png',
+    '/lovable-uploads/99b9a2ab-77b4-433f-8283-eeb5360baf22.png'
+  ];
+  
+  let serviceImageArray = serviceImages[service.name] || Array(6).fill(getServiceImage('Concept shoot'));
+  
+  // Override with specific fashion images if it's the fashion photography service
+  if (isFashionService) {
+    serviceImageArray = fashionImages;
+  }
   
   if (service.external) {
     return (
