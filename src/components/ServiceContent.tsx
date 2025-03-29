@@ -29,12 +29,12 @@ const allAvailableImages = [
   '/lovable-uploads/615d3ac6-4345-48d6-9ed9-b794c68b0307.png',
   '/lovable-uploads/5faf55b4-c582-4816-aa3b-99e8faa9a73d.png',
   '/lovable-uploads/3346c7fa-c327-4873-a6e2-35da082a7f6e.png',
-  // Adding the new concept shoot images
-  '/lovable-uploads/0da1d025-7654-4fe8-928f-c4b58b4f6a2c.png',
+  // Updated concept shoot images
+  '/lovable-uploads/4a67f538-ecc9-41af-87e5-08ddea7ba4f6.png',
   '/lovable-uploads/6401c725-7910-476d-b26c-898ff561ccaf.png',
   '/lovable-uploads/507c487a-ec87-4401-ace4-4b27d7bcd2e0.png',
   '/lovable-uploads/fb019637-e8cb-4a43-9303-075fd194e2b8.png',
-  '/lovable-uploads/4a67f538-ecc9-41af-87e5-08ddea7ba4f6.png'
+  '/lovable-uploads/0abd204c-da72-4a05-87ae-39929aeedd9f.png' // Changed from 0da1d025 to 0abd204c
 ];
 
 // Map of service names to 6 unique images per service using indices from allAvailableImages

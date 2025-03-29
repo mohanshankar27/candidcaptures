@@ -18,11 +18,13 @@ const GalleryImage = ({ url, alt, index, onClick }: GalleryImageProps) => {
       className="relative w-full cursor-pointer"
       onClick={() => onClick(index)}
     >
-      <img
-        src={url}
-        alt={alt}
-        className="w-full h-auto object-contain rounded-lg"
-      />
+      <div className="overflow-hidden rounded-lg">
+        <img
+          src={url}
+          alt={alt}
+          className="w-full h-auto object-cover rounded-lg"
+        />
+      </div>
       <div className="absolute inset-0 bg-gradient-to-b from-black/0 to-black/50 rounded-lg opacity-50" />
       <div className="absolute bottom-0 left-0 p-4 text-white">
         <p className="text-sm">{alt}</p>

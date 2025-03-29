@@ -23,8 +23,7 @@ const weddingPhotos = [
   "/lovable-uploads/932908b8-c3eb-4a8c-b97a-7948d2de4bce.png",
   "/lovable-uploads/1e8e3b73-0675-48f7-a578-9f204a21062c.png",
   "/lovable-uploads/f981f530-98b4-46e6-8063-68406ae598e1.png",
-  "/lovable-uploads/a6d35b17-76d1-4a77-89b4-5760943e213b.png",
-  "/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png" // Adding an extra one to make 15
+  "/lovable-uploads/a6d35b17-76d1-4a77-89b4-5760943e213b.png"
 ];
 
 interface WeddingSlideshowProps {
@@ -56,11 +55,11 @@ const WeddingSlideshow = ({ autoplay = true, interval = 5000 }: WeddingSlideshow
           {weddingPhotos.map((photo, index) => (
             <CarouselItem key={index}>
               <div className="p-1">
-                <div className="overflow-hidden rounded-lg bg-muted">
+                <div className="overflow-hidden rounded-lg">
                   <img 
                     src={photo} 
                     alt={`Wedding photo ${index + 1}`} 
-                    className="w-full h-auto object-contain transition-transform duration-500 hover:scale-105"
+                    className="w-full object-cover aspect-[4/3] transition-transform duration-500 hover:scale-105"
                   />
                 </div>
               </div>

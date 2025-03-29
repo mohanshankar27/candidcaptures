@@ -1,7 +1,7 @@
 
 // Map service names to appropriate images 
 const serviceImages: Record<string, string> = {
-  'Concept shoot': "/lovable-uploads/0da1d025-7654-4fe8-928f-c4b58b4f6a2c.png", // Updated to the new concept shoot image
+  'Concept shoot': "/lovable-uploads/4a67f538-ecc9-41af-87e5-08ddea7ba4f6.png", // Updated to a different concept shoot image
   'Corporate & Short Videos': "/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png",
   'Corporate Headshots': "/lovable-uploads/53584cdb-e83c-4e6f-8b99-37ba6c8fc6b8.png",
   'E-Commerce & Catalogues': "/lovable-uploads/3346c7fa-c327-4873-a6e2-35da082a7f6e.png",
