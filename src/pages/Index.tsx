@@ -8,7 +8,7 @@ import { preloadCriticalImages, deferNonCriticalJS } from '@/utils/performance';
 import { criticalImages } from '@/components/slideshow/serviceImages';
 import PhotoSlideshow from '@/components/PhotoSlideshow'; // Direct import instead of lazy loading
 
-// Lazily load non-critical components, but not PhotoSlideshow which was causing issues
+// Lazily load non-critical components
 const About = lazy(() => import('@/components/About'));
 const Contact = lazy(() => import('@/components/Contact'));
 

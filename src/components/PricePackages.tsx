@@ -1,17 +1,10 @@
-import React, { lazy, Suspense, useState, useRef, useEffect } from 'react';
+
+import React, { useState } from 'react';
 import { Separator } from '@/components/ui/separator';
 import { useNavigate } from 'react-router-dom';
 import { Package, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { 
-  Carousel, 
-  CarouselContent, 
-  CarouselItem, 
-  CarouselPrevious, 
-  CarouselNext 
-} from '@/components/ui/carousel';
 import PackageHeader from './packages/PackageHeader';
-import useEmblaCarousel from 'embla-carousel-react';
 
 interface PricePackageItem {
   title: string;
@@ -62,78 +55,15 @@ const pricePackages: PricePackageItem[] = [
   },
 ];
 
-const packageImages = [
-  '/lovable-uploads/a97ae0b1-6394-488d-a9f4-d17321650970.png',
-  '/lovable-uploads/e330db14-6a26-4ead-b79f-e9aed137fc84.png',
-  '/lovable-uploads/1f924edb-9819-4bbc-91ac-8bdb224ff48e.png',
-  '/lovable-uploads/28516f95-c696-478a-a1ca-2643222d0648.png',
-  '/lovable-uploads/615d3ac6-4345-48d6-9ed9-b794c68b0307.png'
-];
-
+// Simplified component without carousel
 const PricePackages: React.FC = () => {
   const navigate = useNavigate();
-  const [imagesLoaded, setImagesLoaded] = useState<boolean[]>([]);
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
-  const autoplayIntervalRef = useRef<NodeJS.Timeout | null>(null);
-  const autoplayInterval = 3000; // 3 seconds
-
-  React.useEffect(() => {
-    setImagesLoaded(new Array(packageImages.length).fill(false));
-  }, []);
-
-  useEffect(() => {
-    if (emblaApi && autoplayInterval > 0) {
-      const startAutoplay = () => {
-        stopAutoplay();
-        autoplayIntervalRef.current = setInterval(() => {
-          if (emblaApi.canScrollNext()) {
-            emblaApi.scrollNext();
-          } else {
-            emblaApi.scrollTo(0);
-          }
-        }, autoplayInterval);
-      };
-
-      const stopAutoplay = () => {
-        if (autoplayIntervalRef.current) {
-          clearInterval(autoplayIntervalRef.current);
-        }
-      };
-
-      startAutoplay();
-
-      const handlePointerEnter = () => stopAutoplay();
-      const handlePointerLeave = () => startAutoplay();
-      
-      const rootNode = emblaApi.rootNode();
-      if (rootNode) {
-        rootNode.addEventListener('pointerenter', handlePointerEnter);
-        rootNode.addEventListener('pointerleave', handlePointerLeave);
-      }
-
-      return () => {
-        stopAutoplay();
-        if (rootNode) {
-          rootNode.removeEventListener('pointerenter', handlePointerEnter);
-          rootNode.removeEventListener('pointerleave', handlePointerLeave);
-        }
-      };
-    }
-  }, [emblaApi, autoplayInterval]);
 
   const handlePackageClick = (pkg: PricePackageItem) => {
     navigate(`/packages/${pkg.id}`);
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
-    });
-  };
-
-  const handleImageLoad = (index: number) => {
-    setImagesLoaded(prev => {
-      const newState = [...prev];
-      newState[index] = true;
-      return newState;
     });
   };
 
@@ -147,41 +77,18 @@ const PricePackages: React.FC = () => {
           Click on any package to view detailed pricing and what's included.
         </p>
         
-        <div className="mb-8 relative overflow-hidden rounded-xl">
-          <div ref={emblaRef} className="overflow-hidden">
-            <Carousel 
-              className="w-full" 
-              opts={{ 
-                loop: true,
-                align: "start"
-              }}
-            >
-              <CarouselContent>
-                {packageImages.map((image, index) => (
-                  <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                    <div className="p-1">
-                      <div className="overflow-hidden rounded-xl h-52 md:h-64 lg:h-72 shadow-md border border-orange-100 bg-slate-50">
-                        <img 
-                          src={image} 
-                          alt={`Package preview ${index + 1}`}
-                          loading={index < 2 ? "eager" : "lazy"}
-                          decoding={index < 2 ? "sync" : "async"}
-                          onLoad={() => handleImageLoad(index)}
-                          className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
-                          width="400"
-                          height="300"
-                        />
-                      </div>
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <div className="flex justify-center mt-4 gap-4">
-                <CarouselPrevious className="relative inset-0 translate-y-0 bg-orange-100 hover:bg-orange-200 text-orange-600 border-orange-200" />
-                <CarouselNext className="relative inset-0 translate-y-0 bg-orange-100 hover:bg-orange-200 text-orange-600 border-orange-200" />
-              </div>
-            </Carousel>
-          </div>
+        {/* Simple image display instead of carousel */}
+        <div className="mb-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {[1, 2, 3].map((index) => (
+            <div key={index} className="overflow-hidden rounded-xl h-52 md:h-64 lg:h-60 shadow-md border border-orange-100 bg-slate-50">
+              <img 
+                src={`/lovable-uploads/${['a97ae0b1-6394-488d-a9f4-d17321650970.png', 'e330db14-6a26-4ead-b79f-e9aed137fc84.png', '1f924edb-9819-4bbc-91ac-8bdb224ff48e.png'][index - 1]}`}
+                alt={`Package preview ${index}`}
+                loading="lazy"
+                className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+              />
+            </div>
+          ))}
         </div>
         
         <div className="grid md:grid-cols-2 gap-4">

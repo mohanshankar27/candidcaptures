@@ -12,9 +12,10 @@ import { Button } from '@/components/ui/button';
 import ServicesLoading from '@/components/ServicesLoading';
 import { preloadCriticalImages, deferNonCriticalJS } from '@/utils/performance';
 import { criticalImages } from '@/components/slideshow/serviceImages';
+import PricePackages from '@/components/PricePackages'; // Direct import instead of lazy loading
 
+// Only lazy load these components
 const ServiceContent = lazy(() => import('@/components/ServiceContent'));
-const PricePackages = lazy(() => import('@/components/PricePackages'));
 const ServicesFAQ = lazy(() => import('@/components/ServicesFAQ'));
 
 const SimpleLoadingState = () => (
@@ -147,9 +148,8 @@ const Services = () => {
           
           {!isLoading && contentLoaded && (
             <div className="px-4 mt-8 animate-fade-in">
-              <Suspense fallback={<SimpleLoadingState />}>
-                <PricePackages />
-              </Suspense>
+              {/* Use the direct import with no Suspense needed */}
+              <PricePackages />
             </div>
           )}
           
