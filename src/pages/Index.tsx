@@ -4,9 +4,9 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
-import { preloadCriticalImages, deferNonCriticalJS } from '@/utils/performance'; // Updated import
+import { preloadCriticalImages, deferNonCriticalJS } from '@/utils/performance';
 import { criticalImages } from '@/components/slideshow/serviceImages';
-import PhotoSlideshow from '@/components/PhotoSlideshow'; // Import directly instead of lazy loading
+import PhotoSlideshow from '@/components/PhotoSlideshow'; // Direct import instead of lazy loading
 
 // Lazily load non-critical components, but not PhotoSlideshow which was causing issues
 const ServiceSlider = lazy(() => import('@/components/ServiceSlider'));
