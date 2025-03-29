@@ -132,7 +132,7 @@ const FamilyPackage: React.FC = () => {
               <CardTitle className="text-primary text-xl">SIGNATURE</CardTitle>
               <CardDescription className="text-slate-600 pt-1">Fully customised</CardDescription>
               <div className="mt-4 mb-1">
-                <span className="text-3xl font-light text-[#ea384c]">₹14,550</span>
+                <span className="text-3xl font-light text-[#ea384c]">₹15,550</span>
                 <span className="text-slate-600 text-sm ml-1">+gst</span>
               </div>
             </CardHeader>
