@@ -31,11 +31,21 @@ const SlideshowHeader = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 1.2, delay: 0.3 }}
             className="inline-block relative"
+            style={{ perspective: '1000px', transformStyle: 'preserve-3d' }}
           >
             <motion.span 
-              className="relative z-10"
-              animate={{ rotateX: [0, 5, 0] }}
-              transition={{ duration: 6, repeat: Infinity, repeatType: "reverse" }}
+              className="relative z-10 inline-block"
+              animate={{ 
+                rotateX: [0, 5, 0],
+                rotateY: [0, 3, 0]
+              }}
+              transition={{ 
+                duration: 6, 
+                repeat: Infinity, 
+                repeatType: "reverse",
+                ease: "easeInOut"
+              }}
+              style={{ transformStyle: 'preserve-3d' }}
             >Glimpse of Our Work</motion.span>
             {/* Premium gold underline effect */}
             <motion.span 
@@ -80,8 +90,9 @@ const SlideshowHeader = () => {
             }
           }}
           viewport={{ once: true }}
+          style={{ perspective: '1000px', transformStyle: 'preserve-3d' }}
         >
-          <span className="relative">
+          <span className="relative inline-block">
             Extraordinary masterpieces from our exclusive fine art collection, where every meticulously crafted frame captures the essence of unparalleled luxury and artistic excellence
           </span>
         </motion.p>
