@@ -1,5 +1,6 @@
+
 import React, { useState } from 'react';
-import { Sparkles, ExternalLink } from 'lucide-react';
+import { Sparkles, ExternalLink, Calendar } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
@@ -27,6 +28,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   isHighlighted
 }) => {
   const isClicked = clickedService && clickedService.name === service.name;
+  const isEventPhotography = service.name === 'Event Photography';
 
   return (
     <motion.div
@@ -69,15 +71,21 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
               whileHover={{ scale: isClicked ? 1 : 1.08 }}
               transition={{ duration: 0.4 }}
             >
-              <img 
-                src={imageSrc}
-                alt={service.name}
-                className={cn(
-                  "w-full h-auto object-cover",
-                  isClicked ? "blur-sm" : ""
-                )}
-                loading={index < 8 ? "eager" : "lazy"}
-              />
+              {isEventPhotography ? (
+                <div className="flex items-center justify-center bg-white h-full aspect-video">
+                  <Calendar className="w-12 h-12 text-[#ea384c]" />
+                </div>
+              ) : (
+                <img 
+                  src={imageSrc}
+                  alt={service.name}
+                  className={cn(
+                    "w-full h-auto object-cover",
+                    isClicked ? "blur-sm" : ""
+                  )}
+                  loading={index < 8 ? "eager" : "lazy"}
+                />
+              )}
             </motion.div>
             
             {isClicked && (

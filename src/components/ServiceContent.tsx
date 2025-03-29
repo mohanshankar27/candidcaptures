@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, Calendar } from 'lucide-react';
 import WeddingSlideshow from '@/components/WeddingSlideshow';
 import { Service } from '@/data/services';
 import ServiceGallery from '@/components/ServiceGallery';
@@ -70,6 +70,7 @@ const serviceImages = Object.entries(serviceImageIndices).reduce((acc, [serviceN
 
 const ServiceContent: React.FC<ServiceContentProps> = ({ service }) => {
   const isWeddingService = service.name === 'Wedding Photography';
+  const isEventService = service.name === 'Event Photography';
   const serviceImageArray = serviceImages[service.name] || Array(6).fill(getServiceImage('Concept shoot'));
   
   if (service.external) {
@@ -98,6 +99,44 @@ const ServiceContent: React.FC<ServiceContentProps> = ({ service }) => {
   // Check if this is the special Artists / Celebrities service
   if (service.name === 'Artists / Celebrities') {
     return <ArtistsCelebritiesGallery service={service} />;
+  }
+
+  // Special case for Event Photography - use an icon instead of images
+  if (isEventService) {
+    return (
+      <div className="p-6 h-full">
+        <div className="flex flex-col items-center justify-center bg-white rounded-lg shadow-sm p-10 mb-8">
+          <div className="bg-white p-6 rounded-full border border-primary/10 mb-4">
+            <Calendar className="h-24 w-24 text-[#ea384c]" strokeWidth={1} />
+          </div>
+          <h2 className="text-2xl font-semibold text-primary mb-4">Event Management Services</h2>
+          <p className="text-center text-slate-600 max-w-2xl">
+            {service.description}
+          </p>
+          
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-3xl">
+            <div className="bg-slate-50 p-6 rounded-lg">
+              <h3 className="font-medium text-primary mb-3">Our Expertise</h3>
+              <ul className="space-y-2">
+                {service.benefits?.map((benefit, index) => (
+                  <li key={index} className="flex items-start">
+                    <span className="text-orange-500 mr-2">•</span>
+                    <span>{benefit}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="bg-slate-50 p-6 rounded-lg">
+              <h3 className="font-medium text-primary mb-3">Pricing Information</h3>
+              <p className="text-slate-700">{service.pricing}</p>
+              <button className="mt-4 bg-primary text-white px-4 py-2 rounded-md hover:bg-primary/90 transition-colors">
+                Request Quote
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   // Use our ServiceGallery component for all other regular services
