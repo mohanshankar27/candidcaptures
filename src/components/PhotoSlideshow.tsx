@@ -10,7 +10,6 @@ import ServiceImageCarousel from './slideshow/ServiceImageCarousel';
 import BackgroundDecorators from './slideshow/BackgroundDecorators';
 import serviceImages from './slideshow/serviceImages';
 import ServicesGrid from './ServicesGrid';
-import Gallery from './Gallery';
 
 // Create service thumbnails with proper image mapping
 const serviceThumbnails = servicesList.map(service => ({
@@ -75,32 +74,6 @@ const PhotoSlideshow = () => {
           serviceThumbnails={serviceThumbnails.slice(0, 6)} // Limit initial load to 6 items
           onServiceClick={navigateToServices}
         />
-        
-        {/* Photography Collection with Morphing Effect */}
-        {isVisible && (
-          <div className="mt-16">
-            <motion.h2 
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.7 }}
-              viewport={{ once: true }}
-              className="text-3xl font-serif italic font-bold text-center mb-4"
-            >
-              Our Photography Collection
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="text-center text-gray-600 max-w-3xl mx-auto mb-8"
-            >
-              Explore our diverse range of photography services morphing through time
-            </motion.p>
-            
-            <Gallery />
-          </div>
-        )}
         
         {/* Services Grid - only render when visible and not on services page */}
         {isVisible && (

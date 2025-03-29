@@ -27,7 +27,7 @@ const SlideshowHeader = () => {
         transition={{ duration: 0.7, delay: 0.4 }}
         className="text-4xl md:text-5xl font-serif italic font-bold mb-6 text-primary"
       >
-        Our Photography Collection
+        Our Services
       </motion.h2>
       
       <motion.div 
@@ -43,7 +43,7 @@ const SlideshowHeader = () => {
         transition={{ duration: 0.7, delay: 0.7 }}
         className="text-gray-600 text-lg font-serif italic"
       >
-        Each image tells a story, each moment captured becomes eternal
+        Professional photography services for every occasion
       </motion.p>
     </motion.div>
   );
