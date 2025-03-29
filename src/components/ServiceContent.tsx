@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ExternalLink } from 'lucide-react';
 import WeddingSlideshow from '@/components/WeddingSlideshow';
@@ -29,33 +28,31 @@ const allAvailableImages = [
   '/lovable-uploads/615d3ac6-4345-48d6-9ed9-b794c68b0307.png',
   '/lovable-uploads/5faf55b4-c582-4816-aa3b-99e8faa9a73d.png',
   '/lovable-uploads/3346c7fa-c327-4873-a6e2-35da082a7f6e.png',
-  // Updated concept shoot images
   '/lovable-uploads/4a67f538-ecc9-41af-87e5-08ddea7ba4f6.png',
   '/lovable-uploads/6401c725-7910-476d-b26c-898ff561ccaf.png',
   '/lovable-uploads/507c487a-ec87-4401-ace4-4b27d7bcd2e0.png',
   '/lovable-uploads/fb019637-e8cb-4a43-9303-075fd194e2b8.png',
   '/lovable-uploads/0abd204c-da72-4a05-87ae-39929aeedd9f.png',
-  // New Fashion Photography images (updated with the latest uploads)
   '/lovable-uploads/712d4c19-063a-497c-999e-ae3cffcbbf74.png',
   '/lovable-uploads/4c8884df-c0c2-4516-8e86-d559a104323b.png',
   '/lovable-uploads/03f657a2-cad6-4dd8-9d1f-1438954294dd.png',
   '/lovable-uploads/96435422-8cf4-471d-a984-f6a25491973b.png',
   '/lovable-uploads/303ac396-1d2b-4063-9a34-2b8b4aeaf389.png',
   '/lovable-uploads/f12b1de3-4046-4f12-9356-1a42efab959a.png',
-  // Add the two new fashion photography images
   '/lovable-uploads/2a120d28-a47c-45a6-ad27-4f52aaf8ef7d.png',
-  '/lovable-uploads/cc9a7822-da60-4d41-8c97-94aca630e4bb.png'
+  '/lovable-uploads/cc9a7822-da60-4d41-8c97-94aca630e4bb.png',
+  '/lovable-uploads/6d4124cf-49f7-422e-a39a-0fc50e817f81.png'
 ];
 
 // Map of service names to 6 unique images per service using indices from allAvailableImages
 const serviceImageIndices = {
   'Artists / Celebrities': [0, 1, 2, 3, 4, 5],
-  'Concept shoot': [16, 17, 18, 19, 20, 15], // Updated to use the new concept shoot images
+  'Concept shoot': [16, 17, 18, 19, 20, 15],
   'Corporate & Short Videos': [12, 13, 0, 1, 2, 3],
   'E-Commerce & Catalogues': [15, 10, 11, 13, 0, 1],
   'Event Photography': [2, 3, 4, 5, 6, 7],
   'Family Portraits': [8, 9, 10, 11, 12, 13],
-  'Fashion Photography': [21, 22, 23, 24, 25, 26], // Updated to use new fashion photography images
+  'Fashion Photography': [21, 22, 23, 24, 25, 28],
   'Food Photography': [1, 3, 5, 7, 9, 11],
   'Makeup shoot': [12, 0, 2, 4, 6, 8],
   'Maternity Photography': [13, 1, 3, 5, 7, 9],
@@ -88,8 +85,8 @@ const ServiceContent: React.FC<ServiceContentProps> = ({ service }) => {
     '/lovable-uploads/4c8884df-c0c2-4516-8e86-d559a104323b.png',
     '/lovable-uploads/03f657a2-cad6-4dd8-9d1f-1438954294dd.png',
     '/lovable-uploads/96435422-8cf4-471d-a984-f6a25491973b.png',
-    '/lovable-uploads/2a120d28-a47c-45a6-ad27-4f52aaf8ef7d.png', // Added new fashion image 1
-    '/lovable-uploads/cc9a7822-da60-4d41-8c97-94aca630e4bb.png'  // Added new fashion image 2
+    '/lovable-uploads/2a120d28-a47c-45a6-ad27-4f52aaf8ef7d.png',
+    '/lovable-uploads/6d4124cf-49f7-422e-a39a-0fc50e817f81.png'
   ];
   
   let serviceImageArray = serviceImages[service.name] || Array(6).fill(getServiceImage('Concept shoot'));
