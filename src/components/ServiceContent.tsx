@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { ExternalLink } from 'lucide-react';
 import WeddingSlideshow from '@/components/WeddingSlideshow';
@@ -26,14 +27,20 @@ const allAvailableImages = [
   '/lovable-uploads/44fdad37-1724-4cad-a878-bb2baf05b83b.png',
   '/lovable-uploads/615d3ac6-4345-48d6-9ed9-b794c68b0307.png',
   '/lovable-uploads/5faf55b4-c582-4816-aa3b-99e8faa9a73d.png',
-  '/lovable-uploads/3346c7fa-c327-4873-a6e2-35da082a7f6e.png'
+  '/lovable-uploads/3346c7fa-c327-4873-a6e2-35da082a7f6e.png',
+  // Adding the new concept shoot images
+  '/lovable-uploads/0da1d025-7654-4fe8-928f-c4b58b4f6a2c.png',
+  '/lovable-uploads/6401c725-7910-476d-b26c-898ff561ccaf.png',
+  '/lovable-uploads/507c487a-ec87-4401-ace4-4b27d7bcd2e0.png',
+  '/lovable-uploads/fb019637-e8cb-4a43-9303-075fd194e2b8.png',
+  '/lovable-uploads/4a67f538-ecc9-41af-87e5-08ddea7ba4f6.png'
 ];
 
 // Map of service names to 6 unique images per service using indices from allAvailableImages
 // Each service gets a unique set of 6 images with no repetition across services
 const serviceImageIndices = {
   'Artists / Celebrities': [0, 1, 2, 3, 4, 5],
-  'Concept shoot': [14, 9, 10, 11, 12, 4],
+  'Concept shoot': [16, 17, 18, 19, 20, 15], // Updated to use the new concept shoot images
   'Corporate & Short Videos': [12, 13, 0, 1, 2, 3],
   'E-Commerce & Catalogues': [15, 10, 11, 13, 0, 1],
   'Event Photography': [2, 3, 4, 5, 6, 7],

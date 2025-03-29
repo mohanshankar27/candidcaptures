@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 export interface Service {
@@ -13,14 +12,17 @@ export interface Service {
 const servicesList: Service[] = [
   { 
     name: 'Concept shoot',
-    description: 'Bring your creative vision to life with our concept photography services. We work closely with you to translate your ideas into powerful visual stories.',
+    description: 'Bring your creative vision to life with our concept photography services. We specialize in elaborate cultural themes, artistic makeup, and traditional Indian costumes and celebrations. Our team works closely with you to translate your ideas into powerful visual stories.',
     benefits: [
       'Creative consultation',
       'Prop and set arrangement',
       'Specialized lighting techniques',
-      'Advanced post-processing'
+      'Advanced post-processing',
+      'Cultural costume styling',
+      'Artistic makeup application',
+      'Traditional setup coordination'
     ],
-    pricing: 'Custom quotes based on concept requirements'
+    pricing: 'Custom quotes based on concept requirements, starting at ₹15,000'
   },
   { 
     name: 'Corporate & Short Videos',

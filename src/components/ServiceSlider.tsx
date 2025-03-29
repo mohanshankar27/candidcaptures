@@ -21,21 +21,21 @@ const serviceItems: ServiceItem[] = [
   },
   {
     id: 2,
-    name: "PhotoShoot",
-    image: "/lovable-uploads/b977d3f5-fd63-468d-ac7f-09766c3ab6c1.png",
-    description: "Creative photography sessions tailored to your unique vision"
+    name: "Concept Shoot",
+    image: "/lovable-uploads/0da1d025-7654-4fe8-928f-c4b58b4f6a2c.png", // Updated to the new concept image
+    description: "Creative cultural and themed photography celebrating Indian traditions and art"
   },
   {
     id: 3,
-    name: "Image Editing",
-    image: "/lovable-uploads/932908b8-c3eb-4a8c-b97a-7948d2de4bce.png",
-    description: "Expert retouching and enhancement to perfect your photographs"
+    name: "Creative Makeup",
+    image: "/lovable-uploads/507c487a-ec87-4401-ace4-4b27d7bcd2e0.png", // Added new creative makeup image
+    description: "Artistic and elaborate makeup concepts for unique and striking visuals"
   },
   {
     id: 4,
-    name: "Automation Photography",
-    image: "/lovable-uploads/f981f530-98b4-46e6-8063-68406ae598e1.png",
-    description: "Streamlined photo capture and processing for high-volume needs"
+    name: "Cultural Photography",
+    image: "/lovable-uploads/fb019637-e8cb-4a43-9303-075fd194e2b8.png", // Added new cultural photography image
+    description: "Authentic and vibrant photography capturing traditional cultural elements"
   }
 ];
 
