@@ -1,21 +1,13 @@
 
-import { memo, useState } from 'react';
+import { memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import servicesList from '@/data/servicesList';
 
 // Import refactored components
-import SlideshowHeader from './slideshow/SlideshowHeader';
-import ServiceImageCarousel from './slideshow/ServiceImageCarousel';
 import BackgroundDecorators from './slideshow/BackgroundDecorators';
 import { getServiceImage } from './services/serviceImages';
 import ServicesGrid from './services/ServicesGrid';
-
-// Create service thumbnails with proper image mapping
-const serviceThumbnails = servicesList.map(service => ({
-  name: service.name,
-  image: getServiceImage(service.name)
-}));
 
 const PhotoSlideshow = () => {
   const navigate = useNavigate();
@@ -47,17 +39,8 @@ const PhotoSlideshow = () => {
       <BackgroundDecorators />
       
       <div className="container mx-auto px-4 relative z-10">
-        {/* Header section */}
-        <SlideshowHeader />
-        
-        {/* Featured Services Carousel */}
-        <ServiceImageCarousel 
-          serviceThumbnails={serviceThumbnails}
-          onServiceClick={navigateToServices}
-        />
-        
         {/* Services Grid */}
-        <div className="mt-16">          
+        <div className="mt-8">          
           <motion.div 
             variants={containerVariants}
             initial="hidden"
