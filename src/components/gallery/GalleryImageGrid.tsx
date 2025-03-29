@@ -16,7 +16,7 @@ const GalleryImageGrid: React.FC<GalleryImageGridProps> = ({
   onImageClick
 }) => {
   return (
-    <div className={`grid ${isFashionService ? 'grid-cols-3 sm:grid-cols-5 gap-4' : 'grid-cols-2 sm:grid-cols-3 gap-2 md:gap-3'}`}>
+    <div className={`grid ${isFashionService ? 'grid-cols-2 sm:grid-cols-3 gap-6' : 'grid-cols-2 sm:grid-cols-3 gap-2 md:gap-3'}`}>
       {images.map((image, index) => (
         <div 
           key={index} 
@@ -24,11 +24,12 @@ const GalleryImageGrid: React.FC<GalleryImageGridProps> = ({
           onClick={() => onImageClick(index)}
         >
           {isFashionService ? (
-            <div className="h-auto w-full flex items-center justify-center bg-white p-2 rounded-lg">
+            <div className="h-auto w-full flex items-center justify-center bg-white p-4 rounded-lg">
               <img 
                 src={image} 
                 alt={`${serviceName} ${index + 1}`} 
-                className="w-auto h-auto object-contain transition-transform duration-300 hover:scale-110 rounded-lg"
+                className="w-auto h-auto max-h-[300px] object-contain transition-transform duration-300 hover:scale-110 rounded-lg"
+                style={{ maxWidth: '100%' }}
               />
             </div>
           ) : (
