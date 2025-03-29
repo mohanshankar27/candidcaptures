@@ -20,7 +20,15 @@ const ImageModal = ({
   onNavigate,
   onSelectImage,
 }: ImageModalProps) => {
-  if (selectedIndex === null) return null;
+  // Return early if selectedIndex is null or images array is empty
+  if (selectedIndex === null || images.length === 0) return null;
+  
+  // Ensure selectedIndex is within bounds of the images array
+  const validIndex = Math.max(0, Math.min(selectedIndex, images.length - 1));
+  const currentImage = images[validIndex];
+
+  // Ensure we have a valid image before rendering
+  if (!currentImage) return null;
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
@@ -34,8 +42,8 @@ const ImageModal = ({
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.3 }}
-            src={images[selectedIndex].url} 
-            alt={images[selectedIndex].alt} 
+            src={currentImage.url} 
+            alt={currentImage.alt} 
             className="max-w-full max-h-full object-contain shadow-xl"
           />
           
@@ -71,7 +79,7 @@ const ImageModal = ({
                   key={index}
                   onClick={() => onSelectImage(index)}
                   className={`w-2.5 h-2.5 mx-1 rounded-full transition-all ${
-                    index === selectedIndex ? "bg-orange-400 w-5" : "bg-white/60"
+                    index === validIndex ? "bg-orange-400 w-5" : "bg-white/60"
                   }`}
                 />
               ))}
@@ -80,7 +88,7 @@ const ImageModal = ({
           
           <div className="absolute bottom-16 left-0 right-0 text-center">
             <p className="text-white/90 font-medium px-4 py-2 rounded-lg bg-black/40 backdrop-blur-sm mx-auto max-w-max">
-              {images[selectedIndex].alt}
+              {currentImage.alt}
             </p>
           </div>
         </div>

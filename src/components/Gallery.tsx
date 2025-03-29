@@ -11,7 +11,7 @@ import { galleryImages } from './gallery/GalleryData';
 const Gallery = () => {
   const [current, setCurrent] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalImageIndex, setModalImageIndex] = useState(0);
+  const [modalImageIndex, setModalImageIndex] = useState<number | null>(null);
 
   const nextImage = () => {
     setCurrent((prev) => (prev === galleryImages.length - 1 ? 0 : prev + 1));
@@ -31,13 +31,15 @@ const Gallery = () => {
   };
 
   const handleModalNavigate = (direction: "prev" | "next") => {
+    if (modalImageIndex === null) return;
+    
     if (direction === "prev") {
       setModalImageIndex((prev) => 
-        prev === 0 ? galleryImages.length - 1 : prev - 1
+        prev === null ? 0 : (prev === 0 ? galleryImages.length - 1 : prev - 1)
       );
     } else {
       setModalImageIndex((prev) => 
-        prev === galleryImages.length - 1 ? 0 : prev + 1
+        prev === null ? 0 : (prev === galleryImages.length - 1 ? 0 : prev + 1)
       );
     }
   };
@@ -117,7 +119,11 @@ const Gallery = () => {
 
         <ImageModal 
           isOpen={isModalOpen}
-          onClose={() => setIsModalOpen(false)}
+          onClose={() => {
+            setIsModalOpen(false);
+            // Reset modal index when closed
+            setModalImageIndex(null);
+          }}
           images={galleryImages}
           selectedIndex={modalImageIndex}
           onNavigate={handleModalNavigate}
