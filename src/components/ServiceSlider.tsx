@@ -18,28 +18,28 @@ const serviceItems: ServiceItem[] = [
   {
     id: 1,
     name: "Product Photography",
-    image: "/lovable-uploads/e330db14-6a26-4ead-b79f-e9aed137fc84.png",
+    image: "/lovable-uploads/8d5e6443-143d-4c94-be94-b1e0b3cc76b2.png", // Updated to product photography image
     description: "Professional studio setup for capturing high-quality product images",
     details: "Our product photography service uses professional lighting, backdrops, and techniques to showcase your products in the best light. We specialize in e-commerce, catalog, and packaging photography that drives sales and enhances your brand image."
   },
   {
     id: 2,
     name: "PhotoShoot",
-    image: "/lovable-uploads/1f924edb-9819-4bbc-91ac-8bdb224ff48e.png",
+    image: "/lovable-uploads/f981f530-98b4-46e6-8063-68406ae598e1.png", // Updated to matrimonial portfolio image
     description: "Creative photography sessions tailored to your unique vision",
     details: "Our personalized photoshoot sessions are designed to capture your unique style and personality. Whether you need professional portraits, family photos, or creative concept shoots, our experienced photographers will bring your vision to life with stunning results."
   },
   {
     id: 3,
     name: "Image Editing",
-    image: "/lovable-uploads/a97ae0b1-6394-488d-a9f4-d17321650970.png",
+    image: "/lovable-uploads/e612e8f7-3f32-4c0d-a920-b83e95752820.png", // Updated to makeup shoot image
     description: "Expert retouching and enhancement to perfect your photographs",
     details: "Our expert editing team transforms good photos into exceptional ones. Services include color correction, skin retouching, background editing, and creative enhancements. We maintain natural looks while achieving professional polish for all your images."
   },
   {
     id: 4,
     name: "Automation Photography",
-    image: "/lovable-uploads/28516f95-c696-478a-a1ca-2643222d0648.png",
+    image: "/lovable-uploads/615d3ac6-4345-48d6-9ed9-b794c68b0307.png", // Updated to wedding photography image
     description: "Streamlined photo capture and processing for high-volume needs",
     details: "Our automated photography solutions are perfect for high-volume product shoots, corporate events, and large-scale projects. We implement efficient workflows and specialized equipment to deliver consistent, high-quality results with rapid turnaround times."
   }
