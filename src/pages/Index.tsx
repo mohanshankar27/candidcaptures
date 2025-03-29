@@ -6,7 +6,6 @@ import Contact from "@/components/Contact";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import PhotoSlideshow from "@/components/PhotoSlideshow";
-import WeddingSlideshow from "@/components/WeddingSlideshow";
 import CommunicationSidebar from "@/components/CommunicationSidebar";
 
 const Index = () => {
@@ -17,7 +16,6 @@ const Index = () => {
       <Hero />
       <Gallery />
       <PhotoSlideshow />
-      <WeddingSlideshow />
       <CTA />
       <Contact />
       <Footer />
