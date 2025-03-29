@@ -98,7 +98,7 @@ const Services = () => {
       <div className="flex-1 pt-16 pb-8 w-full">
         <div className="w-full mx-0 px-0">
           <div className="flex justify-between items-center mb-3 px-4">
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#003c72]">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#003c72] font-akaya">
               {viewMode === 'grid' ? 'Premium Services' : selectedService.name}
             </h1>
             <div className="flex items-center gap-2">

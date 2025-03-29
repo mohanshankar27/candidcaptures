@@ -30,14 +30,14 @@ const MobileServiceMenu: React.FC<MobileServiceMenuProps> = ({
   return (
     <div className="md:hidden mb-4 shadow-sm w-full">
       <div className="text-center py-3 mb-3">
-        <span className="text-3xl font-bold font-arjulian text-[#003c72]">Our Services</span>
+        <span className="text-3xl font-bold font-akaya text-[#003c72]">Our Services</span>
       </div>
       <Button 
         variant="outline"
         className="flex items-center justify-between w-full p-3"
         onClick={() => setIsMenuOpen(!isMenuOpen)}
       >
-        <span className="text-xl font-bold font-arjulian text-[#003c72]">{selectedService.name}</span>
+        <span className="text-xl font-bold font-akaya text-[#003c72]">{selectedService.name}</span>
         <Menu className="h-6 w-6" />
       </Button>
       

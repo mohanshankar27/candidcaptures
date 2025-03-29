@@ -34,9 +34,9 @@ const ServiceSidebar: React.FC<ServiceSidebarProps> = ({
           {services.map((service) => (
             <button
               key={service.name}
-              className={`flex items-center justify-between w-full p-3 text-left text-base hover:bg-muted transition-colors font-akaya ${
+              className={`flex items-center justify-between w-full p-3 text-left text-base hover:bg-muted transition-colors ${
                 selectedService.name === service.name ? 'font-bold text-[#003c72]' : 'font-medium'
-              }`}
+              } font-akaya`}
               onClick={() => handleServiceClick(service)}
             >
               <div className="truncate">
