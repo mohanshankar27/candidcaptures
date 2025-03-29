@@ -84,19 +84,52 @@ const Gallery = () => {
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                 className="relative overflow-hidden rounded-xl shadow-[0_8px_30px_rgba(0,0,0,0.12)]"
               >
+                <div className="absolute inset-0 bg-gradient-to-tr from-orange-50/50 to-slate-50/50 z-0" />
+                
                 <motion.div 
-                  className="flex transition-all duration-500 ease-in-out h-[600px]"
+                  className="flex transition-all duration-500 ease-in-out h-[600px] relative z-10"
                   animate={{ x: `-${current * 100}%` }}
                   transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 >
                   {galleryImages.map((image, index) => (
-                    <GalleryImage 
-                      key={index}
-                      image={image}
-                      current={current}
-                      index={index}
-                      onClick={handleClickImage}
-                    />
+                    <div 
+                      key={index} 
+                      className="relative min-w-full h-full flex items-center justify-center overflow-hidden"
+                      style={{ perspective: '1000px' }}
+                    >
+                      <motion.div
+                        initial={{ opacity: 0, rotateY: 10, scale: 0.95 }}
+                        animate={{ 
+                          opacity: current === index ? 1 : 0.3,
+                          rotateY: current === index ? 0 : 10,
+                          scale: current === index ? 1 : 0.95,
+                          filter: current === index ? 'none' : 'blur(2px)'
+                        }}
+                        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                        className="w-full h-full px-4 py-6 flex items-center justify-center"
+                      >
+                        <div className="relative overflow-hidden rounded-lg shadow-2xl border border-white/20 group cursor-pointer" onClick={handleClickImage}>
+                          <img 
+                            src={image.url} 
+                            alt={image.alt}
+                            className="w-full h-full object-cover transition-transform duration-3000 group-hover:scale-105"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-black/5 opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
+                          <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
+                          
+                          <motion.div 
+                            className="absolute bottom-0 left-0 w-full p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500"
+                            whileHover={{ y: 0 }}
+                          >
+                            <h3 className="text-2xl font-semibold mb-2 text-shadow">{image.alt}</h3>
+                            <div className="h-0.5 w-16 bg-orange-400 mb-3" />
+                            <p className="text-sm text-white/90 max-w-md">
+                              Click to view this image in full detail and explore our complete collection.
+                            </p>
+                          </motion.div>
+                        </div>
+                      </motion.div>
+                    </div>
                   ))}
                 </motion.div>
 
@@ -107,7 +140,7 @@ const Gallery = () => {
                     "hover:bg-white shadow-lg transition-all duration-200 group",
                     "focus:outline-none focus:ring-2 focus:ring-orange-300 focus:ring-offset-2"
                   )}
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ scale: 1.05, x: -2 }}
                   whileTap={{ scale: 0.95 }}
                   aria-label="Previous image"
                 >
@@ -123,7 +156,7 @@ const Gallery = () => {
                     "hover:bg-white shadow-lg transition-all duration-200 group",
                     "focus:outline-none focus:ring-2 focus:ring-orange-300 focus:ring-offset-2"
                   )}
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ scale: 1.05, x: 2 }}
                   whileTap={{ scale: 0.95 }}
                   aria-label="Next image"
                 >
@@ -131,21 +164,6 @@ const Gallery = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </motion.button>
-                
-                <div className="absolute bottom-5 left-0 right-0 flex justify-center">
-                  <div className="bg-white/70 backdrop-blur-sm py-2 px-4 rounded-full">
-                    <motion.p 
-                      className="text-primary font-medium"
-                      key={current}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      {galleryImages[current].alt}
-                    </motion.p>
-                  </div>
-                </div>
               </motion.div>
             )}
           </AnimatePresence>
