@@ -82,7 +82,7 @@ const ServiceContent: React.FC<ServiceContentProps> = ({ service }) => {
   const isEventService = service.name === 'Event Photography';
   const isFashionService = service.name === 'Fashion Photography';
   
-  // For Fashion Photography, use the specific new images
+  // For Fashion Photography, use the specific updated images
   const fashionImages = [
     '/lovable-uploads/712d4c19-063a-497c-999e-ae3cffcbbf74.png',
     '/lovable-uploads/4c8884df-c0c2-4516-8e86-d559a104323b.png',

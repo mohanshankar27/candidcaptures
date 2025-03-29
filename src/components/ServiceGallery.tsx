@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Service } from '@/data/services';
 import { Card, CardContent } from '@/components/ui/card';
-import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 
 interface ServiceGalleryProps {
   service: Service;
@@ -123,20 +123,29 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, images }) => {
         </div>
       )}
 
-      {/* Image slideshow dialog - preserving original aspect ratio */}
+      {/* Image slideshow dialog - fixed with proper accessibility */}
       {enlargedImageIndex !== null && (
         <Dialog open={enlargedImageIndex !== null} onOpenChange={handleClose}>
-          <DialogContent className="max-w-5xl p-0 border-4 border-orange-400 bg-black" onClick={e => e.stopPropagation()}>
+          <DialogContent className="max-w-5xl p-0 border-4 border-orange-400 bg-black" 
+            onClick={e => e.stopPropagation()}
+            aria-describedby="slideshow-description"
+          >
+            {/* Hidden but accessible title for screen readers */}
+            <DialogTitle className="sr-only">
+              {service.name} Image {enlargedImageIndex + 1}
+            </DialogTitle>
+            
             <div className="relative w-full h-[80vh] flex items-center justify-center">
               <img 
                 src={limitedImages[enlargedImageIndex]} 
-                alt="Enlarged view" 
+                alt={`${service.name} image ${enlargedImageIndex + 1}`} 
                 className="max-w-full max-h-full object-contain"
               />
               
               <button 
                 className="absolute top-4 right-4 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors"
                 onClick={handleClose}
+                aria-label="Close"
               >
                 <X className="w-6 h-6" />
               </button>
@@ -144,6 +153,7 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, images }) => {
               <button 
                 className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors"
                 onClick={(e) => navigateImage('prev', e)}
+                aria-label="Previous image"
               >
                 <ChevronLeft className="w-6 h-6" />
               </button>
@@ -151,6 +161,7 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, images }) => {
               <button 
                 className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors"
                 onClick={(e) => navigateImage('next', e)}
+                aria-label="Next image"
               >
                 <ChevronRight className="w-6 h-6" />
               </button>
@@ -164,6 +175,11 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, images }) => {
                     }`}
                   />
                 ))}
+              </div>
+              
+              {/* Hidden description for screen readers */}
+              <div id="slideshow-description" className="sr-only">
+                {service.name} photo gallery. Use left and right buttons to navigate between images.
               </div>
             </div>
           </DialogContent>
