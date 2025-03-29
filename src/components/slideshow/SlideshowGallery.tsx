@@ -21,7 +21,7 @@ const SlideshowGallery = ({ images }: SlideshowGalleryProps) => {
     align: "start",
     dragFree: true,
     skipSnaps: true,
-    duration: 50, // Slow transition for premium feel
+    duration: 80, // Slower transitions for premium feel
   });
   
   // State to track which card is flipped
@@ -31,10 +31,10 @@ const SlideshowGallery = ({ images }: SlideshowGalleryProps) => {
   useEffect(() => {
     setIsClient(true);
     
-    // Auto-slide functionality
+    // Auto-slide functionality with longer interval for premium experience
     const autoplay = setInterval(() => {
       if (emblaApi) emblaApi.scrollNext();
-    }, 5000);
+    }, 7000); // Longer pause to allow viewers to appreciate each image
     
     // Update active index when carousel scrolls
     const onSelect = () => {
@@ -52,29 +52,6 @@ const SlideshowGallery = ({ images }: SlideshowGalleryProps) => {
     };
   }, [emblaApi]);
 
-  // Animation variants for staggered children
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { 
-        duration: 0.8,
-        ease: [0.25, 0.1, 0.25, 1.0] // Custom easing for smooth animation
-      } 
-    }
-  };
-
   // Handle card flip
   const handleCardFlip = (index: number) => {
     setFlippedIndex(flippedIndex === index ? null : index);
@@ -84,39 +61,78 @@ const SlideshowGallery = ({ images }: SlideshowGalleryProps) => {
 
   return (
     <motion.div
-      variants={containerVariants}
-      initial="hidden"
-      whileInView="visible"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
       viewport={{ once: true, margin: "-100px" }}
       className="w-full max-w-6xl mx-auto"
     >
-      <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex gap-5 md:gap-8">
+      <div className="overflow-hidden rounded-xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)]" ref={emblaRef}>
+        <div className="flex gap-5 md:gap-8 py-8">
           {images.map((image, index) => (
             <motion.div 
               key={index}
-              variants={itemVariants}
-              className="flex-[0_0_280px] sm:flex-[0_0_320px] md:flex-[0_0_380px] relative"
-              style={{ perspective: '1000px' }}
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ 
+                duration: 0.8, 
+                delay: index * 0.1,
+                ease: [0.165, 0.84, 0.44, 1]
+              }}
+              className="flex-[0_0_280px] sm:flex-[0_0_320px] md:flex-[0_0_450px] relative mx-2"
+              style={{ perspective: '1500px' }}
             >
               <CardFlip
                 isFlipped={flippedIndex === index}
                 onFlip={() => handleCardFlip(index)}
-                className="h-[400px]"
+                className="h-[520px] w-full"
                 frontContent={
-                  <CardFront 
-                    imageUrl={image.url} 
-                    imageAlt={image.alt} 
-                    title={image.alt}
-                  />
+                  <div className="relative w-full h-full overflow-hidden group">
+                    <div className="absolute inset-0 bg-black/20 z-10 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <motion.img 
+                      src={image.url} 
+                      alt={image.alt} 
+                      className="w-full h-full object-cover transition-transform duration-7000 group-hover:scale-110"
+                      initial={{ scale: 1.05 }}
+                      animate={{ scale: activeIndex === index ? 1 : 1.05 }}
+                      transition={{ duration: 1.5, ease: [0.25, 0.1, 0.25, 1.0] }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-90"></div>
+                    
+                    <div className="absolute bottom-0 left-0 w-full p-6 text-white z-20">
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ 
+                          opacity: activeIndex === index ? 1 : 0.5, 
+                          y: activeIndex === index ? 0 : 10
+                        }}
+                        transition={{ duration: 0.7, delay: 0.2 }}
+                      >
+                        <h3 className="text-2xl font-serif italic font-light mb-2 tracking-wide">{image.alt}</h3>
+                        <div className="h-0.5 w-16 bg-orange-400 mb-3"></div>
+                        <p className="text-sm text-white/80 max-w-md font-light">
+                          Explore the artistry behind every frame
+                        </p>
+                      </motion.div>
+                    </div>
+                  </div>
                 }
                 backContent={
                   <CardBack 
                     title={image.alt} 
+                    description="This exclusive photography piece exemplifies our commitment to creative excellence and emotional storytelling through visual art."
                     onViewInGallery={() => {}}
                   />
                 }
               />
+              
+              {activeIndex === index && (
+                <motion.div 
+                  layoutId="activeSlide"
+                  className="absolute inset-0 border-2 border-white/50 rounded-xl pointer-events-none"
+                  transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                />
+              )}
             </motion.div>
           ))}
         </div>
