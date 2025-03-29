@@ -2,7 +2,7 @@
 import React from 'react';
 import { Separator } from '@/components/ui/separator';
 import { useNavigate } from 'react-router-dom';
-import { Package, ArrowRight } from 'lucide-react';
+import { Package, ArrowRight, Camera } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { 
   Carousel, 
@@ -88,75 +88,85 @@ const PricePackages: React.FC = () => {
   return (
     <div className="mt-16 mb-12">
       <div className="bg-white/70 backdrop-blur-sm p-6 md:p-8 rounded-xl shadow-lg border border-primary/10 transition-all duration-300 hover:shadow-xl">
-        <div className="flex items-center gap-3 mb-6">
-          <Package className="h-6 w-6 text-[#ea384c]" />
-          <h2 className="text-3xl font-light text-[#ea384c]">Packages & Price Lists</h2>
-        </div>
+        <div className="relative">
+          {/* Enhanced header with decorative elements */}
+          <div className="flex flex-col items-center mb-8 relative">
+            <div className="absolute -top-10 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#ea384c]/50 to-transparent"></div>
+            <div className="flex items-center justify-center gap-3">
+              <div className="bg-[#ea384c]/10 p-3 rounded-full">
+                <Package className="h-8 w-8 text-[#ea384c]" />
+              </div>
+              <h2 className="text-3xl font-light tracking-wide text-[#ea384c] font-serif">
+                Packages & <span className="font-medium">Price Lists</span>
+              </h2>
+            </div>
+            <Separator className="mt-6 mb-4 bg-gradient-to-r from-transparent via-[#ea384c]/30 to-transparent h-0.5 w-1/2" />
+            <p className="text-slate-600 max-w-2xl text-center font-light">
+              Explore our range of photography packages designed to meet your specific needs.
+              Each package is customized to provide exceptional value and outstanding results.
+            </p>
+          </div>
         
-        <p className="text-slate-600 mb-8">
-          Explore our range of photography packages designed to meet your specific needs. 
-          Click on any package to view detailed pricing and what's included.
-        </p>
-        
-        {/* Add the image carousel */}
-        <div className="mb-8 relative">
-          <Carousel className="w-full">
-            <CarouselContent>
-              {packageImages.map((image, index) => (
-                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                  <div className="p-1">
-                    <div className="overflow-hidden rounded-xl h-48 md:h-64">
-                      <img 
-                        src={image} 
-                        alt={`Package preview ${index + 1}`}
-                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                      />
+          {/* Add the image carousel */}
+          <div className="mb-8 relative">
+            <Carousel className="w-full">
+              <CarouselContent>
+                {packageImages.map((image, index) => (
+                  <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                    <div className="p-1">
+                      <div className="overflow-hidden rounded-xl h-48 md:h-64 shadow-md border border-slate-200">
+                        <img 
+                          src={image} 
+                          alt={`Package preview ${index + 1}`}
+                          className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                        />
+                      </div>
                     </div>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <div className="absolute -right-12 top-1/2 -translate-y-1/2">
-              <CarouselNext className="right-2" />
-            </div>
-            <div className="absolute -left-12 top-1/2 -translate-y-1/2">
-              <CarouselPrevious className="left-2" />
-            </div>
-          </Carousel>
-        </div>
-        
-        <div className="grid md:grid-cols-2 gap-4">
-          {pricePackages.map((pkg, index) => (
-            <div 
-              key={index}
-              className="group border border-slate-200 hover:border-primary/20 rounded-lg p-4 transition-all duration-200 hover:shadow-md bg-white/50"
-            >
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <div className="absolute -right-12 top-1/2 -translate-y-1/2">
+                <CarouselNext className="right-2" />
+              </div>
+              <div className="absolute -left-12 top-1/2 -translate-y-1/2">
+                <CarouselPrevious className="left-2" />
+              </div>
+            </Carousel>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-4">
+            {pricePackages.map((pkg, index) => (
               <div 
-                className="cursor-pointer"
-                onClick={() => handlePackageClick(pkg)}
+                key={index}
+                className="group border border-slate-200 hover:border-primary/20 rounded-lg p-4 transition-all duration-200 hover:shadow-md bg-white/50"
               >
-                <div className="flex justify-between items-start mb-2">
-                  <h3 className="text-lg font-medium text-slate-800 group-hover:text-[#ea384c] transition-colors">
-                    {pkg.title}
-                  </h3>
-                  <ArrowRight className="h-5 w-5 text-slate-400 group-hover:text-[#ea384c] transition-all transform group-hover:translate-x-1" />
-                </div>
-                
-                {pkg.description && (
-                  <p className="text-slate-600 text-sm mb-3">{pkg.description}</p>
-                )}
-                
-                <Button 
-                  variant="ghost" 
-                  size="sm" 
-                  className="text-[#ea384c] hover:bg-[#ea384c]/10 hover:text-[#ea384c] p-0 h-auto mt-1"
+                <div 
+                  className="cursor-pointer"
                   onClick={() => handlePackageClick(pkg)}
                 >
-                  View pricing details
-                </Button>
+                  <div className="flex justify-between items-start mb-2">
+                    <h3 className="text-lg font-medium text-slate-800 group-hover:text-[#ea384c] transition-colors">
+                      {pkg.title}
+                    </h3>
+                    <ArrowRight className="h-5 w-5 text-slate-400 group-hover:text-[#ea384c] transition-all transform group-hover:translate-x-1" />
+                  </div>
+                  
+                  {pkg.description && (
+                    <p className="text-slate-600 text-sm mb-3">{pkg.description}</p>
+                  )}
+                  
+                  <Button 
+                    variant="ghost" 
+                    size="sm" 
+                    className="text-[#ea384c] hover:bg-[#ea384c]/10 hover:text-[#ea384c] p-0 h-auto mt-1"
+                    onClick={() => handlePackageClick(pkg)}
+                  >
+                    View pricing details
+                  </Button>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </div>
