@@ -1,62 +1,83 @@
 
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import GalleryImage from "./GalleryImage";
-import GalleryIndicators from "./GalleryIndicators";
+import React from 'react';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 
 interface GallerySlideshowProps {
-  images: { url: string; alt: string }[];
-  activeSlide: number;
-  setActiveSlide: (index: number) => void;
-  onImageClick: (index: number) => void;
+  isOpen: boolean;
+  onClose: () => void;
+  currentIndex: number;
+  images: string[];
+  serviceName: string;
+  onNavigate: (direction: 'prev' | 'next', e: React.MouseEvent) => void;
 }
 
-const GallerySlideshow = ({ 
-  images, 
-  activeSlide, 
-  setActiveSlide, 
-  onImageClick 
-}: GallerySlideshowProps) => {
+const GallerySlideshow: React.FC<GallerySlideshowProps> = ({
+  isOpen,
+  onClose,
+  currentIndex,
+  images,
+  serviceName,
+  onNavigate
+}) => {
   return (
-    <div className="max-w-5xl mx-auto mb-8">
-      <Carousel 
-        opts={{
-          loop: true,
-          align: "start",
-        }}
-        className="w-full"
-        setApi={(api) => {
-          if (api) {
-            api.on("select", () => {
-              const selectedSlide = api.selectedScrollSnap();
-              setActiveSlide(selectedSlide);
-            });
-          }
-        }}
+    <Dialog open={isOpen} onOpenChange={onClose}>
+      <DialogContent 
+        className="max-w-5xl p-0 border-4 border-orange-400 bg-black" 
+        onClick={e => e.stopPropagation()}
       >
-        <CarouselContent>
-          {images.map((image, index) => (
-            <CarouselItem key={index} className="basis-full">
-              <GalleryImage 
-                url={image.url} 
-                alt={image.alt} 
-                index={index} 
-                onClick={onImageClick} 
+        {/* Fixed accessibility by adding proper DialogTitle and DialogDescription */}
+        <DialogTitle className="sr-only">
+          {serviceName} Image Gallery
+        </DialogTitle>
+        <DialogDescription id="gallery-description" className="sr-only">
+          Navigate through {serviceName} images using left and right arrows
+        </DialogDescription>
+        
+        <div className="relative w-full h-[80vh] flex items-center justify-center">
+          <img 
+            src={images[currentIndex]} 
+            alt={`${serviceName} image ${currentIndex + 1}`} 
+            className="max-w-full max-h-full object-contain"
+          />
+          
+          <button 
+            className="absolute top-4 right-4 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors"
+            onClick={onClose}
+            aria-label="Close"
+          >
+            <X className="w-6 h-6" />
+          </button>
+          
+          <button 
+            className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors"
+            onClick={(e) => onNavigate('prev', e)}
+            aria-label="Previous image"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+          
+          <button 
+            className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors"
+            onClick={(e) => onNavigate('next', e)}
+            aria-label="Next image"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
+          
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2">
+            {images.map((_, index) => (
+              <div 
+                key={index}
+                className={`w-2 h-2 rounded-full ${
+                  index === currentIndex ? 'bg-orange-400' : 'bg-white/50'
+                }`}
               />
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <div className="flex justify-center mt-4">
-          <CarouselPrevious className="relative static left-0 translate-y-0 mr-2 bg-white/80 hover:bg-white" />
-          <CarouselNext className="relative static right-0 translate-y-0 ml-2 bg-white/80 hover:bg-white" />
+            ))}
+          </div>
         </div>
-      </Carousel>
-      
-      <GalleryIndicators 
-        count={images.length} 
-        activeIndex={activeSlide} 
-        onIndicatorClick={setActiveSlide} 
-      />
-    </div>
+      </DialogContent>
+    </Dialog>
   );
 };
 
