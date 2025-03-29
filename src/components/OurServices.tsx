@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
@@ -21,14 +20,9 @@ const OurServices = () => {
     "New Born Baby Shoot": { path: "/services", state: { selectedService: "New Born Baby Shoot" } },
     "Food Photography": { path: "/services", state: { selectedService: "Food Photography" } },
     "Fashion Photography": { path: "/services", state: { selectedService: "Fashion Photography" } },
-    "Video Services": { path: "/services", state: { selectedService: "Video Services" } },
     "Toddler Photography": { path: "/services", state: { selectedService: "Toddler & Children" } },
     "Makeup Portfolios": { path: "/services", state: { selectedService: "Makeup shoot" } },
-    "Architectural Photography": { path: "/services", state: { selectedService: "Architectural Photography" } },
-    "Real Estate Photography": { path: "/services", state: { selectedService: "Real Estate Photography" } },
-    "Anniversary Shoots": { path: "/services", state: { selectedService: "Anniversary Shoots" } },
-    "Graduation Photography": { path: "/services", state: { selectedService: "Graduation Photography" } },
-    "Pet Photography": { path: "/services", state: { selectedService: "Pet Photography" } }
+    "Real Estate Photography": { path: "/services", state: { selectedService: "Real Estate Photography" } }
   };
 
   // Create a flat list of all services
@@ -36,8 +30,7 @@ const OurServices = () => {
     "Wedding Photography", "Event Coverage", "Fashion Photography", "Food Photography",
     "Portrait Sessions", "Corporate Headshots", "Family Portraits", "Maternity Photography", "New Born Baby Shoot",
     "Product Photography", "E-Commerce Photography",
-    "Concept Shoot", "Video Services", "Toddler Photography", "Makeup Portfolios",
-    "Architectural Photography", "Real Estate Photography", "Anniversary Shoots", "Graduation Photography", "Pet Photography"
+    "Concept Shoot", "Toddler Photography", "Makeup Portfolios", "Real Estate Photography"
   ];
 
   const handleServiceClick = (serviceName: string) => {
