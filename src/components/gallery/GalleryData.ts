@@ -44,6 +44,38 @@ export const galleryImages = [
     url: "/lovable-uploads/a82b5da8-8a1b-4cde-b048-3a1cbf8945e4.png",
     alt: "Outdoor portrait of a man with long hair wearing dark green shirt against blurred nature background",
   },
+  {
+    url: "/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png",
+    alt: "Wedding portrait with elegant couple in traditional attire",
+  },
+  {
+    url: "/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png",
+    alt: "Couple in traditional wedding attire with elegant styling",
+  },
+  {
+    url: "/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png",
+    alt: "Traditional celebration with colorful decorations and styling",
+  },
+  {
+    url: "/lovable-uploads/e612e8f7-3f32-4c0d-a920-b83e95752820.png",
+    alt: "Wedding celebration with traditional elements and decorations",
+  },
+  {
+    url: "/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png",
+    alt: "Ceremonial traditions with cultural significance and styling",
+  },
+  {
+    url: "/lovable-uploads/932908b8-c3eb-4a8c-b97a-7948d2de4bce.png",
+    alt: "Cultural celebration with traditional elements and decorations",
+  },
+  {
+    url: "/lovable-uploads/1e8e3b73-0675-48f7-a578-9f204a21062c.png",
+    alt: "Beautiful portrait photography with cultural elements",
+  },
+  {
+    url: "/lovable-uploads/f981f530-98b4-46e6-8063-68406ae598e1.png",
+    alt: "Elegant portrait with traditional styling and artistic lighting",
+  },
 ];
 
 // Preload important images for faster rendering
