@@ -10,7 +10,7 @@ const GalleryAnimationStyles = () => {
         }
         
         .animate-shine {
-          animation: shine 3s ease-in-out infinite;
+          animation: shine 3s ease-out infinite;
         }
         
         .swiper-container {
@@ -26,7 +26,7 @@ const GalleryAnimationStyles = () => {
         }
         
         .swiper-slide {
-          transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+          transition: transform 0.9s cubic-bezier(0.25, 0.1, 0.25, 1);
           transform-origin: center center;
           transform-style: preserve-3d;
         }

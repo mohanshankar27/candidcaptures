@@ -12,12 +12,12 @@ const BackgroundDecorators = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ 
-        duration: 3.5, 
-        ease: [0.25, 0.1, 0.25, 1.0], 
+        duration: 2.5, 
+        ease: "easeOut", 
         delay: 0.3 
       }}
     >
-      {/* Premium visual layers with window-style transitions */}
+      {/* Subtle, stable background visual elements */}
       <ShimmerEffects />
       <GlowElements />
       <LightRays />

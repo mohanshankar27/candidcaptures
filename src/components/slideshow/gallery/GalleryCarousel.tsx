@@ -17,44 +17,33 @@ const GalleryCarousel = ({ images }: GalleryCarouselProps) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ 
     loop: true,
     align: "start",
-    dragFree: true,
-    skipSnaps: true,
-    duration: 100, // Even slower transitions for luxury feel
+    dragFree: false,
+    skipSnaps: false,
+    duration: 50, // Slower transitions for smooth movement
   });
   
   // State to track which card is flipped
   const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [prevIndex, setPrevIndex] = useState(0);
-  const [direction, setDirection] = useState<'left' | 'right' | null>(null);
-  const [progress, setProgress] = useState(0); // Track transition progress
   
   useEffect(() => {
-    // Auto-slide functionality with longer interval for premium experience
+    // Auto-slide functionality with longer interval
     const autoplay = setInterval(() => {
       if (emblaApi) emblaApi.scrollNext();
-    }, 8000); // Even longer pause to allow viewers to appreciate each image
+    }, 8000); // Longer pause to allow viewers to appreciate each image
     
     // Update active index when carousel scrolls
     const onSelect = () => {
       if (emblaApi) {
         const current = emblaApi.selectedScrollSnap();
-        setDirection(current > prevIndex ? 'right' : 'left');
-        setPrevIndex(current);
+        setPrevIndex(activeIndex);
         setActiveIndex(current);
       }
     };
     
-    // Track scroll progress for elegant transitions
-    const onScroll = () => {
-      if (!emblaApi) return;
-      const progress = emblaApi.scrollProgress();
-      setProgress(progress);
-    };
-    
     if (emblaApi) {
       emblaApi.on('select', onSelect);
-      emblaApi.on('scroll', onScroll);
       onSelect(); // Initialize
     }
     
@@ -62,10 +51,9 @@ const GalleryCarousel = ({ images }: GalleryCarouselProps) => {
       clearInterval(autoplay);
       if (emblaApi) {
         emblaApi.off('select', onSelect);
-        emblaApi.off('scroll', onScroll);
       }
     };
-  }, [emblaApi, prevIndex]);
+  }, [emblaApi, activeIndex]);
 
   // Handle card flip
   const handleCardFlip = (index: number) => {
@@ -76,7 +64,7 @@ const GalleryCarousel = ({ images }: GalleryCarouselProps) => {
     <motion.div
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 1.2, ease: "easeOut" }}
       viewport={{ once: true, margin: "-100px" }}
       className="w-full max-w-6xl mx-auto"
     >
