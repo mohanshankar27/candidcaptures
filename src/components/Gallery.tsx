@@ -16,6 +16,7 @@ const Gallery = () => {
   const [modalImageIndex, setModalImageIndex] = useState<number | null>(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
+  const [autoplayEnabled, setAutoplayEnabled] = useState(true);
 
   useEffect(() => {
     // Simulate loading to create better animation transitions
@@ -25,9 +26,21 @@ const Gallery = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  // Auto-advance carousel every 2 seconds
+  useEffect(() => {
+    if (!autoplayEnabled) return;
+    
+    const interval = setInterval(() => {
+      setCurrent((current) => (current === galleryImages.length - 1 ? 0 : current + 1));
+    }, 2000); // Changed to 2000ms (2 seconds)
+    
+    return () => clearInterval(interval);
+  }, [autoplayEnabled]);
+
   const openModal = (index: number) => {
     setModalImageIndex(index);
     setIsModalOpen(true);
+    setAutoplayEnabled(false); // Pause autoplay when modal is open
   };
 
   const handleModalNavigate = (direction: "prev" | "next") => {
@@ -72,7 +85,11 @@ const Gallery = () => {
             <GalleryIndicators 
               images={galleryImages}
               current={current}
-              setCurrent={setCurrent}
+              setCurrent={(index) => {
+                setCurrent(index);
+                // Reset autoplay timer when manually changing slides
+                setAutoplayEnabled(true);
+              }}
             />
           </div>
         </div>
@@ -83,6 +100,8 @@ const Gallery = () => {
             setIsModalOpen(false);
             // Reset modal index when closed
             setModalImageIndex(null);
+            // Resume autoplay when modal is closed
+            setAutoplayEnabled(true);
           }}
           images={galleryImages}
           selectedIndex={modalImageIndex}

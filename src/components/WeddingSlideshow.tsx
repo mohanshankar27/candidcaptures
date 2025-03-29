@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react';
 import { 
   Carousel, 
@@ -29,7 +30,7 @@ interface WeddingSlideshowProps {
   interval?: number;
 }
 
-const WeddingSlideshow = ({ autoplay = true, interval = 5000 }: WeddingSlideshowProps) => {
+const WeddingSlideshow = ({ autoplay = true, interval = 2000 }: WeddingSlideshowProps) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [api, setApi] = useState<any>(null);
 

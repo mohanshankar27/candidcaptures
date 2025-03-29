@@ -29,10 +29,10 @@ const GalleryCarousel = ({ images }: GalleryCarouselProps) => {
   const [prevIndex, setPrevIndex] = useState(0);
   
   useEffect(() => {
-    // Auto-slide functionality with shorter interval
+    // Auto-slide functionality with 2 second interval
     const autoplay = setInterval(() => {
       if (emblaApi) emblaApi.scrollNext();
-    }, 2000); // Changed from 8000 to 2000 (2 seconds per slide)
+    }, 2000); // Set to 2 seconds per slide
     
     // Update active index when carousel scrolls
     const onSelect = () => {
