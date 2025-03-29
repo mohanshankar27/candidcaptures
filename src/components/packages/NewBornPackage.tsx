@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -121,7 +120,7 @@ const NewBornPackage: React.FC = () => {
               <CardTitle className="text-primary text-xl">TINY TOTS - STANDARD</CardTitle>
               <CardDescription className="text-slate-600 pt-1">Premium coverage</CardDescription>
               <div className="mt-4 mb-1">
-                <span className="text-3xl font-light text-[#ea384c]">₹11,850</span>
+                <span className="text-3xl font-light text-[#ea384c]">₹12,000</span>
                 <span className="text-slate-600 text-sm ml-1">+gst</span>
               </div>
             </CardHeader>
@@ -174,7 +173,7 @@ const NewBornPackage: React.FC = () => {
               <CardTitle className="text-primary text-xl">CUSTOMISED</CardTitle>
               <CardDescription className="text-slate-600 pt-1">Complete coverage</CardDescription>
               <div className="mt-4 mb-1">
-                <span className="text-3xl font-light text-[#ea384c]">₹19,500</span>
+                <span className="text-3xl font-light text-[#ea384c]">₹20,500</span>
                 <span className="text-slate-600 text-sm ml-1">+gst</span>
               </div>
             </CardHeader>
