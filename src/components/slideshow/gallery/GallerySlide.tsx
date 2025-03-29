@@ -68,6 +68,9 @@ const GallerySlide = ({
             <div className="absolute inset-2 z-20 border-[1px] border-amber-300/40 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             <div className="absolute inset-[7px] z-20 border-[1px] border-amber-400/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100"></div>
             
+            {/* Golden light effect behind image */}
+            <div className="absolute inset-0 golden-light-effect rounded-lg"></div>
+            
             {/* Dynamic light effects */}
             <div className="absolute -inset-full z-10 bg-gradient-to-tr from-amber-300/10 via-white/20 to-amber-300/10 translate-x-[100%] skew-x-12 group-hover:animate-shine"></div>
             <div className="absolute inset-0 bg-gradient-to-tr from-black/10 to-black/20 mix-blend-overlay z-10 opacity-60"></div>

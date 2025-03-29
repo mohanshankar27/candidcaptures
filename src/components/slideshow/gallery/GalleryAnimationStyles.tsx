@@ -8,8 +8,23 @@ const GalleryAnimationStyles = () => {
           100% { transform: translateX(200%) skewX(-15deg); }
         }
         
+        @keyframes pulseGlow {
+          0% { opacity: 0.7; }
+          50% { opacity: 1; }
+          100% { opacity: 0.7; }
+        }
+        
         .animate-shine {
           animation: shine 4s ease-in-out infinite;
+        }
+        
+        .golden-light-effect {
+          background: radial-gradient(circle at center, rgba(251,191,36,0.5) 0%, rgba(251,191,36,0.2) 40%, rgba(251,191,36,0.1) 60%, transparent 80%);
+          filter: blur(20px);
+          opacity: 0.8;
+          transform: scale(1.1);
+          z-index: 1;
+          animation: pulseGlow 4s ease-in-out infinite;
         }
         
         .swiper-container {
