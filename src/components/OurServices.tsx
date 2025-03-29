@@ -8,7 +8,16 @@ import servicesList from '@/data/services';
 const OurServices = () => {
   const navigate = useNavigate();
 
-  // Group services by category
+  // Featured premium services matching the image
+  const premiumServices = [
+    { name: "Wedding Photography", path: "/services", state: { selectedService: "Wedding Photography" } },
+    { name: "Portrait Sessions", path: "/services", state: { selectedService: "Portrait Photography" } },
+    { name: "Product Photography", path: "/services", state: { selectedService: "Product Photography" } },
+    { name: "Concept Shoot", path: "/services", state: { selectedService: "Concept shoot" } },
+    { name: "Event Coverage", path: "/services", state: { selectedService: "Event Photography" } }
+  ];
+
+  // Group other services by category
   const categories = [
     {
       name: "Photography Services",
@@ -58,7 +67,11 @@ const OurServices = () => {
     }
   ];
 
-  const handleServiceClick = (serviceName: string) => {
+  const handleServiceClick = (service: typeof premiumServices[0]) => {
+    navigate(service.path, { state: service.state });
+  };
+
+  const handleCategoryServiceClick = (serviceName: string) => {
     navigate('/services', { state: { selectedService: serviceName } });
   };
 
@@ -112,6 +125,44 @@ const OurServices = () => {
           </p>
         </motion.div>
 
+        {/* Premium Services Row - matching the image */}
+        <motion.div 
+          className="mb-20"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          viewport={{ once: true }}
+        >
+          <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8">
+            {premiumServices.map((service, index) => (
+              <motion.button
+                key={service.name}
+                className="relative group"
+                onClick={() => handleServiceClick(service)}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ y: -5 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <div className="px-8 py-3 border border-amber-200/50 rounded-full bg-white shadow-md backdrop-blur-sm relative overflow-hidden group-hover:border-amber-300 transition-all duration-300">
+                  {/* Animated glow effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-amber-50/0 via-amber-100/30 to-amber-50/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                  
+                  <span className="relative z-10 text-primary/90 font-akaya tracking-wide text-lg">
+                    {service.name}
+                  </span>
+                </div>
+                
+                {/* Bottom subtle line animation */}
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-amber-300 to-amber-500 group-hover:w-full transition-all duration-300 ease-out"></div>
+              </motion.button>
+            ))}
+          </div>
+        </motion.div>
+
         {/* Service categories */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {categories.map((category, idx) => (
@@ -132,7 +183,7 @@ const OurServices = () => {
                 {category.services.map((service) => (
                   <motion.button
                     key={service.name}
-                    onClick={() => handleServiceClick(service.name)}
+                    onClick={() => handleCategoryServiceClick(service.name)}
                     className="w-full text-left group"
                     whileHover={{ x: 5 }}
                     transition={{ duration: 0.2 }}
