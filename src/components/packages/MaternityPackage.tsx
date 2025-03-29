@@ -37,7 +37,7 @@ const MaternityPackage: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-4 gap-5">
+        <div className="grid md:grid-cols-3 gap-5">
           <Card className="border-primary/20 hover:shadow-lg transition-all duration-300">
             <CardHeader className="bg-gradient-to-r from-primary/10 to-primary/5 pb-2">
               <CardTitle className="text-primary text-lg">Basic</CardTitle>
@@ -59,7 +59,7 @@ const MaternityPackage: React.FC = () => {
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Costume Changes: Max 2</span>
+                  <span className="text-slate-700">Costumes Changes: Max 2</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
@@ -72,6 +72,18 @@ const MaternityPackage: React.FC = () => {
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
                   <span className="text-slate-700">Additional Images: ₹200/image</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Hard Copies: No</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Makeup: Not Included</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Prior Creative Planning: No</span>
                 </li>
               </ul>
               <div className="mt-4 text-center">
@@ -117,6 +129,18 @@ const MaternityPackage: React.FC = () => {
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
                   <span className="text-slate-700">30 full res photos</span>
                 </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Additional Images: ₹200/image</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Makeup: Optional, ₹4,750+</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Creative Planning: Yes</span>
+                </li>
               </ul>
               <div className="mt-4 text-center">
                 <a href="https://calendly.com/candidcapture/30min" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline text-sm font-medium">
@@ -130,44 +154,6 @@ const MaternityPackage: React.FC = () => {
                 <span className="text-xs text-slate-400">|</span>
                 <a href="#" className="text-xs text-primary/80 hover:underline">Sample-3</a>
               </div>
-            </CardContent>
-          </Card>
-
-          <Card className="border-primary/20 shadow-md hover:shadow-xl relative transition-all duration-300">
-            <div className="absolute -top-4 right-0 left-0 mx-auto w-fit px-3 py-1 bg-[#ea384c] text-white text-sm rounded-full">
-              Most Popular
-            </div>
-            <CardHeader className="bg-gradient-to-r from-primary/20 to-primary/10 pb-2">
-              <CardTitle className="text-primary text-lg">Premium</CardTitle>
-              <CardDescription className="text-slate-600 pt-1">Complete coverage</CardDescription>
-              <div className="mt-4 mb-1">
-                <span className="text-2xl font-light text-[#ea384c]">₹18,000</span>
-                <span className="text-sm text-slate-500">+GST</span>
-              </div>
-            </CardHeader>
-            <CardContent className="pt-6">
-              <ul className="space-y-3">
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">3-hour photo session</span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">30 edited digital images</span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">3 outfit changes</span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Studio and outdoor locations</span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Hair and makeup artist</span>
-                </li>
-              </ul>
             </CardContent>
           </Card>
 
@@ -197,11 +183,27 @@ const MaternityPackage: React.FC = () => {
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Props: At actuals as per concept</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
                   <span className="text-slate-700">50 full res photos</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
                   <span className="text-slate-700">Short Videos: 4</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Location/Prop Charges: At actuals</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Makeup/hair: Optional</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Creative Planning: Mood-board, Stylist</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
@@ -218,17 +220,6 @@ const MaternityPackage: React.FC = () => {
         </div>
 
         <Separator />
-
-        <div className="mt-6">
-          <h3 className="text-lg font-medium mb-3 text-[#333333]">Add-On Services</h3>
-          <ul className="list-disc pl-5 space-y-2 text-slate-600">
-            <li>Additional digital images - ₹200 per image (Basic & Standard packages)</li>
-            <li>Hair and makeup artist - Starting at ₹4,750</li>
-            <li>Custom props - Price varies based on requirements</li>
-            <li>Partner/family photos - Included in Standard and above packages</li>
-            <li>Location/Prop charges - At actuals</li>
-          </ul>
-        </div>
 
         <div className="mt-6">
           <h3 className="text-lg font-medium mb-3 text-[#333333]">Important Information</h3>
@@ -251,4 +242,3 @@ const MaternityPackage: React.FC = () => {
 };
 
 export default MaternityPackage;
-
