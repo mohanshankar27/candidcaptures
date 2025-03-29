@@ -13,7 +13,7 @@ const PhotoSlideshow = () => {
     align: "start",
     dragFree: true,
     skipSnaps: true,
-    speed: 15, // Slower speed for smoother transitions
+    duration: 50, // Use duration instead of speed for slower transitions
   });
   
   useEffect(() => {
@@ -21,7 +21,7 @@ const PhotoSlideshow = () => {
     
     // Auto-slide functionality
     const autoplay = setInterval(() => {
-      if (emblaApi) emblaApi.scrollNext({ animation: { duration: 1500 } });
+      if (emblaApi) emblaApi.scrollNext();
     }, 5000);
     
     return () => clearInterval(autoplay);
@@ -103,7 +103,7 @@ const PhotoSlideshow = () => {
             
             <div className="flex justify-center mt-8 gap-4">
               <button 
-                onClick={() => emblaApi?.scrollPrev({ animation: { duration: 1200 } })}
+                onClick={() => emblaApi?.scrollPrev()}
                 className="h-10 w-10 rounded-full bg-orange-500 text-white hover:bg-orange-600 border-none flex items-center justify-center transition-all duration-300"
                 aria-label="Previous slide"
               >
@@ -112,7 +112,7 @@ const PhotoSlideshow = () => {
                 </svg>
               </button>
               <button 
-                onClick={() => emblaApi?.scrollNext({ animation: { duration: 1200 } })}
+                onClick={() => emblaApi?.scrollNext()}
                 className="h-10 w-10 rounded-full bg-orange-500 text-white hover:bg-orange-600 border-none flex items-center justify-center transition-all duration-300"
                 aria-label="Next slide"
               >
