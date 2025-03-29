@@ -17,14 +17,25 @@ const FeaturedImage: React.FC<FeaturedImageProps> = ({
 }) => {
   return (
     <div className="mb-6 w-full overflow-hidden rounded-lg border-2 border-orange-400">
-      <AspectRatio ratio={isFashionService ? 3/4 : 16/9} className={isFashionService ? 'max-w-[160px] mx-auto' : ''}>
-        <img 
-          src={imageSrc} 
-          alt={altText}
-          className="w-full h-full object-contain transition-transform duration-300 hover:scale-105 cursor-pointer"
-          onClick={onClick}
-        />
-      </AspectRatio>
+      {isFashionService ? (
+        <div className="w-full flex justify-center">
+          <img 
+            src={imageSrc} 
+            alt={altText}
+            className="w-auto max-h-[400px] object-contain transition-transform duration-300 hover:scale-105 cursor-pointer"
+            onClick={onClick}
+          />
+        </div>
+      ) : (
+        <AspectRatio ratio={16/9}>
+          <img 
+            src={imageSrc} 
+            alt={altText}
+            className="w-full h-full object-contain transition-transform duration-300 hover:scale-105 cursor-pointer"
+            onClick={onClick}
+          />
+        </AspectRatio>
+      )}
     </div>
   );
 };
