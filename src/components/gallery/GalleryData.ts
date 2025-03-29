@@ -41,10 +41,6 @@ export const galleryImages = [
     alt: "Portrait of a young woman in traditional blue and turquoise saree with jewelry",
   },
   {
-    url: "/lovable-uploads/a82b5da8-8a1b-4cde-b048-3a1cbf8945e4.png",
-    alt: "Outdoor portrait of a man with long hair wearing dark green shirt against blurred nature background",
-  },
-  {
     url: "/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png",
     alt: "Wedding portrait with elegant couple in traditional attire",
   },
