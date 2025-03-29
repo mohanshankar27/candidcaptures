@@ -1,4 +1,3 @@
-
 import { Service } from '@/data/services';
 import { getServiceImage } from './serviceImages';
 
@@ -76,8 +75,8 @@ export const getServiceImages = (service: Service): string[] => {
       '/lovable-uploads/92b87e5e-0ec2-44ab-8160-c7335b0d66a0.png', // First image - burgundy background model
       '/lovable-uploads/38c938f6-27b6-4b7c-80c8-02a42c8cf9d3.png', // Second image - fitness fashion 
       '/lovable-uploads/84376a5b-2662-4bb5-9e37-8e83ca5c09c8.png', // Third image - yellow traditional outfit
-      '/lovable-uploads/6d4124cf-49f7-422e-a39a-0fc50e817f81.png',  // Fourth image
-      '/lovable-uploads/4c8884df-c0c2-4516-8e86-d559a104323b.png'   // Fifth image
+      '/lovable-uploads/4c8884df-c0c2-4516-8e86-d559a104323b.png',  // Fourth image
+      '/lovable-uploads/6d4124cf-49f7-422e-a39a-0fc50e817f81.png'   // Fifth image
     ];
   }
   
