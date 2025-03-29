@@ -8,12 +8,14 @@ import Footer from "@/components/Footer";
 import PhotoSlideshow from "@/components/PhotoSlideshow";
 import WeddingSlideshow from "@/components/WeddingSlideshow";
 import GoogleReviewButton from "@/components/GoogleReviewButton";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
       <GoogleReviewButton />
+      <WhatsAppButton />
       <Hero />
       <Gallery />
       <PhotoSlideshow />
