@@ -42,7 +42,6 @@ const serviceItems: ServiceItem[] = [
 const ServiceSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
-  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   // Get current service data
@@ -62,16 +61,8 @@ const ServiceSlider = () => {
 
   // Handle service selection
   const handleServiceClick = () => {
-    setIsLoading(true);
-    
-    // Find the corresponding service in the servicesList
     const serviceName = currentService.name;
-    
-    // Navigate after a shorter delay (2 seconds instead of 3)
-    setTimeout(() => {
-      setIsLoading(false);
-      navigate('/services', { state: { selectedService: serviceName } });
-    }, 2000);
+    navigate('/services', { state: { selectedService: serviceName } });
   };
 
   // Animation variants - optimized for faster transitions
@@ -83,7 +74,7 @@ const ServiceSlider = () => {
     center: {
       x: 0,
       opacity: 1
-    },
+    }),
     exit: (direction: number) => ({
       x: direction < 0 ? 1000 : -1000,
       opacity: 0
@@ -101,15 +92,6 @@ const ServiceSlider = () => {
         </div>
         
         <div className="relative h-[500px] w-full flex items-center justify-center">
-          {/* Loading overlay */}
-          {isLoading && (
-            <div className="absolute inset-0 bg-white/80 z-50 flex flex-col items-center justify-center">
-              <div className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin mb-4"></div>
-              <p className="text-primary font-medium">Loading service...</p>
-            </div>
-          )}
-
-          {/* Main content */}
           <div className="w-full max-w-5xl relative overflow-hidden rounded-xl shadow-2xl bg-white">
             <AnimatePresence initial={false} custom={direction} mode="wait">
               <motion.div
@@ -120,8 +102,8 @@ const ServiceSlider = () => {
                 animate="center"
                 exit="exit"
                 transition={{
-                  x: { type: "spring", stiffness: 400, damping: 30 }, // Faster spring animation
-                  opacity: { duration: 0.15 } // Faster fade
+                  x: { type: "spring", stiffness: 400, damping: 30 },
+                  opacity: { duration: 0.15 }
                 }}
                 className="absolute inset-0"
               >
