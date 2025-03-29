@@ -6,9 +6,9 @@ import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import { preloadCriticalImages, deferNonCriticalJS } from '@/utils/performance'; // Updated import
 import { criticalImages } from '@/components/slideshow/serviceImages';
+import PhotoSlideshow from '@/components/PhotoSlideshow'; // Import directly instead of lazy loading
 
-// Lazily load non-critical components
-const PhotoSlideshow = lazy(() => import('@/components/PhotoSlideshow'));
+// Lazily load non-critical components, but not PhotoSlideshow which was causing issues
 const ServiceSlider = lazy(() => import('@/components/ServiceSlider'));
 const About = lazy(() => import('@/components/About'));
 const Contact = lazy(() => import('@/components/Contact'));
@@ -67,12 +67,8 @@ const Index = () => {
       <Navbar />
       <Hero />
       
-      {/* Lazy load PhotoSlideshow which now contains Gallery */}
-      {loadComplete && (
-        <Suspense fallback={<LoadingFallback />}>
-          <PhotoSlideshow />
-        </Suspense>
-      )}
+      {/* Load PhotoSlideshow directly, not lazy-loaded */}
+      {loadComplete && <PhotoSlideshow />}
       
       <CTA />
       

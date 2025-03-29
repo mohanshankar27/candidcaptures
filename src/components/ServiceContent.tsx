@@ -6,9 +6,7 @@ import ServiceGallery from '@/components/ServiceGallery';
 import ArtistsCelebritiesGallery from '@/components/ArtistsCelebritiesGallery';
 import { getServiceGallery } from '@/components/slideshow/serviceImages';
 import CorporateHeadshotsFAQ from '@/components/CorporateHeadshotsFAQ';
-
-// Lazy-load components that aren't needed immediately
-const WeddingSlideshow = React.lazy(() => import('@/components/WeddingSlideshow'));
+import WeddingSlideshow from '@/components/WeddingSlideshow'; // Import directly instead of lazy-loading
 
 interface ServiceContentProps {
   service: Service;
@@ -17,16 +15,16 @@ interface ServiceContentProps {
 const ServiceContent: React.FC<ServiceContentProps> = ({ service }) => {
   const isWeddingService = service.name === 'Wedding Photography';
   const isCorporateHeadshots = service.name === 'Corporate Headshots';
-  const [shouldLoadSlideshow, setShouldLoadSlideshow] = useState(false);
+  const [shouldShowSlideshow, setShouldShowSlideshow] = useState(false);
   
   // Get images for this service from our centralized image management
   const serviceImageArray = getServiceGallery(service.name);
   
-  // Delay loading of wedding slideshow component
+  // Delay showing of wedding slideshow component for better performance
   useEffect(() => {
     if (isWeddingService) {
       const timer = setTimeout(() => {
-        setShouldLoadSlideshow(true);
+        setShouldShowSlideshow(true);
       }, 500); // Delay loading by 500ms
       
       return () => clearTimeout(timer);
@@ -67,12 +65,8 @@ const ServiceContent: React.FC<ServiceContentProps> = ({ service }) => {
   return (
     <>
       <ServiceGallery service={service} images={serviceImageArray} />
-      {isWeddingService && shouldLoadSlideshow && (
-        <React.Suspense fallback={<div className="w-full h-40 flex items-center justify-center">
-          <div className="w-10 h-10 border-4 border-primary/30 border-t-primary rounded-full animate-spin"></div>
-        </div>}>
-          <WeddingSlideshow autoplay={true} interval={3000} />
-        </React.Suspense>
+      {isWeddingService && shouldShowSlideshow && (
+        <WeddingSlideshow autoplay={true} interval={3000} />
       )}
       
       {isCorporateHeadshots && (

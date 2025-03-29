@@ -4,13 +4,13 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import servicesList from '@/data/servicesList';
 
-// Import refactored components
+// Import refactored components directly, not dynamically
 import SlideshowHeader from './slideshow/SlideshowHeader';
 import ServiceImageCarousel from './slideshow/ServiceImageCarousel';
 import BackgroundDecorators from './slideshow/BackgroundDecorators';
 import serviceImages from './slideshow/serviceImages';
-import ServicesGrid from './ServicesGrid'; // Direct import instead of dynamic import
-import Gallery from './Gallery'; // Import the updated Gallery component
+import ServicesGrid from './ServicesGrid';
+import Gallery from './Gallery';
 
 // Create service thumbnails with proper image mapping
 const serviceThumbnails = servicesList.map(service => ({

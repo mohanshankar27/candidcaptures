@@ -33,7 +33,6 @@ interface WeddingSlideshowProps {
 }
 
 const WeddingSlideshow = ({ autoplay = true, interval = 3000 }: WeddingSlideshowProps) => {
-  const [currentSlide, setCurrentSlide] = useState(0);
   const [api, setApi] = useState<any>(null);
   const [isPaused, setIsPaused] = useState(false);
 
@@ -68,6 +67,7 @@ const WeddingSlideshow = ({ autoplay = true, interval = 3000 }: WeddingSlideshow
                     src={photo} 
                     alt={`Wedding photo ${index + 1}`} 
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                    loading={index < 3 ? "eager" : "lazy"}
                   />
                 </div>
               </div>
