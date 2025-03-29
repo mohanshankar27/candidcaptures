@@ -119,30 +119,30 @@ const Navbar = () => {
           : "bg-background/60 backdrop-blur-sm"
       )}
     >
-      <div className="w-full flex justify-between items-center h-28 px-0">
+      <div className="max-w-7xl mx-auto flex justify-between items-center h-20 px-4">
         <button 
           onClick={handleLogoClick}
-          className="flex items-center focus:outline-none pl-4"
+          className="flex items-center focus:outline-none"
         >
           <img 
             src="/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png" 
             alt="Candid Capture Photography" 
-            className="h-48 w-auto object-contain" 
+            className="h-16 w-auto object-contain" 
             loading="eager"
             fetchPriority="high"
           />
         </button>
 
-        <div className="hidden lg:block pr-8">
+        <div className="hidden lg:block">
           <NavigationMenu>
-            <NavigationMenuList>
+            <NavigationMenuList className="gap-2">
               {navItems.map((item, index) => (
                 <NavigationMenuItem key={item.name}>
                   {item.name === 'Services' ? (
                     <>
                       <NavigationMenuTrigger 
                         className={cn(
-                          "text-base font-serif italic font-medium",
+                          "text-base font-serif italic font-medium px-4 py-2",
                           isActive(item.href) ? "text-[#003c72] font-bold" : "hover:text-primary"
                         )}
                       >
@@ -184,7 +184,7 @@ const Navbar = () => {
           </NavigationMenu>
         </div>
 
-        <div className="lg:hidden flex items-center pr-4">
+        <div className="lg:hidden flex items-center">
           <Button
             onClick={() => setIsOpen(!isOpen)}
             className="bg-transparent hover:bg-gray-100 text-gray-800"
