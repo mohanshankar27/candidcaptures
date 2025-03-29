@@ -15,6 +15,7 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, images }) => {
   const limitedImages = images.slice(0, 6);
   const [enlargedImageIndex, setEnlargedImageIndex] = useState<number | null>(null);
   const [isSlideshow, setIsSlideshow] = useState(false);
+  const isFashionService = service.name === 'Fashion Photography';
   
   useEffect(() => {
     let slideshowInterval: NodeJS.Timeout | null = null;
@@ -100,17 +101,21 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, images }) => {
       <h3 className="text-xl font-medium mb-3">{service.name} Showcase</h3>
       
       {/* Gallery grid with original aspect ratio preservation */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 md:gap-3">
+      <div className={`grid grid-cols-2 sm:grid-cols-3 gap-2 md:gap-3 ${isFashionService ? 'sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2' : ''}`}>
         {limitedImages.slice(1).map((image, index) => (
           <div 
             key={index} 
-            className="overflow-hidden rounded-lg cursor-pointer bg-muted border-2 border-orange-300"
+            className={`overflow-hidden rounded-lg cursor-pointer bg-muted border-2 border-orange-300 ${
+              isFashionService ? 'h-[500px]' : ''
+            }`}
             onClick={() => handleImageClick(index + 1)}
           >
             <img 
               src={image} 
               alt={`${service.name} ${index + 1}`} 
-              className="w-full h-auto object-contain transition-transform duration-300 hover:scale-110"
+              className={`w-full h-auto object-contain transition-transform duration-300 hover:scale-110 ${
+                isFashionService ? 'h-full object-cover' : ''
+              }`}
             />
           </div>
         ))}
