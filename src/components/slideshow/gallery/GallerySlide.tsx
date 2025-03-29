@@ -46,13 +46,13 @@ const GallerySlide = ({
         y: 0,
         scale: isActive ? 1 : 0.85 - (distanceFromActive * 0.05),
         z: isActive ? 0 : -100 * distanceFromActive,
-        rotateY: isActive ? 0 : isPrev ? 10 : isNext ? -10 : 0,
+        rotateY: isActive ? 0 : isPrev ? 15 : isNext ? -15 : 0,
       }}
       transition={{ 
         duration: 0.7, 
         ease: "easeOut"
       }}
-      className="flex-[0_0_280px] sm:flex-[0_0_320px] md:flex-[0_0_450px] relative mx-1 swiper-slide"
+      className="flex-[0_0_280px] sm:flex-[0_0_320px] md:flex-[0_0_450px] relative mx-1 swiper-slide elementor-swiper-slide"
       style={{ 
         perspective: '1500px',
         transformStyle: 'preserve-3d',

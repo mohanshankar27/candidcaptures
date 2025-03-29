@@ -6,15 +6,25 @@ import BackgroundDecorators from './slideshow/BackgroundDecorators';
 import SlideshowHeader from './slideshow/SlideshowHeader';
 import SlideshowGallery from './slideshow/SlideshowGallery';
 import StyleProvider from './gallery/StyleProvider';
+import WeddingSlideshow from './WeddingSlideshow';
 
 const PhotoSlideshow = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   
   useEffect(() => {
-    // Add the swiper watch progress class to body or container
+    // Add the Elementor classes to container
     const container = document.getElementById('glimpse');
     if (container) {
-      container.classList.add('swiper-watch-progress');
+      container.classList.add(
+        'elementor-main-swiper',
+        'swiper-container',
+        'swiper-coverflow',
+        'swiper-3d',
+        'swiper-initialized',
+        'swiper-horizontal',
+        'swiper-pointer-events',
+        'swiper-watch-progress'
+      );
     }
     
     // Simulate loading for the transition effect
@@ -26,13 +36,22 @@ const PhotoSlideshow = () => {
       clearTimeout(timer);
       // Clean up classes when component unmounts
       if (container) {
-        container.classList.remove('swiper-watch-progress');
+        container.classList.remove(
+          'elementor-main-swiper',
+          'swiper-container',
+          'swiper-coverflow',
+          'swiper-3d',
+          'swiper-initialized',
+          'swiper-horizontal',
+          'swiper-pointer-events',
+          'swiper-watch-progress'
+        );
       }
     };
   }, []);
 
   return (
-    <section id="glimpse" className="py-32 bg-gradient-to-b from-white via-slate-50 to-orange-50 relative overflow-hidden swiper-coverflow swiper-3d">
+    <section id="glimpse" className="py-32 bg-gradient-to-b from-white via-slate-50 to-orange-50 relative overflow-hidden">
       <BackgroundDecorators />
       
       <div className="container mx-auto px-4 relative z-10">
@@ -42,7 +61,7 @@ const PhotoSlideshow = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: isLoaded ? 1 : 0 }}
           transition={{ duration: 0.8 }}
-          className="swiper-initialized swiper-horizontal swiper-pointer-events"
+          className="elementor-swiper-wrapper swiper-wrapper transform-style-3d"
         >
           <StyleProvider>
             <SlideshowGallery images={galleryImages} />
@@ -63,9 +82,14 @@ const PhotoSlideshow = () => {
         </motion.div>
       </div>
       
-      {/* Add custom Elementor-like swiper styles */}
+      {/* Add Elementor-style swiper styles */}
       <style>
         {`
+          .elementor-main-swiper {
+            overflow: hidden;
+            position: relative;
+          }
+          
           .swiper-coverflow .swiper-wrapper {
             perspective: 1200px;
           }
@@ -89,6 +113,16 @@ const PhotoSlideshow = () => {
           
           .swiper-pointer-events {
             touch-action: pan-y;
+          }
+          
+          .elementor-swiper-wrapper {
+            display: flex;
+            align-items: center;
+            transform-style: preserve-3d;
+          }
+          
+          .transform-style-3d {
+            transform-style: preserve-3d;
           }
         `}
       </style>

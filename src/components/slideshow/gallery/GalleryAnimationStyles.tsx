@@ -31,7 +31,8 @@ const GalleryAnimationStyles = () => {
           animation: pulseGlow 4s ease-in-out infinite;
         }
         
-        .swiper-container {
+        /* Elementor Swiper Styles */
+        .elementor-main-swiper {
           overflow: hidden;
           width: 100%;
         }
@@ -47,6 +48,34 @@ const GalleryAnimationStyles = () => {
           transition: transform 0.7s cubic-bezier(0.25, 0.1, 0.25, 1);
           transform-origin: center center;
           transform-style: preserve-3d;
+        }
+        
+        .elementor-swiper-slide {
+          transition: transform 0.7s ease-in-out;
+          backface-visibility: hidden;
+        }
+        
+        .swiper-coverflow .swiper-wrapper {
+          perspective: 1200px;
+        }
+        
+        .swiper-3d .swiper-slide-shadow-left,
+        .swiper-3d .swiper-slide-shadow-right {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          pointer-events: none;
+          z-index: 10;
+        }
+        
+        .swiper-3d .swiper-slide-shadow-left {
+          background-image: linear-gradient(to left, rgba(0,0,0,0.2), rgba(0,0,0,0));
+        }
+        
+        .swiper-3d .swiper-slide-shadow-right {
+          background-image: linear-gradient(to right, rgba(0,0,0,0.2), rgba(0,0,0,0));
         }
         
         .bg-gradient-gold {
