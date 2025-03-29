@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -6,6 +7,7 @@ import BookingCTA from './BookingCTA';
 import PackageImageCarousel from './PackageImageCarousel';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
+import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
 
 const MatrimonialPackage: React.FC = () => {
   // Images for the matrimonial package carousel
@@ -173,17 +175,21 @@ const MatrimonialPackage: React.FC = () => {
 
         <Separator />
 
-        <div className="mt-6">
-          <h3 className="text-lg font-medium mb-3 text-[#333333]">Add-On Services</h3>
-          <ul className="list-disc pl-5 space-y-2 text-slate-600">
-            <li>Additional digital images - ₹750 per image</li>
-            <li>Hair and makeup services - ₹4,000</li>
-            <li>Additional location - ₹3,000 per location</li>
-            <li>Extra outfit change - ₹1,500 per outfit</li>
-            <li>Custom-designed digital portfolio (if not included) - ₹5,000</li>
-            <li>Extended session time - ₹5,000 per hour</li>
-          </ul>
-        </div>
+        <Alert className="bg-slate-50 border-primary/10 mt-6">
+          <AlertTitle className="text-lg font-medium text-[#333333]">IMPORTANT:</AlertTitle>
+          <AlertDescription className="text-slate-600 mt-2">
+            <p className="mb-2">
+              Relationships are built on authenticity, and we strongly believe that after your images have made the first impression your prospective spouse
+              "meets the same person who was/is in the images".
+            </p>
+            <ul className="list-disc pl-5 space-y-1 mt-3">
+              <li>We only do corrections - We only remove temporary blemishes (pimples), stains or lint on clothes, etc.</li>
+              <li>We rely on creative use of light, background colours and posing to make you look your best.</li>
+              <li>WE DO NOT - alter your physical (body) shape, skin tone, nor remove all of the skin texture.</li>
+              <li>We make Natural skin look great, by using some of the best available light modifiers to create a soft light.</li>
+            </ul>
+          </AlertDescription>
+        </Alert>
 
         <div className="mt-6">
           <h3 className="text-lg font-medium mb-3 text-[#333333]">Important Information</h3>
