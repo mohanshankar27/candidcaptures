@@ -32,11 +32,13 @@ const GallerySlider = ({
   };
 
   const nextImage = () => {
-    setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+    const nextIndex = current === images.length - 1 ? 0 : current + 1;
+    setCurrent(nextIndex);
   };
 
   const prevImage = () => {
-    setCurrent((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+    const prevIndex = current === 0 ? images.length - 1 : current - 1;
+    setCurrent(prevIndex);
   };
 
   return (

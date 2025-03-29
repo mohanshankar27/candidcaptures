@@ -1,6 +1,5 @@
-
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { galleryImages } from './gallery/GalleryData';
 import BackgroundDecorators from './slideshow/BackgroundDecorators';
 import GalleryHeader from './gallery/GalleryHeader';
