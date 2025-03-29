@@ -62,37 +62,15 @@ const CorporatePackage: React.FC = () => {
               <div className="absolute top-6 right-6">
                 <Star className="h-5 w-5 text-[#ea384c]" />
               </div>
-              <h4 className="text-2xl uppercase font-bold tracking-wide text-slate-800 mb-2">Mini</h4>
+              <h4 className="text-2xl uppercase font-bold tracking-wide text-slate-800 mb-2">Basic</h4>
+              <p className="text-sm uppercase tracking-wider font-medium text-slate-600">Headshots for Professionals</p>
               
               <div className="mt-6 space-y-3">
                 <div className="flex flex-col items-center">
-                  <div className="text-sm text-slate-500 line-through">₹8,890 (inc. GST)</div>
                   <div className="flex items-center gap-2">
-                    <span className="bg-[#ea384c]/10 px-3 py-1 rounded-full text-[#ea384c] font-medium">15% OFF</span>
-                    <span className="text-3xl font-bold text-slate-800">₹7,550</span>
-                    <span className="text-sm text-slate-500">+GST</span>
+                    <span className="text-3xl font-bold text-slate-800">₹995</span>
+                    <span className="text-sm text-slate-500">+GST per image</span>
                   </div>
-                </div>
-                
-                <div className="bg-gradient-to-r from-slate-50 to-white rounded-lg p-4 shadow-sm border border-slate-100">
-                  <TooltipProvider>
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <div className="flex items-center justify-center gap-1 cursor-help">
-                          <span className="font-medium">Team Discount</span>
-                          <Info className="h-4 w-4 text-slate-500" />
-                        </div>
-                      </TooltipTrigger>
-                      <TooltipContent className="max-w-xs bg-white shadow-lg p-3 rounded-lg border border-slate-100">
-                        <p>Additional 15% discount applied when booking for 5+ team members</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                  <div className="flex items-center justify-center mt-1">
-                    <span className="text-[#ea384c] font-semibold">₹6,417</span>
-                    <span className="text-sm text-slate-500 ml-1">+GST per person</span>
-                  </div>
-                  <div className="text-xs text-slate-500 mt-1">(for 5+ people)</div>
                 </div>
               </div>
               
@@ -103,48 +81,26 @@ const CorporatePackage: React.FC = () => {
             <CardContent className="p-8">
               <div className="space-y-4">
                 <div className="flex justify-between py-2 border-b border-slate-100">
-                  <span className="text-sm font-medium text-slate-700">Studio Shoot:</span>
+                  <span className="text-sm font-medium text-slate-700">Location:</span>
                   <span className="text-sm text-slate-600 flex items-center">
-                    <Check className="h-4 w-4 text-green-500 mr-1" /> Yes, at our studio
+                    <Check className="h-4 w-4 text-green-500 mr-1" /> Your Premises
                   </span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-slate-100">
-                  <span className="text-sm font-medium text-slate-700">Outdoor Shoot:</span>
+                  <span className="text-sm font-medium text-slate-700">Costume Changes:</span>
+                  <span className="text-sm text-slate-600 flex items-center">
+                    <X className="h-4 w-4 text-red-500 mr-1" /> No
+                  </span>
+                </div>
+                <div className="flex justify-between py-2 border-b border-slate-100">
+                  <span className="text-sm font-medium text-slate-700">Consultation:</span>
                   <span className="text-sm text-slate-600 flex items-center">
                     <X className="h-4 w-4 text-red-500 mr-1" /> No
                   </span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-slate-100">
                   <span className="text-sm font-medium text-slate-700">Duration:</span>
-                  <span className="text-sm text-slate-600">15 - 30 mins per person</span>
-                </div>
-                <div className="flex justify-between py-2 border-b border-slate-100">
-                  <span className="text-sm font-medium text-slate-700">Look Changes:</span>
-                  <span className="text-sm text-slate-600">Max 1</span>
-                </div>
-                <div className="flex justify-between py-2 border-b border-slate-100">
-                  <span className="text-sm font-medium text-slate-700">Props:</span>
-                  <span className="text-sm text-slate-600">Minimal</span>
-                </div>
-                <div className="flex justify-between py-2 border-b border-slate-100">
-                  <span className="text-sm font-medium text-slate-700">Photos Delivered:</span>
-                  <span className="text-sm text-slate-600">3 (full res)</span>
-                </div>
-                <div className="flex justify-between py-2 border-b border-slate-100">
-                  <span className="text-sm font-medium text-slate-700">Additional Images:</span>
-                  <span className="text-sm text-slate-600">₹300/image</span>
-                </div>
-                <div className="flex justify-between py-2 border-b border-slate-100">
-                  <span className="text-sm font-medium text-slate-700">Hard Copies:</span>
-                  <span className="text-sm text-slate-600 flex items-center">
-                    <X className="h-4 w-4 text-red-500 mr-1" /> No (digital files only)
-                  </span>
-                </div>
-                <div className="flex justify-between py-2 border-b border-slate-100">
-                  <span className="text-sm font-medium text-slate-700">Makeup:</span>
-                  <span className="text-sm text-slate-600 flex items-center">
-                    <X className="h-4 w-4 text-red-500 mr-1" /> No
-                  </span>
+                  <span className="text-sm text-slate-600">10-15 mins</span>
                 </div>
               </div>
             </CardContent>
@@ -159,116 +115,82 @@ const CorporatePackage: React.FC = () => {
               <div className="absolute top-6 right-6">
                 <Crown className="h-6 w-6 text-[#ea384c]" />
               </div>
-              <h4 className="text-2xl uppercase font-bold tracking-wide text-slate-800 mb-2">Classic</h4>
+              <h4 className="text-2xl uppercase font-bold tracking-wide text-slate-800 mb-2">Standard</h4>
+              <p className="text-sm uppercase tracking-wider font-medium text-slate-600">Executive Headshot Session</p>
               
               <div className="mt-6 space-y-3">
                 <div className="flex flex-col items-center">
-                  <div className="text-sm text-slate-500 line-through">₹13,500 (inc. GST)</div>
                   <div className="flex items-center gap-2">
-                    <span className="bg-[#ea384c]/10 px-3 py-1 rounded-full text-[#ea384c] font-medium">15% OFF</span>
-                    <span className="text-3xl font-bold text-slate-800">₹11,475</span>
+                    <span className="bg-[#ea384c]/10 px-3 py-1 rounded-full text-[#ea384c] font-medium">OFFER!!</span>
+                    <span className="text-3xl font-bold text-slate-800">₹5,275</span>
                     <span className="text-sm text-slate-500">+GST</span>
                   </div>
-                </div>
-                
-                <div className="bg-white/70 backdrop-blur-sm rounded-lg p-4 shadow-sm border border-slate-100">
-                  <TooltipProvider>
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <div className="flex items-center justify-center gap-1 cursor-help">
-                          <span className="font-medium">Team Discount</span>
-                          <Info className="h-4 w-4 text-slate-500" />
-                        </div>
-                      </TooltipTrigger>
-                      <TooltipContent className="max-w-xs bg-white shadow-lg p-3 rounded-lg border border-slate-100">
-                        <p>Additional 15% discount applied when booking for 5+ team members</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                  <div className="flex items-center justify-center mt-1">
-                    <span className="text-[#ea384c] font-semibold">₹9,754</span>
-                    <span className="text-sm text-slate-500 ml-1">+GST per person</span>
-                  </div>
-                  <div className="text-xs text-slate-500 mt-1">(for 5+ people)</div>
                 </div>
               </div>
               
               <button className="mt-6 bg-gradient-to-r from-[#ea384c] to-[#ea384c]/90 text-white rounded-full px-6 py-3 text-sm hover:shadow-lg transition-all w-full font-medium">
-                Call us on: +919632288815
+                Book Your Appointment
               </button>
             </CardHeader>
             <CardContent className="p-8">
               <div className="space-y-4">
                 <div className="flex justify-between py-2 border-b border-slate-100">
-                  <span className="text-sm font-medium text-slate-700">Studio Shoot:</span>
+                  <span className="text-sm font-medium text-slate-700">Location:</span>
                   <span className="text-sm text-slate-600 flex items-center">
-                    <Check className="h-4 w-4 text-green-500 mr-1" /> Yes, at our studio
+                    <Check className="h-4 w-4 text-green-500 mr-1" /> Your Premises
                   </span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-slate-100">
                   <span className="text-sm font-medium text-slate-700">Outdoor Shoot:</span>
+                  <span className="text-sm text-slate-600 flex items-center">
+                    <Check className="h-4 w-4 text-green-500 mr-1" /> Yes
+                  </span>
+                </div>
+                <div className="flex justify-between py-2 border-b border-slate-100">
+                  <span className="text-sm font-medium text-slate-700">Costume Changes:</span>
+                  <span className="text-sm text-slate-600">Yes (upto 2 changes)</span>
+                </div>
+                <div className="flex justify-between py-2 border-b border-slate-100">
+                  <span className="text-sm font-medium text-slate-700">Consultation:</span>
+                  <span className="text-sm text-slate-600">Yes (basic 10-15 mins)</span>
+                </div>
+                <div className="flex justify-between py-2 border-b border-slate-100">
+                  <span className="text-sm font-medium text-slate-700">Makeup:</span>
                   <span className="text-sm text-slate-600 flex items-center">
                     <X className="h-4 w-4 text-red-500 mr-1" /> No
                   </span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-slate-100">
                   <span className="text-sm font-medium text-slate-700">Duration:</span>
-                  <span className="text-sm text-slate-600">30 - 45 mins per person</span>
+                  <span className="text-sm text-slate-600">30-45 mins</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-slate-100">
-                  <span className="text-sm font-medium text-slate-700">Look Changes:</span>
-                  <span className="text-sm text-slate-600">Max 2</span>
-                </div>
-                <div className="flex justify-between py-2 border-b border-slate-100">
-                  <span className="text-sm font-medium text-slate-700">Props:</span>
-                  <span className="text-sm text-slate-600">Basic Professional Setup</span>
-                </div>
-                <div className="flex justify-between py-2 border-b border-slate-100">
-                  <span className="text-sm font-medium text-slate-700">Photos Delivered:</span>
-                  <span className="text-sm text-slate-600">5 (full res)</span>
+                  <span className="text-sm font-medium text-slate-700">Deliverables:</span>
+                  <span className="text-sm text-slate-600">10 fully edited images</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-slate-100">
                   <span className="text-sm font-medium text-slate-700">Additional Images:</span>
-                  <span className="text-sm text-slate-600">₹250/image</span>
-                </div>
-                <div className="flex justify-between py-2 border-b border-slate-100">
-                  <span className="text-sm font-medium text-slate-700">Hard Copies:</span>
-                  <span className="text-sm text-slate-600 flex items-center">
-                    <Check className="h-4 w-4 text-green-500 mr-1" /> Yes, starting ₹350/- per print (min 5)
-                  </span>
-                </div>
-                <div className="flex justify-between py-2 border-b border-slate-100">
-                  <span className="text-sm font-medium text-slate-700">Makeup:</span>
-                  <span className="text-sm text-slate-600">Optional, starting ₹3,750/-</span>
-                </div>
-                <div className="flex justify-between py-2 border-b border-slate-100">
-                  <span className="text-sm font-medium text-slate-700">Retouching:</span>
-                  <span className="text-sm text-slate-600 flex items-center">
-                    <Check className="h-4 w-4 text-green-500 mr-1" /> Yes, professional level
-                  </span>
+                  <span className="text-sm text-slate-600">₹500/image</span>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          {/* PREMIUM PACKAGE */}
+          {/* SIGNATURE PACKAGE */}
           <Card className="overflow-hidden border-none hover:shadow-xl transition-all duration-300 bg-white rounded-2xl shadow-md">
             <CardHeader className="bg-gradient-to-r from-white to-slate-50 p-8 text-center relative">
               <div className="absolute top-6 right-6">
                 <Sparkles className="h-5 w-5 text-[#ea384c]" />
               </div>
-              <h4 className="text-2xl uppercase font-bold tracking-wide text-slate-800 mb-2">Signature & On Location</h4>
+              <h4 className="text-2xl uppercase font-bold tracking-wide text-slate-800 mb-2">Signature</h4>
+              <p className="text-sm uppercase tracking-wider font-medium text-slate-600">Customised Shoots for Organisations</p>
               
               <div className="mt-6">
                 <div className="bg-gradient-to-r from-[#f5f7fa] to-[#c3cfe2] p-6 rounded-lg shadow-sm">
                   <div className="text-xl font-bold text-slate-800">Custom Pricing</div>
                   <div className="flex items-center justify-center gap-2 mt-2">
-                    <span className="text-3xl font-bold text-[#ea384c]">₹17,500</span>
+                    <span className="text-3xl font-bold text-[#ea384c]">₹12,000</span>
                     <span className="text-sm text-slate-500">+GST onwards</span>
-                  </div>
-                  <div className="mt-3 text-sm text-slate-600">
-                    Tailored to your specific requirements
-                    <div className="text-xs mt-1 italic">Price based on team size, location & needs</div>
                   </div>
                 </div>
               </div>
@@ -280,49 +202,39 @@ const CorporatePackage: React.FC = () => {
             <CardContent className="p-8">
               <div className="space-y-4">
                 <div className="flex justify-between py-2 border-b border-slate-100">
-                  <span className="text-sm font-medium text-slate-700">Studio Shoot:</span>
+                  <span className="text-sm font-medium text-slate-700">Location:</span>
                   <span className="text-sm text-slate-600 flex items-center">
-                    <Check className="h-4 w-4 text-green-500 mr-1" /> Yes (our or any 3rd party location)
+                    <Check className="h-4 w-4 text-green-500 mr-1" /> Your Premises
                   </span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-slate-100">
-                  <span className="text-sm font-medium text-slate-700">Outdoor Shoot:</span>
-                  <span className="text-sm text-slate-600 flex items-center">
-                    <Check className="h-4 w-4 text-green-500 mr-1" /> Yes, optional
-                  </span>
+                  <span className="text-sm font-medium text-slate-700">Outstation:</span>
+                  <span className="text-sm text-slate-600">Travel charges applicable</span>
+                </div>
+                <div className="flex justify-between py-2 border-b border-slate-100">
+                  <span className="text-sm font-medium text-slate-700">Costume Changes:</span>
+                  <span className="text-sm text-slate-600">Yes (optional)</span>
+                </div>
+                <div className="flex justify-between py-2 border-b border-slate-100">
+                  <span className="text-sm font-medium text-slate-700">Timing:</span>
+                  <span className="text-sm text-slate-600">4 / sessions</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-slate-100">
                   <span className="text-sm font-medium text-slate-700">Duration:</span>
-                  <span className="text-sm text-slate-600">As needed</span>
-                </div>
-                <div className="flex justify-between py-2 border-b border-slate-100">
-                  <span className="text-sm font-medium text-slate-700">Look Changes:</span>
-                  <span className="text-sm text-slate-600">As discussed</span>
-                </div>
-                <div className="flex justify-between py-2 border-b border-slate-100">
-                  <span className="text-sm font-medium text-slate-700">Props:</span>
-                  <span className="text-sm text-slate-600">Our / rental / company's assets</span>
-                </div>
-                <div className="flex justify-between py-2 border-b border-slate-100">
-                  <span className="text-sm font-medium text-slate-700">Photos Delivered:</span>
-                  <span className="text-sm text-slate-600">8+ per person (full res)</span>
-                </div>
-                <div className="flex justify-between py-2 border-b border-slate-100">
-                  <span className="text-sm font-medium text-slate-700">Additional Images:</span>
-                  <span className="text-sm text-slate-600">₹200/image</span>
-                </div>
-                <div className="flex justify-between py-2 border-b border-slate-100">
-                  <span className="text-sm font-medium text-slate-700">Location/Prop Charges:</span>
-                  <span className="text-sm text-slate-600">At actuals</span>
+                  <span className="text-sm text-slate-600">~15-20 minutes per person</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-slate-100">
                   <span className="text-sm font-medium text-slate-700">Makeup:</span>
-                  <span className="text-sm text-slate-600">Optional, starting ₹3,750/-</span>
+                  <span className="text-sm text-slate-600">Optional</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-slate-100">
-                  <span className="text-sm font-medium text-slate-700">Planning:</span>
+                  <span className="text-sm font-medium text-slate-700">Deliverables:</span>
+                  <span className="text-sm text-slate-600">Customisable</span>
+                </div>
+                <div className="flex justify-between py-2 border-b border-slate-100">
+                  <span className="text-sm font-medium text-slate-700">Planning/Reece:</span>
                   <span className="text-sm text-slate-600 flex items-center">
-                    <Check className="h-4 w-4 text-green-500 mr-1" /> Yes, detailed consultation
+                    <Check className="h-4 w-4 text-green-500 mr-1" /> Included
                   </span>
                 </div>
               </div>
