@@ -63,8 +63,8 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, images }) => {
     }
   };
   
-  // Preserve aspect ratio for fashion photography images
-  const imageHeight = isFashionService ? 'h-auto max-h-[650px]' : '';
+  // Reduced height for fashion photography images (5x smaller) while preserving aspect ratio
+  const imageHeight = isFashionService ? 'h-auto max-h-[130px]' : '';
   const imageObjectFit = isFashionService ? 'object-contain' : 'object-contain';
   
   return (
@@ -73,9 +73,9 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, images }) => {
         <span>{service.name}</span>
       </h2>
       
-      {/* Featured hero image - preserving original aspect ratio */}
+      {/* Featured hero image - reduced size for fashion photography */}
       <div className="mb-6 w-full overflow-hidden rounded-lg border-2 border-orange-400">
-        <AspectRatio ratio={isFashionService ? 3/4 : 16/9}>
+        <AspectRatio ratio={isFashionService ? 3/4 : 16/9} className={isFashionService ? 'max-w-[160px] mx-auto' : ''}>
           <img 
             src={limitedImages[0]} 
             alt={`${service.name} featured`}
@@ -107,8 +107,8 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, images }) => {
       
       <h3 className="text-xl font-medium mb-3">{service.name} Showcase</h3>
       
-      {/* Gallery grid with special case for Fashion Photography */}
-      <div className={`grid ${isFashionService ? 'grid-cols-1 gap-6' : 'grid-cols-2 sm:grid-cols-3 gap-2 md:gap-3'}`}>
+      {/* Gallery grid with smaller images for Fashion Photography */}
+      <div className={`grid ${isFashionService ? 'grid-cols-3 sm:grid-cols-5 gap-4' : 'grid-cols-2 sm:grid-cols-3 gap-2 md:gap-3'}`}>
         {limitedImages.slice(1).map((image, index) => (
           <div 
             key={index} 
@@ -116,7 +116,7 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, images }) => {
             onClick={() => handleImageClick(index + 1)}
           >
             {isFashionService ? (
-              <AspectRatio ratio={3/4}>
+              <AspectRatio ratio={3/4} className="max-w-[120px] mx-auto">
                 <img 
                   src={image} 
                   alt={`${service.name} ${index + 1}`} 
@@ -141,7 +141,7 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, images }) => {
         </div>
       )}
 
-      {/* Image slideshow dialog - fixed with proper accessibility */}
+      {/* Image slideshow dialog */}
       {enlargedImageIndex !== null && (
         <Dialog open={enlargedImageIndex !== null} onOpenChange={handleClose}>
           <DialogContent 
