@@ -84,8 +84,8 @@ const PackageDetails: React.FC = () => {
     return foundPackage ? foundPackage.title : 'Photography Package';
   };
 
-  // Remove FAQ for matrimonial packages
-  const showGeneralFAQ = packageId !== 'corporate' && packageId !== 'matrimonial';
+  // Updated to exclude FAQ for matrimonial and modelling packages
+  const showGeneralFAQ = packageId !== 'corporate' && packageId !== 'matrimonial' && packageId !== 'modelling';
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-white to-slate-50">
