@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Service } from '@/data/services';
 import { Card, CardContent } from '@/components/ui/card';
-import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 
 interface ServiceGalleryProps {
   service: Service;
@@ -62,6 +62,10 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, images }) => {
     }
   };
   
+  // Fix for fashion photography showcase image display
+  const imageHeight = isFashionService ? 'h-[500px]' : '';
+  const imageObjectFit = isFashionService ? 'object-cover' : 'object-contain';
+  
   return (
     <div className="p-4 md:p-6 h-full overflow-y-auto">
       <h2 className="text-2xl font-semibold mb-4">
@@ -100,22 +104,18 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, images }) => {
       
       <h3 className="text-xl font-medium mb-3">{service.name} Showcase</h3>
       
-      {/* Gallery grid with original aspect ratio preservation */}
-      <div className={`grid grid-cols-2 sm:grid-cols-3 gap-2 md:gap-3 ${isFashionService ? 'sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2' : ''}`}>
+      {/* Gallery grid with special case for Fashion Photography */}
+      <div className={`grid ${isFashionService ? 'grid-cols-1 gap-4' : 'grid-cols-2 sm:grid-cols-3 gap-2 md:gap-3'}`}>
         {limitedImages.slice(1).map((image, index) => (
           <div 
             key={index} 
-            className={`overflow-hidden rounded-lg cursor-pointer bg-muted border-2 border-orange-300 ${
-              isFashionService ? 'h-[500px]' : ''
-            }`}
+            className={`overflow-hidden rounded-lg cursor-pointer bg-muted border-2 border-orange-300 ${imageHeight}`}
             onClick={() => handleImageClick(index + 1)}
           >
             <img 
               src={image} 
               alt={`${service.name} ${index + 1}`} 
-              className={`w-full h-auto object-contain transition-transform duration-300 hover:scale-110 ${
-                isFashionService ? 'h-full object-cover' : ''
-              }`}
+              className={`w-full h-full ${imageObjectFit} transition-transform duration-300 hover:scale-110`}
             />
           </div>
         ))}
@@ -131,14 +131,17 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, images }) => {
       {/* Image slideshow dialog - fixed with proper accessibility */}
       {enlargedImageIndex !== null && (
         <Dialog open={enlargedImageIndex !== null} onOpenChange={handleClose}>
-          <DialogContent className="max-w-5xl p-0 border-4 border-orange-400 bg-black" 
+          <DialogContent 
+            className="max-w-5xl p-0 border-4 border-orange-400 bg-black" 
             onClick={e => e.stopPropagation()}
-            aria-describedby="slideshow-description"
           >
-            {/* Hidden but accessible title for screen readers */}
+            {/* Fixed accessibility by adding proper DialogTitle and DialogDescription */}
             <DialogTitle className="sr-only">
-              {service.name} Image {enlargedImageIndex + 1}
+              {service.name} Image Gallery
             </DialogTitle>
+            <DialogDescription id="gallery-description" className="sr-only">
+              Navigate through {service.name} images using left and right arrows
+            </DialogDescription>
             
             <div className="relative w-full h-[80vh] flex items-center justify-center">
               <img 
@@ -180,11 +183,6 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, images }) => {
                     }`}
                   />
                 ))}
-              </div>
-              
-              {/* Hidden description for screen readers */}
-              <div id="slideshow-description" className="sr-only">
-                {service.name} photo gallery. Use left and right buttons to navigate between images.
               </div>
             </div>
           </DialogContent>
