@@ -59,64 +59,56 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-gradient-to-b from-white via-slate-50 to-primary/5">
+    <section id="contact" className="py-16 bg-gradient-to-b from-white via-slate-50 to-primary/5">
       <div className="container mx-auto px-4">
-        <div className="text-center space-y-4 mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-primary">
+        <div className="text-center space-y-3 mb-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-primary">
             Get in Touch
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto font-akaya">
-            Ready to capture your special moments? Let's discuss how we can create beautiful memories together.
+          <p className="text-base text-gray-600 max-w-2xl mx-auto">
+            Ready to capture your special moments? Contact us today.
           </p>
-          <div className="h-1 w-32 bg-gradient-to-r from-primary/80 to-primary/30 mx-auto rounded-full mt-6"></div>
         </div>
 
-        <div className="grid md:grid-cols-12 gap-10 max-w-6xl mx-auto">
-          {/* Contact Form - 7 columns on medium screens */}
-          <div className="md:col-span-7">
-            <Card className="overflow-hidden border-0 shadow-xl">
-              <div className="h-2 bg-gradient-to-r from-primary via-blue-500 to-primary/70"></div>
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold text-primary mb-6">Send Us a Message</h3>
-                
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="space-y-2">
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                      Name
-                    </label>
+        <div className="max-w-5xl mx-auto">
+          <Card className="overflow-hidden border-0 shadow-lg">
+            <div className="h-1 bg-gradient-to-r from-primary via-blue-500 to-primary/70"></div>
+            <div className="grid md:grid-cols-2 gap-0">
+              {/* Contact Form */}
+              <CardContent className="p-6 md:p-8">
+                <h3 className="text-xl font-bold text-primary mb-4">Send a Message</h3>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div>
                     <Input
                       id="name"
+                      placeholder="Your Name"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3 h-12 rounded-md border-gray-200 focus:border-primary focus:ring-primary/20"
+                      className="h-11"
                       required
                     />
                   </div>
                   
-                  <div className="space-y-2">
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                      Email
-                    </label>
+                  <div>
                     <Input
                       type="email"
                       id="email"
+                      placeholder="Your Email"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3 h-12 rounded-md border-gray-200 focus:border-primary focus:ring-primary/20"
+                      className="h-11"
                       required
                     />
                   </div>
                   
-                  <div className="space-y-2">
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700">
-                      Message
-                    </label>
+                  <div>
                     <Textarea
                       id="message"
+                      placeholder="Your Message"
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      rows={5}
-                      className="w-full px-4 py-3 rounded-md border-gray-200 focus:border-primary focus:ring-primary/20 resize-none"
+                      rows={4}
+                      className="resize-none"
                       required
                     />
                   </div>
@@ -124,69 +116,63 @@ const Contact = () => {
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-primary hover:bg-primary/90 text-white py-3 px-6 rounded-md transition-all font-medium text-base flex items-center justify-center gap-2 h-12"
+                    className="w-full bg-primary hover:bg-primary/90 text-white h-11 font-medium"
                   >
                     {isSubmitting ? 'Sending...' : 'Send Message'}
-                    <Send className="h-4 w-4" />
+                    <Send className="h-4 w-4 ml-2" />
                   </Button>
                 </form>
               </CardContent>
-            </Card>
-          </div>
 
-          {/* Contact Info - 5 columns on medium screens */}
-          <div className="md:col-span-5 space-y-6">
-            <Card className="bg-white shadow-lg border-0 overflow-hidden">
-              <div className="h-2 bg-gradient-to-r from-amber-400 to-orange-500"></div>
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold text-primary mb-6">Contact Information</h3>
+              {/* Contact Info */}
+              <CardContent className="bg-gray-50 p-6 md:p-8 space-y-6">
+                <h3 className="text-xl font-bold text-primary mb-4">Contact Information</h3>
                 
-                <div className="space-y-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="p-3 bg-primary/10 rounded-full text-primary">
+                <div className="space-y-4">
+                  <div className="flex items-start">
+                    <div className="p-2 bg-primary/10 rounded-full text-primary mr-3">
                       <Mail className="w-5 h-5" />
                     </div>
                     <div>
-                      <h4 className="font-medium text-gray-900 mb-1">Email</h4>
+                      <h4 className="font-medium text-gray-700">Email</h4>
                       <a href="mailto:candidcapture4@gmail.com" className="text-primary hover:underline">
                         candidcapture4@gmail.com
                       </a>
                     </div>
                   </div>
 
-                  <div className="flex items-start space-x-4">
-                    <div className="p-3 bg-primary/10 rounded-full text-primary">
+                  <div className="flex items-start">
+                    <div className="p-2 bg-primary/10 rounded-full text-primary mr-3">
                       <Phone className="w-5 h-5" />
                     </div>
                     <div>
-                      <h4 className="font-medium text-gray-900 mb-1">Phone</h4>
+                      <h4 className="font-medium text-gray-700">Phone</h4>
                       <a href="tel:+919632288815" className="text-primary hover:underline">
                         +91 9632288815
                       </a>
                     </div>
                   </div>
 
-                  <div className="flex items-start space-x-4">
-                    <div className="p-3 bg-primary/10 rounded-full text-primary">
+                  <div className="flex items-start">
+                    <div className="p-2 bg-primary/10 rounded-full text-primary mr-3">
                       <MapPin className="w-5 h-5" />
                     </div>
                     <div>
-                      <h4 className="font-medium text-gray-900 mb-1">Address</h4>
+                      <h4 className="font-medium text-gray-700">Location</h4>
                       <p className="text-gray-600">
-                        Uttarahalli<br />
-                        Bangalore, Karnataka, 560061<br />
-                        India
+                        Uttarahalli, Bangalore<br />
+                        Karnataka, 560061
                       </p>
                     </div>
                   </div>
                 </div>
+                
+                <div className="mt-6 h-40 md:h-48 overflow-hidden rounded-md">
+                  <Map className="h-full w-full" />
+                </div>
               </CardContent>
-            </Card>
-            
-            <Card className="overflow-hidden shadow-lg border-0 h-60">
-              <Map className="h-full w-full" />
-            </Card>
-          </div>
+            </div>
+          </Card>
         </div>
       </div>
     </section>
