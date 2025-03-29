@@ -5,6 +5,7 @@ import WeddingSlideshow from '@/components/WeddingSlideshow';
 import { Service } from '@/data/services';
 import ServiceGallery from '@/components/ServiceGallery';
 import ArtistsCelebritiesGallery from '@/components/ArtistsCelebritiesGallery';
+import { getServiceImage } from './services/serviceImages';
 
 interface ServiceContentProps {
   service: Service;
@@ -69,7 +70,7 @@ const serviceImages = Object.entries(serviceImageIndices).reduce((acc, [serviceN
 
 const ServiceContent: React.FC<ServiceContentProps> = ({ service }) => {
   const isWeddingService = service.name === 'Wedding Photography';
-  const serviceImageArray = serviceImages[service.name] || Array(6).fill('/lovable-uploads/e612e8f7-3f32-4c0d-a920-b83e95752820.png');
+  const serviceImageArray = serviceImages[service.name] || Array(6).fill(getServiceImage('Concept shoot'));
   
   if (service.external) {
     return (

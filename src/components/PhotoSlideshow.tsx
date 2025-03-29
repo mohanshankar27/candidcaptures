@@ -8,13 +8,13 @@ import servicesList from '@/data/servicesList';
 import SlideshowHeader from './slideshow/SlideshowHeader';
 import ServiceImageCarousel from './slideshow/ServiceImageCarousel';
 import BackgroundDecorators from './slideshow/BackgroundDecorators';
-import serviceImages from './slideshow/serviceImages';
-import ServicesGrid from './ServicesGrid';
+import { getServiceImage } from './services/serviceImages';
+import ServicesGrid from './services/ServicesGrid';
 
 // Create service thumbnails with proper image mapping
 const serviceThumbnails = servicesList.map(service => ({
   name: service.name,
-  image: serviceImages[service.name] || "/lovable-uploads/0e3af22f-eb15-463b-80be-159d6b53f595.png"
+  image: getServiceImage(service.name)
 }));
 
 const PhotoSlideshow = () => {
