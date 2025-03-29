@@ -2,7 +2,7 @@
 import React from 'react';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Check } from 'lucide-react';
+import { Check, X } from 'lucide-react';
 import BookingCTA from './BookingCTA';
 import { 
   Carousel, 
@@ -62,33 +62,52 @@ const NewBornPackage: React.FC = () => {
         <div className="grid md:grid-cols-3 gap-6">
           <Card className="border-primary/20 hover:shadow-lg transition-all duration-300">
             <CardHeader className="bg-gradient-to-r from-primary/10 to-primary/5 pb-2">
-              <CardTitle className="text-primary text-xl">Basic Package</CardTitle>
+              <CardTitle className="text-primary text-xl">TINY TOTS - BASIC</CardTitle>
               <CardDescription className="text-slate-600 pt-1">Essential coverage</CardDescription>
               <div className="mt-4 mb-1">
-                <span className="text-3xl font-light text-[#ea384c]">₹10,000</span>
+                <span className="text-3xl font-light text-[#ea384c]">₹8,790</span>
+                <span className="text-slate-600 text-sm ml-1">+gst</span>
               </div>
             </CardHeader>
             <CardContent className="pt-6">
               <ul className="space-y-3">
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Up to 2-hour photo session</span>
+                  <span className="text-slate-700">Studio Shoot</span>
+                </li>
+                <li className="flex items-start">
+                  <X className="h-5 w-5 text-slate-500 shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Outdoor Shoot</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">10 edited digital images</span>
+                  <span className="text-slate-700">Duration: 1 - 2.5 hrs</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">1 outfit/setup included</span>
+                  <span className="text-slate-700">2 Look/Costume Changes</span>
+                </li>
+                <li className="flex items-start">
+                  <X className="h-5 w-5 text-slate-500 shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Props</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">In-studio session with props</span>
+                  <span className="text-slate-700">10-15 edited photographs</span>
+                </li>
+                <li className="flex items-start">
+                  <X className="h-5 w-5 text-slate-500 shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Hard Copies</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Online gallery for downloading</span>
+                  <span className="text-slate-700">Makeup: Optional ₹3,500 for 1 look, additional ₹1,500</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">
+                    <a href="#" className="text-primary underline">Schedule Online</a>
+                  </span>
                 </li>
               </ul>
             </CardContent>
