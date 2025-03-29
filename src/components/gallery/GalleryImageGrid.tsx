@@ -23,7 +23,7 @@ const GalleryImageGrid: React.FC<GalleryImageGridProps> = ({
       {images.map((image, index) => (
         <div 
           key={index} 
-          className="overflow-hidden rounded-lg cursor-pointer bg-muted border-2 border-orange-300"
+          className="overflow-hidden rounded-lg cursor-pointer bg-muted"
           onClick={() => onImageClick(index)}
         >
           {isFashionService ? (

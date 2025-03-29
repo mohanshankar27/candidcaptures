@@ -16,7 +16,7 @@ const FeaturedImage: React.FC<FeaturedImageProps> = ({
   onClick 
 }) => {
   return (
-    <div className="mb-6 w-full overflow-hidden rounded-lg border-2 border-orange-400">
+    <div className="mb-6 w-full overflow-hidden rounded-lg">
       {isFashionService ? (
         <div className="w-full flex justify-center">
           <img 

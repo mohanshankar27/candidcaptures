@@ -23,7 +23,7 @@ const GallerySlideshow: React.FC<GallerySlideshowProps> = ({
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent 
-        className="max-w-5xl p-0 border-4 border-orange-400 bg-black" 
+        className="max-w-5xl p-0 bg-black" 
         onClick={e => e.stopPropagation()}
       >
         {/* Fixed accessibility by adding proper DialogTitle and DialogDescription */}
@@ -70,7 +70,7 @@ const GallerySlideshow: React.FC<GallerySlideshowProps> = ({
               <div 
                 key={index}
                 className={`w-2 h-2 rounded-full ${
-                  index === currentIndex ? 'bg-orange-400' : 'bg-white/50'
+                  index === currentIndex ? 'bg-white' : 'bg-white/50'
                 }`}
               />
             ))}
