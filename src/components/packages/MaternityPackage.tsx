@@ -4,6 +4,12 @@ import { Separator } from '@/components/ui/separator';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Check } from 'lucide-react';
 import BookingCTA from './BookingCTA';
+import { 
+  Accordion, 
+  AccordionContent, 
+  AccordionItem, 
+  AccordionTrigger 
+} from '@/components/ui/accordion';
 
 const MaternityPackage: React.FC = () => {
   return (
@@ -230,6 +236,72 @@ const MaternityPackage: React.FC = () => {
             <li>Creative planning and mood-board included in Signature package</li>
             <li>Travel fees may apply for locations beyond 20km from our studio</li>
           </ul>
+        </div>
+        
+        <div className="mt-8 bg-slate-50/70 rounded-lg border border-slate-200 p-6">
+          <h3 className="text-xl font-semibold mb-4 text-[#333333]">Frequently Asked Questions</h3>
+          <Accordion type="single" collapsible className="w-full">
+            <AccordionItem value="item-1">
+              <AccordionTrigger className="text-left font-medium text-slate-800">
+                When do I schedule my maternity photography session?
+              </AccordionTrigger>
+              <AccordionContent className="text-slate-600">
+                <p>You can book a date during the start of 7th month for a shoot is in your 8th month.</p>
+                <p>(30-34th week i.e the 8th Month) is an optimum time for both comfortable movement & belly to be seen nicely.</p>
+                <p>Early booking also gives you ample time to plan a concept, order garments etc.</p>
+              </AccordionContent>
+            </AccordionItem>
+            
+            <AccordionItem value="item-2">
+              <AccordionTrigger className="text-left font-medium text-slate-800">
+                Can I Customise my shoot?
+              </AccordionTrigger>
+              <AccordionContent className="text-slate-600">
+                <p>Yes, you can.</p>
+                <p>SIGNATURE & above plans can be entirely customised as per your liking.</p>
+                <p>In fact we use a couple of your suggestions as a starting point to understand your taste and plan the mood board accordingly.</p>
+              </AccordionContent>
+            </AccordionItem>
+            
+            <AccordionItem value="item-3">
+              <AccordionTrigger className="text-left font-medium text-slate-800">
+                What can/should I wear for the Session?
+              </AccordionTrigger>
+              <AccordionContent className="text-slate-600">
+                <p>The following work great:</p>
+                <ul className="list-disc pl-5 mt-2 space-y-1">
+                  <li>Form fitting dresses</li>
+                  <li>Flowy Dresses</li>
+                  <li>Snug fitting tank top with a low riding skirt can also be a great way to show off your beautiful bump</li>
+                </ul>
+                <p className="mt-2">Keep your selections simple, Stripes and patterns can hide the stomach or distract attention from it. It is safe to stick to solid colours.</p>
+              </AccordionContent>
+            </AccordionItem>
+            
+            <AccordionItem value="item-4">
+              <AccordionTrigger className="text-left font-medium text-slate-800">
+                Will we get all the photos? Can we get the RAW images?
+              </AccordionTrigger>
+              <AccordionContent className="text-slate-600">
+                <p>The short answer is no.</p>
+                <p>Only the absolute best of the best make it, which will in the end be about 10 – 30 images as per the selected plan.</p>
+                <p>Additional images beyond the discussed number are available for a small fee.</p>
+                <p>These images will be fully edited, cropped, and prepared for final presentation and in the full resolution (with an embedded colour profile, that can printed later on).</p>
+              </AccordionContent>
+            </AccordionItem>
+            
+            <AccordionItem value="item-5">
+              <AccordionTrigger className="text-left font-medium text-slate-800">
+                Can I include my children / extended family?
+              </AccordionTrigger>
+              <AccordionContent className="text-slate-600">
+                <p>Absolutely yes,</p>
+                <p>Our Sessions are not just for you and your spouse, but for your immediate family too, after all they too are part of your journey.</p>
+                <p>Please let us know in advance in order to plan the shoot for accommodating your kids/family in the shoot.</p>
+                <p>We keep things simple, If required images are more we charge a nominal fee that accounts for extra logistics/time involved.</p>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
         </div>
 
         <BookingCTA 
