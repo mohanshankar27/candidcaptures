@@ -8,70 +8,44 @@ import servicesList from '@/data/services';
 const OurServices = () => {
   const navigate = useNavigate();
 
-  // Featured premium services matching the image
-  const premiumServices = [
-    { name: "Wedding Photography", path: "/services", state: { selectedService: "Wedding Photography" } },
-    { name: "Portrait Sessions", path: "/services", state: { selectedService: "Portrait Photography" } },
-    { name: "Product Photography", path: "/services", state: { selectedService: "Product Photography" } },
-    { name: "Concept Shoot", path: "/services", state: { selectedService: "Concept shoot" } },
-    { name: "Event Coverage", path: "/services", state: { selectedService: "Event Photography" } }
-  ];
+  // All services organized by category
+  const serviceCategories = {
+    "Wedding Photography": { path: "/services", state: { selectedService: "Wedding Photography" } },
+    "Portrait Sessions": { path: "/services", state: { selectedService: "Portrait Photography" } },
+    "Product Photography": { path: "/services", state: { selectedService: "Product Photography" } },
+    "Concept Shoot": { path: "/services", state: { selectedService: "Concept shoot" } },
+    "Event Coverage": { path: "/services", state: { selectedService: "Event Photography" } },
+    "Corporate Headshots": { path: "/services", state: { selectedService: "Corporate Headshots" } },
+    "Maternity Photography": { path: "/services", state: { selectedService: "Maternity Photography" } },
+    "E-Commerce Photography": { path: "/services", state: { selectedService: "E-Commerce & Catalogues" } },
+    "Family Portraits": { path: "/services", state: { selectedService: "Family Portraits" } },
+    "New Born Baby Shoot": { path: "/services", state: { selectedService: "New Born Baby Shoot" } },
+    "Food Photography": { path: "/services", state: { selectedService: "Food Photography" } },
+    "Fashion Photography": { path: "/services", state: { selectedService: "Fashion Photography" } },
+    "Video Services": { path: "/services", state: { selectedService: "Video Services" } }
+  };
 
-  // Group other services by category
+  // Group services by category for visual organization
   const categories = [
     {
       name: "Photography Services",
-      icon: <Camera className="h-6 w-6 text-amber-500" />,
-      services: servicesList.filter(service => 
-        service.name.includes('Photography') || 
-        service.name.includes('Wedding') ||
-        service.name.includes('Event')
-      ).slice(0, 4)
+      services: ["Wedding Photography", "Event Coverage", "Fashion Photography", "Food Photography"]
     },
     {
       name: "Portrait Services",
-      icon: <Users className="h-6 w-6 text-amber-500" />,
-      services: servicesList.filter(service => 
-        service.name.includes('Portrait') || 
-        service.name.includes('Headshots') ||
-        service.name.includes('Baby') ||
-        service.name.includes('Maternity') ||
-        service.name.includes('Toddler') ||
-        service.name.includes('Children')
-      ).slice(0, 4)
+      services: ["Portrait Sessions", "Corporate Headshots", "Family Portraits", "Maternity Photography", "New Born Baby Shoot"]
     },
     {
       name: "Product Services",
-      icon: <ShoppingBag className="h-6 w-6 text-amber-500" />,
-      services: servicesList.filter(service => 
-        service.name.includes('Product') || 
-        service.name.includes('E-Commerce')
-      ).slice(0, 4)
+      services: ["Product Photography", "E-Commerce Photography"]
     },
     {
       name: "Specialty Services",
-      icon: <Pencil className="h-6 w-6 text-amber-500" />,
-      services: servicesList.filter(service => 
-        service.name.includes('Concept') || 
-        service.name.includes('Makeup') ||
-        service.name.includes('Special')
-      ).slice(0, 4)
-    },
-    {
-      name: "Video Services",
-      icon: <Video className="h-6 w-6 text-amber-500" />,
-      services: servicesList.filter(service => 
-        service.name.includes('Video') || 
-        service.name.includes('Corporate')
-      ).slice(0, 2)
+      services: ["Concept Shoot", "Video Services"]
     }
   ];
 
-  const handleServiceClick = (service: typeof premiumServices[0]) => {
-    navigate(service.path, { state: service.state });
-  };
-
-  const handleCategoryServiceClick = (serviceName: string) => {
+  const handleServiceClick = (serviceName: string) => {
     navigate('/services', { state: { selectedService: serviceName } });
   };
 
@@ -125,97 +99,51 @@ const OurServices = () => {
           </p>
         </motion.div>
 
-        {/* Premium Services Row - matching the image */}
-        <motion.div 
-          className="mb-20"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          viewport={{ once: true }}
-        >
-          <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8">
-            {premiumServices.map((service, index) => (
-              <motion.button
-                key={service.name}
-                className="relative group"
-                onClick={() => handleServiceClick(service)}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -5 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <div className="px-8 py-3 border border-amber-200/50 rounded-full bg-white shadow-md backdrop-blur-sm relative overflow-hidden group-hover:border-amber-300 transition-all duration-300">
-                  {/* Animated glow effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-amber-50/0 via-amber-100/30 to-amber-50/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                  
-                  <span className="relative z-10 text-primary/90 font-akaya tracking-wide text-lg">
-                    {service.name}
-                  </span>
-                </div>
-                
-                {/* Bottom subtle line animation */}
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-amber-300 to-amber-500 group-hover:w-full transition-all duration-300 ease-out"></div>
-              </motion.button>
-            ))}
-          </div>
-        </motion.div>
+        {/* Services by category - all using the premium button style */}
+        {categories.map((category, categoryIndex) => (
+          <motion.div 
+            key={category.name}
+            className="mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: categoryIndex * 0.1 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="text-2xl font-bold text-primary mb-8 font-arjulian text-center">
+              {category.name}
+              <div className="h-0.5 w-16 bg-gradient-to-r from-amber-300 to-amber-500 mx-auto rounded-full mt-2"></div>
+            </h3>
 
-        {/* Service categories */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {categories.map((category, idx) => (
-            <motion.div
-              key={category.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              viewport={{ once: true }}
-              className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-md border border-amber-100/50 hover:shadow-lg transition-all duration-300"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                {category.icon}
-                <h3 className="text-xl font-bold text-primary font-arjulian">{category.name}</h3>
-              </div>
-
-              <div className="space-y-3">
-                {category.services.map((service) => (
-                  <motion.button
-                    key={service.name}
-                    onClick={() => handleCategoryServiceClick(service.name)}
-                    className="w-full text-left group"
-                    whileHover={{ x: 5 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <div className="flex items-center justify-between p-2 rounded-lg hover:bg-amber-50/50 transition-colors">
-                      <span className="font-akaya text-slate-700 group-hover:text-amber-700 transition-colors">
-                        {service.name}
-                      </span>
-                      <motion.div 
-                        className="h-0.5 w-4 bg-amber-400 rounded-full"
-                        whileHover={{ width: 20 }}
-                        transition={{ duration: 0.2 }}
-                      />
-                    </div>
-                  </motion.button>
-                ))}
-              </div>
-
-              <div className="mt-4 text-center">
+            <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6">
+              {category.services.map((serviceName, index) => (
                 <motion.button
-                  onClick={() => navigate('/services')}
-                  className="inline-flex items-center px-4 py-2 text-sm text-amber-700 border border-amber-300 rounded-full hover:bg-amber-100/50 transition-all duration-300 font-akaya"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.2 }}
+                  key={serviceName}
+                  className="relative group"
+                  onClick={() => handleServiceClick(serviceName)}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  whileHover={{ y: -5 }}
+                  whileTap={{ scale: 0.98 }}
                 >
-                  <Package className="w-4 h-4 mr-2" />
-                  View all in this category
+                  <div className="px-6 py-3 border border-amber-200/50 rounded-full bg-white shadow-md backdrop-blur-sm relative overflow-hidden group-hover:border-amber-300 transition-all duration-300">
+                    {/* Animated glow effect */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-amber-50/0 via-amber-100/30 to-amber-50/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                    
+                    <span className="relative z-10 text-primary/90 font-akaya tracking-wide text-base md:text-lg whitespace-nowrap">
+                      {serviceName}
+                    </span>
+                  </div>
+                  
+                  {/* Bottom subtle line animation */}
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-amber-300 to-amber-500 group-hover:w-full transition-all duration-300 ease-out"></div>
                 </motion.button>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+              ))}
+            </div>
+          </motion.div>
+        ))}
 
         {/* Bottom CTA */}
         <motion.div
