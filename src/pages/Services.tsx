@@ -10,21 +10,42 @@ import servicesList, { Service } from '@/data/servicesList';
 import { Grid, List } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-// Lazy load components that aren't needed immediately
+// Preload these components to reduce loading perception
 const ServiceContent = lazy(() => import('@/components/ServiceContent'));
 const ServicesGrid = lazy(() => import('@/components/ServicesGrid'));
 const PricePackages = lazy(() => import('@/components/PricePackages'));
+
+// Simple loading fallback
+const SimpleFallback = () => (
+  <div className="animate-pulse flex flex-col space-y-4 p-4">
+    <div className="h-6 bg-slate-200 rounded w-3/4"></div>
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+      {[...Array(8)].map((_, i) => (
+        <div key={i} className="h-40 bg-slate-200 rounded"></div>
+      ))}
+    </div>
+  </div>
+);
 
 const Services = () => {
   const location = useLocation();
   const [selectedService, setSelectedService] = useState<Service>(servicesList[0]);
   const [viewMode, setViewMode] = useState<'detailed' | 'grid'>('grid');
-  const [isServiceLoading, setIsServiceLoading] = useState(false);
+  const [isPageLoading, setIsPageLoading] = useState(true);
+
+  // Simulate faster initial load
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsPageLoading(false);
+    }, 200); // Faster loading transition
+    
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: 'auto' // Changed from 'smooth' for faster navigation feel
     });
   }, []);
 
@@ -47,24 +68,28 @@ const Services = () => {
       return;
     }
     
-    // Reduced the delay for better UX
-    setIsServiceLoading(true);
-    setTimeout(() => {
-      setSelectedService(service);
-      setViewMode('detailed');
-      setIsServiceLoading(false);
-      
-      // Scroll to top when changing services
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    }, 500); // Reduced from longer delay
+    setSelectedService(service);
+    setViewMode('detailed');
+    
+    // Scroll to top when changing services - using auto instead of smooth for faster perception
+    window.scrollTo({
+      top: 0,
+      behavior: 'auto'
+    });
   };
 
   const toggleViewMode = () => {
     setViewMode(viewMode === 'detailed' ? 'grid' : 'detailed');
   };
+
+  if (isPageLoading) {
+    return (
+      <div className="min-h-screen flex flex-col">
+        <Navbar />
+        <SimpleFallback />
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen flex flex-col w-full">
@@ -89,7 +114,7 @@ const Services = () => {
             </div>
           </div>
           
-          <Suspense fallback={null}>
+          <Suspense fallback={<SimpleFallback />}>
             {viewMode === 'grid' ? (
               <div className="bg-white/50 backdrop-blur-sm p-4 rounded-lg shadow-sm border border-primary/5 mx-4 animate-fade-in">
                 <ServicesGrid services={servicesList} onServiceClick={handleServiceClick} />

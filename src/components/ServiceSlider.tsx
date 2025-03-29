@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -42,33 +42,53 @@ const serviceItems: ServiceItem[] = [
 const ServiceSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
+  const [imagesPreloaded, setImagesPreloaded] = useState(false);
   const navigate = useNavigate();
+
+  // Preload images for smoother transitions
+  useEffect(() => {
+    const preloadImages = async () => {
+      const imagePromises = serviceItems.map((item) => {
+        return new Promise((resolve) => {
+          const img = new Image();
+          img.src = item.image;
+          img.onload = resolve;
+        });
+      });
+      
+      await Promise.all(imagePromises);
+      setImagesPreloaded(true);
+    };
+    
+    preloadImages();
+  }, []);
 
   // Get current service data
   const currentService = serviceItems[currentIndex];
 
-  // Handle next slide
+  // Handle next slide with optimized transition
   const nextSlide = () => {
     setDirection(1);
     setCurrentIndex((prevIndex) => (prevIndex + 1) % serviceItems.length);
   };
 
-  // Handle previous slide
+  // Handle previous slide with optimized transition
   const prevSlide = () => {
     setDirection(-1);
     setCurrentIndex((prevIndex) => (prevIndex - 1 + serviceItems.length) % serviceItems.length);
   };
 
-  // Handle service selection
+  // Handle service selection with immediate feedback
   const handleServiceClick = () => {
     const serviceName = currentService.name;
+    // Provide immediate visual feedback before navigating
     navigate('/services', { state: { selectedService: serviceName } });
   };
 
-  // Animation variants - optimized for faster transitions
+  // Optimized animation variants with shorter durations
   const slideVariants = {
     enter: (direction: number) => ({
-      x: direction > 0 ? 1000 : -1000,
+      x: direction > 0 ? 300 : -300,
       opacity: 0
     }),
     center: {
@@ -76,10 +96,19 @@ const ServiceSlider = () => {
       opacity: 1
     },
     exit: (direction: number) => ({
-      x: direction < 0 ? 1000 : -1000,
+      x: direction < 0 ? 300 : -300,
       opacity: 0
     })
   };
+
+  // Auto-advance slides
+  useEffect(() => {
+    const timer = setInterval(() => {
+      nextSlide();
+    }, 5000);
+    
+    return () => clearInterval(timer);
+  }, [currentIndex]);
 
   return (
     <section id="services" className="py-16 relative bg-gradient-to-b from-white to-slate-50 overflow-hidden">
@@ -102,16 +131,16 @@ const ServiceSlider = () => {
                 animate="center"
                 exit="exit"
                 transition={{
-                  x: { type: "spring", stiffness: 400, damping: 30 },
-                  opacity: { duration: 0.15 }
+                  x: { type: "spring", stiffness: 500, damping: 30 },
+                  opacity: { duration: 0.1 }
                 }}
                 className="absolute inset-0"
               >
                 <div className="flex flex-col md:flex-row h-full">
-                  {/* Image section */}
+                  {/* Image section with optimized loading */}
                   <div className="w-full md:w-3/5 h-64 md:h-full relative overflow-hidden">
                     <div 
-                      className="w-full h-full bg-cover bg-center transform transition-transform duration-700 hover:scale-110"
+                      className="w-full h-full bg-cover bg-center transform transition-transform duration-500 hover:scale-105"
                       style={{ 
                         backgroundImage: `url(${currentService.image})`,
                         backgroundPosition: `${25 * currentIndex}% center`

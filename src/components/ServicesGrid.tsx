@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+
+import React, { useState, useEffect } from 'react';
 import { Service } from '@/data/servicesList';
 import { Card, CardContent } from '@/components/ui/card';
 import { ExternalLink, Sparkles } from 'lucide-react';
@@ -7,10 +8,10 @@ import { motion } from 'framer-motion';
 
 // Map service names to appropriate images
 const serviceImages = {
-  'Concept shoot': "/lovable-uploads/5faf55b4-c582-4816-aa3b-99e8faa9a73d.png", // Updated to use the new image
+  'Concept shoot': "/lovable-uploads/5faf55b4-c582-4816-aa3b-99e8faa9a73d.png",
   'Corporate & Short Videos': "/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png",
   'Corporate Headshots': "/lovable-uploads/53584cdb-e83c-4e6f-8b99-37ba6c8fc6b8.png",
-  'E-Commerce & Catalogues': "/lovable-uploads/3346c7fa-c327-4873-a6e2-35da082a7f6e.png", // Updated to new catalogue image
+  'E-Commerce & Catalogues': "/lovable-uploads/3346c7fa-c327-4873-a6e2-35da082a7f6e.png",
   'Event Photography': "/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png",
   'Family Portraits': "/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png",
   'Fashion Photography': "/lovable-uploads/44fdad37-1724-4cad-a878-bb2baf05b83b.png",
@@ -35,6 +36,40 @@ interface ServicesGridProps {
 const ServicesGrid: React.FC<ServicesGridProps> = ({ services, onServiceClick }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [clickedService, setClickedService] = useState<Service | null>(null);
+  const [preloadedImages, setPreloadedImages] = useState<Set<string>>(new Set());
+
+  // Preload critical images for faster display
+  useEffect(() => {
+    const preloadInitialImages = async () => {
+      // Only preload the first 8 images to speed up initial load
+      const imagesToPreload = services.slice(0, 8).map(
+        service => serviceImages[service.name] || "/lovable-uploads/0e3af22f-eb15-463b-80be-159d6b53f595.png"
+      );
+      
+      const newPreloadedImages = new Set(preloadedImages);
+      
+      // Create image preloading promises
+      const imagePromises = imagesToPreload.map((src) => {
+        if (!preloadedImages.has(src)) {
+          return new Promise((resolve) => {
+            const img = new Image();
+            img.src = src;
+            img.onload = () => {
+              newPreloadedImages.add(src);
+              resolve(null);
+            };
+            img.onerror = () => resolve(null);
+          });
+        }
+        return Promise.resolve();
+      });
+      
+      await Promise.all(imagePromises);
+      setPreloadedImages(newPreloadedImages);
+    };
+    
+    preloadInitialImages();
+  }, [services]);
 
   // Function to determine if a service should be highlighted based on hover
   const isHighlighted = (index: number): boolean => {
@@ -54,17 +89,18 @@ const ServicesGrid: React.FC<ServicesGridProps> = ({ services, onServiceClick })
     // Set the clicked service to show loading effect
     setClickedService(service);
     
-    // Delay execution to allow loading state to be visible
+    // Use a much shorter delay for better user experience
     setTimeout(() => {
       onServiceClick(service);
       setClickedService(null);
-    }, 3000); // 3 seconds delay as requested
+    }, 300); // Reduced from 3000ms to 300ms for faster response
   };
 
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 w-full">
       {services.map((service, index) => {
         const isClicked = clickedService && clickedService.name === service.name;
+        const imageSrc = serviceImages[service.name] || "/lovable-uploads/0e3af22f-eb15-463b-80be-159d6b53f595.png";
         
         return (
           <motion.div
@@ -72,9 +108,9 @@ const ServicesGrid: React.FC<ServicesGridProps> = ({ services, onServiceClick })
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ 
-              duration: 0.5, 
-              delay: index * 0.1,
-              ease: [0.43, 0.13, 0.23, 0.96] 
+              duration: 0.3, // Faster animation
+              delay: index * 0.05, // Reduced delay between items
+              ease: [0.25, 0.1, 0.25, 1] // Smoother easing
             }}
             whileHover={{ scale: isClicked ? 1 : isHighlighted(index) ? 1.02 : 1.05 }}
             className={cn(
@@ -88,8 +124,7 @@ const ServicesGrid: React.FC<ServicesGridProps> = ({ services, onServiceClick })
                 "cursor-pointer overflow-hidden",
                 "bg-white border-0",
                 "rounded-xl",
-                "transition-all duration-500",
-                // Premium shadow effects
+                "transition-all duration-300", // Faster transition
                 hoveredIndex === index 
                   ? "shadow-[0_15px_30px_rgba(0,0,0,0.15)]" 
                   : isHighlighted(index) 
@@ -106,15 +141,16 @@ const ServicesGrid: React.FC<ServicesGridProps> = ({ services, onServiceClick })
                   <motion.div 
                     className="w-full h-full"
                     whileHover={{ scale: isClicked ? 1 : 1.08 }}
-                    transition={{ duration: 0.7 }}
+                    transition={{ duration: 0.4 }} // Faster hover effect
                   >
                     <img 
-                      src={serviceImages[service.name] || "/lovable-uploads/0e3af22f-eb15-463b-80be-159d6b53f595.png"} 
+                      src={imageSrc}
                       alt={service.name}
                       className={cn(
                         "w-full h-full object-cover",
                         isClicked ? "blur-sm" : ""
                       )}
+                      loading={index < 8 ? "eager" : "lazy"} // Load first 8 images eagerly
                     />
                   </motion.div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-80"></div>
@@ -156,7 +192,7 @@ const ServicesGrid: React.FC<ServicesGridProps> = ({ services, onServiceClick })
                     className="h-0.5 bg-gradient-to-r from-orange-400 to-orange-200 mt-1 mx-auto"
                     initial={{ width: 0 }}
                     animate={{ width: hoveredIndex === index || isHighlighted(index) ? "70%" : "20%" }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: 0.2 }} // Faster animation
                   />
                 </div>
               </div>
