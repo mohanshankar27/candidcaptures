@@ -235,9 +235,7 @@ const SingleImageSlideshow = () => {
         </div>
       </div>
 
-      {/* CSS for scrollbar styling */}
-      <style>
-        {`
+      <style jsx>{`
         .scrollbar-thin::-webkit-scrollbar {
           height: 6px;
         }
@@ -248,8 +246,7 @@ const SingleImageSlideshow = () => {
           background-color: rgb(252, 211, 77);
           border-radius: 20px;
         }
-        `}
-      </style>
+      `}</style>
     </section>
   );
 };
