@@ -10,20 +10,25 @@ import {
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { isImageCritical } from '@/components/slideshow/serviceImages';
+import useEmblaCarousel from 'embla-carousel-react';
 
 interface PackageImageCarouselProps {
   images: string[];
   altPrefix?: string;
+  autoplayInterval?: number;
 }
 
 const PackageImageCarousel: React.FC<PackageImageCarouselProps> = ({ 
   images, 
-  altPrefix = "Package image" 
+  altPrefix = "Package image",
+  autoplayInterval = 3000 // 3 seconds by default
 }) => {
   const [enlargedImageIndex, setEnlargedImageIndex] = useState<number | null>(null);
   const [imagesLoaded, setImagesLoaded] = useState<boolean[]>([]);
   const [visibleImages, setVisibleImages] = useState<number[]>([0, 1, 2]); // Initially load only first 3 images
   const carouselRef = useRef<HTMLDivElement>(null);
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+  const autoplayIntervalRef = useRef<NodeJS.Timeout | null>(null);
   
   // Initialize image loading state
   useEffect(() => {
@@ -46,6 +51,50 @@ const PackageImageCarousel: React.FC<PackageImageCarouselProps> = ({
       return () => observer.disconnect();
     }
   }, [images.length]);
+
+  // Set up autoplay
+  useEffect(() => {
+    if (emblaApi && autoplayInterval > 0) {
+      const startAutoplay = () => {
+        stopAutoplay();
+        autoplayIntervalRef.current = setInterval(() => {
+          if (emblaApi.canScrollNext()) {
+            emblaApi.scrollNext();
+          } else {
+            emblaApi.scrollTo(0); // Return to first slide if at the end
+          }
+        }, autoplayInterval);
+      };
+
+      const stopAutoplay = () => {
+        if (autoplayIntervalRef.current) {
+          clearInterval(autoplayIntervalRef.current);
+        }
+      };
+
+      // Start autoplay
+      startAutoplay();
+
+      // Pause autoplay on hover or focus
+      const handlePointerEnter = () => stopAutoplay();
+      const handlePointerLeave = () => startAutoplay();
+      
+      const rootNode = emblaApi.rootNode();
+      if (rootNode) {
+        rootNode.addEventListener('pointerenter', handlePointerEnter);
+        rootNode.addEventListener('pointerleave', handlePointerLeave);
+      }
+
+      // Clean up
+      return () => {
+        stopAutoplay();
+        if (rootNode) {
+          rootNode.removeEventListener('pointerenter', handlePointerEnter);
+          rootNode.removeEventListener('pointerleave', handlePointerLeave);
+        }
+      };
+    }
+  }, [emblaApi, autoplayInterval]);
 
   const openImageView = useCallback((index: number) => {
     setEnlargedImageIndex(index);
@@ -97,51 +146,53 @@ const PackageImageCarousel: React.FC<PackageImageCarouselProps> = ({
 
   return (
     <div className="mb-10 relative" ref={carouselRef}>
-      <Carousel className="w-full">
-        <CarouselContent>
-          {images.map((image, index) => {
-            const isCritical = isImageCritical(image);
-            const shouldLoad = visibleImages.includes(index);
-            const imageStyles = 'w-full h-full object-cover transition-transform duration-500 hover:scale-110';
-            
-            return (
-              <CarouselItem key={index} className="md:basis-1/1 lg:basis-1/1">
-                <div className="p-1">
-                  <div 
-                    className="overflow-hidden rounded-xl h-[260px] md:h-[320px] lg:h-[360px] shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer bg-slate-100"
-                    onClick={() => openImageView(index)}
-                  >
-                    {shouldLoad ? (
-                      <img 
-                        src={image} 
-                        alt={`${altPrefix} ${index + 1}`}
-                        loading={isCritical || index < 2 ? "eager" : "lazy"}
-                        decoding={isCritical || index < 2 ? "sync" : "async"}
-                        onLoad={() => handleImageLoad(index)}
-                        className={imageStyles}
-                        width="800"
-                        height="600"
-                        srcSet={generateSrcSet(image)}
-                        fetchPriority={isCritical || index < 2 ? "high" : "auto"}
-                      />
-                    ) : (
-                      <div className={`${imageStyles} bg-slate-100 flex items-center justify-center`}>
-                        <div className="w-6 h-6 border-2 border-primary/30 border-t-primary rounded-full animate-spin"></div>
-                      </div>
-                    )}
+      <div ref={emblaRef} className="overflow-hidden">
+        <Carousel className="w-full">
+          <CarouselContent>
+            {images.map((image, index) => {
+              const isCritical = isImageCritical(image);
+              const shouldLoad = visibleImages.includes(index);
+              const imageStyles = 'w-full h-full object-cover transition-transform duration-500 hover:scale-110';
+              
+              return (
+                <CarouselItem key={index} className="md:basis-1/1 lg:basis-1/1">
+                  <div className="p-1">
+                    <div 
+                      className="overflow-hidden rounded-xl h-[260px] md:h-[320px] lg:h-[360px] shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer bg-slate-100"
+                      onClick={() => openImageView(index)}
+                    >
+                      {shouldLoad ? (
+                        <img 
+                          src={image} 
+                          alt={`${altPrefix} ${index + 1}`}
+                          loading={isCritical || index < 2 ? "eager" : "lazy"}
+                          decoding={isCritical || index < 2 ? "sync" : "async"}
+                          onLoad={() => handleImageLoad(index)}
+                          className={imageStyles}
+                          width="800"
+                          height="600"
+                          srcSet={generateSrcSet(image)}
+                          fetchPriority={isCritical || index < 2 ? "high" : "auto"}
+                        />
+                      ) : (
+                        <div className={`${imageStyles} bg-slate-100 flex items-center justify-center`}>
+                          <div className="w-6 h-6 border-2 border-primary/30 border-t-primary rounded-full animate-spin"></div>
+                        </div>
+                      )}
+                    </div>
                   </div>
-                </div>
-              </CarouselItem>
-            );
-          })}
-        </CarouselContent>
-        <div className="absolute -right-4 top-1/2 -translate-y-1/2 hidden md:block">
-          <CarouselNext className="bg-white shadow-md hover:bg-slate-50" />
-        </div>
-        <div className="absolute -left-4 top-1/2 -translate-y-1/2 hidden md:block">
-          <CarouselPrevious className="bg-white shadow-md hover:bg-slate-50" />
-        </div>
-      </Carousel>
+                </CarouselItem>
+              );
+            })}
+          </CarouselContent>
+          <div className="absolute -right-4 top-1/2 -translate-y-1/2 hidden md:block">
+            <CarouselNext className="bg-white shadow-md hover:bg-slate-50" />
+          </div>
+          <div className="absolute -left-4 top-1/2 -translate-y-1/2 hidden md:block">
+            <CarouselPrevious className="bg-white shadow-md hover:bg-slate-50" />
+          </div>
+        </Carousel>
+      </div>
 
       {/* Enlarged Image View - Only render when needed */}
       {showModalContent && (

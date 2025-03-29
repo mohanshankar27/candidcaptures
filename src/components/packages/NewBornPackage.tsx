@@ -3,13 +3,7 @@ import { Separator } from '@/components/ui/separator';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Check } from 'lucide-react';
 import BookingCTA from './BookingCTA';
-import { 
-  Carousel, 
-  CarouselContent, 
-  CarouselItem, 
-  CarouselPrevious, 
-  CarouselNext 
-} from '@/components/ui/carousel';
+import PackageImageCarousel from './PackageImageCarousel';
 
 const NewBornPackage: React.FC = () => {
   const newbornImages = [
@@ -23,29 +17,11 @@ const NewBornPackage: React.FC = () => {
   return (
     <div className="package-details">
       <div className="mb-8">
-        <Carousel className="w-full">
-          <CarouselContent>
-            {newbornImages.map((image, index) => (
-              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                <div className="p-1">
-                  <div className="overflow-hidden rounded-xl h-48 md:h-64">
-                    <img 
-                      src={image} 
-                      alt={`Newborn photography ${index + 1}`}
-                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                    />
-                  </div>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <div className="absolute -right-4 top-1/2 -translate-y-1/2">
-            <CarouselNext />
-          </div>
-          <div className="absolute -left-4 top-1/2 -translate-y-1/2">
-            <CarouselPrevious />
-          </div>
-        </Carousel>
+        <PackageImageCarousel 
+          images={newbornImages} 
+          altPrefix="Newborn photography" 
+          autoplayInterval={3000} 
+        />
       </div>
       
       <div className="space-y-6">
