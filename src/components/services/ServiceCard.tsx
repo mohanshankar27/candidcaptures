@@ -1,10 +1,11 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Sparkles, ExternalLink } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
 import { Service } from '@/data/services';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface ServiceCardProps {
   service: Service;
@@ -29,6 +30,11 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 }) => {
   const isClicked = clickedService && clickedService.name === service.name;
   const isEventPhotography = service.name === 'Event Photography';
+  const isMobile = useIsMobile();
+  
+  // Reduce animation intensity on mobile
+  const scaleAmount = isMobile ? 1.02 : 1.05;
+  const highlightScaleAmount = isMobile ? 1.01 : 1.02;
 
   return (
     <motion.div
@@ -40,7 +46,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         delay: index * 0.05,
         ease: [0.25, 0.1, 0.25, 1]
       }}
-      whileHover={{ scale: isClicked ? 1 : isHighlighted(index) ? 1.02 : 1.05 }}
+      whileHover={{ scale: isClicked ? 1 : isHighlighted(index) ? highlightScaleAmount : scaleAmount }}
       className={cn(
         "p-1", 
         hoveredIndex === index ? "z-20" : isHighlighted(index) ? "z-10" : "z-0",
@@ -54,22 +60,24 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           "rounded-xl",
           "transition-all duration-300",
           hoveredIndex === index 
-            ? "shadow-[0_15px_30px_rgba(0,0,0,0.15)]" 
+            ? "shadow-[0_10px_25px_rgba(0,0,0,0.15)]" 
             : isHighlighted(index) 
-              ? "shadow-[0_10px_20px_rgba(0,0,0,0.1)]" 
-              : "shadow-[0_5px_15px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_25px_rgba(0,0,0,0.12)]",
+              ? "shadow-[0_8px_15px_rgba(0,0,0,0.1)]" 
+              : "shadow-[0_5px_10px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_20px_rgba(0,0,0,0.12)]",
           isClicked ? "opacity-70" : "",
           isEventPhotography ? "ring-1 ring-purple-400" : ""
         )}
         onClick={() => !isClicked && onServiceClick(service)}
-        onMouseEnter={() => !isClicked && setHoveredIndex(index)}
-        onMouseLeave={() => !isClicked && setHoveredIndex(null)}
+        onMouseEnter={() => !isMobile && !isClicked && setHoveredIndex(index)}
+        onMouseLeave={() => !isMobile && !isClicked && setHoveredIndex(null)}
+        onTouchStart={() => isMobile && !isClicked && setHoveredIndex(index)}
+        onTouchEnd={() => isMobile && !isClicked && setHoveredIndex(null)}
       >
         <div className="p-2 bg-white">
           <div className="relative overflow-hidden rounded-lg">
             <motion.div 
               className="w-full h-full aspect-video"
-              whileHover={{ scale: isClicked ? 1 : 1.08 }}
+              whileHover={{ scale: isClicked ? 1 : isMobile ? 1.04 : 1.08 }}
               transition={{ duration: 0.4 }}
             >
               <img 
@@ -95,7 +103,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           
           <div className="py-3 px-2 relative">
             <div className={cn(
-              "text-base font-medium text-center font-serif italic",
+              "text-base font-medium text-center font-akaya",
               "text-primary transition-all duration-300",
               "relative",
               hoveredIndex === index ? "text-orange-600" : ""

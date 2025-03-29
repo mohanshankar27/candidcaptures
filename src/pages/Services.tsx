@@ -9,6 +9,7 @@ import MobileServiceMenu from '@/components/MobileServiceMenu';
 import servicesList, { Service } from '@/data/services';
 import { Grid, List } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 // Preload these components to reduce loading perception
 const ServiceContent = lazy(() => import('@/components/ServiceContent'));
@@ -19,8 +20,8 @@ const PricePackages = lazy(() => import('@/components/PricePackages'));
 const SimpleFallback = () => (
   <div className="animate-pulse flex flex-col space-y-4 p-4">
     <div className="h-6 bg-slate-200 rounded w-3/4"></div>
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-      {[...Array(8)].map((_, i) => (
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      {[...Array(6)].map((_, i) => (
         <div key={i} className="h-40 bg-slate-200 rounded"></div>
       ))}
     </div>
@@ -32,6 +33,7 @@ const Services = () => {
   const [selectedService, setSelectedService] = useState<Service>(servicesList[0]);
   const [viewMode, setViewMode] = useState<'detailed' | 'grid'>('grid');
   const [isPageLoading, setIsPageLoading] = useState(true);
+  const isMobile = useIsMobile();
 
   // Simulate faster initial load
   useEffect(() => {
@@ -106,7 +108,7 @@ const Services = () => {
                 variant="outline" 
                 size="icon" 
                 onClick={toggleViewMode}
-                className="ml-auto"
+                className="ml-auto shadow-sm"
                 aria-label={viewMode === 'detailed' ? "Switch to grid view" : "Switch to detailed view"}
               >
                 {viewMode === 'detailed' ? <Grid className="h-5 w-5" /> : <List className="h-5 w-5" />}

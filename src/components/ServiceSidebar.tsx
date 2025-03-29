@@ -3,6 +3,7 @@ import React from 'react';
 import { ChevronRight, ExternalLink } from 'lucide-react';
 import { ResizablePanel } from '@/components/ui/resizable';
 import { Service } from '@/data/servicesList';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface ServiceSidebarProps {
   services: Service[];
@@ -15,6 +16,8 @@ const ServiceSidebar: React.FC<ServiceSidebarProps> = ({
   selectedService, 
   onServiceClick 
 }) => {
+  const isMobile = useIsMobile();
+  
   const handleServiceClick = (service: Service) => {
     onServiceClick(service);
     // Scroll to top when selecting a service
@@ -25,12 +28,12 @@ const ServiceSidebar: React.FC<ServiceSidebarProps> = ({
   };
 
   return (
-    <ResizablePanel defaultSize={25} minSize={20} maxSize={30} className="border-r-0">
+    <ResizablePanel defaultSize={isMobile ? 100 : 25} minSize={20} maxSize={isMobile ? 100 : 30} className="border-r-0">
       <div className="h-full overflow-y-auto border-r shadow-sm bg-white/80">
         <div className="p-3 font-bold text-xl border-b bg-white sticky top-0 text-center">
           <span className="font-akaya text-[#003c72] text-3xl">Our Services</span>
         </div>
-        <div className="divide-y">
+        <div className={`divide-y ${isMobile ? 'grid grid-cols-2' : ''}`}>
           {services.map((service) => (
             <button
               key={service.name}

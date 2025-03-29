@@ -5,6 +5,7 @@ import FeaturedImage from './gallery/FeaturedImage';
 import ServiceBenefits from './gallery/ServiceBenefits';
 import GalleryImageGrid from './gallery/GalleryImageGrid';
 import GallerySlideshow from './gallery/GallerySlideshow';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface ServiceGalleryProps {
   service: Service;
@@ -17,6 +18,7 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, images }) => {
   const [enlargedImageIndex, setEnlargedImageIndex] = useState<number | null>(null);
   const [isSlideshow, setIsSlideshow] = useState(false);
   const isFashionService = service.name === 'Fashion Photography';
+  const isMobile = useIsMobile();
   
   useEffect(() => {
     let slideshowInterval: NodeJS.Timeout | null = null;
@@ -64,8 +66,8 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, images }) => {
   };
   
   return (
-    <div className="p-4 md:p-6 h-full overflow-y-auto">
-      <h2 className="text-2xl font-semibold mb-4">
+    <div className={`p-2 ${isMobile ? 'px-2' : 'p-4 md:p-6'} h-full overflow-y-auto`}>
+      <h2 className="text-2xl font-semibold mb-4 font-akaya text-center md:text-left text-primary">
         <span>{service.name}</span>
       </h2>
       
@@ -83,7 +85,9 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, images }) => {
         benefits={service.benefits || []}
       />
       
-      <h3 className="text-xl font-medium mb-3">{service.name} Showcase</h3>
+      <h3 className="text-xl font-medium mb-3 font-akaya text-center md:text-left text-primary/90 mt-6">
+        {service.name} Showcase
+      </h3>
       
       {/* Gallery grid */}
       <GalleryImageGrid 
@@ -95,7 +99,7 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, images }) => {
       
       {service.pricing && (
         <div className="mt-8">
-          <h3 className="text-xl font-medium mb-2">Pricing</h3>
+          <h3 className="text-xl font-medium mb-2 font-akaya text-center md:text-left text-primary/90">Pricing</h3>
           <p className="bg-secondary/30 p-4 rounded-md inline-block border-l-4 border-orange-400">{service.pricing}</p>
         </div>
       )}
