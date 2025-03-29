@@ -2,7 +2,7 @@
 import React from 'react';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Check } from 'lucide-react';
+import { Check, InfoIcon } from 'lucide-react';
 import BookingCTA from './BookingCTA';
 import PackageImageCarousel from './PackageImageCarousel';
 import { 
@@ -61,13 +61,34 @@ const MatrimonialPackage: React.FC = () => {
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Styling: No</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
                   <span className="text-slate-700">5 edited digital images (full res)</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
                   <span className="text-slate-700">Additional Images: ₹200/image</span>
                 </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Hard Copies: No</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Makeup: No</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Mood-board/planning: No</span>
+                </li>
               </ul>
+              <div className="mt-4 pt-2 border-t border-slate-100">
+                <a href="#booking" className="inline-block w-full text-center text-primary hover:text-primary/80 font-medium text-sm py-1.5 border border-primary/30 rounded hover:bg-primary/5 transition-colors">
+                  Book an Appointment
+                </a>
+              </div>
             </CardContent>
           </Card>
 
@@ -91,6 +112,10 @@ const MatrimonialPackage: React.FC = () => {
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Location: Your Premises</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
                   <span className="text-slate-700">Shoot Duration: 1-1.5 hours</span>
                 </li>
                 <li className="flex items-start">
@@ -103,13 +128,34 @@ const MatrimonialPackage: React.FC = () => {
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">15 edited digital images (full res)</span>
+                  <span className="text-slate-700">Additional Changes: ₹1,000/-</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
                   <span className="text-slate-700">Styling: Minimal</span>
                 </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">15 edited digital images (full res)</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Additional Images: ₹200/image</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Hard Copies: Optional</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Makeup: Optional</span>
+                </li>
               </ul>
+              <div className="mt-4 pt-2 border-t border-slate-100">
+                <a href="#booking" className="inline-block w-full text-center bg-primary/10 text-primary hover:bg-primary/20 font-medium text-sm py-1.5 rounded transition-colors">
+                  Schedule Session
+                </a>
+              </div>
             </CardContent>
           </Card>
 
@@ -126,7 +172,11 @@ const MatrimonialPackage: React.FC = () => {
               <ul className="space-y-3">
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Outdoor Session: Yes</span>
+                  <span className="text-slate-700">Studio Session: No</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Outdoor Session: Yes (location charges @ actuals)</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
@@ -138,7 +188,15 @@ const MatrimonialPackage: React.FC = () => {
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Styling: Yes</span>
+                  <span className="text-slate-700">Styling: Yes (Dedicated stylist optional)</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Professional Styling: Optional</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Makeup: Optional</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
@@ -146,11 +204,38 @@ const MatrimonialPackage: React.FC = () => {
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Non-refundable Booking: ₹5,500/-</span>
+                  <span className="text-slate-700">Additional Images: ₹200/image</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Hard Copies: Optional</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
+                  <span className="text-slate-700">Non-refundable Planning/Booking: ₹5,500/-</span>
                 </li>
               </ul>
+              <div className="mt-4 pt-2 border-t border-slate-100">
+                <a href="#booking" className="inline-block w-full text-center text-primary hover:text-primary/80 font-medium text-sm py-1.5 border border-primary/30 rounded hover:bg-primary/5 transition-colors">
+                  Free Consultation
+                </a>
+              </div>
             </CardContent>
           </Card>
+        </div>
+
+        <div className="mt-6 bg-gradient-to-r from-slate-50 to-slate-100/70 p-5 rounded-lg border border-slate-200 shadow-sm">
+          <div className="flex items-start mb-3">
+            <InfoIcon className="h-5 w-5 text-primary mr-2 mt-0.5 flex-shrink-0" />
+            <h3 className="text-lg font-medium text-[#333333]">Note:</h3>
+          </div>
+          <p className="text-slate-700 mb-3">Matrimonial / Dating portfolio shoots are about you, your style & personality.</p>
+          <ul className="list-disc pl-5 space-y-2 text-slate-600">
+            <li>Do carry some of your personal items that can be used for styling</li>
+            <li>Images can be customised based on audience - a prospective life partner / elder family members etc.</li>
+            <li>You will get a combination of headshots, medium & full length shots.</li>
+            <li>Have a hobby / practice a sport? We might be able to tastefully create a shot to show that off too.</li>
+          </ul>
         </div>
 
         <Separator />
