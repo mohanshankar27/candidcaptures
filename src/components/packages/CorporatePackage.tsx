@@ -1,10 +1,11 @@
 
 import React from 'react';
-import { Check, X, Info, Star, Crown, Sparkles } from 'lucide-react';
+import { Check, X, Info, Star, Crown, Sparkles, ChevronDown } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import PackageImageCarousel from '../packages/PackageImageCarousel';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 const CorporatePackage: React.FC = () => {
   // Define corporate package images for the carousel with updated professional photos
@@ -236,87 +237,115 @@ const CorporatePackage: React.FC = () => {
         
         <Separator className="my-16" />
         
-        {/* Frequently Asked Questions Section */}
+        {/* Frequently Asked Questions Section - Converted to Accordion */}
         <div className="mt-12">
           <h3 className="text-3xl font-bold mb-10 text-center text-[#1A1F2C]">Frequently Asked Questions</h3>
           
-          <div className="space-y-8 max-w-4xl mx-auto">
-            <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-all">
-              <h4 className="text-xl font-bold mb-4 text-[#1A1F2C]">Posing for Corporate Headshots</h4>
-              <p className="text-slate-700 mb-3">
-                We making posing super simple, we do try to make you feel comfortable and get to know you and what you do before we click any picture.
-              </p>
-              <p className="text-slate-700 mb-3">
-                Our approach to portraits is retaining elements of who you are and how your peers/subordinates see you (OR how you want to be viewed as by your clients, bosses, employees etc)
-              </p>
-              <p className="text-slate-700">
-                We do shoot every pose with several subtle variations which you can not just use a s Social media profile picture on LinkedIn but also to use on meeting apps for calls on Zoom, Teams etc.
-              </p>
-            </div>
-            
-            <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-all">
-              <h4 className="text-xl font-bold mb-4 text-[#1A1F2C]">Styling for Corporate Headshots</h4>
-              <p className="text-slate-700 mb-3">
-                We keep styling natural & minimalistic and include it as a variation only if your profession/role calls for it.
-              </p>
-              <p className="text-slate-700">
-                Do take some time to discuss your role/profession with us (WhatsApp preferred, as it allows us to respond during micro breaks in our shoots. We will call back/schedule a call if we feel discussing over a call would be faster).
-              </p>
-            </div>
-            
-            <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-all">
-              <h4 className="text-xl font-bold mb-4 text-[#1A1F2C]">Retouching / Editing</h4>
-              <p className="text-slate-700 mb-3">
-                We take the extra effort to keep pictures as natural as possible. In fact our colour calibrated workflow ensues super accurate colours and skin tones.
-              </p>
-              <p className="text-slate-700 mb-3">
-                Most of our tricks is with how we use our extended collection of light modifiers at our studio (for example: soft light instead of smoothening the skin).
-                We balance your skin tone with a suitable brightness level/colour for the background such that the need for modifying the skin tones is eliminated.
-              </p>
-              <p className="text-slate-700 mb-3">
-                We believe authenticity and a sense of realness has the maximum impact for Professional/Corporate Portraits.
-              </p>
-              <p className="text-slate-700 mb-3">
-                Our editing is mostly limited to removing blemishes (pimples, stray hairs, specks of dust/fibres on clothing etc) without giving an appearance of the image being edited.
-              </p>
-              <p className="text-slate-700">
-                Don't believe what we say/unsure. Do take some time to view our extensive portfolio of Corporate Headshots (several of which have now appeared in print and other media)
-              </p>
-            </div>
-            
-            <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-all">
-              <h4 className="text-xl font-bold mb-4 text-[#1A1F2C]">Costume Rentals, What to wear etc...</h4>
-              <ul className="list-disc pl-5 space-y-2 text-slate-700">
-                <li>Corporate Headshots is about perfection and suits fit best when tailor made by a master for your fitting. Hence we do not stock business attire for Corporate Headshots.</li>
-                <li>We do have smaller props like a good pen, squares and a few neckties, but we do recommend that you carry your own attire and props to maintain a look that is unique to you.</li>
-                <li>Small imperfections in your attire are OK, we can usually clone the area from a clear spot while maintaining an unedited look.</li>
-                <li>For choice of colours, do give us a call/message us over WhatsApp. Selection of colours, attire and some profession related props are dependent on your profession and your role. (for example: we avoid using a Stethoscope while shooting a surgeon/Orthopaedist, while it is perfect for a physician)</li>
-                <li>Some colours like red could suggest aggressiveness, and hence it is better you do discuss with us when in doubt.</li>
-              </ul>
-            </div>
-            
-            <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-all">
-              <h4 className="text-xl font-bold mb-4 text-[#1A1F2C]">Tie / Knot - How to Videos</h4>
-              <ul className="list-disc pl-5 space-y-2 text-slate-700">
-                <li>
-                  <a href="https://www.youtube.com/watch?v=flONEDCEGNQ" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
-                    https://www.youtube.com/watch?v=flONEDCEGNQ
-                  </a>
-                  <span className="text-slate-500 ml-2">(Shot through Mirror / May be easier for some)</span>
-                </li>
-                <li>
-                  <a href="https://www.youtube.com/watch?v=7AbCQghx0R0" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
-                    https://www.youtube.com/watch?v=7AbCQghx0R0
-                  </a>
-                  <span className="text-slate-500 ml-2">(Shot through Mirror / May be easier for some)</span>
-                </li>
-                <li>
-                  <a href="https://www.youtube.com/watch?v=7AbCQghx0R0&list=RDCMUCzmT0dA02GW90IvIQsJaCXQ&start_radio=1&rv=7AbCQghx0R0&t=8" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
-                    https://www.youtube.com/watch?v=7AbCQghx0R0&list=RDCMUCzmT0dA02GW90IvIQsJaCXQ&start_radio=1&rv=7AbCQghx0R0&t=8
-                  </a>
-                </li>
-              </ul>
-            </div>
+          <div className="space-y-4 max-w-4xl mx-auto">
+            <Accordion type="single" collapsible className="w-full">
+              <AccordionItem value="posing" className="bg-white rounded-xl shadow-md hover:shadow-lg transition-all border-0 overflow-hidden">
+                <AccordionTrigger className="px-6 py-4 text-xl font-bold text-[#1A1F2C] hover:no-underline">
+                  Posing for Corporate Headshots
+                </AccordionTrigger>
+                <AccordionContent className="px-6 pb-6">
+                  <div className="space-y-3 text-slate-700">
+                    <p>
+                      We making posing super simple, we do try to make you feel comfortable and get to know you and what you do before we click any picture.
+                    </p>
+                    <p>
+                      Our approach to portraits is retaining elements of who you are and how your peers/subordinates see you (OR how you want to be viewed as by your clients, bosses, employees etc)
+                    </p>
+                    <p>
+                      We do shoot every pose with several subtle variations which you can not just use a s Social media profile picture on LinkedIn but also to use on meeting apps for calls on Zoom, Teams etc.
+                    </p>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="styling" className="bg-white rounded-xl shadow-md hover:shadow-lg transition-all border-0 overflow-hidden mt-4">
+                <AccordionTrigger className="px-6 py-4 text-xl font-bold text-[#1A1F2C] hover:no-underline">
+                  Styling for Corporate Headshots
+                </AccordionTrigger>
+                <AccordionContent className="px-6 pb-6">
+                  <div className="space-y-3 text-slate-700">
+                    <p>
+                      We keep styling natural & minimalistic and include it as a variation only if your profession/role calls for it.
+                    </p>
+                    <p>
+                      Do take some time to discuss your role/profession with us (WhatsApp preferred, as it allows us to respond during micro breaks in our shoots. We will call back/schedule a call if we feel discussing over a call would be faster).
+                    </p>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="retouching" className="bg-white rounded-xl shadow-md hover:shadow-lg transition-all border-0 overflow-hidden mt-4">
+                <AccordionTrigger className="px-6 py-4 text-xl font-bold text-[#1A1F2C] hover:no-underline">
+                  Retouching / Editing
+                </AccordionTrigger>
+                <AccordionContent className="px-6 pb-6">
+                  <div className="space-y-3 text-slate-700">
+                    <p>
+                      We take the extra effort to keep pictures as natural as possible. In fact our colour calibrated workflow ensues super accurate colours and skin tones.
+                    </p>
+                    <p>
+                      Most of our tricks is with how we use our extended collection of light modifiers at our studio (for example: soft light instead of smoothening the skin).
+                      We balance your skin tone with a suitable brightness level/colour for the background such that the need for modifying the skin tones is eliminated.
+                    </p>
+                    <p>
+                      We believe authenticity and a sense of realness has the maximum impact for Professional/Corporate Portraits.
+                    </p>
+                    <p>
+                      Our editing is mostly limited to removing blemishes (pimples, stray hairs, specks of dust/fibres on clothing etc) without giving an appearance of the image being edited.
+                    </p>
+                    <p>
+                      Don't believe what we say/unsure. Do take some time to view our extensive portfolio of Corporate Headshots (several of which have now appeared in print and other media)
+                    </p>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="costume" className="bg-white rounded-xl shadow-md hover:shadow-lg transition-all border-0 overflow-hidden mt-4">
+                <AccordionTrigger className="px-6 py-4 text-xl font-bold text-[#1A1F2C] hover:no-underline">
+                  Costume Rentals, What to wear etc...
+                </AccordionTrigger>
+                <AccordionContent className="px-6 pb-6">
+                  <ul className="list-disc pl-5 space-y-2 text-slate-700">
+                    <li>Corporate Headshots is about perfection and suits fit best when tailor made by a master for your fitting. Hence we do not stock business attire for Corporate Headshots.</li>
+                    <li>We do have smaller props like a good pen, squares and a few neckties, but we do recommend that you carry your own attire and props to maintain a look that is unique to you.</li>
+                    <li>Small imperfections in your attire are OK, we can usually clone the area from a clear spot while maintaining an unedited look.</li>
+                    <li>For choice of colours, do give us a call/message us over WhatsApp. Selection of colours, attire and some profession related props are dependent on your profession and your role. (for example: we avoid using a Stethoscope while shooting a surgeon/Orthopaedist, while it is perfect for a physician)</li>
+                    <li>Some colours like red could suggest aggressiveness, and hence it is better you do discuss with us when in doubt.</li>
+                  </ul>
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="tie" className="bg-white rounded-xl shadow-md hover:shadow-lg transition-all border-0 overflow-hidden mt-4">
+                <AccordionTrigger className="px-6 py-4 text-xl font-bold text-[#1A1F2C] hover:no-underline">
+                  Tie / Knot - How to Videos
+                </AccordionTrigger>
+                <AccordionContent className="px-6 pb-6">
+                  <ul className="list-disc pl-5 space-y-2 text-slate-700">
+                    <li>
+                      <a href="https://www.youtube.com/watch?v=flONEDCEGNQ" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                        https://www.youtube.com/watch?v=flONEDCEGNQ
+                      </a>
+                      <span className="text-slate-500 ml-2">(Shot through Mirror / May be easier for some)</span>
+                    </li>
+                    <li>
+                      <a href="https://www.youtube.com/watch?v=7AbCQghx0R0" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                        https://www.youtube.com/watch?v=7AbCQghx0R0
+                      </a>
+                      <span className="text-slate-500 ml-2">(Shot through Mirror / May be easier for some)</span>
+                    </li>
+                    <li>
+                      <a href="https://www.youtube.com/watch?v=7AbCQghx0R0&list=RDCMUCzmT0dA02GW90IvIQsJaCXQ&start_radio=1&rv=7AbCQghx0R0&t=8" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                        https://www.youtube.com/watch?v=7AbCQghx0R0&list=RDCMUCzmT0dA02GW90IvIQsJaCXQ&start_radio=1&rv=7AbCQghx0R0&t=8
+                      </a>
+                    </li>
+                  </ul>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
           </div>
         </div>
         
