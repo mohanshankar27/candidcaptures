@@ -2,18 +2,19 @@
 import React from 'react';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Check } from 'lucide-react';
+import { Check, DollarSign } from 'lucide-react';
 import BookingCTA from './BookingCTA';
 
 const EventPackage: React.FC = () => {
   return (
     <div className="package-details">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-        <img 
-          src="/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png" 
-          alt="Event Photography" 
-          className="w-full h-64 object-cover rounded-md col-span-3 md:col-span-2"
-        />
+        <div className="w-full h-64 bg-white rounded-md col-span-3 md:col-span-2 flex items-center justify-center">
+          <div className="flex flex-col items-center justify-center p-10">
+            <DollarSign className="h-28 w-28 text-[#ea384c]" strokeWidth={1} />
+            <p className="text-xl font-semibold text-primary mt-4">Premium Event Photography Services</p>
+          </div>
+        </div>
         <div className="grid grid-cols-1 gap-4">
           <img 
             src="/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png" 

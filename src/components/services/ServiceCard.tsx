@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Sparkles, ExternalLink } from 'lucide-react';
 import { Card } from '@/components/ui/card';
@@ -80,7 +79,6 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
                 loading={index < 8 ? "eager" : "lazy"}
               />
             </motion.div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-80"></div>
             
             {isClicked && (
               <div className="absolute inset-0 flex items-center justify-center">
@@ -114,7 +112,6 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
               )}
             </div>
             
-            {/* Animated underline effect */}
             <motion.div 
               className="h-0.5 bg-gradient-to-r from-orange-400 to-orange-200 mt-1 mx-auto"
               initial={{ width: 0 }}
