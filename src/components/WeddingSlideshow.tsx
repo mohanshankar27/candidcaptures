@@ -32,23 +32,30 @@ interface WeddingSlideshowProps {
   interval?: number;
 }
 
-const WeddingSlideshow = ({ autoplay = true, interval = 5000 }: WeddingSlideshowProps) => {
+const WeddingSlideshow = ({ autoplay = true, interval = 3000 }: WeddingSlideshowProps) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [api, setApi] = useState<any>(null);
+  const [isPaused, setIsPaused] = useState(false);
 
   // Set up autoplay functionality
   useEffect(() => {
     if (!autoplay || !api) return;
     
     const timer = setInterval(() => {
-      api.scrollNext();
+      if (!isPaused) {
+        api.scrollNext();
+      }
     }, interval);
     
     return () => clearInterval(timer);
-  }, [api, autoplay, interval]);
+  }, [api, autoplay, interval, isPaused]);
 
   return (
-    <div className="w-full max-w-5xl mx-auto px-4 py-8">
+    <div 
+      className="w-full max-w-5xl mx-auto px-4 py-8"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
       <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">Wedding Photoshoot Gallery</h2>
       
       <Carousel setApi={setApi} className="w-full">

@@ -71,7 +71,7 @@ const ServiceContent: React.FC<ServiceContentProps> = ({ service }) => {
         <React.Suspense fallback={<div className="w-full h-40 flex items-center justify-center">
           <div className="w-10 h-10 border-4 border-primary/30 border-t-primary rounded-full animate-spin"></div>
         </div>}>
-          <WeddingSlideshow />
+          <WeddingSlideshow autoplay={true} interval={3000} />
         </React.Suspense>
       )}
       

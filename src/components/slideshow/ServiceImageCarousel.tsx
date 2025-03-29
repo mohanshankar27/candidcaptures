@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Card } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
@@ -21,6 +21,8 @@ const ServiceImageCarousel: React.FC<ServiceImageCarouselProps> = ({
 }) => {
   const [hoveredItem, setHoveredItem] = useState<number | null>(null);
   const location = useLocation();
+  const [api, setApi] = useState<any>(null);
+  const [isPaused, setIsPaused] = useState(false);
   
   // Don't render this component if we're on the services page
   if (location.pathname === '/services') {
@@ -43,18 +45,34 @@ const ServiceImageCarousel: React.FC<ServiceImageCarouselProps> = ({
     image: carouselImages[index % carouselImages.length]
   }));
 
+  // Set up autoplay functionality
+  useEffect(() => {
+    if (!api) return;
+    
+    const interval = setInterval(() => {
+      if (!isPaused) {
+        api.scrollNext();
+      }
+    }, 3000); // 3 second interval
+    
+    return () => clearInterval(interval);
+  }, [api, isPaused]);
+
   return (
     <motion.div 
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.7, delay: 0.3 }}
       className="mb-16"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
     >
       <Carousel 
         opts={{ 
           loop: true,
           align: "start"
         }}
+        setApi={setApi}
         className="w-full"
       >
         <CarouselContent>

@@ -67,8 +67,6 @@ const Index = () => {
       <Navbar />
       <Hero />
       
-      {/* Remove Gallery from here since we moved it into PhotoSlideshow */}
-      
       {/* Lazy load PhotoSlideshow which now contains Gallery */}
       {loadComplete && (
         <Suspense fallback={<LoadingFallback />}>
