@@ -25,15 +25,17 @@ const PackageContainer: React.FC<PackageContainerProps> = ({
     <div className="bg-white/70 backdrop-blur-sm p-6 md:p-8 rounded-xl shadow-lg border border-primary/10 transition-all duration-300 hover:shadow-xl">
       <PackageHeader title={packageTitle} />
       
-      <div className="package-container animate-fadeIn">
+      <div className="package-container animate-fade-in">
         <PackageLoader packageId={packageId} />
       </div>
       
-      {packageId === 'corporate' ? (
+      {packageId === 'corporate' && (
         <div className="mt-12">
           <CorporateHeadshotsFAQ />
         </div>
-      ) : showGeneralFAQ && (
+      )}
+      
+      {showGeneralFAQ && packageId !== 'corporate' && (
         <div className="mt-12">
           <ServicesFAQ />
         </div>
