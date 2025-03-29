@@ -38,7 +38,7 @@ const GallerySlideshow: React.FC<GallerySlideshowProps> = ({
           <img 
             src={images[currentIndex]} 
             alt={`${serviceName} image ${currentIndex + 1}`} 
-            className="max-h-full w-auto object-contain"
+            className="max-h-full w-auto object-contain rounded-lg"
           />
           
           <button 
