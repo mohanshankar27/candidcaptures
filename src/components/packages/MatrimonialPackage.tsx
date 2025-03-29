@@ -82,39 +82,46 @@ const MatrimonialPackage: React.FC = () => {
               Most Popular
             </div>
             <CardHeader className="bg-gradient-to-r from-primary/20 to-primary/10 pb-2">
-              <CardTitle className="text-primary text-xl">Premium Portfolio</CardTitle>
-              <CardDescription className="text-slate-600 pt-1">Enhanced coverage</CardDescription>
-              <div className="mt-4 mb-1">
-                <span className="text-3xl font-light text-[#ea384c]">₹15,000</span>
+              <CardTitle className="text-primary text-xl">Classic Session</CardTitle>
+              <CardDescription className="text-slate-600 pt-1">Complete coverage</CardDescription>
+              <div className="mt-2 mb-1 flex flex-col">
+                <span className="text-sm text-slate-600 line-through">Regular Price ₹7,999 +GST</span>
+                <span className="text-3xl font-light text-[#ea384c]">Weekday Offer ₹4,067 +GST</span>
               </div>
             </CardHeader>
-            <CardContent className="pt-6">
-              <ul className="space-y-3">
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">2-hour photo session</span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">3 outfit changes</span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">15 edited digital images</span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Outdoor Shoot: Yes</span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">Advanced retouching included</span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary shrink-0 mr-2 mt-0.5" />
-                  <span className="text-slate-700">5 printed 5×7″ photographs</span>
-                </li>
-              </ul>
+            <CardContent className="pt-4">
+              <div className="space-y-3">
+                <div className="flex items-center gap-2 text-sm font-medium text-primary">
+                  <Clock className="h-4 w-4 text-[#ea384c]" />
+                  <p>45-90 Minute Session (Studio time: 150 mins)</p>
+                </div>
+                <ul className="space-y-2">
+                  {[
+                    'Studio Session: Yes', 
+                    'Outdoor Session: No', 
+                    'Look/Costumes Changes: 3', 
+                    'Additional Changes: ₹1,000/-', 
+                    'Styling: Minimal', 
+                    '15 full res photographs',
+                    'Additional images: ₹375/image',
+                    'Hard Copies: Optional',
+                    'Makeup: Optional, Starting ₹4,275/-'
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start text-sm">
+                      <div className="mt-0.5 mr-2 bg-primary/5 p-1 rounded-full">
+                        <Check className="h-3 w-3 text-primary" />
+                      </div>
+                      <span className="text-slate-700">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="pt-3 flex justify-center">
+                  <Button className="bg-[#ea384c] hover:bg-[#ea384c]/90 shadow-md relative overflow-hidden group w-full">
+                    <span className="absolute inset-0 w-3 bg-white/20 skew-x-[-20deg] transform -translate-x-10 group-hover:translate-x-[400px] transition-all duration-1000 ease-out"></span>
+                    <span className="relative">Schedule Session</span>
+                  </Button>
+                </div>
+              </div>
             </CardContent>
           </Card>
 
