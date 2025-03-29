@@ -15,7 +15,7 @@ const SlideshowHeader = () => {
             transition={{ duration: 1.5 }}
             className="inline-block relative"
           >
-            <span className="relative z-10 inline-block">Glimpse of Our Work</span>
+            <span className="relative z-10 inline-block">Our Services</span>
             {/* Smooth gold underline effect */}
             <motion.span 
               className="absolute -bottom-1 left-0 h-[2px] bg-gradient-to-r from-orange-300 via-amber-400 to-orange-300 rounded-full" 
@@ -43,7 +43,7 @@ const SlideshowHeader = () => {
           viewport={{ once: true }}
         >
           <span className="relative inline-block">
-            Extraordinary masterpieces from our exclusive fine art collection, where every meticulously crafted frame captures the essence of unparalleled luxury and artistic excellence
+            Explore our portfolio one image at a time. After the slideshow completes, you can rotate each image to view it from different angles.
           </span>
         </motion.p>
       </div>
