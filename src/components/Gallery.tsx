@@ -166,15 +166,22 @@ const Gallery = () => {
         </div>
       </div>
 
-      {/* Image Modal/Dialog */}
+      {/* Enhanced Image Modal/Dialog - covering 3/4 of the screen with professional styling */}
       <Dialog open={selectedImageIndex !== null} onOpenChange={closeImageModal}>
-        <DialogContent className="max-w-5xl p-0 border-4 border-orange-400 bg-black" onClick={(e) => e.stopPropagation()}>
+        <DialogContent 
+          className="max-w-[75vw] w-[75vw] p-0 border-none bg-black/95 rounded-xl shadow-2xl" 
+          onClick={(e) => e.stopPropagation()}
+        >
           {selectedImageIndex !== null && (
-            <div className="relative w-full h-[80vh]">
-              <img 
+            <div className="relative w-full h-[80vh] flex items-center justify-center">
+              <motion.img 
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.3 }}
                 src={images[selectedImageIndex].url} 
                 alt={images[selectedImageIndex].alt} 
-                className="w-full h-full object-contain"
+                className="max-w-full max-h-full object-contain shadow-xl"
               />
               
               <button 
@@ -184,29 +191,42 @@ const Gallery = () => {
                 <X className="w-6 h-6" />
               </button>
               
-              <button 
-                className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors"
+              <motion.button 
+                initial={{ opacity: 0.6 }}
+                whileHover={{ opacity: 1, scale: 1.1 }}
+                className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-full hover:bg-black/70 transition-colors"
                 onClick={() => navigateImage("prev")}
               >
-                <ChevronLeft className="w-6 h-6" />
-              </button>
+                <ChevronLeft className="w-7 h-7" />
+              </motion.button>
               
-              <button 
-                className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors"
+              <motion.button 
+                initial={{ opacity: 0.6 }}
+                whileHover={{ opacity: 1, scale: 1.1 }}
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-full hover:bg-black/70 transition-colors"
                 onClick={() => navigateImage("next")}
               >
-                <ChevronRight className="w-6 h-6" />
-              </button>
+                <ChevronRight className="w-7 h-7" />
+              </motion.button>
               
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2">
-                {images.map((_, index) => (
-                  <div 
-                    key={index}
-                    className={`w-2 h-2 rounded-full ${
-                      index === selectedImageIndex ? "bg-orange-400" : "bg-white/50"
-                    }`}
-                  />
-                ))}
+              <div className="absolute bottom-4 left-0 right-0 flex items-center justify-center gap-2 px-4">
+                <div className="bg-black/60 py-3 px-5 rounded-full backdrop-blur-sm">
+                  {images.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setSelectedImageIndex(index)}
+                      className={`w-2.5 h-2.5 mx-1 rounded-full transition-all ${
+                        index === selectedImageIndex ? "bg-orange-400 w-5" : "bg-white/60"
+                      }`}
+                    />
+                  ))}
+                </div>
+              </div>
+              
+              <div className="absolute bottom-16 left-0 right-0 text-center">
+                <p className="text-white/90 font-medium px-4 py-2 rounded-lg bg-black/40 backdrop-blur-sm mx-auto max-w-max">
+                  {images[selectedImageIndex].alt}
+                </p>
               </div>
             </div>
           )}
