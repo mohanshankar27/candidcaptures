@@ -160,23 +160,25 @@ const PhotoSlideshow = () => {
       </div>
 
       {/* Add necessary CSS for 3D transform */}
-      <style jsx>{`
-        .perspective-1000 {
-          perspective: 1000px;
-        }
-        .transform-style-3d {
-          transform-style: preserve-3d;
-        }
-        .backface-hidden {
-          backface-visibility: hidden;
-        }
-        .transform-rotate-y-180 {
-          transform: rotateY(180deg);
-        }
-        .is-flipped .flip-card-inner {
-          transform: rotateY(180deg);
-        }
-      `}</style>
+      <style>
+        {`
+          .perspective-1000 {
+            perspective: 1000px;
+          }
+          .transform-style-3d {
+            transform-style: preserve-3d;
+          }
+          .backface-hidden {
+            backface-visibility: hidden;
+          }
+          .transform-rotate-y-180 {
+            transform: rotateY(180deg);
+          }
+          .is-flipped .flip-card-inner {
+            transform: rotateY(180deg);
+          }
+        `}
+      </style>
     </section>
   );
 };
