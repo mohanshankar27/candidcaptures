@@ -100,24 +100,27 @@ const SlideshowGallery = ({ images }: SlideshowGalleryProps) => {
                     <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/10 to-blue-500/10 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100"></div>
                     
                     {/* Premium light effect */}
-                    <div className="absolute -inset-[100%] bg-white/5 skew-x-12 group-hover:animate-[shine_3s_ease-in-out_infinite] z-10 opacity-0 group-hover:opacity-100"></div>
+                    <div className="absolute -inset-[100%] bg-white/5 skew-x-12 group-hover:animate-shine z-10 opacity-0 group-hover:opacity-100"></div>
                     
                     <motion.img 
                       src={image.url} 
                       alt={image.alt} 
                       className="w-full h-full object-cover transition-transform duration-7000 group-hover:scale-110"
-                      initial={{ scale: 1.05 }}
+                      initial={{ scale: 1.05, rotateY: 0 }}
                       animate={{ 
                         scale: activeIndex === index ? 1 : 1.05,
                         x: activeIndex === index ? 0 : (prevIndex === index && direction === 'right' ? '-100%' : 0),
+                        rotateY: activeIndex === index ? 0 : (prevIndex === index ? '-30deg' : '30deg'),
                         filter: activeIndex === index ? 'contrast(1.1) brightness(1.05)' : 'contrast(1) brightness(1)'
                       }}
                       transition={{ 
                         duration: 1.8, 
                         ease: [0.25, 0.1, 0.25, 1.0],
                         x: { duration: 0.8, ease: [0.65, 0, 0.35, 1] },
+                        rotateY: { duration: 1.2, ease: [0.22, 1, 0.36, 1] },
                         filter: { duration: 1.2 }
                       }}
+                      style={{ transformStyle: 'preserve-3d' }}
                     />
                     
                     {/* Premium gradients */}
@@ -130,13 +133,16 @@ const SlideshowGallery = ({ images }: SlideshowGalleryProps) => {
                         animate={{ 
                           opacity: activeIndex === index ? 1 : 0.5, 
                           y: activeIndex === index ? 0 : 10,
-                          x: prevIndex === index && direction === 'right' ? '-120%' : 0
+                          x: prevIndex === index && direction === 'right' ? '-120%' : 0,
+                          rotateY: activeIndex === index ? 0 : (prevIndex === index ? '-20deg' : '20deg')
                         }}
                         transition={{ 
                           duration: 0.7, 
                           delay: 0.2,
-                          x: { duration: 0.5, ease: [0.65, 0, 0.35, 1] }
+                          x: { duration: 0.5, ease: [0.65, 0, 0.35, 1] },
+                          rotateY: { duration: 1, ease: [0.22, 1, 0.36, 1] }
                         }}
+                        style={{ transformStyle: 'preserve-3d' }}
                       >
                         <h3 className="text-2xl font-serif italic font-light mb-2 tracking-wide">{image.alt}</h3>
                         <div className="h-0.5 w-16 bg-gradient-to-r from-orange-300 to-orange-500 mb-3"></div>
@@ -176,13 +182,19 @@ const SlideshowGallery = ({ images }: SlideshowGalleryProps) => {
       />
       
       {/* Add custom styles for premium animation */}
-      <style jsx>{`
-        @keyframes shine {
-          0% { transform: translateX(-100%) skewX(-12deg); }
-          60% { transform: translateX(150%) skewX(-12deg); }
-          100% { transform: translateX(150%) skewX(-12deg); }
-        }
-      `}</style>
+      <style>
+        {`
+          @keyframes shine {
+            0% { transform: translateX(-100%) skewX(-12deg); }
+            60% { transform: translateX(150%) skewX(-12deg); }
+            100% { transform: translateX(150%) skewX(-12deg); }
+          }
+          
+          .animate-shine {
+            animation: shine 3s ease-in-out infinite;
+          }
+        `}
+      </style>
     </motion.div>
   );
 };

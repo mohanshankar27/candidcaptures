@@ -12,7 +12,18 @@ const SlideshowHeader = () => {
         className="relative"
       >
         {/* Premium subtle glow behind heading */}
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-20 bg-orange-300/10 blur-3xl rounded-full"></div>
+        <motion.div 
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-20 bg-orange-300/10 blur-3xl rounded-full"
+          animate={{ 
+            scale: [1, 1.2, 1],
+            rotate: [-1, 1, -1]
+          }}
+          transition={{ 
+            duration: 8, 
+            repeat: Infinity,
+            repeatType: "reverse" 
+          }}
+        ></motion.div>
         
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif italic text-primary mb-4 tracking-wide relative">
           <motion.span
@@ -21,7 +32,11 @@ const SlideshowHeader = () => {
             transition={{ duration: 1.2, delay: 0.3 }}
             className="inline-block relative"
           >
-            <span className="relative z-10">Glimpse of Our Work</span>
+            <motion.span 
+              className="relative z-10"
+              animate={{ rotateX: [0, 5, 0] }}
+              transition={{ duration: 6, repeat: Infinity, repeatType: "reverse" }}
+            >Glimpse of Our Work</motion.span>
             {/* Premium gold underline effect */}
             <motion.span 
               className="absolute -bottom-1 left-0 h-[2px] bg-gradient-to-r from-orange-300 via-amber-400 to-orange-300 rounded-full" 
@@ -54,6 +69,12 @@ const SlideshowHeader = () => {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1.2, delay: 0.7 }}
           viewport={{ once: true }}
+          animate={{ 
+            rotateX: [0, 2, 0]
+          }}
+          transition={{ 
+            rotateX: { duration: 7, repeat: Infinity, repeatType: "reverse" }
+          }}
         >
           <span className="relative">
             Extraordinary masterpieces from our exclusive fine art collection, where every meticulously crafted frame captures the essence of unparalleled luxury and artistic excellence
