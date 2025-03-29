@@ -14,6 +14,7 @@ const Gallery = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalImageIndex, setModalImageIndex] = useState<number | null>(null);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
 
   useEffect(() => {
     // Simulate loading to create better animation transitions
@@ -38,6 +39,10 @@ const Gallery = () => {
 
   const handleClickImage = () => {
     openModal(current);
+  };
+
+  const handleCardFlip = (index: number) => {
+    setFlippedIndex(flippedIndex === index ? null : index);
   };
 
   const handleModalNavigate = (direction: "prev" | "next") => {
@@ -108,25 +113,63 @@ const Gallery = () => {
                         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                         className="w-full h-full px-4 py-6 flex items-center justify-center"
                       >
-                        <div className="relative overflow-hidden rounded-lg shadow-2xl border border-white/20 group cursor-pointer" onClick={handleClickImage}>
-                          <img 
-                            src={image.url} 
-                            alt={image.alt}
-                            className="w-full h-full object-cover transition-transform duration-3000 group-hover:scale-105"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-black/5 opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
-                          <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
-                          
-                          <motion.div 
-                            className="absolute bottom-0 left-0 w-full p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500"
-                            whileHover={{ y: 0 }}
-                          >
-                            <h3 className="text-2xl font-semibold mb-2 text-shadow">{image.alt}</h3>
-                            <div className="h-0.5 w-16 bg-orange-400 mb-3" />
-                            <p className="text-sm text-white/90 max-w-md">
-                              Click to view this image in full detail and explore our complete collection.
-                            </p>
-                          </motion.div>
+                        {/* Use 3D card flip effect */}
+                        <div 
+                          className={cn(
+                            "flip-card cursor-pointer h-full w-full perspective-1000 transition-transform duration-500 bg-transparent overflow-visible",
+                            flippedIndex === index ? "is-flipped" : ""
+                          )}
+                          onClick={() => handleCardFlip(index)}
+                        >
+                          {/* Card Inner Container - this handles the 3D rotation */}
+                          <div className="flip-card-inner relative w-full h-full transition-transform duration-700 transform-style-3d">
+                            
+                            {/* Front of Card */}
+                            <div className="flip-card-front absolute w-full h-full backface-hidden rounded-lg overflow-hidden shadow-2xl border border-white/20">
+                              <img 
+                                src={image.url} 
+                                alt={image.alt}
+                                className="w-full h-full object-cover transition-transform duration-3000 group-hover:scale-105"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-black/5 opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
+                              <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
+                              
+                              <motion.div 
+                                className="absolute bottom-0 left-0 w-full p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500"
+                                whileHover={{ y: 0 }}
+                              >
+                                <h3 className="text-2xl font-semibold mb-2 text-shadow">{image.alt}</h3>
+                                <div className="h-0.5 w-16 bg-orange-400 mb-3" />
+                                <p className="text-sm text-white/90 max-w-md">
+                                  Tap to view details or swipe to explore more
+                                </p>
+                              </motion.div>
+                            </div>
+                            
+                            {/* Back of Card */}
+                            <div className="flip-card-back absolute w-full h-full backface-hidden rounded-lg overflow-hidden bg-white shadow-2xl transform-rotate-y-180">
+                              <div className="p-8 flex flex-col justify-between h-full bg-gradient-to-br from-orange-50 to-white">
+                                <div>
+                                  <h3 className="text-2xl font-bold text-primary mb-2">{image.alt}</h3>
+                                  <div className="w-12 h-0.5 bg-gradient-to-r from-orange-300 to-orange-500 mb-3"></div>
+                                  <p className="text-slate-700 mb-4">
+                                    This captivating moment exemplifies our commitment to creative photography that tells a unique story.
+                                  </p>
+                                </div>
+                                <motion.button 
+                                  className="mt-auto w-full py-3 rounded-full bg-gradient-to-r from-orange-400 to-orange-600 text-white font-medium shadow-lg"
+                                  whileHover={{ scale: 1.03 }}
+                                  whileTap={{ scale: 0.98 }}
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    openModal(index);
+                                  }}
+                                >
+                                  View in Gallery
+                                </motion.button>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </motion.div>
                     </div>
@@ -202,6 +245,27 @@ const Gallery = () => {
           onSelectImage={setModalImageIndex}
         />
       </div>
+      
+      {/* Add necessary CSS for 3D transform */}
+      <style>
+        {`
+          .perspective-1000 {
+            perspective: 1000px;
+          }
+          .transform-style-3d {
+            transform-style: preserve-3d;
+          }
+          .backface-hidden {
+            backface-visibility: hidden;
+          }
+          .transform-rotate-y-180 {
+            transform: rotateY(180deg);
+          }
+          .is-flipped .flip-card-inner {
+            transform: rotateY(180deg);
+          }
+        `}
+      </style>
     </section>
   );
 };
