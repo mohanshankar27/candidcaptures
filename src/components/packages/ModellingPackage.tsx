@@ -4,6 +4,7 @@ import { Separator } from '@/components/ui/separator';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Check } from 'lucide-react';
 import BookingCTA from './BookingCTA';
+import { Button } from '@/components/ui/button';
 
 const ModellingPackage: React.FC = () => {
   return (
@@ -85,6 +86,11 @@ const ModellingPackage: React.FC = () => {
                   <span className="text-slate-700">Stylist: Optional, @ actuals</span>
                 </li>
               </ul>
+              <div className="mt-4 pt-4 border-t border-slate-100">
+                <Button className="w-full bg-[#ea384c] hover:bg-[#ea384c]/90">
+                  Book Appointment
+                </Button>
+              </div>
             </CardContent>
           </Card>
 
@@ -138,6 +144,11 @@ const ModellingPackage: React.FC = () => {
                   <span className="text-slate-700">MUA/H: optional @actuals</span>
                 </li>
               </ul>
+              <div className="mt-4 pt-4 border-t border-slate-100">
+                <Button className="w-full bg-[#ea384c] hover:bg-[#ea384c]/90">
+                  Book Online
+                </Button>
+              </div>
             </CardContent>
           </Card>
 
@@ -197,6 +208,11 @@ const ModellingPackage: React.FC = () => {
                   <span className="text-slate-700">Extras: location charges, website</span>
                 </li>
               </ul>
+              <div className="mt-4 pt-4 border-t border-slate-100">
+                <Button className="w-full bg-[#ea384c] hover:bg-[#ea384c]/90">
+                  Call +91.98861-56696
+                </Button>
+              </div>
             </CardContent>
           </Card>
         </div>
