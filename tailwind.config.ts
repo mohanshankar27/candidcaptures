@@ -19,6 +19,7 @@ export default {
     },
     extend: {
       fontFamily: {
+        arjulian: ['AR JULIAN', 'serif'],
         akaya: ['Akaya Kanadaka', 'cursive'],
         serif: ['Playfair Display', 'Georgia', 'serif'],
         sans: ['Poppins', 'Helvetica', 'Arial', 'sans-serif'],
