@@ -23,23 +23,17 @@ const GalleryImageGrid: React.FC<GalleryImageGridProps> = ({
           className="overflow-hidden rounded-lg cursor-pointer bg-muted"
           onClick={() => onImageClick(index)}
         >
-          {isFashionService ? (
-            <div className="h-auto w-full flex items-center justify-center bg-white p-4 rounded-lg">
-              <img 
-                src={image} 
-                alt={`${serviceName} ${index + 1}`} 
-                className="w-full h-auto object-contain transition-transform duration-300 hover:scale-110 rounded-lg"
-              />
-            </div>
-          ) : (
-            <AspectRatio ratio={1}>
-              <img 
-                src={image} 
-                alt={`${serviceName} ${index + 1}`} 
-                className="w-full h-full object-contain transition-transform duration-300 hover:scale-110 rounded-lg"
-              />
-            </AspectRatio>
-          )}
+          <AspectRatio ratio={1}>
+            <img 
+              src={image} 
+              alt={`${serviceName} ${index + 1}`} 
+              className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.src = "/placeholder.svg";
+              }}
+            />
+          </AspectRatio>
         </div>
       ))}
     </div>

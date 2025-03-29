@@ -19,8 +19,6 @@ const ServiceImageCarousel: React.FC<ServiceImageCarouselProps> = ({
   serviceThumbnails, 
   onServiceClick 
 }) => {
-  const [hoveredItem, setHoveredItem] = useState<number | null>(null);
-
   return (
     <motion.div 
       initial={{ opacity: 0 }}
@@ -37,28 +35,32 @@ const ServiceImageCarousel: React.FC<ServiceImageCarouselProps> = ({
       >
         <CarouselContent>
           {serviceThumbnails.map((service, index) => (
-            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4">
               <motion.div
                 whileHover={{ y: -5 }}
                 transition={{ duration: 0.2 }}
                 className="p-2 h-full"
               >
                 <Card 
-                  className="overflow-hidden group cursor-pointer transition-all duration-300 bg-white shadow-xl h-full border-none"
+                  className="overflow-hidden group cursor-pointer transition-all duration-300 bg-white shadow-md h-full border-none"
                   onClick={() => onServiceClick(service.name)}
                 >
-                  <div className="relative overflow-hidden">
-                    <div className="absolute inset-0 bg-transparent group-hover:bg-transparent transition-colors duration-300 z-10"></div>
+                  <div className="relative overflow-hidden aspect-square bg-white flex items-center justify-center">
                     <motion.div
                       whileHover={{ scale: 1.05 }}
                       transition={{ duration: 0.5 }}
-                      className="w-full h-full"
+                      className="w-full h-full flex items-center justify-center"
                     >
                       <img 
                         src={service.image} 
                         alt={service.name}
-                        className="w-full h-auto object-contain"
+                        className="w-full h-full object-cover"
                         loading="lazy"
+                        onError={(e) => {
+                          // If image fails to load, set a fallback
+                          const target = e.target as HTMLImageElement;
+                          target.src = "/placeholder.svg";
+                        }}
                       />
                     </motion.div>
                   </div>

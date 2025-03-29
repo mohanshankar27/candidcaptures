@@ -71,18 +71,18 @@ const serviceImages = Object.entries(serviceImageIndices).reduce((acc, [serviceN
 }, {} as Record<string, string[]>);
 
 export const getServiceImages = (service: Service): string[] => {
-  // For Fashion Photography, use verified working images
+  // For Fashion Photography, use specific working images
   if (service.name === 'Fashion Photography') {
     return [
-      '/lovable-uploads/92b87e5e-0ec2-44ab-8160-c7335b0d66a0.png', // Burgundy background model
-      '/lovable-uploads/38c938f6-27b6-4b7c-80c8-02a42c8cf9d3.png', // Fitness fashion 
-      '/lovable-uploads/84376a5b-2662-4bb5-9e37-8e83ca5c09c8.png', // Yellow traditional outfit
-      '/lovable-uploads/4c8884df-c0c2-4516-8e86-d559a104323b.png', // Fourth image
-      '/lovable-uploads/6d4124cf-49f7-422e-a39a-0fc50e817f81.png', // Fifth image
-      '/lovable-uploads/63234086-83f0-42c2-89ed-b8f4bfd7512e.png'  // Sixth image - fashion image
+      '/lovable-uploads/92b87e5e-0ec2-44ab-8160-c7335b0d66a0.png',
+      '/lovable-uploads/38c938f6-27b6-4b7c-80c8-02a42c8cf9d3.png',
+      '/lovable-uploads/84376a5b-2662-4bb5-9e37-8e83ca5c09c8.png',
+      '/lovable-uploads/4c8884df-c0c2-4516-8e86-d559a104323b.png',
+      '/lovable-uploads/6d4124cf-49f7-422e-a39a-0fc50e817f81.png',
+      '/lovable-uploads/63234086-83f0-42c2-89ed-b8f4bfd7512e.png'
     ];
   }
   
   // Return the service-specific images or default to a generic set
-  return serviceImages[service.name] || Array(6).fill(getServiceImage('Concept shoot'));
+  return serviceImages[service.name] || Array(6).fill('/placeholder.svg');
 };
