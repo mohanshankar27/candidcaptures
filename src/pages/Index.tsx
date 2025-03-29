@@ -4,9 +4,9 @@ import Hero from "@/components/Hero";
 import Gallery from "@/components/Gallery";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import PhotoSlideshow from "@/components/PhotoSlideshow";
 import CommunicationSidebar from "@/components/CommunicationSidebar";
 import OurServices from "@/components/OurServices";
-import SingleImageSlideshow from "@/components/SingleImageSlideshow";
 
 const Index = () => {
   return (
@@ -16,7 +16,7 @@ const Index = () => {
       <Hero />
       <Gallery />
       <OurServices />
-      <SingleImageSlideshow />
+      <PhotoSlideshow />
       <CTA />
       <Footer />
     </div>

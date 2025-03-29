@@ -43,7 +43,7 @@ const SlideshowHeader = () => {
           viewport={{ once: true }}
         >
           <span className="relative inline-block">
-            Explore our portfolio one image at a time. After the slideshow completes, you can rotate each image to view it from different angles.
+            Extraordinary masterpieces from our exclusive fine art collection, where every meticulously crafted frame captures the essence of unparalleled luxury and artistic excellence
           </span>
         </motion.p>
       </div>
