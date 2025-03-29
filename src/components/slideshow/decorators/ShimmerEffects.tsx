@@ -5,34 +5,33 @@ const ShimmerEffects = () => {
   return (
     <>
       <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent opacity-30"></div>
+      
+      {/* Middle highlight effect - enhanced luminosity */}
       <motion.div
-        className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(255,255,255,0.1)_0%,_rgba(255,255,255,0)_70%)] opacity-0"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-gradient-to-r from-orange-200/20 to-amber-300/40 blur-3xl"
         animate={{ 
-          opacity: [0, 0.4, 0],
-          scale: [0.7, 1.3, 0.7],
-          rotate: [0, 15, 0]
+          opacity: [0.2, 0.5, 0.2],
+          scale: [0.9, 1.1, 0.9],
         }}
         transition={{
           repeat: Infinity,
           repeatType: "mirror",
-          duration: 12,
+          duration: 8,
           ease: "easeInOut",
-          times: [0, 0.5, 1]
         }}
       />
+      
       <motion.div 
         className="absolute inset-0 bg-gradient-to-b from-orange-200/10 to-transparent"
-        initial={{ opacity: 0 }}
         animate={{ 
-          opacity: [0, 0.2, 0],
-          y: [10, -10, 10]
+          opacity: [0.1, 0.3, 0.1],
+          y: [-5, 5, -5]
         }}
         transition={{
           repeat: Infinity,
           repeatType: "mirror", 
-          duration: 8,
+          duration: 10,
           ease: "easeInOut",
-          delay: 2
         }}
       />
     </>
