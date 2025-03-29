@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const About = () => {
   return (
@@ -27,30 +28,70 @@ const About = () => {
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <div className="max-w-7xl mx-auto">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-                {/* Left column - Image */}
-                <div className="rounded-lg overflow-hidden shadow-xl">
-                  <img 
-                    src="/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png" 
-                    alt="Photography team" 
-                    className="w-full h-full object-cover"
-                  />
+              <div className="flex flex-col justify-center space-y-6">
+                <h2 className="text-2xl md:text-3xl font-bold text-primary">Our Story</h2>
+                <p className="text-gray-700 leading-relaxed">
+                  Founded with a passion for authentic storytelling, CANDID CAPTURE has evolved into a premier photography studio specializing in capturing life's most precious moments with artistry and emotion.
+                </p>
+                <p className="text-gray-700 leading-relaxed">
+                  We believe that photography is more than just taking pictures – it's about creating visual narratives that evoke emotions and preserve memories for generations to come.
+                </p>
+                
+                <div className="flex items-center space-x-2 text-primary">
+                  <Heart className="w-5 h-5" />
+                  <span className="font-semibold">Authentic moments, beautifully captured</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        {/* Team Members Section */}
+        <section className="py-16 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <div className="max-w-7xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl font-bold text-primary mb-4">Our Team</h2>
+                <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+                  Meet the passionate professionals behind CANDID CAPTURE who make your photography dreams come true.
+                </p>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow text-center">
+                  <Avatar className="h-32 w-32 mx-auto mb-4 border-4 border-primary/20">
+                    <AvatarImage src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158" alt="Sophia Martinez" />
+                    <AvatarFallback>SM</AvatarFallback>
+                  </Avatar>
+                  <h3 className="text-xl font-semibold mb-1">Sophia Martinez</h3>
+                  <p className="text-primary mb-3">Lead Photographer</p>
+                  <p className="text-gray-600">
+                    With over 10 years of experience, Sophia specializes in wedding photography and portrait sessions.
+                  </p>
                 </div>
                 
-                {/* Right column - Text content */}
-                <div className="flex flex-col justify-center space-y-6">
-                  <h2 className="text-2xl md:text-3xl font-bold text-primary">Our Story</h2>
-                  <p className="text-gray-700 leading-relaxed">
-                    Founded with a passion for authentic storytelling, CANDID CAPTURE has evolved into a premier photography studio specializing in capturing life's most precious moments with artistry and emotion.
+                <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow text-center">
+                  <Avatar className="h-32 w-32 mx-auto mb-4 border-4 border-primary/20">
+                    <AvatarImage src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952" alt="Michael Chen" />
+                    <AvatarFallback>MC</AvatarFallback>
+                  </Avatar>
+                  <h3 className="text-xl font-semibold mb-1">Michael Chen</h3>
+                  <p className="text-primary mb-3">Creative Director</p>
+                  <p className="text-gray-600">
+                    Michael's artistic vision and technical expertise help create unique and stunning visual stories.
                   </p>
-                  <p className="text-gray-700 leading-relaxed">
-                    We believe that photography is more than just taking pictures – it's about creating visual narratives that evoke emotions and preserve memories for generations to come.
+                </div>
+                
+                <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow text-center">
+                  <Avatar className="h-32 w-32 mx-auto mb-4 border-4 border-primary/20">
+                    <AvatarImage src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81" alt="Team Members" />
+                    <AvatarFallback>TM</AvatarFallback>
+                  </Avatar>
+                  <h3 className="text-xl font-semibold mb-1">Our Talented Team</h3>
+                  <p className="text-primary mb-3">Photography Specialists</p>
+                  <p className="text-gray-600">
+                    Our diverse team of photographers, editors, and designers work together to deliver exceptional results.
                   </p>
-                  
-                  <div className="flex items-center space-x-2 text-primary">
-                    <Heart className="w-5 h-5" />
-                    <span className="font-semibold">Authentic moments, beautifully captured</span>
-                  </div>
                 </div>
               </div>
             </div>
