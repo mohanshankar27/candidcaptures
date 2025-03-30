@@ -33,3 +33,14 @@ export const getConceptShootImages = (): string[] => {
     '/lovable-uploads/fb019637-e8cb-4a43-9303-075fd194e2b8.png'
   ];
 };
+
+export const getSpecialServicesImages = (): string[] => {
+  return [
+    '/lovable-uploads/43b3b2f5-3919-44f7-8575-f1e18682bf73.png', // New traditional cultural diorama image
+    '/lovable-uploads/6b3d57da-a4b7-4ab6-8282-a666fc5400b4.png',
+    '/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png',
+    '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png',
+    '/lovable-uploads/615d3ac6-4345-48d6-9ed9-b794c68b0307.png',
+    '/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png'
+  ];
+};

@@ -9,7 +9,8 @@ import { getFamilyPortraitsImages } from './imageProviders/FamilyPortraitsProvid
 import { 
   getFoodPhotographyImages,
   getWeddingPhotographyImages,
-  getConceptShootImages
+  getConceptShootImages,
+  getSpecialServicesImages
 } from './imageProviders/SpecialtyServicesProvider';
 import {
   getCorporateVideosImages,
@@ -38,6 +39,8 @@ export const getServiceImages = (service: Service): string[] => {
       return getWeddingPhotographyImages();
     case 'Concept shoot':
       return getConceptShootImages();
+    case 'Special Services':
+      return getSpecialServicesImages();
     case 'Corporate & Short Videos':
       return getCorporateVideosImages();
     case 'Corporate Headshots':

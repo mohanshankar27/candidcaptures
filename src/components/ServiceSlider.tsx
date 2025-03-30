@@ -35,8 +35,8 @@ const serviceItems: ServiceItem[] = [
   {
     id: 4,
     name: "Special Services",
-    image: "/lovable-uploads/6b3d57da-a4b7-4ab6-8282-a666fc5400b4.png",
-    description: "Custom photography solutions for unique requirements and special occasions"
+    image: "/lovable-uploads/43b3b2f5-3919-44f7-8575-f1e18682bf73.png",
+    description: "Traditional and cultural photography showcasing Indian heritage and customs"
   }
 ];
 

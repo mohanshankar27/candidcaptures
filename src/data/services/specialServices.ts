@@ -4,13 +4,15 @@ import { Service } from '@/types/serviceTypes';
 const specialServices: Service[] = [
   { 
     name: 'Special Services',
-    description: 'Custom photography solutions for unique requirements and special occasions. Our team works with you to create personalized photography experiences that capture creative concepts and artistic visions.',
+    description: 'Specialized photography services for traditional cultural themes, educational setups, and heritage celebrations. Our team meticulously arranges and captures cultural dioramas, religious ceremonies, and educational concepts with authentic details.',
     benefits: [
       'Customized photography planning',
       'Specialized equipment setup',
       'Unique creative direction',
       'Custom post-processing',
-      'Flexible scheduling options'
+      'Flexible scheduling options',
+      'Cultural prop arrangement',
+      'Traditional setup expertise'
     ],
     pricing: 'Custom quotes based on project requirements'
   }
