@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
@@ -13,11 +14,11 @@ const NewBornPackage: React.FC = () => {
 
   // Images for the newborn package carousel
   const newbornImages = [
-    '/lovable-uploads/6b3d57da-a4b7-4ab6-8282-a666fc5400b4.png', // New baby chef image
+    '/lovable-uploads/6066b255-5f3a-4f05-b2b7-f144098189da.png', // New baby in red wrap image
+    '/lovable-uploads/6b3d57da-a4b7-4ab6-8282-a666fc5400b4.png', // Baby chef image
     '/lovable-uploads/53584cdb-e83c-4e6f-8b99-37ba6c8fc6b8.png', // Original newborn image
     '/lovable-uploads/44fdad37-1724-4cad-a878-bb2baf05b83b.png', // Toddler image
     '/lovable-uploads/fe26bc26-2a66-4dfb-aeb8-db5490eeaea9.png', // New girl in blue dress image
-    '/lovable-uploads/8b3e3260-20a8-4a51-ac28-59e1f1b41bb2.png', // Maternity photography
     '/lovable-uploads/9a29c088-c19b-4147-bb38-58aaafa0d9f7.png'  // Family photo
   ];
 
@@ -171,7 +172,7 @@ const NewBornPackage: React.FC = () => {
       
       <BookingCTA 
         title="Ready to capture those precious moments?"
-        description="Book your newborn or children's photography session today. We recommend booking newborn sessions during your pregnancy to secure your spot."
+        subtitle="Book your newborn or children's photography session today. We recommend booking newborn sessions during your pregnancy to secure your spot."
         ctaText="Book Your Session"
       />
     </div>

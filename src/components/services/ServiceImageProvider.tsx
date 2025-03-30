@@ -1,4 +1,3 @@
-
 import { Service } from '@/data/services';
 import { getServiceImage } from './serviceImages';
 
@@ -54,7 +53,8 @@ const allAvailableImages = [
   '/lovable-uploads/8b3e3260-20a8-4a51-ac28-59e1f1b41bb2.png',
   '/lovable-uploads/0ef8c636-5a0e-4fe4-aedb-03f82bc3c8d4.png',
   '/lovable-uploads/6b3d57da-a4b7-4ab6-8282-a666fc5400b4.png',
-  '/lovable-uploads/fe26bc26-2a66-4dfb-aeb8-db5490eeaea9.png'  // Added new toddler image
+  '/lovable-uploads/fe26bc26-2a66-4dfb-aeb8-db5490eeaea9.png',
+  '/lovable-uploads/6066b255-5f3a-4f05-b2b7-f144098189da.png'  // Added new baby image
 ];
 
 // Map of service names to 6 unique images per service using indices from allAvailableImages
@@ -219,27 +219,27 @@ export const getServiceImages = (service: Service): string[] => {
     ];
   }
   
-  // For New Born Baby Shoot, use specific working images including the new baby chef image
+  // For New Born Baby Shoot, use specific working images including the new baby image
   if (service.name === 'New Born Baby Shoot') {
     return [
+      '/lovable-uploads/6066b255-5f3a-4f05-b2b7-f144098189da.png',
       '/lovable-uploads/6b3d57da-a4b7-4ab6-8282-a666fc5400b4.png',
       '/lovable-uploads/53584cdb-e83c-4e6f-8b99-37ba6c8fc6b8.png',
       '/lovable-uploads/44fdad37-1724-4cad-a878-bb2baf05b83b.png',
-      '/lovable-uploads/8b3e3260-20a8-4a51-ac28-59e1f1b41bb2.png',
       '/lovable-uploads/9a29c088-c19b-4147-bb38-58aaafa0d9f7.png',
-      '/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png'
+      '/lovable-uploads/fe26bc26-2a66-4dfb-aeb8-db5490eeaea9.png'
     ];
   }
   
   // For Toddler & Children, use specific working images including the new girl in blue dress image
   if (service.name === 'Toddler & Children') {
     return [
-      '/lovable-uploads/fe26bc26-2a66-4dfb-aeb8-db5490eeaea9.png',  // New blue dress girl image
-      '/lovable-uploads/44fdad37-1724-4cad-a878-bb2baf05b83b.png',  // Original toddler image
-      '/lovable-uploads/6b3d57da-a4b7-4ab6-8282-a666fc5400b4.png',  // Baby chef image
-      '/lovable-uploads/53584cdb-e83c-4e6f-8b99-37ba6c8fc6b8.png',  // Newborn image
-      '/lovable-uploads/9a29c088-c19b-4147-bb38-58aaafa0d9f7.png',  // Family photo
-      '/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png'   // Additional child image
+      '/lovable-uploads/fe26bc26-2a66-4dfb-aeb8-db5490eeaea9.png',
+      '/lovable-uploads/44fdad37-1724-4cad-a878-bb2baf05b83b.png',
+      '/lovable-uploads/6b3d57da-a4b7-4ab6-8282-a666fc5400b4.png',
+      '/lovable-uploads/53584cdb-e83c-4e6f-8b99-37ba6c8fc6b8.png',
+      '/lovable-uploads/9a29c088-c19b-4147-bb38-58aaafa0d9f7.png',
+      '/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png'
     ];
   }
   

@@ -12,7 +12,7 @@ const serviceImages: Record<string, string> = {
   'Makeup shoot': "/lovable-uploads/cad21907-840a-459a-8e84-261e5dd02084.png", // Updated to new bridal makeup image
   'Maternity Photography': "/lovable-uploads/8b3e3260-20a8-4a51-ac28-59e1f1b41bb2.png", // Updated to new family maternity image
   'Matrimonial Portfolios': "/lovable-uploads/0ef8c636-5a0e-4fe4-aedb-03f82bc3c8d4.png", // Updated to new matrimonial portrait image
-  'New Born Baby Shoot': "/lovable-uploads/6b3d57da-a4b7-4ab6-8282-a666fc5400b4.png", // Updated to new baby chef image
+  'New Born Baby Shoot': "/lovable-uploads/6066b255-5f3a-4f05-b2b7-f144098189da.png", // Updated to new baby image in red wrap
   'Product Photography': "/lovable-uploads/8d5e6443-143d-4c94-be94-b1e0b3cc76b2.png",
   'Product shoot': "/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png",
   'Toddler & Children': "/lovable-uploads/fe26bc26-2a66-4dfb-aeb8-db5490eeaea9.png", // Updated to new girl in blue dress image

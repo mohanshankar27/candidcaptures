@@ -23,8 +23,8 @@ const Navbar = () => {
     { name: 'Product shoot', href: '/services#product' },
     { name: 'Makeup shoot', href: '/services#makeup' },
     { name: 'Concept shoot', href: '/services#concept' },
-    { name: 'Maternity shoot', href: '/services#maternity' },
-    { name: 'Newborn shoot', href: '/services#newborn' },
+    { name: 'Maternity Photography', href: '/services#maternity' },
+    { name: 'New Born Baby Shoot', href: '/services#newborn' },
     { name: 'Toddler & Children', href: '/services#toddler' },
   ];
 
