@@ -9,6 +9,33 @@ interface SlideshowHeaderProps {
 const SlideshowHeader = ({ onToggleFullscreen }: SlideshowHeaderProps) => {
   return (
     <div className="text-center mb-16 relative z-10">
+      {/* Festival Offer Running Scrawl */}
+      <div className="mb-8 -mx-4 w-screen relative left-1/2 transform -translate-x-1/2">
+        <div className="w-full bg-[#ea384c] py-2 overflow-hidden">
+          <div className="relative">
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: "-100%" }}
+              transition={{
+                duration: 20,
+                repeat: Infinity,
+                ease: "linear",
+                repeatType: "loop",
+              }}
+              className="whitespace-nowrap inline-block"
+            >
+              <span className="text-white font-semibold text-lg tracking-wider font-akaya">
+                🎉 Avail Festival offer 10% off on the packages of your choice 🎉 • 
+                🎉 Avail Festival offer 10% off on the packages of your choice 🎉 • 
+                🎉 Avail Festival offer 10% off on the packages of your choice 🎉 • 
+                🎉 Avail Festival offer 10% off on the packages of your choice 🎉 • 
+                🎉 Avail Festival offer 10% off on the packages of your choice 🎉 • 
+              </span>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+
       <div className="relative">
         {/* Subtle static glow behind heading */}
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-20 bg-orange-300/10 blur-3xl rounded-full"></div>
