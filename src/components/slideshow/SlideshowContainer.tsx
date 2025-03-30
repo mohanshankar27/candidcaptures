@@ -1,3 +1,4 @@
+
 import React, { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { containerVariants, galleryVariants } from './animation/AnimationVariants';
@@ -5,17 +6,20 @@ import BackgroundDecorators from './BackgroundDecorators';
 import SlideshowHeader from './SlideshowHeader';
 import ElementorStyles from './ElementorStyles';
 import StyleProvider from '../gallery/StyleProvider';
+
 interface SlideshowContainerProps {
   children: React.ReactNode;
   isLoaded: boolean;
   onToggleFullscreen: () => void;
 }
+
 const SlideshowContainer = ({
   children,
   isLoaded,
   onToggleFullscreen
 }: SlideshowContainerProps) => {
   const containerRef = useRef<HTMLElement | null>(null);
+  
   useEffect(() => {
     // Set the reference
     containerRef.current = document.getElementById('glimpse');
@@ -41,7 +45,9 @@ const SlideshowContainer = ({
       containerRef.current.style.setProperty('--mouse-x', `${mouseX * 5}deg`);
       containerRef.current.style.setProperty('--mouse-y', `${mouseY * 5}deg`);
     };
+    
     document.addEventListener('mousemove', handleMouseMove);
+    
     return () => {
       document.removeEventListener('mousemove', handleMouseMove);
 
@@ -55,6 +61,12 @@ const SlideshowContainer = ({
       }
     };
   }, []);
-  return;
+  
+  return (
+    <div className="slideshow-container relative">
+      {children}
+    </div>
+  );
 };
+
 export default SlideshowContainer;
