@@ -1,4 +1,3 @@
-
 import { cn } from "@/lib/utils";
 import useNavigation from './useNavigation';
 import NavbarLogo from './NavbarLogo';
@@ -17,6 +16,7 @@ const Navbar = () => {
     handleNavClick
   } = useNavigation();
 
+  // Keep services array for mobile menu
   const services = [
     { name: 'Wedding Photography', href: '/services#wedding' },
     { name: 'Product shoot', href: '/services#product' },
