@@ -32,7 +32,7 @@ const Pricing = () => {
             </p>
           </div>
           
-          {/* New Package Navigation Buttons */}
+          {/* Updated Package Navigation Buttons using the new MenuBar component */}
           <PackageNavButtons />
           
           {/* Detailed Pricing Tabs */}

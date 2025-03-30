@@ -1,7 +1,7 @@
-
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Baby, Users, Camera, CalendarDays } from 'lucide-react';
+import React, { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { Baby, Users, Camera, CalendarDays, Package } from 'lucide-react';
+import { MenuBar } from "@/components/ui/menu-bar";
 
 interface PackageButtonProps {
   title: string;
@@ -32,44 +32,76 @@ const PackageButton = ({ title, icon, path, className = "" }: PackageButtonProps
 };
 
 const PackageNavButtons: React.FC = () => {
-  const packages = [
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [activeItem, setActiveItem] = useState<string>(() => {
+    if (location.pathname.includes('/wedding')) return "Wedding Photography";
+    if (location.pathname.includes('/event')) return "Event Coverage";
+    if (location.pathname.includes('/family')) return "Family Portraits";
+    if (location.pathname.includes('/maternity')) return "Maternity Photography";
+    if (location.pathname.includes('/new-born')) return "New Born & Children";
+    return "";
+  });
+  
+  const menuItems = [
     {
-      title: "Wedding Photography",
-      icon: <Camera size={20} />,
-      path: "/packages/wedding",
+      icon: Camera,
+      label: "Wedding Photography",
+      href: "/packages/wedding",
+      gradient:
+        "radial-gradient(circle, rgba(234,56,76,0.15) 0%, rgba(234,56,76,0.06) 50%, rgba(194,25,25,0) 100%)",
+      iconColor: "text-[#ea384c]",
     },
     {
-      title: "Event Coverage", 
-      icon: <CalendarDays size={20} />,
-      path: "/packages/event",
+      icon: CalendarDays,
+      label: "Event Coverage", 
+      href: "/packages/event",
+      gradient:
+        "radial-gradient(circle, rgba(249,115,22,0.15) 0%, rgba(234,88,12,0.06) 50%, rgba(194,65,12,0) 100%)",
+      iconColor: "text-orange-500",
     },
     {
-      title: "Family Portraits",
-      icon: <Users size={20} />,
-      path: "/packages/family",
+      icon: Users,
+      label: "Family Portraits",
+      href: "/packages/family",
+      gradient:
+        "radial-gradient(circle, rgba(34,197,94,0.15) 0%, rgba(22,163,74,0.06) 50%, rgba(21,128,61,0) 100%)",
+      iconColor: "text-green-500",
     },
     {
-      title: "Maternity Photography",
-      icon: <Baby size={20} />,
-      path: "/packages/maternity",
+      icon: Baby,
+      label: "Maternity Photography",
+      href: "/packages/maternity",
+      gradient:
+        "radial-gradient(circle, rgba(139,92,246,0.15) 0%, rgba(109,40,217,0.06) 50%, rgba(91,33,182,0) 100%)",
+      iconColor: "text-purple-500",
     },
     {
-      title: "New Born & Children",
-      icon: <Baby size={20} />,
-      path: "/packages/new-born",
+      icon: Baby,
+      label: "New Born & Children",
+      href: "/packages/new-born",
+      gradient:
+        "radial-gradient(circle, rgba(59,130,246,0.15) 0%, rgba(37,99,235,0.06) 50%, rgba(29,78,216,0) 100%)",
+      iconColor: "text-blue-500",
     }
   ];
   
+  const handleItemClick = (label: string) => {
+    setActiveItem(label);
+    const item = menuItems.find(item => item.label === label);
+    if (item) {
+      navigate(item.href);
+    }
+  };
+  
   return (
-    <div className="flex flex-wrap justify-center gap-4 mt-12 mb-20">
-      {packages.map((pkg, index) => (
-        <PackageButton 
-          key={index}
-          title={pkg.title}
-          icon={pkg.icon}
-          path={pkg.path}
-        />
-      ))}
+    <div className="mt-12 mb-20">
+      <MenuBar
+        className="w-full max-w-3xl mx-auto"
+        items={menuItems}
+        activeItem={activeItem}
+        onItemClick={handleItemClick}
+      />
     </div>
   );
 };

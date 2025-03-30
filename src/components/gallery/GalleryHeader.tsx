@@ -1,10 +1,14 @@
 
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import { Camera, Users, Package, CalendarDays } from 'lucide-react';
+import { MenuBar } from "@/components/ui/menu-bar";
 
 const GalleryHeader = () => {
   const navigate = useNavigate();
+  const [activeItem, setActiveItem] = useState<string>("");
+  
   const premiumServices = [{
     name: "Wedding Photography",
     icon: <Camera size={18} />,
@@ -42,10 +46,57 @@ const GalleryHeader = () => {
     }
   }];
   
-  const handleServiceClick = (service: typeof premiumServices[0]) => {
-    navigate(service.path, {
-      state: service.state
-    });
+  // Convert to MenuBar format
+  const menuItems = premiumServices.map(service => ({
+    icon: service.icon.type,
+    label: service.name,
+    href: service.path,
+    gradient: getGradientForService(service.name),
+    iconColor: getColorForService(service.name)
+  }));
+  
+  function getGradientForService(serviceName: string) {
+    switch(serviceName) {
+      case "Wedding Photography":
+        return "radial-gradient(circle, rgba(234,56,76,0.15) 0%, rgba(234,56,76,0.06) 50%, rgba(194,25,25,0) 100%)";
+      case "Portrait Sessions":
+        return "radial-gradient(circle, rgba(34,197,94,0.15) 0%, rgba(22,163,74,0.06) 50%, rgba(21,128,61,0) 100%)";
+      case "Product Photography":
+        return "radial-gradient(circle, rgba(139,92,246,0.15) 0%, rgba(109,40,217,0.06) 50%, rgba(91,33,182,0) 100%)";
+      case "Concept Shoot":
+        return "radial-gradient(circle, rgba(59,130,246,0.15) 0%, rgba(37,99,235,0.06) 50%, rgba(29,78,216,0) 100%)";
+      case "Event Coverage":
+        return "radial-gradient(circle, rgba(249,115,22,0.15) 0%, rgba(234,88,12,0.06) 50%, rgba(194,65,12,0) 100%)";
+      default:
+        return "radial-gradient(circle, rgba(59,130,246,0.15) 0%, rgba(37,99,235,0.06) 50%, rgba(29,78,216,0) 100%)";
+    }
+  }
+  
+  function getColorForService(serviceName: string) {
+    switch(serviceName) {
+      case "Wedding Photography":
+        return "text-[#ea384c]";
+      case "Portrait Sessions":
+        return "text-green-500";
+      case "Product Photography":
+        return "text-purple-500";
+      case "Concept Shoot":
+        return "text-blue-500";
+      case "Event Coverage":
+        return "text-orange-500";
+      default:
+        return "text-blue-500";
+    }
+  }
+  
+  const handleServiceClick = (label: string) => {
+    setActiveItem(label);
+    const service = premiumServices.find(s => s.name === label);
+    if (service) {
+      navigate(service.path, {
+        state: service.state
+      });
+    }
   };
   
   return <div className="text-center mb-16">
@@ -69,7 +120,7 @@ const GalleryHeader = () => {
         </p>
       </motion.div>
 
-      {/* Premium Service Links */}
+      {/* Premium Service Links - Updated with MenuBar */}
       <motion.div className="mt-10 mb-8" initial={{
         opacity: 0,
         y: 20
@@ -82,24 +133,13 @@ const GalleryHeader = () => {
       }} viewport={{
         once: true
       }}>
-        <div className="flex flex-wrap justify-center gap-4 mt-6">
-          {premiumServices.map((service, index) => (
-            <button 
-              key={index}
-              onClick={() => handleServiceClick(service)}
-              className="flex items-center justify-center h-12 px-6 py-2 text-indigo-800 bg-white rounded-full hover:shadow-lg transition-all duration-300"
-              style={{
-                boxShadow: '0 2px 10px rgba(0, 0, 0, 0.08)',
-                borderWidth: '1px',
-                borderColor: 'rgba(0, 0, 0, 0.05)'
-              }}
-            >
-              <div className="flex items-center gap-2">
-                <span className="text-primary">{service.icon}</span>
-                <span className="text-sm font-medium">{service.name}</span>
-              </div>
-            </button>
-          ))}
+        <div className="flex justify-center mt-6">
+          <MenuBar
+            className="w-full max-w-3xl mx-auto"
+            items={menuItems}
+            activeItem={activeItem}
+            onItemClick={handleServiceClick}
+          />
         </div>
         
         <div className="relative">
