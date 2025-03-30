@@ -172,7 +172,7 @@ const NewBornPackage: React.FC = () => {
       
       <BookingCTA 
         title="Ready to capture those precious moments?"
-        subtitle="Book your newborn or children's photography session today. We recommend booking newborn sessions during your pregnancy to secure your spot."
+        description="Book your newborn or children's photography session today. We recommend booking newborn sessions during your pregnancy to secure your spot."
         ctaText="Book Your Session"
       />
     </div>
