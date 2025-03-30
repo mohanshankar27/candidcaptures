@@ -17,10 +17,10 @@ const GalleryCarousel = ({ images }: GalleryCarouselProps) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ 
     loop: true,
     align: "center",
-    dragFree: false,
+    containScroll: "keepSnaps",
+    slidesToScroll: 1,
     skipSnaps: false,
     duration: 50,
-    containScroll: "trimSnaps",
   });
   
   // State to track which card is flipped
@@ -120,14 +120,14 @@ const GalleryCarousel = ({ images }: GalleryCarouselProps) => {
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.2, ease: "easeOut" }}
       viewport={{ once: true, margin: "-100px" }}
-      className="w-full max-w-full mx-auto elementor-main-swiper carousel-3d-container"
+      className="w-full mx-auto elementor-main-swiper carousel-3d-container"
     >
       <div 
         className="overflow-hidden shadow-[0_30px_70px_-15px_rgba(0,0,0,0.4)] swiper-container carousel-3d-stage"
         ref={emblaRef}
         style={{ perspective: '2000px' }}
       >
-        <div className="flex gap-4 md:gap-4 py-10 swiper-wrapper elementor-swiper-wrapper transform-style-3d">
+        <div className="flex py-10 swiper-wrapper elementor-swiper-wrapper transform-style-3d">
           {images.map((image, index) => (
             <GallerySlide
               key={index}

@@ -37,7 +37,7 @@ const SlideshowGallery = ({ images }: SlideshowGalleryProps) => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
-      className="w-full max-w-full mx-auto px-0"
+      className="w-full max-w-7xl mx-auto"
     >
       <GalleryCarousel images={images} />
     </motion.div>
