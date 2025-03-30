@@ -31,23 +31,6 @@
 }
 
 /* Timeline styles */
-.timeline-dot {
-  position: relative;
-}
-
-.timeline-dot::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 16px;
-  height: 16px;
-  background-color: #003c72;
-  border-radius: 50%;
-  z-index: 10;
-}
-
 .timeline-line {
   position: absolute;
   top: 50%;

@@ -1,7 +1,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Calendar, Camera, PaintRoller, Package } from "lucide-react";
+import { Calendar, Camera, PaintRoller, Package } from "lucide-react";
 import "./WorkflowStyles.css";
 
 const WorkflowPipeline = () => {
@@ -71,9 +71,6 @@ const WorkflowPipeline = () => {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     className="group w-full md:w-1/4 relative text-center"
                   >
-                    {/* Timeline Dot */}
-                    <div className="hidden md:block absolute top-[74px] left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-gray-600 z-10"></div>
-                    
                     {/* Stage Name */}
                     <h3 className="text-xl font-bold text-gray-800 mb-8">{stage.name}</h3>
                     
