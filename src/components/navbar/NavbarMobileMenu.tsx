@@ -1,6 +1,7 @@
 
 import { ChevronDown } from 'lucide-react';
 import { cn } from "@/lib/utils";
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface NavItem {
   name: string;
@@ -35,64 +36,84 @@ const NavbarMobileMenu = ({
   if (!isOpen) return null;
 
   return (
-    <div className="lg:hidden pb-6 animate-fadeIn shadow-lg bg-white">
-      <div className="py-4 px-6 space-y-4">
-        {navItems.map((item) => (
-          <div key={item.name}>
-            {item.name === 'Services' ? (
-              <div className="space-y-2">
-                <button
-                  className={cn(
-                    "flex items-center justify-between w-full py-3 transition-colors text-base font-serif italic",
-                    isActive(item.href) ? "text-[#003c72] font-bold" : "hover:text-primary"
-                  )}
-                  onClick={() => {
-                    setIsOpen(false);
-                    handleNavClick(
-                      { preventDefault: () => {} } as React.MouseEvent<HTMLAnchorElement>, 
-                      item
-                    );
-                  }}
-                >
-                  <span>{item.name}</span>
-                  <ChevronDown size={16} />
-                </button>
-                <div className="pl-4 space-y-2 border-l-2 border-gray-200">
-                  {services.map((service) => (
-                    <a
-                      key={service.name}
-                      href={service.href}
-                      className="block py-2 text-sm hover:text-primary touch-action-manipulation"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        handleServiceClick(service);
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div 
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.2 }}
+          className="lg:hidden pb-4 shadow-lg bg-white/95 backdrop-blur-sm border-b border-amber-100"
+        >
+          <div className="py-4 px-5 space-y-2">
+            {navItems.map((item) => (
+              <div key={item.name} className="border-b border-amber-50 last:border-0">
+                {item.name === 'Services' ? (
+                  <div className="space-y-2 py-1.5">
+                    <motion.button
+                      className={cn(
+                        "flex items-center justify-between w-full py-3 transition-colors text-base font-arjulian",
+                        isActive(item.href) ? "text-[#003c72] font-bold" : "hover:text-primary"
+                      )}
+                      onClick={() => {
                         setIsOpen(false);
+                        handleNavClick(
+                          { preventDefault: () => {} } as React.MouseEvent<HTMLAnchorElement>, 
+                          item
+                        );
                       }}
+                      whileTap={{ scale: 0.98 }}
                     >
-                      {service.name}
-                    </a>
-                  ))}
-                </div>
-              </div>
-            ) : (
-              <a
-                href={item.href}
-                className={cn(
-                  "block py-3 transition-colors text-base font-serif italic touch-action-manipulation",
-                  isActive(item.href) ? "text-[#003c72] font-bold" : "hover:text-primary"
+                      <span>{item.name}</span>
+                      <ChevronDown size={16} />
+                    </motion.button>
+                    <motion.div 
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      transition={{ duration: 0.3 }}
+                      className="pl-4 space-y-0 border-l-2 border-amber-200"
+                    >
+                      <div className="grid grid-cols-2 gap-x-2 gap-y-0">
+                        {services.map((service) => (
+                          <motion.a
+                            key={service.name}
+                            href={service.href}
+                            className="block py-2.5 px-2 text-sm hover:text-primary touch-action-manipulation rounded-md hover:bg-amber-50/50 transition-colors"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              handleServiceClick(service);
+                              setIsOpen(false);
+                            }}
+                            whileTap={{ scale: 0.97, backgroundColor: 'rgba(251,191,36,0.1)' }}
+                          >
+                            {service.name}
+                          </motion.a>
+                        ))}
+                      </div>
+                    </motion.div>
+                  </div>
+                ) : (
+                  <motion.a
+                    href={item.href}
+                    className={cn(
+                      "block py-3 transition-colors text-base font-arjulian touch-action-manipulation",
+                      isActive(item.href) ? "text-[#003c72] font-bold" : "hover:text-primary"
+                    )}
+                    onClick={(e) => {
+                      handleNavClick(e, item);
+                      setIsOpen(false);
+                    }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    {item.name}
+                  </motion.a>
                 )}
-                onClick={(e) => {
-                  handleNavClick(e, item);
-                  setIsOpen(false);
-                }}
-              >
-                {item.name}
-              </a>
-            )}
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-    </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };
 

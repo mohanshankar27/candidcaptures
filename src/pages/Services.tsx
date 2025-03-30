@@ -7,9 +7,11 @@ import { ResizablePanelGroup, ResizableHandle, ResizablePanel } from '@/componen
 import ServiceSidebar from '@/components/ServiceSidebar';
 import MobileServiceMenu from '@/components/MobileServiceMenu';
 import servicesList, { Service } from '@/data/services';
-import { Grid, List } from 'lucide-react';
+import { Grid, List, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { motion, AnimatePresence } from 'framer-motion';
+import RunningScrawl from '@/components/gallery/RunningScrawl';
 
 // Preload these components to reduce loading perception
 const ServiceContent = lazy(() => import('@/components/ServiceContent'));
@@ -83,6 +85,16 @@ const Services = () => {
     setViewMode(viewMode === 'detailed' ? 'grid' : 'detailed');
   };
 
+  const backToGrid = () => {
+    setViewMode('grid');
+    
+    // Scroll to top
+    window.scrollTo({
+      top: 0,
+      behavior: 'auto'
+    });
+  };
+
   if (isPageLoading) {
     return (
       <div className="min-h-screen flex flex-col">
@@ -96,66 +108,115 @@ const Services = () => {
     <div className="min-h-screen flex flex-col w-full">
       <Navbar />
       
-      <div className="flex-1 pt-16 pb-8 w-full">
+      {/* Messaging banner */}
+      <RunningScrawl message="Premium Photography Services • Book Now for Special Offers • Free Consultation Available" />
+      
+      <div className="flex-1 pt-12 pb-8 w-full">
         <div className="w-full mx-0 px-0">
-          <div className="flex justify-between items-center mb-3 px-4">
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#003c72] font-akaya">
-              {viewMode === 'grid' ? 'Premium Services' : selectedService.name}
-            </h1>
-            <div className="flex items-center gap-2">
-              <Button 
-                variant="outline" 
-                size="icon" 
-                onClick={toggleViewMode}
-                className="ml-auto shadow-sm"
-                aria-label={viewMode === 'detailed' ? "Switch to grid view" : "Switch to detailed view"}
-              >
-                {viewMode === 'detailed' ? <Grid className="h-5 w-5" /> : <List className="h-5 w-5" />}
-              </Button>
-            </div>
-          </div>
+          <AnimatePresence mode="wait">
+            <motion.div 
+              key={viewMode}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="flex justify-between items-center mb-3 px-4"
+            >
+              <div className="flex items-center gap-2">
+                {isMobile && viewMode === 'detailed' && (
+                  <motion.div 
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    whileTap={{ scale: 0.9 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={backToGrid}
+                      className="mr-1"
+                      aria-label="Back to grid"
+                    >
+                      <ArrowLeft className="h-5 w-5 text-primary" />
+                    </Button>
+                  </motion.div>
+                )}
+                <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#003c72] font-arjulian">
+                  {viewMode === 'grid' ? 'Premium Services' : selectedService.name}
+                </h1>
+              </div>
+              <div className="flex items-center gap-2">
+                <motion.div whileTap={{ scale: 0.9 }}>
+                  <Button 
+                    variant="outline" 
+                    size="icon" 
+                    onClick={toggleViewMode}
+                    className="ml-auto shadow-sm"
+                    aria-label={viewMode === 'detailed' ? "Switch to grid view" : "Switch to detailed view"}
+                  >
+                    {viewMode === 'detailed' ? <Grid className="h-5 w-5" /> : <List className="h-5 w-5" />}
+                  </Button>
+                </motion.div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
           
           <Suspense fallback={<SimpleFallback />}>
-            {viewMode === 'grid' ? (
-              <div className="bg-white/50 backdrop-blur-sm p-4 rounded-lg shadow-sm border border-primary/5 mx-4 animate-fade-in">
-                <ServicesGrid services={servicesList} onServiceClick={handleServiceClick} />
-              </div>
-            ) : (
-              <>
-                <div className="px-4 animate-fade-in">
-                  <MobileServiceMenu 
-                    services={servicesList} 
-                    selectedService={selectedService} 
-                    onServiceClick={handleServiceClick} 
-                  />
-                </div>
-                
-                <div className="hidden md:block w-full animate-fade-in">
-                  <ResizablePanelGroup 
-                    direction="horizontal" 
-                    className="min-h-[calc(100vh-200px)] w-full overflow-hidden"
-                  >
-                    <ServiceSidebar 
+            <AnimatePresence mode="wait">
+              {viewMode === 'grid' ? (
+                <motion.div 
+                  key="grid"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="bg-white/50 backdrop-blur-sm p-3 sm:p-4 rounded-lg shadow-sm border border-amber-100/20 mx-3 sm:mx-4 animate-fade-in"
+                >
+                  <ServicesGrid services={servicesList} onServiceClick={handleServiceClick} />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="detailed"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="px-3 sm:px-4 animate-fade-in">
+                    <MobileServiceMenu 
                       services={servicesList} 
                       selectedService={selectedService} 
                       onServiceClick={handleServiceClick} 
                     />
-                    
-                    <ResizableHandle withHandle />
-                    
-                    <ResizablePanel defaultSize={75} minSize={60}>
-                      <div className="h-full overflow-y-auto px-4">
-                        <ServiceContent service={selectedService} />
-                      </div>
-                    </ResizablePanel>
-                  </ResizablePanelGroup>
-                </div>
-                
-                <div className="md:hidden mt-4 px-4 animate-fade-in">
-                  <ServiceContent service={selectedService} />
-                </div>
-              </>
-            )}
+                  </div>
+                  
+                  <div className="hidden md:block w-full animate-fade-in">
+                    <ResizablePanelGroup 
+                      direction="horizontal" 
+                      className="min-h-[calc(100vh-200px)] w-full overflow-hidden"
+                    >
+                      <ServiceSidebar 
+                        services={servicesList} 
+                        selectedService={selectedService} 
+                        onServiceClick={handleServiceClick} 
+                      />
+                      
+                      <ResizableHandle withHandle />
+                      
+                      <ResizablePanel defaultSize={75} minSize={60}>
+                        <div className="h-full overflow-y-auto px-4">
+                          <ServiceContent service={selectedService} />
+                        </div>
+                      </ResizablePanel>
+                    </ResizablePanelGroup>
+                  </div>
+                  
+                  <div className="md:hidden mt-2 px-3 sm:px-4 animate-fade-in">
+                    <ServiceContent service={selectedService} />
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </Suspense>
         </div>
       </div>

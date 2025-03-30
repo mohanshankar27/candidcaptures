@@ -33,20 +33,42 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   const isMobile = useIsMobile();
   
   // Reduce animation intensity on mobile
-  const scaleAmount = isMobile ? 1.02 : 1.05;
+  const scaleAmount = isMobile ? 1.03 : 1.05;
   const highlightScaleAmount = isMobile ? 1.01 : 1.02;
+
+  // Animation variants
+  const cardVariants = {
+    initial: { opacity: 0, y: 20 },
+    animate: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { 
+        duration: 0.3,
+        delay: index * 0.05,
+        ease: [0.25, 0.1, 0.25, 1]
+      }
+    },
+    hover: { 
+      scale: isClicked ? 1 : isHighlighted(index) ? highlightScaleAmount : scaleAmount,
+      transition: { 
+        duration: 0.2,
+        ease: "easeOut" 
+      }
+    },
+    tap: { 
+      scale: 0.98,
+      transition: { duration: 0.1 }
+    }
+  };
 
   return (
     <motion.div
       key={service.name}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ 
-        duration: 0.3,
-        delay: index * 0.05,
-        ease: [0.25, 0.1, 0.25, 1]
-      }}
-      whileHover={{ scale: isClicked ? 1 : isHighlighted(index) ? highlightScaleAmount : scaleAmount }}
+      variants={cardVariants}
+      initial="initial"
+      animate="animate"
+      whileHover="hover"
+      whileTap={isClicked ? undefined : "tap"}
       className={cn(
         "p-1", 
         hoveredIndex === index ? "z-20" : isHighlighted(index) ? "z-10" : "z-0",
@@ -60,12 +82,12 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           "rounded-xl",
           "transition-all duration-300",
           hoveredIndex === index 
-            ? "shadow-[0_10px_25px_rgba(0,0,0,0.15)]" 
+            ? "shadow-[0_10px_25px_rgba(0,0,0,0.12)]" 
             : isHighlighted(index) 
-              ? "shadow-[0_8px_15px_rgba(0,0,0,0.1)]" 
-              : "shadow-[0_5px_10px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_20px_rgba(0,0,0,0.12)]",
+              ? "shadow-[0_8px_15px_rgba(0,0,0,0.08)]" 
+              : "shadow-[0_5px_10px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_20px_rgba(0,0,0,0.1)]",
           isClicked ? "opacity-70" : "",
-          isEventPhotography ? "ring-1 ring-purple-400" : ""
+          isEventPhotography ? "ring-1 ring-amber-300" : ""
         )}
         onClick={() => !isClicked && onServiceClick(service)}
         onMouseEnter={() => !isMobile && !isClicked && setHoveredIndex(index)}
@@ -77,7 +99,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           <div className="relative overflow-hidden rounded-lg">
             <motion.div 
               className="w-full h-full aspect-video"
-              whileHover={{ scale: isClicked ? 1 : isMobile ? 1.04 : 1.08 }}
+              whileHover={{ scale: isClicked ? 1 : isMobile ? 1.03 : 1.08 }}
               transition={{ duration: 0.4 }}
             >
               <img 
@@ -91,22 +113,31 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
               />
             </motion.div>
             
+            {/* Overlay on mobile touch */}
+            {isMobile && hoveredIndex === index && !isClicked && (
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.15 }}
+                className="absolute inset-0 bg-amber-300 pointer-events-none"
+              />
+            )}
+            
             {isClicked && (
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="bg-white/80 backdrop-blur-sm rounded-lg p-3 shadow-lg">
-                  <div className="h-8 w-8 rounded-full border-4 border-orange-600 border-t-transparent animate-spin mx-auto"></div>
-                  <p className="text-primary font-medium text-sm mt-2">Loading...</p>
+                  <div className="h-8 w-8 rounded-full border-4 border-amber-500 border-t-transparent animate-spin mx-auto"></div>
+                  <p className="text-primary font-medium text-sm mt-2 font-arjulian">Loading...</p>
                 </div>
               </div>
             )}
           </div>
           
-          <div className="py-3 px-2 relative">
+          <div className="py-3 px-1 relative">
             <div className={cn(
-              "text-base font-medium text-center font-akaya",
+              "text-sm sm:text-base font-medium text-center font-arjulian",
               "text-primary transition-all duration-300",
               "relative",
-              hoveredIndex === index ? "text-orange-600" : ""
+              hoveredIndex === index ? "text-amber-600" : ""
             )}>
               {service.name}
               {service.external && (
@@ -118,13 +149,13 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
                   animate={{ opacity: 1, scale: 1 }}
                   className="inline-flex ml-2"
                 >
-                  <Sparkles className="w-3.5 h-3.5 text-orange-400 animate-pulse" />
+                  <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
                 </motion.span>
               )}
             </div>
             
             <motion.div 
-              className="h-0.5 bg-gradient-to-r from-orange-400 to-orange-200 mt-1 mx-auto"
+              className="h-0.5 bg-gradient-to-r from-amber-400 to-amber-200 mt-1 mx-auto"
               initial={{ width: 0 }}
               animate={{ width: hoveredIndex === index || isHighlighted(index) ? "70%" : "20%" }}
               transition={{ duration: 0.2 }}

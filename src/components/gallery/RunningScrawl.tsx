@@ -22,7 +22,7 @@ const RunningScrawl: React.FC<RunningScrawlProps> = ({ message }) => {
             ease: "linear",
             repeatType: "loop",
           }}
-          className="whitespace-nowrap inline-block"
+          className="whitespace-nowrap inline-block will-change-transform"
         >
           <span className="text-white font-semibold text-lg tracking-wider font-arjulian">
             {message} • {message} • {message} • {message} • {message} • {message} •
