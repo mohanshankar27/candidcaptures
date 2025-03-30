@@ -17,8 +17,8 @@ const EventPackage: React.FC = () => {
         </div>
         <div className="grid grid-cols-1 gap-4">
           <img 
-            src="/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png" 
-            alt="Event Photography" 
+            src="/lovable-uploads/5652a952-5189-439e-919e-a3ae22826386.png" 
+            alt="Family in traditional attire" 
             className="w-full h-[120px] object-cover rounded-md"
           />
           <img 
@@ -33,7 +33,7 @@ const EventPackage: React.FC = () => {
         <div>
           <h3 className="text-xl font-semibold mb-3 text-[#333333]">Event Photography Pricing</h3>
           <p className="mb-4 text-slate-600">
-            Capture the special moments of your events with our professional photography services. We offer a range of event photography packages tailored to meet your specific needs, from corporate functions to personal celebrations.
+            Capture the special moments of your events with our professional photography services. We offer a range of event photography packages tailored to meet your specific needs, from corporate functions to personal celebrations and cultural ceremonies.
           </p>
         </div>
 
@@ -206,7 +206,8 @@ const EventPackage: React.FC = () => {
           <h3 className="text-lg font-medium mb-3 text-[#333333]">Event Types We Cover</h3>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
             {['Corporate conferences', 'Product launches', 'Award ceremonies', 'Trade shows', 'Team-building',
-              'Birthday parties', 'Anniversaries', 'Religious ceremonies', 'Graduations', 'Cultural events'].map((type, i) => (
+              'Birthday parties', 'Anniversaries', 'Religious ceremonies', 'Graduations', 'Cultural events', 
+              'Family functions', 'Traditional ceremonies', 'Naming ceremonies', 'Thread ceremonies', 'Festival celebrations'].map((type, i) => (
               <div key={i} className="bg-primary/5 p-2 rounded-lg text-center text-slate-700 border border-primary/10 text-sm">
                 {type}
               </div>
@@ -221,6 +222,7 @@ const EventPackage: React.FC = () => {
             <li>Travel fees may apply for events outside Bangalore city limits</li>
             <li>Customized packages available upon request</li>
             <li>Weekend and holiday bookings should be made well in advance</li>
+            <li>Special discounts available for cultural and traditional events</li>
           </ul>
         </div>
 

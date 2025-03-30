@@ -1,4 +1,3 @@
-
 import { Service } from '@/data/services';
 import { getServiceImage } from './serviceImages';
 
@@ -37,7 +36,8 @@ const allAvailableImages = [
   '/lovable-uploads/92b87e5e-0ec2-44ab-8160-c7335b0d66a0.png',
   '/lovable-uploads/84376a5b-2662-4bb5-9e37-8e83ca5c09c8.png',
   '/lovable-uploads/38c938f6-27b6-4b7c-80c8-02a42c8cf9d3.png',
-  '/lovable-uploads/63234086-83f0-42c2-89ed-b8f4bfd7512e.png'
+  '/lovable-uploads/63234086-83f0-42c2-89ed-b8f4bfd7512e.png',
+  '/lovable-uploads/5652a952-5189-439e-919e-a3ae22826386.png'
 ];
 
 // Map of service names to 6 unique images per service using indices from allAvailableImages
@@ -46,7 +46,7 @@ const serviceImageIndices = {
   'Concept shoot': [16, 17, 18, 19, 20, 15],
   'Corporate & Short Videos': [12, 13, 0, 1, 2, 3],
   'E-Commerce & Catalogues': [15, 10, 11, 13, 0, 1],
-  'Event Photography': [2, 3, 4, 5, 6, 7],
+  'Event Photography': [34, 5, 6, 7, 10, 2],
   'Family Portraits': [8, 9, 10, 11, 12, 13],
   'Fashion Photography': [30, 31, 21, 22, 23, 28],
   'Food Photography': [1, 3, 5, 7, 9, 11],
@@ -80,6 +80,18 @@ export const getServiceImages = (service: Service): string[] => {
       '/lovable-uploads/4c8884df-c0c2-4516-8e86-d559a104323b.png',
       '/lovable-uploads/6d4124cf-49f7-422e-a39a-0fc50e817f81.png',
       '/lovable-uploads/63234086-83f0-42c2-89ed-b8f4bfd7512e.png'
+    ];
+  }
+  
+  // For Event Photography, use specific working images including the new family photo
+  if (service.name === 'Event Photography') {
+    return [
+      '/lovable-uploads/5652a952-5189-439e-919e-a3ae22826386.png',
+      '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png',
+      '/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png',
+      '/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png',
+      '/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png',
+      '/lovable-uploads/1e8e3b73-0675-48f7-a578-9f204a21062c.png'
     ];
   }
   

@@ -47,6 +47,68 @@ const EventServiceContent: React.FC<EventServiceContentProps> = ({
           </div>
         </div>
       </div>
+      
+      {/* Featured Event Photos */}
+      <div className="mt-10">
+        <h3 className="text-xl font-semibold text-primary mb-6 text-center">Featured Event Photography</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="overflow-hidden rounded-lg shadow-md">
+            <img 
+              src="/lovable-uploads/5652a952-5189-439e-919e-a3ae22826386.png" 
+              alt="Family in traditional attire at cultural ceremony"
+              className="w-full h-auto object-cover"
+            />
+            <div className="p-4 bg-white">
+              <h4 className="font-medium text-gray-800">Cultural Family Events</h4>
+              <p className="text-sm text-gray-600">Capturing meaningful family moments in traditional ceremonies</p>
+            </div>
+          </div>
+          <div className="overflow-hidden rounded-lg shadow-md">
+            <img 
+              src="/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png" 
+              alt="Celebration event photography"
+              className="w-full h-auto object-cover"
+            />
+            <div className="p-4 bg-white">
+              <h4 className="font-medium text-gray-800">Celebrations & Ceremonies</h4>
+              <p className="text-sm text-gray-600">Professional coverage of all your special events</p>
+            </div>
+          </div>
+        </div>
+        
+        <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="overflow-hidden rounded-lg shadow-md">
+            <img 
+              src="/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png" 
+              alt="Corporate event photography"
+              className="w-full h-[180px] object-cover"
+            />
+            <div className="p-3 bg-white">
+              <h4 className="font-medium text-gray-800 text-sm">Corporate Events</h4>
+            </div>
+          </div>
+          <div className="overflow-hidden rounded-lg shadow-md">
+            <img 
+              src="/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png" 
+              alt="Social gathering photography"
+              className="w-full h-[180px] object-cover"
+            />
+            <div className="p-3 bg-white">
+              <h4 className="font-medium text-gray-800 text-sm">Social Gatherings</h4>
+            </div>
+          </div>
+          <div className="overflow-hidden rounded-lg shadow-md">
+            <img 
+              src="/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png" 
+              alt="Birthday celebration photography"
+              className="w-full h-[180px] object-cover"
+            />
+            <div className="p-3 bg-white">
+              <h4 className="font-medium text-gray-800 text-sm">Birthday Celebrations</h4>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
