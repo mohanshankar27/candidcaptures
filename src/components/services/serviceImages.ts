@@ -14,7 +14,7 @@ const serviceImages: Record<string, string> = {
   'Matrimonial Portfolios': "/lovable-uploads/0ef8c636-5a0e-4fe4-aedb-03f82bc3c8d4.png", // Updated to new matrimonial portrait image
   'New Born Baby Shoot': "/lovable-uploads/6066b255-5f3a-4f05-b2b7-f144098189da.png", // Updated to new baby image in red wrap
   'Product Photography': "/lovable-uploads/fd7df534-2749-42ba-bfa7-6188fb3daf76.png", // Updated to new pharmaceutical product image
-  'Special Services': "/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png",
+  'Special Services': "/lovable-uploads/6b3d57da-a4b7-4ab6-8282-a666fc5400b4.png", // Updated to new creative photography services image
   'Toddler & Children': "/lovable-uploads/fe26bc26-2a66-4dfb-aeb8-db5490eeaea9.png", // Updated to new girl in blue dress image
   'Wedding Photography': "/lovable-uploads/d3ea53b8-be87-48d7-bfab-5846b813948e.png" // Updated to new mandap image
 };

@@ -1,3 +1,4 @@
+
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
@@ -34,7 +35,7 @@ const serviceItems: ServiceItem[] = [
   {
     id: 4,
     name: "Special Services",
-    image: "/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png",
+    image: "/lovable-uploads/6b3d57da-a4b7-4ab6-8282-a666fc5400b4.png",
     description: "Custom photography solutions for unique requirements and special occasions"
   }
 ];
