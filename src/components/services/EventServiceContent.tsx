@@ -54,13 +54,13 @@ const EventServiceContent: React.FC<EventServiceContentProps> = ({
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="overflow-hidden rounded-lg shadow-md">
             <img 
-              src="/lovable-uploads/5652a952-5189-439e-919e-a3ae22826386.png" 
-              alt="Family in traditional attire at cultural ceremony"
+              src="/lovable-uploads/c564d2e1-cf57-4560-aedd-4c9d12a5ba2b.png" 
+              alt="Family in traditional South Indian attire"
               className="w-full h-auto object-cover"
             />
             <div className="p-4 bg-white">
-              <h4 className="font-medium text-gray-800">Cultural Family Events</h4>
-              <p className="text-sm text-gray-600">Capturing meaningful family moments in traditional ceremonies</p>
+              <h4 className="font-medium text-gray-800">South Indian Ceremonies</h4>
+              <p className="text-sm text-gray-600">Traditional family portraits for cultural ceremonies and events</p>
             </div>
           </div>
           <div className="overflow-hidden rounded-lg shadow-md">

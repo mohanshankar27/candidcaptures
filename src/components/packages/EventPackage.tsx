@@ -17,8 +17,8 @@ const EventPackage: React.FC = () => {
         </div>
         <div className="grid grid-cols-1 gap-4">
           <img 
-            src="/lovable-uploads/5652a952-5189-439e-919e-a3ae22826386.png" 
-            alt="Family in traditional attire" 
+            src="/lovable-uploads/c564d2e1-cf57-4560-aedd-4c9d12a5ba2b.png" 
+            alt="Family in South Indian traditional attire" 
             className="w-full h-[120px] object-cover rounded-md"
           />
           <img 

@@ -1,3 +1,4 @@
+
 import { Service } from '@/data/services';
 import { getServiceImage } from './serviceImages';
 
@@ -37,7 +38,8 @@ const allAvailableImages = [
   '/lovable-uploads/84376a5b-2662-4bb5-9e37-8e83ca5c09c8.png',
   '/lovable-uploads/38c938f6-27b6-4b7c-80c8-02a42c8cf9d3.png',
   '/lovable-uploads/63234086-83f0-42c2-89ed-b8f4bfd7512e.png',
-  '/lovable-uploads/5652a952-5189-439e-919e-a3ae22826386.png'
+  '/lovable-uploads/5652a952-5189-439e-919e-a3ae22826386.png',
+  '/lovable-uploads/c564d2e1-cf57-4560-aedd-4c9d12a5ba2b.png'
 ];
 
 // Map of service names to 6 unique images per service using indices from allAvailableImages
@@ -86,12 +88,12 @@ export const getServiceImages = (service: Service): string[] => {
   // For Event Photography, use specific working images including the new family photo
   if (service.name === 'Event Photography') {
     return [
+      '/lovable-uploads/c564d2e1-cf57-4560-aedd-4c9d12a5ba2b.png',
       '/lovable-uploads/5652a952-5189-439e-919e-a3ae22826386.png',
       '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png',
       '/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png',
       '/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png',
-      '/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png',
-      '/lovable-uploads/1e8e3b73-0675-48f7-a578-9f204a21062c.png'
+      '/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png'
     ];
   }
   
