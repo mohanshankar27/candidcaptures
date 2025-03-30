@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 import { PricingContent } from '@/components/pricing';
 import { Package } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
-import PricePackagesGrid from '@/components/pricing/PricePackagesGrid';
+import PackageNavButtons from '@/components/pricing/PackageNavButtons';
 
 const Pricing = () => {
   return (
@@ -32,8 +32,8 @@ const Pricing = () => {
             </p>
           </div>
           
-          {/* New Package Grid Layout */}
-          <PricePackagesGrid />
+          {/* New Package Navigation Buttons */}
+          <PackageNavButtons />
           
           {/* Detailed Pricing Tabs */}
           <div className="mt-16">
