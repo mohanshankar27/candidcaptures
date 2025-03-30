@@ -4,11 +4,11 @@ import Hero from "@/components/Hero";
 import Gallery from "@/components/Gallery";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
-import PhotoSlideshow from "@/components/PhotoSlideshow";
 import CommunicationSidebar from "@/components/CommunicationSidebar";
 import OurServices from "@/components/OurServices";
 import WorkflowPipeline from "@/components/workflow/WorkflowPipeline";
 import { InViewGallery } from "@/components/InViewGallery";
+import DynamicSlideshow from "@/components/DynamicSlideshow";
 
 const Index = () => {
   return (
@@ -20,7 +20,7 @@ const Index = () => {
       <OurServices />
       <WorkflowPipeline />
       <InViewGallery />
-      <PhotoSlideshow />
+      <DynamicSlideshow />
       <CTA />
       <Footer />
     </div>
