@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
@@ -17,8 +16,8 @@ const serviceItems: ServiceItem[] = [
   {
     id: 1,
     name: "Product Photography",
-    image: "/lovable-uploads/8d5e6443-143d-4c94-be94-b1e0b3cc76b2.png",
-    description: "Professional studio setup for capturing high-quality product images"
+    image: "/lovable-uploads/fd7df534-2749-42ba-bfa7-6188fb3daf76.png",
+    description: "Professional studio setup for pharmaceutical and healthcare product photography"
   },
   {
     id: 2,
@@ -49,14 +48,11 @@ const ServiceSlider = () => {
   const navigate = useNavigate();
   const isMobile = useIsMobile();
 
-  // Preload images immediately on component mount
   useEffect(() => {
-    // Preload critical initial image
     const img = new Image();
     img.onload = () => setImagesPreloaded(true);
     img.src = serviceItems[0].image;
     
-    // Preload other images after a small delay
     const preloadRemainingImages = () => {
       serviceItems.slice(1).forEach((item) => {
         const img = new Image();
@@ -64,10 +60,8 @@ const ServiceSlider = () => {
       });
     };
     
-    // Delay non-critical images
     const timer = setTimeout(preloadRemainingImages, 1000);
     
-    // Set initial render complete after short delay
     const initialRenderTimer = setTimeout(() => {
       setIsInitialRender(false);
     }, 100);
@@ -95,10 +89,9 @@ const ServiceSlider = () => {
     navigate('/services', { state: { selectedService: serviceName } });
   };
 
-  // Simplified animation variants for better performance
   const slideVariants = {
     enter: (direction: number) => ({
-      x: direction > 0 ? 200 : -200, // Reduced from 300
+      x: direction > 0 ? 200 : -200,
       opacity: 0
     }),
     center: {
@@ -106,12 +99,11 @@ const ServiceSlider = () => {
       opacity: 1
     },
     exit: (direction: number) => ({
-      x: direction < 0 ? 200 : -200, // Reduced from 300
+      x: direction < 0 ? 200 : -200,
       opacity: 0
     })
   };
 
-  // Setup autoplay with cleanup
   useEffect(() => {
     if (autoplayTimerRef.current) {
       clearInterval(autoplayTimerRef.current);
@@ -119,7 +111,7 @@ const ServiceSlider = () => {
     
     autoplayTimerRef.current = setInterval(() => {
       nextSlide();
-    }, 6000); // Increased from 5000 to reduce CPU usage
+    }, 6000);
     
     return () => {
       if (autoplayTimerRef.current) {
@@ -140,7 +132,6 @@ const ServiceSlider = () => {
         
         <div className="relative h-[400px] md:h-[500px] w-full flex items-center justify-center">
           <div className="w-full max-w-5xl relative overflow-hidden rounded-xl shadow-2xl bg-white">
-            {/* Show loading skeleton during initial render */}
             {isInitialRender && (
               <div className="absolute inset-0 bg-slate-100 flex items-center justify-center">
                 <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
@@ -156,7 +147,7 @@ const ServiceSlider = () => {
                 animate="center"
                 exit="exit"
                 transition={{
-                  x: { type: "tween", duration: 0.3 }, // Simplified from spring animation
+                  x: { type: "tween", duration: 0.3 },
                   opacity: { duration: 0.1 }
                 }}
                 className="absolute inset-0"

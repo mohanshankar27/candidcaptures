@@ -16,13 +16,13 @@ const productServices: Service[] = [
   },
   { 
     name: 'Product Photography',
-    description: 'Detailed product photography that highlights features and craftsmanship for marketing materials, websites, and sales presentations.',
+    description: 'Detailed product photography that highlights features and craftsmanship for marketing materials, websites, and sales presentations. Specializing in pharmaceutical, medical, and healthcare product photography.',
     benefits: [
       'White background options',
-      'Lifestyle product shots',
-      'Detail focus photography',
-      '360-degree rotation available',
-      'E-commerce ready formats'
+      'Clean, professional presentation',
+      'Packaging and product detail focus',
+      'Medical and pharmaceutical expertise',
+      'E-commerce and marketing ready formats'
     ],
     pricing: 'Starting at ₹1,200 per product'
   }
