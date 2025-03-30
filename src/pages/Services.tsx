@@ -14,7 +14,6 @@ import { useIsMobile } from '@/hooks/use-mobile';
 // Preload these components to reduce loading perception
 const ServiceContent = lazy(() => import('@/components/ServiceContent'));
 const ServicesGrid = lazy(() => import('@/components/ServicesGrid'));
-const PricePackages = lazy(() => import('@/components/PricePackages'));
 
 // Simple loading fallback
 const SimpleFallback = () => (
@@ -157,11 +156,6 @@ const Services = () => {
                 </div>
               </>
             )}
-            
-            {/* Price Packages section */}
-            <div className="px-4 mt-8 animate-fade-in">
-              <PricePackages />
-            </div>
           </Suspense>
         </div>
       </div>

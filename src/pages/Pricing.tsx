@@ -13,7 +13,7 @@ const Pricing = () => {
       <div className="flex-grow pt-28">
         <div className="container mx-auto px-4 py-8">
           {/* Header Section */}
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <div className="flex items-center justify-center gap-4 mb-2">
               <div className="bg-gradient-to-br from-[#ea384c]/10 to-[#ea384c]/20 p-3 rounded-full shadow-inner">
                 <Package className="h-8 w-8 text-[#ea384c] drop-shadow-sm" />
