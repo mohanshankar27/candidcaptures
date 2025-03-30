@@ -4,6 +4,7 @@
 import { useState } from "react"
 import { Home, Settings, Bell, User, Camera, Package, Users, CalendarDays } from "lucide-react"
 import { MenuBar } from "@/components/ui/menu-bar"
+import { useNavigate } from "react-router-dom"
 
 const menuItems = [
   {
@@ -50,6 +51,15 @@ const menuItems = [
 
 export function MenuBarDemo() {
   const [activeItem, setActiveItem] = useState<string>("Home")
+  const navigate = useNavigate()
+  
+  const handleItemClick = (label: string) => {
+    setActiveItem(label)
+    const item = menuItems.find(item => item.label === label)
+    if (item) {
+      navigate(item.href)
+    }
+  }
   
   return (
     <div className="w-full max-w-3xl mx-auto">
@@ -57,7 +67,7 @@ export function MenuBarDemo() {
         className="w-full"
         items={menuItems}
         activeItem={activeItem}
-        onItemClick={setActiveItem}
+        onItemClick={handleItemClick}
       />
     </div>
   )

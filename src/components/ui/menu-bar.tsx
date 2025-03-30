@@ -67,25 +67,24 @@ export const MenuBar = React.forwardRef<HTMLDivElement, MenuBarProps>(
     const isDarkTheme = theme === "dark"
 
     return (
-      <motion.nav
+      <div
         ref={ref}
         className={cn(
           "p-2 rounded-2xl bg-gradient-to-b from-background/80 to-background/40 backdrop-blur-lg border border-border/40 shadow-lg relative overflow-hidden",
           className,
         )}
-        initial="initial"
-        animate={{ x: 0 }} // Add a simple animation to fix type issues
-        {...props as any} // Use type assertion to avoid incompatible event handler types
+        {...props}
       >
+        {/* Using a separate motion.div for the glow effect instead of making the container animated */}
         <motion.div
           className={`absolute -inset-2 bg-gradient-radial from-transparent ${
             isDarkTheme
               ? "via-blue-400/30 via-30% via-purple-400/30 via-60% via-red-400/30 via-90%"
               : "via-blue-400/20 via-30% via-purple-400/20 via-60% via-red-400/20 via-90%"
           } to-transparent rounded-3xl z-0 pointer-events-none`}
-          variants={navGlowVariants}
           initial="initial"
           whileHover="hover"
+          variants={navGlowVariants}
         />
         <ul className="flex items-center gap-2 relative z-10">
           {items.map((item) => {
@@ -101,12 +100,13 @@ export const MenuBar = React.forwardRef<HTMLDivElement, MenuBarProps>(
                   <motion.div
                     className="block rounded-xl overflow-visible group relative"
                     style={{ perspective: "600px" }}
-                    whileHover="hover"
                     initial="initial"
+                    whileHover="hover"
                   >
                     <motion.div
                       className="absolute inset-0 z-0 pointer-events-none"
                       variants={glowVariants}
+                      initial="initial"
                       animate={isActive ? "hover" : "initial"}
                       style={{
                         background: item.gradient,
@@ -171,7 +171,7 @@ export const MenuBar = React.forwardRef<HTMLDivElement, MenuBarProps>(
             )
           })}
         </ul>
-      </motion.nav>
+      </div>
     )
   },
 )
