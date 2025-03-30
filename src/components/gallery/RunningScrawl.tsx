@@ -1,12 +1,15 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface RunningScrawlProps {
   message: string;
 }
 
 const RunningScrawl: React.FC<RunningScrawlProps> = ({ message }) => {
+  const isMobile = useIsMobile();
+  
   return (
     <div className="w-full bg-[#ea384c] py-2 overflow-hidden">
       <div className="relative">
@@ -14,7 +17,7 @@ const RunningScrawl: React.FC<RunningScrawlProps> = ({ message }) => {
           initial={{ x: "100%" }}
           animate={{ x: "-100%" }}
           transition={{
-            duration: 50, // Increased from 30 to 50 to further slow down the animation
+            duration: isMobile ? 30 : 50, // Faster on mobile for better readability
             repeat: Infinity,
             ease: "linear",
             repeatType: "loop",

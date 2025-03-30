@@ -43,7 +43,7 @@ const NavbarMobileMenu = ({
               <div className="space-y-2">
                 <button
                   className={cn(
-                    "flex items-center justify-between w-full py-2 transition-colors text-base font-serif italic",
+                    "flex items-center justify-between w-full py-3 transition-colors text-base font-serif italic",
                     isActive(item.href) ? "text-[#003c72] font-bold" : "hover:text-primary"
                   )}
                   onClick={() => {
@@ -62,7 +62,7 @@ const NavbarMobileMenu = ({
                     <a
                       key={service.name}
                       href={service.href}
-                      className="block py-1 text-sm hover:text-primary"
+                      className="block py-2 text-sm hover:text-primary touch-action-manipulation"
                       onClick={(e) => {
                         e.preventDefault();
                         handleServiceClick(service);
@@ -78,7 +78,7 @@ const NavbarMobileMenu = ({
               <a
                 href={item.href}
                 className={cn(
-                  "block py-2 transition-colors text-base font-serif italic",
+                  "block py-3 transition-colors text-base font-serif italic touch-action-manipulation",
                   isActive(item.href) ? "text-[#003c72] font-bold" : "hover:text-primary"
                 )}
                 onClick={(e) => {
