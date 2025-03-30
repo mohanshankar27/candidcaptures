@@ -52,12 +52,13 @@ const portraitServices: Service[] = [
   },
   { 
     name: 'Toddler & Children',
-    description: 'Playful and natural photography sessions for toddlers and children that capture their personality, joy, and milestone moments.',
+    description: 'Magical photography sessions for toddlers and children that capture their personality, joy, and milestone moments in beautiful settings with creative themes.',
     benefits: [
       'Child-friendly environment',
-      'Patience and experience with kids',
-      'Activity-based photography',
-      'Family inclusion options',
+      'Patience and expertise with young children',
+      'Themed photography options',
+      'Activity-based candid shots',
+      'Family inclusion possibilities',
       'Growth timeline packages'
     ],
     pricing: 'Starting at ₹5,000 per session'

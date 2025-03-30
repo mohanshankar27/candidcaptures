@@ -53,7 +53,8 @@ const allAvailableImages = [
   '/lovable-uploads/c61284f0-f6ce-4fe3-a1a0-c41bcc09469e.png',
   '/lovable-uploads/8b3e3260-20a8-4a51-ac28-59e1f1b41bb2.png',
   '/lovable-uploads/0ef8c636-5a0e-4fe4-aedb-03f82bc3c8d4.png',
-  '/lovable-uploads/6b3d57da-a4b7-4ab6-8282-a666fc5400b4.png'
+  '/lovable-uploads/6b3d57da-a4b7-4ab6-8282-a666fc5400b4.png',
+  '/lovable-uploads/fe26bc26-2a66-4dfb-aeb8-db5490eeaea9.png'  // Added new toddler image
 ];
 
 // Map of service names to 6 unique images per service using indices from allAvailableImages
@@ -227,6 +228,18 @@ export const getServiceImages = (service: Service): string[] => {
       '/lovable-uploads/8b3e3260-20a8-4a51-ac28-59e1f1b41bb2.png',
       '/lovable-uploads/9a29c088-c19b-4147-bb38-58aaafa0d9f7.png',
       '/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png'
+    ];
+  }
+  
+  // For Toddler & Children, use specific working images including the new girl in blue dress image
+  if (service.name === 'Toddler & Children') {
+    return [
+      '/lovable-uploads/fe26bc26-2a66-4dfb-aeb8-db5490eeaea9.png',  // New blue dress girl image
+      '/lovable-uploads/44fdad37-1724-4cad-a878-bb2baf05b83b.png',  // Original toddler image
+      '/lovable-uploads/6b3d57da-a4b7-4ab6-8282-a666fc5400b4.png',  // Baby chef image
+      '/lovable-uploads/53584cdb-e83c-4e6f-8b99-37ba6c8fc6b8.png',  // Newborn image
+      '/lovable-uploads/9a29c088-c19b-4147-bb38-58aaafa0d9f7.png',  // Family photo
+      '/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png'   // Additional child image
     ];
   }
   

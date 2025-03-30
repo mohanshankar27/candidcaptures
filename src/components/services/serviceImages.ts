@@ -15,7 +15,7 @@ const serviceImages: Record<string, string> = {
   'New Born Baby Shoot': "/lovable-uploads/6b3d57da-a4b7-4ab6-8282-a666fc5400b4.png", // Updated to new baby chef image
   'Product Photography': "/lovable-uploads/8d5e6443-143d-4c94-be94-b1e0b3cc76b2.png",
   'Product shoot': "/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png",
-  'Toddler & Children': "/lovable-uploads/44fdad37-1724-4cad-a878-bb2baf05b83b.png",
+  'Toddler & Children': "/lovable-uploads/fe26bc26-2a66-4dfb-aeb8-db5490eeaea9.png", // Updated to new girl in blue dress image
   'Wedding Photography': "/lovable-uploads/d3ea53b8-be87-48d7-bfab-5846b813948e.png" // Updated to new mandap image
 };
 
