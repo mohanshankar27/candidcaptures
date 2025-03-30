@@ -42,7 +42,8 @@ const allAvailableImages = [
   '/lovable-uploads/c564d2e1-cf57-4560-aedd-4c9d12a5ba2b.png',
   '/lovable-uploads/335052c1-47b5-40f4-88c9-f69b5ae52ebb.png',
   '/lovable-uploads/365286f1-0e48-4fbc-99df-71eae1704b72.png',
-  '/lovable-uploads/9a29c088-c19b-4147-bb38-58aaafa0d9f7.png'
+  '/lovable-uploads/9a29c088-c19b-4147-bb38-58aaafa0d9f7.png',
+  '/lovable-uploads/d5af9480-02f6-4601-98cd-5bd10840f0c8.png' // Adding the new fashion photography image
 ];
 
 // Map of service names to 6 unique images per service using indices from allAvailableImages
@@ -76,10 +77,10 @@ const serviceImages = Object.entries(serviceImageIndices).reduce((acc, [serviceN
 }, {} as Record<string, string[]>);
 
 export const getServiceImages = (service: Service): string[] => {
-  // For Fashion Photography, use specific working images
+  // For Fashion Photography, use specific working images including the new image
   if (service.name === 'Fashion Photography') {
     return [
-      '/lovable-uploads/92b87e5e-0ec2-44ab-8160-c7335b0d66a0.png',
+      '/lovable-uploads/d5af9480-02f6-4601-98cd-5bd10840f0c8.png', // New thumbnail image first
       '/lovable-uploads/38c938f6-27b6-4b7c-80c8-02a42c8cf9d3.png',
       '/lovable-uploads/84376a5b-2662-4bb5-9e37-8e83ca5c09c8.png',
       '/lovable-uploads/4c8884df-c0c2-4516-8e86-d559a104323b.png',
