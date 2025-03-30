@@ -1,3 +1,4 @@
+
 import { Service } from '@/data/services';
 import { getServiceImage } from './serviceImages';
 
@@ -49,7 +50,6 @@ const allAvailableImages = [
   '/lovable-uploads/fb13bae7-33ad-4972-b884-47d4f113d139.png',
   '/lovable-uploads/9bc16cc2-a103-4803-a922-903bd674693c.png',
   '/lovable-uploads/cad21907-840a-459a-8e84-261e5dd02084.png',
-  '/lovable-uploads/6b1e5df0-9fb9-4289-835f-ee80acf9fdfa.png',
   '/lovable-uploads/c61284f0-f6ce-4fe3-a1a0-c41bcc09469e.png',
   '/lovable-uploads/8b3e3260-20a8-4a51-ac28-59e1f1b41bb2.png',
   '/lovable-uploads/0ef8c636-5a0e-4fe4-aedb-03f82bc3c8d4.png',
@@ -70,12 +70,10 @@ const serviceImageIndices = {
   'Maternity Photography': [13, 1, 3, 5, 7, 9],
   'Matrimonial Portfolios': [10, 12, 0, 2, 4, 6],
   'Modelling & Artist Portfolios': [11, 13, 1, 3, 5, 7],
-  'Naming Ceremony': [8, 10, 12, 0, 2, 4],
   'Portraits & Portfolios': [9, 11, 13, 1, 3, 5],
   'Pre-wedding photoshoot': [6, 8, 10, 12, 0, 2],
   'Product Photography': [7, 9, 11, 13, 1, 3],
   'Product shoot': [4, 6, 8, 10, 12, 0],
-  'Special Services': [5, 7, 9, 11, 13, 1],
   'Toddler & Children': [2, 4, 6, 8, 10, 12],
   'Wedding Photography': [3, 5, 7, 9, 11, 13],
   'New Born Baby Shoot': [29, 30, 31, 32, 33, 34]
@@ -106,9 +104,9 @@ export const getServiceImages = (service: Service): string[] => {
       '/lovable-uploads/365286f1-0e48-4fbc-99df-71eae1704b72.png',
       '/lovable-uploads/5652a952-5189-439e-919e-a3ae22826386.png',
       '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png',
-      '/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png',
       '/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png',
-      '/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png'
+      '/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png',
+      '/lovable-uploads/c2add3f7-fc29-4079-ad61-a3944e690af3.png'
     ];
   }
   
@@ -119,8 +117,8 @@ export const getServiceImages = (service: Service): string[] => {
       '/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png',
       '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png',
       '/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png',
-      '/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png',
-      '/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png'
+      '/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png',
+      '/lovable-uploads/c2add3f7-fc29-4079-ad61-a3944e690af3.png'
     ];
   }
   
@@ -144,7 +142,7 @@ export const getServiceImages = (service: Service): string[] => {
       '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png',
       '/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png',
       '/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png',
-      '/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png'
+      '/lovable-uploads/c2add3f7-fc29-4079-ad61-a3944e690af3.png'
     ];
   }
   
@@ -164,11 +162,11 @@ export const getServiceImages = (service: Service): string[] => {
   if (service.name === 'Corporate & Short Videos') {
     return [
       '/lovable-uploads/9bc16cc2-a103-4803-a922-903bd674693c.png',
-      '/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png',
       '/lovable-uploads/53584cdb-e83c-4e6f-8b99-37ba6c8fc6b8.png',
       '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png',
       '/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png',
-      '/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png'
+      '/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png',
+      '/lovable-uploads/c2add3f7-fc29-4079-ad61-a3944e690af3.png'
     ];
   }
   
@@ -181,18 +179,6 @@ export const getServiceImages = (service: Service): string[] => {
       '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png',
       '/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png',
       '/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png'
-    ];
-  }
-  
-  // For Special Services, use specific working images including the new decorative horse image
-  if (service.name === 'Special Services') {
-    return [
-      '/lovable-uploads/6b1e5df0-9fb9-4289-835f-ee80acf9fdfa.png',
-      '/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png',
-      '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png',
-      '/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png',
-      '/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png',
-      '/lovable-uploads/53584cdb-e83c-4e6f-8b99-37ba6c8fc6b8.png'
     ];
   }
   

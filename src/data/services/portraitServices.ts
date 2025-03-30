@@ -61,17 +61,6 @@ const portraitServices: Service[] = [
       'Growth timeline packages'
     ],
     pricing: 'Starting at ₹5,000 per session'
-  },
-  { 
-    name: 'Naming Ceremony',
-    description: "Document your child's naming ceremony with professional photography that captures all the meaningful moments and traditions of this important celebration.",
-    benefits: [
-      'Ceremony coverage',
-      'Family group photos',
-      'Detail shots of decorations and rituals',
-      'Quick preview delivery'
-    ],
-    pricing: 'Starting at ₹12,000 for full ceremony coverage'
   }
 ];
 

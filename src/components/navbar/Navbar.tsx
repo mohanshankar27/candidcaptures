@@ -1,4 +1,3 @@
-
 import { cn } from "@/lib/utils";
 import useNavigation from './useNavigation';
 import NavbarLogo from './NavbarLogo';
@@ -25,7 +24,6 @@ const Navbar = () => {
     { name: 'Concept shoot', href: '/services#concept' },
     { name: 'Maternity shoot', href: '/services#maternity' },
     { name: 'Newborn shoot', href: '/services#newborn' },
-    { name: 'Naming Ceremony', href: '/services#naming' },
   ];
 
   const navItems = [
