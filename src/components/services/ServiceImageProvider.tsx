@@ -1,3 +1,4 @@
+
 import { Service } from '@/data/services';
 import { getServiceImage } from './serviceImages';
 
@@ -49,7 +50,8 @@ const allAvailableImages = [
   '/lovable-uploads/fb13bae7-33ad-4972-b884-47d4f113d139.png', // Concept shoot image
   '/lovable-uploads/9bc16cc2-a103-4803-a922-903bd674693c.png',  // New corporate team image
   '/lovable-uploads/cad21907-840a-459a-8e84-261e5dd02084.png',  // New makeup shoot image
-  '/lovable-uploads/6b1e5df0-9fb9-4289-835f-ee80acf9fdfa.png'   // New special services image (decorative horse)
+  '/lovable-uploads/6b1e5df0-9fb9-4289-835f-ee80acf9fdfa.png',   // New special services image (decorative horse)
+  '/lovable-uploads/c61284f0-f6ce-4fe3-a1a0-c41bcc09469e.png'   // New corporate headshots image
 ];
 
 // Map of service names to 6 unique images per service using indices from allAvailableImages
@@ -188,6 +190,18 @@ export const getServiceImages = (service: Service): string[] => {
       '/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png',
       '/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png',
       '/lovable-uploads/53584cdb-e83c-4e6f-8b99-37ba6c8fc6b8.png'
+    ];
+  }
+  
+  // For Corporate Headshots, use specific working images including the new professional headshot image
+  if (service.name === 'Corporate Headshots') {
+    return [
+      '/lovable-uploads/c61284f0-f6ce-4fe3-a1a0-c41bcc09469e.png', // New thumbnail image first
+      '/lovable-uploads/53584cdb-e83c-4e6f-8b99-37ba6c8fc6b8.png', // Previous thumbnail
+      '/lovable-uploads/9bc16cc2-a103-4803-a922-903bd674693c.png', // Corporate team
+      '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png',
+      '/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png',
+      '/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png'
     ];
   }
   
