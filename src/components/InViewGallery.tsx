@@ -3,6 +3,7 @@ import { InView } from "@/components/ui/in-view";
 import { motion } from "framer-motion";
 import { Camera } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import servicesList from "@/data/servicesList";
 
 export function InViewGallery() {
   const navigate = useNavigate();
@@ -21,6 +22,12 @@ export function InViewGallery() {
     { src: '/lovable-uploads/6066b255-5f3a-4f05-b2b7-f144098189da.png', category: 'New Born Baby Shoot' },
     { src: '/lovable-uploads/fe26bc26-2a66-4dfb-aeb8-db5490eeaea9.png', category: 'Toddler & Children' },
     { src: '/lovable-uploads/43b3b2f5-3919-44f7-8575-f1e18682bf73.png', category: 'Special Services' },
+    { src: '/lovable-uploads/4b2215ec-b75e-423e-812a-6e97df0f3f51.png', category: 'Makeup shoot' },
+    { src: '/lovable-uploads/a6d35b17-76d1-4a77-89b4-5760943e213b.png', category: 'Portraits & Portfolios' },
+    { src: '/lovable-uploads/507c487a-ec87-4401-ace4-4b27d7bcd2e0.png', category: 'Creative Makeup' },
+    { src: '/lovable-uploads/cad21907-840a-459a-8e84-261e5dd02084.png', category: 'Artists / Celebrities' },
+    { src: '/lovable-uploads/c564d2e1-cf57-4560-aedd-4c9d12a5ba2b.png', category: 'Modelling & Artist Portfolios' },
+    { src: '/lovable-uploads/38c938f6-27b6-4b7c-80c8-02a42c8cf9d3.png', category: 'Corporate & Short Videos' },
   ];
 
   const handleImageClick = (category: string) => {
