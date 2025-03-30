@@ -613,3 +613,5 @@ export const PricingContent = () => {
     </div>
   );
 };
+
+export default PricingContent;
