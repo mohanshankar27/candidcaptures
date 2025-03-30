@@ -25,17 +25,6 @@ const productServices: Service[] = [
       'E-commerce ready formats'
     ],
     pricing: 'Starting at ₹1,200 per product'
-  },
-  { 
-    name: 'Product shoot',
-    description: 'Showcase your products with professional photography that highlights features, quality, and details that matter to your customers.',
-    benefits: [
-      'Custom backgrounds and props',
-      'Detail and feature focus shots',
-      'Creative composition',
-      'Product grouping options'
-    ],
-    pricing: 'Starting at ₹1,200 per product with packages available'
   }
 ];
 

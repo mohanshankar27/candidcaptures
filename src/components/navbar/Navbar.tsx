@@ -1,4 +1,3 @@
-
 import { cn } from "@/lib/utils";
 import useNavigation from './useNavigation';
 import NavbarLogo from './NavbarLogo';
@@ -20,12 +19,13 @@ const Navbar = () => {
   // Keep services array for mobile menu
   const services = [
     { name: 'Wedding Photography', href: '/services#wedding' },
-    { name: 'Product shoot', href: '/services#product' },
+    { name: 'Product Photography', href: '/services#product' },
     { name: 'Makeup shoot', href: '/services#makeup' },
     { name: 'Concept shoot', href: '/services#concept' },
     { name: 'Maternity Photography', href: '/services#maternity' },
     { name: 'New Born Baby Shoot', href: '/services#newborn' },
     { name: 'Toddler & Children', href: '/services#toddler' },
+    { name: 'Special Services', href: '/services#special' },
   ];
 
   const navItems = [

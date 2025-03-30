@@ -34,9 +34,9 @@ const serviceItems: ServiceItem[] = [
   },
   {
     id: 4,
-    name: "Cultural Photography",
-    image: "/lovable-uploads/fb019637-e8cb-4a43-9303-075fd194e2b8.png",
-    description: "Authentic and vibrant photography capturing traditional cultural elements"
+    name: "Special Services",
+    image: "/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png",
+    description: "Custom photography solutions for unique requirements and special occasions"
   }
 ];
 

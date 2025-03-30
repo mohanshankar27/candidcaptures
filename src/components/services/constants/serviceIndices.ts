@@ -16,9 +16,8 @@ export const serviceImageIndices: Record<string, number[]> = {
   'Matrimonial Portfolios': [10, 12, 0, 2, 4, 6],
   'Modelling & Artist Portfolios': [11, 13, 1, 3, 5, 7],
   'Portraits & Portfolios': [9, 11, 13, 1, 3, 5],
-  'Pre-wedding photoshoot': [6, 8, 10, 12, 0, 2],
   'Product Photography': [7, 9, 11, 13, 1, 3],
-  'Product shoot': [4, 6, 8, 10, 12, 0],
+  'Special Services': [4, 6, 8, 10, 12, 0],
   'Toddler & Children': [2, 4, 6, 8, 10, 12],
   'Wedding Photography': [3, 5, 7, 9, 11, 13],
   'New Born Baby Shoot': [29, 30, 31, 32, 33, 34]
