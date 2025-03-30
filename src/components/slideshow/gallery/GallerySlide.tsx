@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion';
 import CardFlip from '../../gallery/CardFlip';
 import CardBack from '../../gallery/CardBack';
@@ -89,7 +90,7 @@ const GallerySlide = ({
       variants={cardVariants}
       initial="initial"
       animate="animate"
-      className="flex-[0_0_280px] sm:flex-[0_0_320px] md:flex-[0_0_450px] relative mx-3 swiper-slide elementor-swiper-slide"
+      className="flex-[0_0_320px] sm:flex-[0_0_400px] md:flex-[0_0_600px] lg:flex-[0_0_750px] relative mx-2 swiper-slide elementor-swiper-slide"
       style={{ 
         perspective: '1500px',
         transformStyle: 'preserve-3d',
@@ -143,18 +144,6 @@ const GallerySlide = ({
               <div className="absolute top-3 right-3 w-6 h-6 border-t border-r border-amber-300/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="absolute bottom-3 left-3 w-6 h-6 border-b border-l border-amber-300/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="absolute bottom-3 right-3 w-6 h-6 border-b border-r border-amber-300/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
-              {/* View indicator for active slide - keeping minimal indicator without text */}
-              {isActive && (
-                <motion.div 
-                  className="absolute top-4 right-4 flex items-center space-x-1 bg-black/40 backdrop-blur-sm py-1 px-2 rounded-full z-20"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.4, delay: 0.2 }}
-                >
-                  <div className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></div>
-                </motion.div>
-              )}
             </div>
           }
           backContent={

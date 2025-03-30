@@ -120,14 +120,14 @@ const GalleryCarousel = ({ images }: GalleryCarouselProps) => {
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.2, ease: "easeOut" }}
       viewport={{ once: true, margin: "-100px" }}
-      className="w-full max-w-6xl mx-auto elementor-main-swiper carousel-3d-container"
+      className="w-full max-w-full mx-auto elementor-main-swiper carousel-3d-container"
     >
       <div 
-        className="overflow-hidden rounded-xl shadow-[0_30px_70px_-15px_rgba(0,0,0,0.4)] swiper-container carousel-3d-stage"
+        className="overflow-hidden shadow-[0_30px_70px_-15px_rgba(0,0,0,0.4)] swiper-container carousel-3d-stage"
         ref={emblaRef}
         style={{ perspective: '2000px' }}
       >
-        <div className="flex gap-4 md:gap-6 py-10 swiper-wrapper elementor-swiper-wrapper transform-style-3d">
+        <div className="flex gap-4 md:gap-4 py-10 swiper-wrapper elementor-swiper-wrapper transform-style-3d">
           {images.map((image, index) => (
             <GallerySlide
               key={index}

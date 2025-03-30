@@ -158,14 +158,16 @@ const PhotoSlideshow = () => {
       >
         <BackgroundDecorators />
         
-        <div className="container mx-auto px-4 relative z-10">
-          <SlideshowHeader onToggleFullscreen={toggleFullscreen} />
+        <div className="container-fluid mx-auto px-0 relative z-10">
+          <div className="max-w-6xl mx-auto px-4">
+            <SlideshowHeader onToggleFullscreen={toggleFullscreen} />
+          </div>
           
           <motion.div 
             variants={galleryVariants}
             initial="hidden"
             animate="visible"
-            className="elementor-swiper-wrapper swiper-wrapper transform-style-3d"
+            className="elementor-swiper-wrapper swiper-wrapper transform-style-3d w-full"
             style={{
               transform: 'var(--mouse-x, 0) var(--mouse-y, 0)',
               transformStyle: 'preserve-3d',
@@ -185,6 +187,7 @@ const PhotoSlideshow = () => {
               overflow: hidden;
               position: relative;
               transform-style: preserve-3d;
+              width: 100%;
             }
             
             .swiper-coverflow .swiper-wrapper {
@@ -218,6 +221,7 @@ const PhotoSlideshow = () => {
               align-items: center;
               transform-style: preserve-3d;
               transition: transform 0.2s;
+              width: 100%;
             }
             
             .transform-style-3d {
@@ -238,6 +242,35 @@ const PhotoSlideshow = () => {
               bottom: 0;
               background: radial-gradient(circle at center, rgba(251,191,36,0.05) 0%, rgba(251,191,36,0) 70%);
               pointer-events: none;
+            }
+            
+            .container-fluid {
+              width: 100%;
+              max-width: 100%;
+              margin: 0 auto;
+            }
+            
+            .carousel-3d-container {
+              width: 100vw;
+              max-width: 100vw;
+              margin-left: calc(-50vw + 50%);
+              padding: 0;
+            }
+            
+            @media (min-width: 1400px) {
+              .carousel-3d-container {
+                padding: 0;
+              }
+            }
+            
+            .golden-border-glow {
+              box-shadow: 0 0 15px 2px rgba(251,191,36,0.3);
+              opacity: 0;
+              transition: opacity 0.3s ease-in-out;
+            }
+            
+            .card-3d-face:hover .golden-border-glow {
+              opacity: 1;
             }
           `}
         </style>
@@ -275,7 +308,7 @@ const PhotoSlideshow = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              <div className="container mx-auto h-full flex flex-col">
+              <div className="container-fluid mx-auto h-full flex flex-col">
                 <motion.div 
                   className="text-center mb-8"
                   initial={{ opacity: 0, y: -20 }}
