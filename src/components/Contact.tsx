@@ -1,13 +1,13 @@
-
 import { useState, useEffect } from 'react';
 import { useToast } from "@/components/ui/use-toast";
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, ArrowRight } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import Map from './Map';
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Link } from 'react-router-dom';
 
 const Contact = () => {
   const { toast } = useToast();
@@ -68,13 +68,18 @@ const Contact = () => {
           <p className="text-base text-gray-600 max-w-2xl mx-auto">
             Ready to capture your special moments? Contact us today.
           </p>
+          <Button asChild variant="outline" className="mt-4">
+            <Link to="/contact" className="flex items-center">
+              Visit Contact Page
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
         </div>
 
         <div className="max-w-5xl mx-auto">
           <Card className="overflow-hidden border-0 shadow-lg">
             <div className="h-1 bg-gradient-to-r from-primary via-blue-500 to-primary/70"></div>
             <div className="grid md:grid-cols-2 gap-0">
-              {/* Contact Form */}
               <CardContent className="p-6 md:p-8">
                 <h3 className="text-xl font-bold text-primary mb-4">Send a Message</h3>
                 <form onSubmit={handleSubmit} className="space-y-4">
@@ -124,7 +129,6 @@ const Contact = () => {
                 </form>
               </CardContent>
 
-              {/* Contact Info */}
               <CardContent className="bg-gray-50 p-6 md:p-8 space-y-6">
                 <h3 className="text-xl font-bold text-primary mb-4">Contact Information</h3>
                 

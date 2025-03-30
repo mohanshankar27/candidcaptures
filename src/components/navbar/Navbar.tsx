@@ -1,3 +1,4 @@
+
 import { cn } from "@/lib/utils";
 import useNavigation from './useNavigation';
 import NavbarLogo from './NavbarLogo';
@@ -32,7 +33,7 @@ const Navbar = () => {
     { name: 'Services', href: '/services' },
     { name: 'Package', href: '/pricing' },
     { name: 'About', href: '/about' },
-    { name: 'Contact Us', href: '/#contact' },
+    { name: 'Contact', href: '/contact' },
   ];
 
   return (
