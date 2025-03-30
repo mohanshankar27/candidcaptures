@@ -18,7 +18,7 @@ const serviceImages: Record<string, string> = {
   'Product shoot': "/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png",
   'Special Services': "/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png",
   'Toddler & Children': "/lovable-uploads/44fdad37-1724-4cad-a878-bb2baf05b83b.png",
-  'Wedding Photography': "/lovable-uploads/615d3ac6-4345-48d6-9ed9-b794c68b0307.png"
+  'Wedding Photography': "/lovable-uploads/d3ea53b8-be87-48d7-bfab-5846b813948e.png" // Updated to new mandap image
 };
 
 export const getServiceImage = (serviceName: string): string => {

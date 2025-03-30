@@ -45,7 +45,8 @@ const allAvailableImages = [
   '/lovable-uploads/9a29c088-c19b-4147-bb38-58aaafa0d9f7.png',
   '/lovable-uploads/d5af9480-02f6-4601-98cd-5bd10840f0c8.png',
   '/lovable-uploads/702c4c46-bfdd-4ecf-a98c-37ccd7b5f7b4.png', // Fashion photography image
-  '/lovable-uploads/9c986aa2-6da0-4710-b9f7-c6195506ba38.png' // New food photography image
+  '/lovable-uploads/9c986aa2-6da0-4710-b9f7-c6195506ba38.png', // Food photography image
+  '/lovable-uploads/d3ea53b8-be87-48d7-bfab-5846b813948e.png'  // New wedding photography image
 ];
 
 // Map of service names to 6 unique images per service using indices from allAvailableImages
@@ -124,6 +125,18 @@ export const getServiceImages = (service: Service): string[] => {
       '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png',
       '/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png',
       '/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png'
+    ];
+  }
+  
+  // For Wedding Photography, use specific working images including the new mandap image
+  if (service.name === 'Wedding Photography') {
+    return [
+      '/lovable-uploads/d3ea53b8-be87-48d7-bfab-5846b813948e.png', // New thumbnail image first
+      '/lovable-uploads/615d3ac6-4345-48d6-9ed9-b794c68b0307.png',
+      '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png',
+      '/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png',
+      '/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png',
+      '/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png'
     ];
   }
   
