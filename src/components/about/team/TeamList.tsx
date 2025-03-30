@@ -6,33 +6,41 @@ import TeamMemberCard from "./TeamMemberCard";
 const teamMembers = [
   {
     id: 1,
-    name: "Sophia Martinez",
+    name: "Sathya Prakash",
     role: "Lead Photographer",
-    description: "With over 10 years of experience, Sophia specializes in wedding photography and portrait sessions.",
+    description: "With over 10 years of experience, Sathya specializes in wedding photography and portrait sessions.",
     imageSrc: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158",
-    fallback: "SM"
+    fallback: "SP"
   },
   {
     id: 2,
-    name: "Michael Chen",
+    name: "Puneeth K",
     role: "Creative Director",
-    description: "Michael's artistic vision and technical expertise help create unique and stunning visual stories.",
+    description: "Puneeth's artistic vision and technical expertise help create unique and stunning visual stories.",
     imageSrc: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952",
-    fallback: "MC"
+    fallback: "PK"
   },
   {
     id: 3,
-    name: "Our Talented Team",
-    role: "Photography Specialists",
-    description: "Our diverse team of photographers, editors, and designers work together to deliver exceptional results.",
+    name: "Raju",
+    role: "Lead Videography",
+    description: "Raju brings motion and emotion together, creating cinematic films that capture the essence of every moment.",
     imageSrc: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81",
-    fallback: "TM"
+    fallback: "RJ"
+  },
+  {
+    id: 4,
+    name: "Varun",
+    role: "Marketing Head",
+    description: "Varun ensures our clients find the perfect photography solutions for their needs and manages our client relationships.",
+    imageSrc: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d",
+    fallback: "VN"
   }
 ];
 
 const TeamList = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
       {teamMembers.map((member) => (
         <TeamMemberCard
           key={member.id}
