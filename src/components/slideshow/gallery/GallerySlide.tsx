@@ -61,38 +61,35 @@ const GallerySlide = ({
     setHoverRotate({ x: 0, y: 0 });
   };
   
-  // Determine position class based on relationship to active slide
-  const getPositionClass = () => {
-    if (isActive) return "active-slide-zoom";
-    if (isPrev) return "prev-slide-position";
-    if (isNext) return "next-slide-position";
-    return "far-slide-position";
-  };
-  
-  // Animation effects based on active status
-  const getAnimationClass = () => {
-    if (isActive) return "animate-depth-shift";
-    return "";
+  // Animation variants for consistent motion
+  const cardVariants = {
+    initial: { 
+      opacity: 0, 
+      y: 40,
+      scale: 0.95
+    },
+    animate: {
+      opacity: 1,
+      y: 0,
+      scale: isActive ? 1 : 0.85 - (distanceFromActive * 0.05),
+      z: isActive ? 0 : -150 * distanceFromActive,
+      rotateY: isActive ? hoverRotate.y : isPrev ? 25 : isNext ? -25 : 0,
+      rotateX: isActive ? hoverRotate.x : 0,
+      x: isActive ? 0 : isPrev ? "-25%" : isNext ? "25%" : 0,
+      transition: { 
+        duration: 0.7, 
+        ease: [0.22, 1, 0.36, 1]
+      }
+    }
   };
   
   return (
     <motion.div 
       key={index}
-      initial={{ opacity: 0, y: 40 }}
-      animate={{ 
-        opacity: 1, 
-        y: 0,
-        scale: isActive ? 1 : 0.85 - (distanceFromActive * 0.05),
-        z: isActive ? 0 : -150 * distanceFromActive,
-        rotateY: isActive ? hoverRotate.y : isPrev ? 25 : isNext ? -25 : 0,
-        rotateX: isActive ? hoverRotate.x : 0,
-        x: isActive ? 0 : isPrev ? "-25%" : isNext ? "25%" : 0,
-      }}
-      transition={{ 
-        duration: 0.7, 
-        ease: "easeOut"
-      }}
-      className={`flex-[0_0_280px] sm:flex-[0_0_320px] md:flex-[0_0_450px] relative mx-3 swiper-slide elementor-swiper-slide ${getPositionClass()} ${getAnimationClass()}`}
+      variants={cardVariants}
+      initial="initial"
+      animate="animate"
+      className="flex-[0_0_280px] sm:flex-[0_0_320px] md:flex-[0_0_450px] relative mx-3 swiper-slide elementor-swiper-slide"
       style={{ 
         perspective: '1500px',
         transformStyle: 'preserve-3d',
@@ -130,7 +127,7 @@ const GallerySlide = ({
                             isPrev ? 'scale(1.05) translateX(-5%) translateZ(-50px)' : 
                             isNext ? 'scale(1.05) translateX(5%) translateZ(-50px)' : 'scale(1.05) translateZ(-100px)',
                   filter: isActive ? 'contrast(1.1) brightness(1.08) saturate(1.1)' : 'contrast(1) brightness(0.9) saturate(0.95)',
-                  transition: 'transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1), filter 0.8s cubic-bezier(0.25, 0.1, 0.25, 1)'
+                  transition: 'transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), filter 0.8s cubic-bezier(0.22, 1, 0.36, 1)'
                 }}
               />
               
@@ -149,9 +146,14 @@ const GallerySlide = ({
               
               {/* View indicator for active slide - keeping minimal indicator without text */}
               {isActive && (
-                <div className="absolute top-4 right-4 flex items-center space-x-1 bg-black/40 backdrop-blur-sm py-1 px-2 rounded-full z-20">
+                <motion.div 
+                  className="absolute top-4 right-4 flex items-center space-x-1 bg-black/40 backdrop-blur-sm py-1 px-2 rounded-full z-20"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4, delay: 0.2 }}
+                >
                   <div className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></div>
-                </div>
+                </motion.div>
               )}
             </div>
           }
@@ -165,10 +167,12 @@ const GallerySlide = ({
         />
         
         {isActive && (
-          <div 
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
             className="absolute inset-0 border-2 border-amber-300/30 rounded-xl pointer-events-none shadow-[0_0_40px_rgba(251,191,36,0.3)]"
             style={{
-              transition: 'opacity 0.6s ease-out',
               transform: 'translateZ(5px)'
             }}
           />

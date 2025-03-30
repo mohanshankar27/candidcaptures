@@ -98,14 +98,63 @@ const PhotoSlideshow = () => {
     }
   };
 
+  // Animation variants for consistent animations
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1,
+      transition: { 
+        duration: 0.8,
+        ease: [0.22, 1, 0.36, 1],
+        when: "beforeChildren",
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const galleryVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: isLoaded ? 1 : 0, 
+      y: 0,
+      transition: { 
+        duration: 0.8, 
+        ease: [0.22, 1, 0.36, 1] 
+      }
+    }
+  };
+
+  const fullscreenVariants = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1,
+      transition: { 
+        duration: 0.3,
+        ease: [0.22, 1, 0.36, 1],
+        when: "beforeChildren"
+      }
+    },
+    exit: { 
+      opacity: 0,
+      transition: { 
+        duration: 0.3,
+        ease: [0.22, 1, 0.36, 1],
+        when: "afterChildren"
+      }
+    }
+  };
+
   return (
     <>
-      <section 
+      <motion.section 
         id="glimpse" 
         className="py-32 bg-gradient-to-b from-white via-slate-50 to-orange-50 relative overflow-hidden"
         style={{ 
           transformStyle: 'preserve-3d',
         }}
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
       >
         <BackgroundDecorators />
         
@@ -113,9 +162,9 @@ const PhotoSlideshow = () => {
           <SlideshowHeader onToggleFullscreen={toggleFullscreen} />
           
           <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: isLoaded ? 1 : 0 }}
-            transition={{ duration: 0.8 }}
+            variants={galleryVariants}
+            initial="hidden"
+            animate="visible"
             className="elementor-swiper-wrapper swiper-wrapper transform-style-3d"
             style={{
               transform: 'var(--mouse-x, 0) var(--mouse-y, 0)',
@@ -192,16 +241,16 @@ const PhotoSlideshow = () => {
             }
           `}
         </style>
-      </section>
+      </motion.section>
       
       {/* Fullscreen Gallery */}
       <AnimatePresence>
         {isFullscreen && (
           <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            variants={fullscreenVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
             className="fixed inset-0 bg-black z-50 overflow-hidden"
             ref={fullscreenRef}
           >
@@ -210,6 +259,9 @@ const PhotoSlideshow = () => {
                 onClick={toggleFullscreen}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: 0.2 }}
                 className="bg-white/10 backdrop-blur-sm text-white p-3 rounded-full hover:bg-white/20 transition-colors"
                 aria-label="Exit fullscreen"
               >
@@ -217,14 +269,29 @@ const PhotoSlideshow = () => {
               </motion.button>
             </div>
             
-            <div className="h-full w-full flex items-center justify-center p-4">
+            <motion.div 
+              className="h-full w-full flex items-center justify-center p-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
               <div className="container mx-auto h-full flex flex-col">
-                <div className="text-center mb-8">
+                <motion.div 
+                  className="text-center mb-8"
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                >
                   <h2 className="text-3xl md:text-4xl text-white/90 font-bold font-akaya mb-2">
                     Glimpse of Our Work
                   </h2>
-                  <div className="h-0.5 w-24 bg-orange-400 mx-auto"></div>
-                </div>
+                  <motion.div 
+                    className="h-0.5 w-24 bg-orange-400 mx-auto"
+                    initial={{ width: 0 }}
+                    animate={{ width: "6rem" }}
+                    transition={{ duration: 0.8, delay: 0.4 }}
+                  ></motion.div>
+                </motion.div>
                 
                 <div className="flex-1 overflow-hidden">
                   <StyleProvider>
@@ -232,7 +299,7 @@ const PhotoSlideshow = () => {
                   </StyleProvider>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

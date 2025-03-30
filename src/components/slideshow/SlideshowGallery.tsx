@@ -19,11 +19,23 @@ const SlideshowGallery = ({ images }: SlideshowGalleryProps) => {
 
   if (!isClient) return null;
 
+  const galleryVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { 
+        duration: 1.2, 
+        ease: [0.22, 1, 0.36, 1] 
+      }
+    }
+  };
+
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
+      variants={galleryVariants}
+      initial="hidden"
+      whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
     >
       <GalleryCarousel images={images} />
