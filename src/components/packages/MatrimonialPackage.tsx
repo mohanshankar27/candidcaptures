@@ -15,11 +15,11 @@ import {
 const MatrimonialPackage: React.FC = () => {
   // Images for the matrimonial package carousel
   const matrimonialImages = [
-    '/lovable-uploads/8d5e6443-143d-4c94-be94-b1e0b3cc76b2.png',
-    '/lovable-uploads/f981f530-98b4-46e6-8063-68406ae598e1.png',
+    '/lovable-uploads/0ef8c636-5a0e-4fe4-aedb-03f82bc3c8d4.png', // New matrimonial portrait image
+    '/lovable-uploads/f981f530-98b4-46e6-8063-68406ae598e1.png', // Previous thumbnail
     '/lovable-uploads/3b0c013d-b9fb-40c8-b991-7781c698945e.png',
-    '/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png',
-    '/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png'
+    '/lovable-uploads/cad21907-840a-459a-8e84-261e5dd02084.png', // Bridal makeup image
+    '/lovable-uploads/d5af9480-02f6-4601-98cd-5bd10840f0c8.png' // Fashion portrait
   ];
 
   return (
