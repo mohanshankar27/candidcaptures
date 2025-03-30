@@ -1,3 +1,4 @@
+
 import { Service } from '@/data/services';
 import { getServiceImage } from './serviceImages';
 
@@ -40,7 +41,8 @@ const allAvailableImages = [
   '/lovable-uploads/5652a952-5189-439e-919e-a3ae22826386.png',
   '/lovable-uploads/c564d2e1-cf57-4560-aedd-4c9d12a5ba2b.png',
   '/lovable-uploads/335052c1-47b5-40f4-88c9-f69b5ae52ebb.png',
-  '/lovable-uploads/365286f1-0e48-4fbc-99df-71eae1704b72.png'
+  '/lovable-uploads/365286f1-0e48-4fbc-99df-71eae1704b72.png',
+  '/lovable-uploads/9a29c088-c19b-4147-bb38-58aaafa0d9f7.png'
 ];
 
 // Map of service names to 6 unique images per service using indices from allAvailableImages
@@ -50,7 +52,7 @@ const serviceImageIndices = {
   'Corporate & Short Videos': [12, 13, 0, 1, 2, 3],
   'E-Commerce & Catalogues': [15, 10, 11, 13, 0, 1],
   'Event Photography': [34, 5, 6, 7, 10, 2],
-  'Family Portraits': [8, 9, 10, 11, 12, 13],
+  'Family Portraits': [39, 8, 10, 11, 12, 13],
   'Fashion Photography': [30, 31, 21, 22, 23, 28],
   'Food Photography': [1, 3, 5, 7, 9, 11],
   'Makeup shoot': [12, 0, 2, 4, 6, 8],
@@ -86,7 +88,7 @@ export const getServiceImages = (service: Service): string[] => {
     ];
   }
   
-  // For Event Photography, use specific working images including the new family photo
+  // For Event Photography, use specific working images including the family photo
   if (service.name === 'Event Photography') {
     return [
       '/lovable-uploads/365286f1-0e48-4fbc-99df-71eae1704b72.png',
@@ -95,6 +97,18 @@ export const getServiceImages = (service: Service): string[] => {
       '/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png',
       '/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png',
       '/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png'
+    ];
+  }
+  
+  // For Family Portraits, use specific working images including the new family photo
+  if (service.name === 'Family Portraits') {
+    return [
+      '/lovable-uploads/9a29c088-c19b-4147-bb38-58aaafa0d9f7.png',
+      '/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png',
+      '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png',
+      '/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png',
+      '/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png',
+      '/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png'
     ];
   }
   
