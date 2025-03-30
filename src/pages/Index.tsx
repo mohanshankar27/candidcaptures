@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import PhotoSlideshow from "@/components/PhotoSlideshow";
 import CommunicationSidebar from "@/components/CommunicationSidebar";
 import OurServices from "@/components/OurServices";
+import WorkflowPipeline from "@/components/workflow/WorkflowPipeline";
 
 const Index = () => {
   return (
@@ -16,6 +17,7 @@ const Index = () => {
       <Hero />
       <Gallery />
       <OurServices />
+      <WorkflowPipeline />
       <PhotoSlideshow />
       <CTA />
       <Footer />
