@@ -8,6 +8,13 @@ import { CorporatePackage } from './CorporatePackage';
 export const PricingTabs = () => {
   return (
     <Tabs defaultValue="wedding" className="w-full">
+      <div className="text-center mb-10">
+        <h1 className="text-4xl font-bold text-slate-800 mb-4">Photography Pricing</h1>
+        <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+          Professional photography packages tailored to capture your special moments with exceptional quality and creativity.
+        </p>
+      </div>
+      
       <TabsList className="grid w-full grid-cols-3 max-w-md mx-auto mb-8">
         <TabsTrigger value="wedding">Wedding</TabsTrigger>
         <TabsTrigger value="pre-wedding">Pre-Wedding</TabsTrigger>
