@@ -2,7 +2,7 @@
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { PricingContent } from '@/components/PricingContent';
+import { PricingContent } from '@/components/pricing';
 import { Package } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 
