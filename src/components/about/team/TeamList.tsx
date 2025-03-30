@@ -14,8 +14,8 @@ const teamMembers = [
   },
   {
     id: 2,
-    name: "Puneeth K",
-    role: "Creative Director",
+    name: "Puneeth",
+    role: "Lead Photographer",
     description: "Puneeth's artistic vision and technical expertise help create unique and stunning visual stories.",
     imageSrc: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952",
     fallback: "PK"
