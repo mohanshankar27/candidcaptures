@@ -14,6 +14,7 @@ interface GallerySlideProps {
   flippedIndex: number | null;
   handleCardFlip: (index: number) => void;
   totalSlides: number;
+  showFullSize?: boolean;
 }
 
 const GallerySlide = ({ 
@@ -22,7 +23,8 @@ const GallerySlide = ({
   activeIndex, 
   flippedIndex, 
   handleCardFlip,
-  totalSlides
+  totalSlides,
+  showFullSize = false
 }: GallerySlideProps) => {
   // Calculate if this is the active slide
   const isActive = activeIndex === index;
@@ -90,7 +92,7 @@ const GallerySlide = ({
         <CardFlip
           isFlipped={flippedIndex === index}
           onFlip={() => handleCardFlip(index)}
-          className="h-[520px] w-full card-3d mx-auto max-w-5xl"
+          className={`${showFullSize ? 'h-[80vh] max-h-[600px]' : 'h-[520px]'} w-full card-3d mx-auto max-w-5xl`}
           frontContent={
             <div className="relative w-full h-full overflow-hidden group card-3d-face">
               {/* Golden border glow effect */}
@@ -110,7 +112,7 @@ const GallerySlide = ({
               <img 
                 src={image.url} 
                 alt={image.alt} 
-                className="w-full h-full object-contain mx-auto"
+                className={`${showFullSize ? 'w-full h-full object-contain' : 'w-full h-full object-contain'} mx-auto`}
               />
               
               {/* Premium gradient overlays */}

@@ -39,7 +39,7 @@ const SlideshowGallery = ({ images }: SlideshowGalleryProps) => {
       viewport={{ once: true, margin: "-100px" }}
       className="w-full max-w-7xl mx-auto"
     >
-      <GalleryCarousel images={images} />
+      <GalleryCarousel images={images} autoplay={true} />
     </motion.div>
   );
 };

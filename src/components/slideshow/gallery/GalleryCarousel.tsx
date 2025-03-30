@@ -11,16 +11,16 @@ interface GalleryCarouselProps {
     url: string;
     alt: string;
   }[];
+  autoplay?: boolean;
 }
 
-const GalleryCarousel = ({ images }: GalleryCarouselProps) => {
+const GalleryCarousel = ({ images, autoplay = true }: GalleryCarouselProps) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ 
     loop: true,
     align: "center",
     containScroll: "keepSnaps",
     slidesToScroll: 1,
     skipSnaps: false,
-    duration: 50,
   });
   
   // State to track which card is flipped
@@ -32,6 +32,8 @@ const GalleryCarousel = ({ images }: GalleryCarouselProps) => {
   
   // Function to handle auto-sliding with cleanup for timer
   const startAutoplay = useCallback(() => {
+    if (!autoplay) return;
+    
     if (autoplayTimerRef.current) {
       clearTimeout(autoplayTimerRef.current);
     }
@@ -41,7 +43,7 @@ const GalleryCarousel = ({ images }: GalleryCarouselProps) => {
         emblaApi.scrollNext();
       }, 4000); // Set to 4 seconds per slide
     }
-  }, [emblaApi, isInteracting]);
+  }, [emblaApi, isInteracting, autoplay]);
   
   // Update active index when carousel scrolls
   const onSelect = useCallback(() => {
@@ -137,6 +139,7 @@ const GalleryCarousel = ({ images }: GalleryCarouselProps) => {
               flippedIndex={flippedIndex}
               handleCardFlip={handleCardFlip}
               totalSlides={images.length}
+              showFullSize={true}
             />
           ))}
         </div>
