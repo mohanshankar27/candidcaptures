@@ -54,7 +54,7 @@ const EventServiceContent: React.FC<EventServiceContentProps> = ({
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="overflow-hidden rounded-lg shadow-md">
             <img 
-              src="/lovable-uploads/335052c1-47b5-40f4-88c9-f69b5ae52ebb.png" 
+              src="/lovable-uploads/365286f1-0e48-4fbc-99df-71eae1704b72.png" 
               alt="South Indian family in traditional ceremony attire"
               className="w-full h-auto object-cover"
             />
