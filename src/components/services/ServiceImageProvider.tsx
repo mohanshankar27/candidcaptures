@@ -1,4 +1,3 @@
-
 import { Service } from '@/data/services';
 import { getServiceImage } from './serviceImages';
 
@@ -49,7 +48,8 @@ const allAvailableImages = [
   '/lovable-uploads/d3ea53b8-be87-48d7-bfab-5846b813948e.png', // Wedding photography image
   '/lovable-uploads/fb13bae7-33ad-4972-b884-47d4f113d139.png', // Concept shoot image
   '/lovable-uploads/9bc16cc2-a103-4803-a922-903bd674693c.png',  // New corporate team image
-  '/lovable-uploads/cad21907-840a-459a-8e84-261e5dd02084.png'  // New makeup shoot image
+  '/lovable-uploads/cad21907-840a-459a-8e84-261e5dd02084.png',  // New makeup shoot image
+  '/lovable-uploads/6b1e5df0-9fb9-4289-835f-ee80acf9fdfa.png'   // New special services image (decorative horse)
 ];
 
 // Map of service names to 6 unique images per service using indices from allAvailableImages
@@ -176,6 +176,18 @@ export const getServiceImages = (service: Service): string[] => {
       '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png',
       '/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png',
       '/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png'
+    ];
+  }
+  
+  // For Special Services, use specific working images including the new decorative horse image
+  if (service.name === 'Special Services') {
+    return [
+      '/lovable-uploads/6b1e5df0-9fb9-4289-835f-ee80acf9fdfa.png', // New thumbnail image first
+      '/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png', // Previous thumbnail
+      '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png',
+      '/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png',
+      '/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png',
+      '/lovable-uploads/53584cdb-e83c-4e6f-8b99-37ba6c8fc6b8.png'
     ];
   }
   
