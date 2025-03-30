@@ -9,18 +9,18 @@ export function InViewGallery() {
   
   // Updated gallery images with their corresponding service categories
   const galleryImagesWithCategories = [
-    { src: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1200', category: 'Concept shoot' },
-    { src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1200', category: 'Wedding Photography' },
-    { src: 'https://images.unsplash.com/photo-1469334031218-e382a71b716b?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1200', category: 'Fashion Photography' },
-    { src: 'https://images.unsplash.com/photo-1586495777744-4413f21062fa?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1200', category: 'Product Photography' },
-    { src: 'https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1200', category: 'Event Photography' },
-    { src: 'https://images.unsplash.com/photo-1609220136736-443140cffec6?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1200', category: 'Family Portraits' },
-    { src: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1200', category: 'Food Photography' },
-    { src: 'https://images.unsplash.com/photo-1611042553365-9b101441c135?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1200', category: 'Maternity Photography' },
-    { src: 'https://images.unsplash.com/photo-1604072366595-e75dc92d6bdc?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1200', category: 'Matrimonial Portfolios' },
-    { src: 'https://images.unsplash.com/photo-1543342384-1f1350e27861?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1200', category: 'New Born Baby Shoot' },
-    { src: 'https://images.unsplash.com/photo-1602662407321-6e13c2e1c101?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1200', category: 'Toddler & Children' },
-    { src: 'https://images.unsplash.com/photo-1604079628040-94301bb21b91?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1200', category: 'Special Services' },
+    { src: '/lovable-uploads/fb13bae7-33ad-4972-b884-47d4f113d139.png', category: 'Concept shoot' },
+    { src: '/lovable-uploads/d3ea53b8-be87-48d7-bfab-5846b813948e.png', category: 'Wedding Photography' },
+    { src: '/lovable-uploads/702c4c46-bfdd-4ecf-a98c-37ccd7b5f7b4.png', category: 'Fashion Photography' },
+    { src: '/lovable-uploads/fd7df534-2749-42ba-bfa7-6188fb3daf76.png', category: 'Product Photography' },
+    { src: '/lovable-uploads/365286f1-0e48-4fbc-99df-71eae1704b72.png', category: 'Event Photography' },
+    { src: '/lovable-uploads/9a29c088-c19b-4147-bb38-58aaafa0d9f7.png', category: 'Family Portraits' },
+    { src: '/lovable-uploads/9c986aa2-6da0-4710-b9f7-c6195506ba38.png', category: 'Food Photography' },
+    { src: '/lovable-uploads/8b3e3260-20a8-4a51-ac28-59e1f1b41bb2.png', category: 'Maternity Photography' },
+    { src: '/lovable-uploads/0ef8c636-5a0e-4fe4-aedb-03f82bc3c8d4.png', category: 'Matrimonial Portfolios' },
+    { src: '/lovable-uploads/6066b255-5f3a-4f05-b2b7-f144098189da.png', category: 'New Born Baby Shoot' },
+    { src: '/lovable-uploads/fe26bc26-2a66-4dfb-aeb8-db5490eeaea9.png', category: 'Toddler & Children' },
+    { src: '/lovable-uploads/43b3b2f5-3919-44f7-8575-f1e18682bf73.png', category: 'Special Services' },
   ];
 
   const handleImageClick = (category: string) => {
