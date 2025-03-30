@@ -8,6 +8,7 @@ import PhotoSlideshow from "@/components/PhotoSlideshow";
 import CommunicationSidebar from "@/components/CommunicationSidebar";
 import OurServices from "@/components/OurServices";
 import WorkflowPipeline from "@/components/workflow/WorkflowPipeline";
+import { InViewGallery } from "@/components/InViewGallery";
 
 const Index = () => {
   return (
@@ -18,6 +19,7 @@ const Index = () => {
       <Gallery />
       <OurServices />
       <WorkflowPipeline />
+      <InViewGallery />
       <PhotoSlideshow />
       <CTA />
       <Footer />
