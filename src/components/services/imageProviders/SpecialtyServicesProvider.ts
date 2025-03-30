@@ -36,7 +36,7 @@ export const getConceptShootImages = (): string[] => {
 
 export const getSpecialServicesImages = (): string[] => {
   return [
-    '/lovable-uploads/43b3b2f5-3919-44f7-8575-f1e18682bf73.png', // New traditional cultural diorama image
+    '/lovable-uploads/43b3b2f5-3919-44f7-8575-f1e18682bf73.png', // Traditional cultural diorama image
     '/lovable-uploads/6b3d57da-a4b7-4ab6-8282-a666fc5400b4.png',
     '/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png',
     '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png',

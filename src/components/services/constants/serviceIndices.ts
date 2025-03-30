@@ -17,7 +17,7 @@ export const serviceImageIndices: Record<string, number[]> = {
   'Modelling & Artist Portfolios': [11, 13, 1, 3, 5, 7],
   'Portraits & Portfolios': [9, 11, 13, 1, 3, 5],
   'Product Photography': [51, 9, 11, 13, 1, 3], // Updated first index to use the new pharmaceutical product image
-  'Special Services': [53, 6, 8, 10, 12, 0], // Updated first index to use the new traditional cultural diorama image
+  'Special Services': [53, 54, 55, 56, 57, 58], // Updated indices to use dedicated special services images
   'Toddler & Children': [2, 4, 6, 8, 10, 12],
   'Wedding Photography': [3, 5, 7, 9, 11, 13],
   'New Born Baby Shoot': [29, 30, 31, 32, 33, 34]
