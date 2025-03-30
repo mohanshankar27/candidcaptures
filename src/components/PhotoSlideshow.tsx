@@ -1,6 +1,7 @@
 
 import { useEffect, useState, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { X } from 'lucide-react';
 import { galleryImages } from './gallery/GalleryData';
 import BackgroundDecorators from './slideshow/BackgroundDecorators';
 import SlideshowHeader from './slideshow/SlideshowHeader';
@@ -9,7 +10,9 @@ import StyleProvider from './gallery/StyleProvider';
 
 const PhotoSlideshow = () => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(false);
   const containerRef = useRef<HTMLElement | null>(null);
+  const fullscreenRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
     // Set the reference
@@ -49,9 +52,19 @@ const PhotoSlideshow = () => {
     
     document.addEventListener('mousemove', handleMouseMove);
     
+    // Handle escape key to exit fullscreen
+    const handleKeyPress = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isFullscreen) {
+        setIsFullscreen(false);
+      }
+    };
+    
+    document.addEventListener('keydown', handleKeyPress);
+    
     return () => {
       clearTimeout(timer);
       document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('keydown', handleKeyPress);
       
       // Clean up classes when component unmounts
       if (containerRef.current) {
@@ -71,125 +84,182 @@ const PhotoSlideshow = () => {
         containerRef.current.style.removeProperty('--mouse-y');
       }
     };
-  }, []);
+  }, [isFullscreen]);
+
+  // Toggle fullscreen mode
+  const toggleFullscreen = () => {
+    setIsFullscreen(!isFullscreen);
+    
+    // Apply no-scroll to body when in fullscreen
+    if (!isFullscreen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  };
 
   return (
-    <section 
-      id="glimpse" 
-      className="py-32 bg-gradient-to-b from-white via-slate-50 to-orange-50 relative overflow-hidden"
-      style={{ 
-        transformStyle: 'preserve-3d',
-      }}
-    >
-      <BackgroundDecorators />
-      
-      <div className="container mx-auto px-4 relative z-10">
-        <SlideshowHeader />
+    <>
+      <section 
+        id="glimpse" 
+        className="py-32 bg-gradient-to-b from-white via-slate-50 to-orange-50 relative overflow-hidden"
+        style={{ 
+          transformStyle: 'preserve-3d',
+        }}
+      >
+        <BackgroundDecorators />
         
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: isLoaded ? 1 : 0 }}
-          transition={{ duration: 0.8 }}
-          className="elementor-swiper-wrapper swiper-wrapper transform-style-3d"
-          style={{
-            transform: 'var(--mouse-x, 0) var(--mouse-y, 0)',
-            transformStyle: 'preserve-3d',
-            transition: 'transform 0.1s ease-out',
-          }}
-        >
-          <StyleProvider>
-            <SlideshowGallery images={galleryImages} />
-          </StyleProvider>
-        </motion.div>
-        
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.5 }}
-          viewport={{ once: true }}
-          className="mt-20 text-center"
-        >
-          <motion.p 
-            className="text-lg text-slate-700 italic max-w-2xl mx-auto font-serif"
-            whileInView={{ 
-              textShadow: ['0px 0px 0px rgba(251,191,36,0)', '0px 0px 10px rgba(251,191,36,0.3)', '0px 0px 0px rgba(251,191,36,0)'] 
-            }}
-            transition={{ duration: 5, repeat: Infinity, repeatType: "reverse" }}
-          >
-            "Photography is the story I fail to put into words"
-          </motion.p>
+        <div className="container mx-auto px-4 relative z-10">
+          <SlideshowHeader onToggleFullscreen={toggleFullscreen} />
+          
           <motion.div 
-            className="h-0.5 w-16 bg-orange-300 mx-auto mt-6"
-            whileInView={{ width: ['0px', '64px', '40px', '64px'] }}
-            transition={{ duration: 5, repeat: Infinity, repeatType: "reverse" }}
-          ></motion.div>
-        </motion.div>
-      </div>
+            initial={{ opacity: 0 }}
+            animate={{ opacity: isLoaded ? 1 : 0 }}
+            transition={{ duration: 0.8 }}
+            className="elementor-swiper-wrapper swiper-wrapper transform-style-3d"
+            style={{
+              transform: 'var(--mouse-x, 0) var(--mouse-y, 0)',
+              transformStyle: 'preserve-3d',
+              transition: 'transform 0.1s ease-out',
+            }}
+          >
+            <StyleProvider>
+              <SlideshowGallery images={galleryImages} />
+            </StyleProvider>
+          </motion.div>
+          
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.5 }}
+            viewport={{ once: true }}
+            className="mt-20 text-center"
+          >
+            <motion.p 
+              className="text-lg text-slate-700 italic max-w-2xl mx-auto font-serif"
+              whileInView={{ 
+                textShadow: ['0px 0px 0px rgba(251,191,36,0)', '0px 0px 10px rgba(251,191,36,0.3)', '0px 0px 0px rgba(251,191,36,0)'] 
+              }}
+              transition={{ duration: 5, repeat: Infinity, repeatType: "reverse" }}
+            >
+              "Photography is the story I fail to put into words"
+            </motion.p>
+            <motion.div 
+              className="h-0.5 w-16 bg-orange-300 mx-auto mt-6"
+              whileInView={{ width: ['0px', '64px', '40px', '64px'] }}
+              transition={{ duration: 5, repeat: Infinity, repeatType: "reverse" }}
+            ></motion.div>
+          </motion.div>
+        </div>
+        
+        {/* Add Elementor-style swiper styles with enhanced 3D effects */}
+        <style>
+          {`
+            .elementor-main-swiper {
+              overflow: hidden;
+              position: relative;
+              transform-style: preserve-3d;
+            }
+            
+            .swiper-coverflow .swiper-wrapper {
+              perspective: 2000px;
+            }
+            
+            .swiper-3d .swiper-slide {
+              transform-style: preserve-3d;
+              will-change: transform;
+            }
+            
+            .swiper-watch-progress .swiper-slide {
+              transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+            }
+            
+            .swiper-initialized {
+              overflow: hidden;
+              position: relative;
+            }
+            
+            .swiper-horizontal {
+              touch-action: pan-y;
+            }
+            
+            .swiper-pointer-events {
+              touch-action: pan-y;
+            }
+            
+            .elementor-swiper-wrapper {
+              display: flex;
+              align-items: center;
+              transform-style: preserve-3d;
+              transition: transform 0.2s;
+            }
+            
+            .transform-style-3d {
+              transform-style: preserve-3d;
+            }
+            
+            #glimpse {
+              transform-style: preserve-3d;
+              perspective: 3000px;
+            }
+            
+            #glimpse::before {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background: radial-gradient(circle at center, rgba(251,191,36,0.05) 0%, rgba(251,191,36,0) 70%);
+              pointer-events: none;
+            }
+          `}
+        </style>
+      </section>
       
-      {/* Add Elementor-style swiper styles with enhanced 3D effects */}
-      <style>
-        {`
-          .elementor-main-swiper {
-            overflow: hidden;
-            position: relative;
-            transform-style: preserve-3d;
-          }
-          
-          .swiper-coverflow .swiper-wrapper {
-            perspective: 2000px;
-          }
-          
-          .swiper-3d .swiper-slide {
-            transform-style: preserve-3d;
-            will-change: transform;
-          }
-          
-          .swiper-watch-progress .swiper-slide {
-            transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
-          }
-          
-          .swiper-initialized {
-            overflow: hidden;
-            position: relative;
-          }
-          
-          .swiper-horizontal {
-            touch-action: pan-y;
-          }
-          
-          .swiper-pointer-events {
-            touch-action: pan-y;
-          }
-          
-          .elementor-swiper-wrapper {
-            display: flex;
-            align-items: center;
-            transform-style: preserve-3d;
-            transition: transform 0.2s;
-          }
-          
-          .transform-style-3d {
-            transform-style: preserve-3d;
-          }
-          
-          #glimpse {
-            transform-style: preserve-3d;
-            perspective: 3000px;
-          }
-          
-          #glimpse::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at center, rgba(251,191,36,0.05) 0%, rgba(251,191,36,0) 70%);
-            pointer-events: none;
-          }
-        `}
-      </style>
-    </section>
+      {/* Fullscreen Gallery */}
+      <AnimatePresence>
+        {isFullscreen && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 bg-black z-50 overflow-hidden"
+            ref={fullscreenRef}
+          >
+            <div className="absolute top-4 right-4 z-50">
+              <motion.button
+                onClick={toggleFullscreen}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-white/10 backdrop-blur-sm text-white p-3 rounded-full hover:bg-white/20 transition-colors"
+                aria-label="Exit fullscreen"
+              >
+                <X className="w-6 h-6" />
+              </motion.button>
+            </div>
+            
+            <div className="h-full w-full flex items-center justify-center p-4">
+              <div className="container mx-auto h-full flex flex-col">
+                <div className="text-center mb-8">
+                  <h2 className="text-3xl md:text-4xl text-white/90 font-bold font-akaya mb-2">
+                    Glimpse of Our Work
+                  </h2>
+                  <div className="h-0.5 w-24 bg-orange-400 mx-auto"></div>
+                </div>
+                
+                <div className="flex-1 overflow-hidden">
+                  <StyleProvider>
+                    <SlideshowGallery images={galleryImages} />
+                  </StyleProvider>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 
