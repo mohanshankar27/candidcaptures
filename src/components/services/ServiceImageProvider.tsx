@@ -46,7 +46,8 @@ const allAvailableImages = [
   '/lovable-uploads/d5af9480-02f6-4601-98cd-5bd10840f0c8.png',
   '/lovable-uploads/702c4c46-bfdd-4ecf-a98c-37ccd7b5f7b4.png', // Fashion photography image
   '/lovable-uploads/9c986aa2-6da0-4710-b9f7-c6195506ba38.png', // Food photography image
-  '/lovable-uploads/d3ea53b8-be87-48d7-bfab-5846b813948e.png'  // New wedding photography image
+  '/lovable-uploads/d3ea53b8-be87-48d7-bfab-5846b813948e.png', // Wedding photography image
+  '/lovable-uploads/fb13bae7-33ad-4972-b884-47d4f113d139.png'  // New concept shoot image
 ];
 
 // Map of service names to 6 unique images per service using indices from allAvailableImages
@@ -137,6 +138,18 @@ export const getServiceImages = (service: Service): string[] => {
       '/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png',
       '/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png',
       '/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png'
+    ];
+  }
+  
+  // For Concept shoot, use specific working images including the new goddess concept image
+  if (service.name === 'Concept shoot') {
+    return [
+      '/lovable-uploads/fb13bae7-33ad-4972-b884-47d4f113d139.png', // New thumbnail image first
+      '/lovable-uploads/4a67f538-ecc9-41af-87e5-08ddea7ba4f6.png', // Previous thumbnail
+      '/lovable-uploads/6401c725-7910-476d-b26c-898ff561ccaf.png',
+      '/lovable-uploads/507c487a-ec87-4401-ace4-4b27d7bcd2e0.png',
+      '/lovable-uploads/3346c7fa-c327-4873-a6e2-35da082a7f6e.png',
+      '/lovable-uploads/fb019637-e8cb-4a43-9303-075fd194e2b8.png'
     ];
   }
   
