@@ -4,7 +4,7 @@ const serviceImages: Record<string, string> = {
   'Concept shoot': "/lovable-uploads/fb13bae7-33ad-4972-b884-47d4f113d139.png", // Updated to new goddess concept image
   'Corporate & Short Videos': "/lovable-uploads/9bc16cc2-a103-4803-a922-903bd674693c.png", // Updated to new corporate team image
   'Corporate Headshots': "/lovable-uploads/c61284f0-f6ce-4fe3-a1a0-c41bcc09469e.png", // Updated to new professional headshot image
-  'E-Commerce & Catalogues': "/lovable-uploads/3346c7fa-c327-4873-a6e2-35da082a7f6e.png",
+  'E-Commerce & Catalogues': "/lovable-uploads/432982f3-f8c4-40d8-b5da-0c55198c9d7b.png", // Updated to new red blouse image
   'Event Photography': "/lovable-uploads/365286f1-0e48-4fbc-99df-71eae1704b72.png",
   'Family Portraits': "/lovable-uploads/9a29c088-c19b-4147-bb38-58aaafa0d9f7.png",
   'Fashion Photography': "/lovable-uploads/702c4c46-bfdd-4ecf-a98c-37ccd7b5f7b4.png", // Updated to new image

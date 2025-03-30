@@ -6,7 +6,7 @@ export const serviceImageIndices: Record<string, number[]> = {
   'Artists / Celebrities': [0, 1, 2, 3, 4, 5],
   'Concept shoot': [16, 17, 18, 19, 20, 15],
   'Corporate & Short Videos': [12, 13, 0, 1, 2, 3],
-  'E-Commerce & Catalogues': [15, 10, 11, 13, 0, 1],
+  'E-Commerce & Catalogues': [22, 10, 11, 13, 0, 1], // Updated first index to use an alternative image
   'Event Photography': [34, 5, 6, 7, 10, 2],
   'Family Portraits': [39, 8, 10, 11, 12, 13],
   'Fashion Photography': [30, 31, 21, 22, 23, 28],
