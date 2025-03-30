@@ -43,16 +43,17 @@ const allAvailableImages = [
   '/lovable-uploads/365286f1-0e48-4fbc-99df-71eae1704b72.png',
   '/lovable-uploads/9a29c088-c19b-4147-bb38-58aaafa0d9f7.png',
   '/lovable-uploads/d5af9480-02f6-4601-98cd-5bd10840f0c8.png',
-  '/lovable-uploads/702c4c46-bfdd-4ecf-a98c-37ccd7b5f7b4.png', // Fashion photography image
-  '/lovable-uploads/9c986aa2-6da0-4710-b9f7-c6195506ba38.png', // Food photography image
-  '/lovable-uploads/d3ea53b8-be87-48d7-bfab-5846b813948e.png', // Wedding photography image
-  '/lovable-uploads/fb13bae7-33ad-4972-b884-47d4f113d139.png', // Concept shoot image
-  '/lovable-uploads/9bc16cc2-a103-4803-a922-903bd674693c.png',  // New corporate team image
-  '/lovable-uploads/cad21907-840a-459a-8e84-261e5dd02084.png',  // New makeup shoot image
-  '/lovable-uploads/6b1e5df0-9fb9-4289-835f-ee80acf9fdfa.png',  // New special services image (decorative horse)
-  '/lovable-uploads/c61284f0-f6ce-4fe3-a1a0-c41bcc09469e.png',  // New corporate headshots image
-  '/lovable-uploads/8b3e3260-20a8-4a51-ac28-59e1f1b41bb2.png',  // New maternity photography image
-  '/lovable-uploads/0ef8c636-5a0e-4fe4-aedb-03f82bc3c8d4.png'   // New matrimonial portfolios image
+  '/lovable-uploads/702c4c46-bfdd-4ecf-a98c-37ccd7b5f7b4.png',
+  '/lovable-uploads/9c986aa2-6da0-4710-b9f7-c6195506ba38.png',
+  '/lovable-uploads/d3ea53b8-be87-48d7-bfab-5846b813948e.png',
+  '/lovable-uploads/fb13bae7-33ad-4972-b884-47d4f113d139.png',
+  '/lovable-uploads/9bc16cc2-a103-4803-a922-903bd674693c.png',
+  '/lovable-uploads/cad21907-840a-459a-8e84-261e5dd02084.png',
+  '/lovable-uploads/6b1e5df0-9fb9-4289-835f-ee80acf9fdfa.png',
+  '/lovable-uploads/c61284f0-f6ce-4fe3-a1a0-c41bcc09469e.png',
+  '/lovable-uploads/8b3e3260-20a8-4a51-ac28-59e1f1b41bb2.png',
+  '/lovable-uploads/0ef8c636-5a0e-4fe4-aedb-03f82bc3c8d4.png',
+  '/lovable-uploads/6b3d57da-a4b7-4ab6-8282-a666fc5400b4.png'
 ];
 
 // Map of service names to 6 unique images per service using indices from allAvailableImages
@@ -76,7 +77,8 @@ const serviceImageIndices = {
   'Product shoot': [4, 6, 8, 10, 12, 0],
   'Special Services': [5, 7, 9, 11, 13, 1],
   'Toddler & Children': [2, 4, 6, 8, 10, 12],
-  'Wedding Photography': [3, 5, 7, 9, 11, 13]
+  'Wedding Photography': [3, 5, 7, 9, 11, 13],
+  'New Born Baby Shoot': [29, 30, 31, 32, 33, 34]
 };
 
 // Convert indices to actual image URLs
@@ -89,7 +91,7 @@ export const getServiceImages = (service: Service): string[] => {
   // For Fashion Photography, use specific working images including the new image
   if (service.name === 'Fashion Photography') {
     return [
-      '/lovable-uploads/702c4c46-bfdd-4ecf-a98c-37ccd7b5f7b4.png', // New thumbnail image first
+      '/lovable-uploads/702c4c46-bfdd-4ecf-a98c-37ccd7b5f7b4.png',
       '/lovable-uploads/38c938f6-27b6-4b7c-80c8-02a42c8cf9d3.png',
       '/lovable-uploads/84376a5b-2662-4bb5-9e37-8e83ca5c09c8.png',
       '/lovable-uploads/4c8884df-c0c2-4516-8e86-d559a104323b.png',
@@ -125,7 +127,7 @@ export const getServiceImages = (service: Service): string[] => {
   // For Food Photography, use specific working images including the new curry dish image
   if (service.name === 'Food Photography') {
     return [
-      '/lovable-uploads/9c986aa2-6da0-4710-b9f7-c6195506ba38.png', // New thumbnail image first
+      '/lovable-uploads/9c986aa2-6da0-4710-b9f7-c6195506ba38.png',
       '/lovable-uploads/615d3ac6-4345-48d6-9ed9-b794c68b0307.png',
       '/lovable-uploads/5faf55b4-c582-4816-aa3b-99e8faa9a73d.png',
       '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png',
@@ -137,7 +139,7 @@ export const getServiceImages = (service: Service): string[] => {
   // For Wedding Photography, use specific working images including the new mandap image
   if (service.name === 'Wedding Photography') {
     return [
-      '/lovable-uploads/d3ea53b8-be87-48d7-bfab-5846b813948e.png', // New thumbnail image first
+      '/lovable-uploads/d3ea53b8-be87-48d7-bfab-5846b813948e.png',
       '/lovable-uploads/615d3ac6-4345-48d6-9ed9-b794c68b0307.png',
       '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png',
       '/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png',
@@ -149,8 +151,8 @@ export const getServiceImages = (service: Service): string[] => {
   // For Concept shoot, use specific working images including the new goddess concept image
   if (service.name === 'Concept shoot') {
     return [
-      '/lovable-uploads/fb13bae7-33ad-4972-b884-47d4f113d139.png', // New thumbnail image first
-      '/lovable-uploads/4a67f538-ecc9-41af-87e5-08ddea7ba4f6.png', // Previous thumbnail
+      '/lovable-uploads/fb13bae7-33ad-4972-b884-47d4f113d139.png',
+      '/lovable-uploads/4a67f538-ecc9-41af-87e5-08ddea7ba4f6.png',
       '/lovable-uploads/6401c725-7910-476d-b26c-898ff561ccaf.png',
       '/lovable-uploads/507c487a-ec87-4401-ace4-4b27d7bcd2e0.png',
       '/lovable-uploads/3346c7fa-c327-4873-a6e2-35da082a7f6e.png',
@@ -161,8 +163,8 @@ export const getServiceImages = (service: Service): string[] => {
   // For Corporate & Short Videos, use specific working images including the new corporate team image
   if (service.name === 'Corporate & Short Videos') {
     return [
-      '/lovable-uploads/9bc16cc2-a103-4803-a922-903bd674693c.png', // New thumbnail image first
-      '/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png', // Previous thumbnail
+      '/lovable-uploads/9bc16cc2-a103-4803-a922-903bd674693c.png',
+      '/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png',
       '/lovable-uploads/53584cdb-e83c-4e6f-8b99-37ba6c8fc6b8.png',
       '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png',
       '/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png',
@@ -173,8 +175,8 @@ export const getServiceImages = (service: Service): string[] => {
   // For Makeup shoot, use specific working images including the new bridal makeup image
   if (service.name === 'Makeup shoot') {
     return [
-      '/lovable-uploads/cad21907-840a-459a-8e84-261e5dd02084.png', // New thumbnail image first
-      '/lovable-uploads/e612e8f7-3f32-4c0d-a920-b83e95752820.png', // Previous thumbnail
+      '/lovable-uploads/cad21907-840a-459a-8e84-261e5dd02084.png',
+      '/lovable-uploads/e612e8f7-3f32-4c0d-a920-b83e95752820.png',
       '/lovable-uploads/507c487a-ec87-4401-ace4-4b27d7bcd2e0.png',
       '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png',
       '/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png',
@@ -185,8 +187,8 @@ export const getServiceImages = (service: Service): string[] => {
   // For Special Services, use specific working images including the new decorative horse image
   if (service.name === 'Special Services') {
     return [
-      '/lovable-uploads/6b1e5df0-9fb9-4289-835f-ee80acf9fdfa.png', // New thumbnail image first
-      '/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png', // Previous thumbnail
+      '/lovable-uploads/6b1e5df0-9fb9-4289-835f-ee80acf9fdfa.png',
+      '/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png',
       '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png',
       '/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png',
       '/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png',
@@ -197,9 +199,9 @@ export const getServiceImages = (service: Service): string[] => {
   // For Corporate Headshots, use specific working images including the new professional headshot image
   if (service.name === 'Corporate Headshots') {
     return [
-      '/lovable-uploads/c61284f0-f6ce-4fe3-a1a0-c41bcc09469e.png', // New thumbnail image first
-      '/lovable-uploads/53584cdb-e83c-4e6f-8b99-37ba6c8fc6b8.png', // Previous thumbnail
-      '/lovable-uploads/9bc16cc2-a103-4803-a922-903bd674693c.png', // Corporate team
+      '/lovable-uploads/c61284f0-f6ce-4fe3-a1a0-c41bcc09469e.png',
+      '/lovable-uploads/53584cdb-e83c-4e6f-8b99-37ba6c8fc6b8.png',
+      '/lovable-uploads/9bc16cc2-a103-4803-a922-903bd674693c.png',
       '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png',
       '/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png',
       '/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png'
@@ -209,10 +211,10 @@ export const getServiceImages = (service: Service): string[] => {
   // For Maternity Photography, use specific working images including the new family maternity image
   if (service.name === 'Maternity Photography') {
     return [
-      '/lovable-uploads/8b3e3260-20a8-4a51-ac28-59e1f1b41bb2.png', // New thumbnail image first
-      '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png', // Previous thumbnail
-      '/lovable-uploads/9a29c088-c19b-4147-bb38-58aaafa0d9f7.png', // Family photo
-      '/lovable-uploads/44fdad37-1724-4cad-a878-bb2baf05b83b.png', // Toddler & Children
+      '/lovable-uploads/8b3e3260-20a8-4a51-ac28-59e1f1b41bb2.png',
+      '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png',
+      '/lovable-uploads/9a29c088-c19b-4147-bb38-58aaafa0d9f7.png',
+      '/lovable-uploads/44fdad37-1724-4cad-a878-bb2baf05b83b.png',
       '/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png',
       '/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png'
     ];
@@ -221,12 +223,24 @@ export const getServiceImages = (service: Service): string[] => {
   // For Matrimonial Portfolios, use specific working images including the new portrait image
   if (service.name === 'Matrimonial Portfolios') {
     return [
-      '/lovable-uploads/0ef8c636-5a0e-4fe4-aedb-03f82bc3c8d4.png', // New thumbnail image first
-      '/lovable-uploads/f981f530-98b4-46e6-8063-68406ae598e1.png', // Previous thumbnail
-      '/lovable-uploads/3b0c013d-b9fb-40c8-b991-7781c698945e.png', // Additional matrimonial image
-      '/lovable-uploads/9bc16cc2-a103-4803-a922-903bd674693c.png', // Corporate team
-      '/lovable-uploads/cad21907-840a-459a-8e84-261e5dd02084.png', // Makeup shoot
-      '/lovable-uploads/d5af9480-02f6-4601-98cd-5bd10840f0c8.png' // Fashion portrait
+      '/lovable-uploads/0ef8c636-5a0e-4fe4-aedb-03f82bc3c8d4.png',
+      '/lovable-uploads/f981f530-98b4-46e6-8063-68406ae598e1.png',
+      '/lovable-uploads/3b0c013d-b9fb-40c8-b991-7781c698945e.png',
+      '/lovable-uploads/9bc16cc2-a103-4803-a922-903bd674693c.png',
+      '/lovable-uploads/cad21907-840a-459a-8e84-261e5dd02084.png',
+      '/lovable-uploads/d5af9480-02f6-4601-98cd-5bd10840f0c8.png'
+    ];
+  }
+  
+  // For New Born Baby Shoot, use specific working images including the new baby chef image
+  if (service.name === 'New Born Baby Shoot') {
+    return [
+      '/lovable-uploads/6b3d57da-a4b7-4ab6-8282-a666fc5400b4.png',
+      '/lovable-uploads/53584cdb-e83c-4e6f-8b99-37ba6c8fc6b8.png',
+      '/lovable-uploads/44fdad37-1724-4cad-a878-bb2baf05b83b.png',
+      '/lovable-uploads/8b3e3260-20a8-4a51-ac28-59e1f1b41bb2.png',
+      '/lovable-uploads/9a29c088-c19b-4147-bb38-58aaafa0d9f7.png',
+      '/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png'
     ];
   }
   

@@ -13,7 +13,7 @@ const serviceImages: Record<string, string> = {
   'Maternity Photography': "/lovable-uploads/8b3e3260-20a8-4a51-ac28-59e1f1b41bb2.png", // Updated to new family maternity image
   'Matrimonial Portfolios': "/lovable-uploads/0ef8c636-5a0e-4fe4-aedb-03f82bc3c8d4.png", // Updated to new matrimonial portrait image
   'Naming Ceremony': "/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png",
-  'New Born Baby Shoot': "/lovable-uploads/53584cdb-e83c-4e6f-8b99-37ba6c8fc6b8.png",
+  'New Born Baby Shoot': "/lovable-uploads/6b3d57da-a4b7-4ab6-8282-a666fc5400b4.png", // Updated to new baby chef image
   'Product Photography': "/lovable-uploads/8d5e6443-143d-4c94-be94-b1e0b3cc76b2.png",
   'Product shoot': "/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png",
   'Special Services': "/lovable-uploads/6b1e5df0-9fb9-4289-835f-ee80acf9fdfa.png", // Updated to new decorative horse image
