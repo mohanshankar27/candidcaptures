@@ -17,7 +17,7 @@ const SlideshowHeader = ({ onToggleFullscreen }: SlideshowHeaderProps) => {
               initial={{ x: "100%" }}
               animate={{ x: "-100%" }}
               transition={{
-                duration: 30, // Increased from 20 to 30 to slow down the animation
+                duration: 50, // Increased from 30 to 50 to further slow down the animation
                 repeat: Infinity,
                 ease: "linear",
                 repeatType: "loop",
