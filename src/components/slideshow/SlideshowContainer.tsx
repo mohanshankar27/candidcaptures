@@ -21,13 +21,15 @@ const SlideshowContainer = ({
   const containerRef = useRef<HTMLElement | null>(null);
   
   useEffect(() => {
-    // Set the reference
-    containerRef.current = document.getElementById('glimpse');
+    // Set the reference - moved inside useEffect to ensure DOM is ready
+    const containerElement = document.getElementById('glimpse');
+    containerRef.current = containerElement;
+
+    // Only continue if the container element exists
+    if (!containerElement) return;
 
     // Add the Elementor classes to container
-    if (containerRef.current) {
-      containerRef.current.classList.add('elementor-main-swiper', 'swiper-container', 'swiper-coverflow', 'swiper-3d', 'swiper-initialized', 'swiper-horizontal', 'swiper-pointer-events', 'swiper-watch-progress');
-    }
+    containerElement.classList.add('elementor-main-swiper', 'swiper-container', 'swiper-coverflow', 'swiper-3d', 'swiper-initialized', 'swiper-horizontal', 'swiper-pointer-events', 'swiper-watch-progress');
 
     // Add enhanced 3D effect with mouse movement
     const handleMouseMove = (e: MouseEvent) => {

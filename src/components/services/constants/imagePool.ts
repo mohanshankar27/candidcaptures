@@ -1,6 +1,12 @@
 
+import { galleryImagesWithCategories } from "../../InViewGallery";
+
+// Include gallery images in our overall image pool
+const galleryImages = galleryImagesWithCategories.map(item => item.src);
+
 // Collection of all available images in the system
 export const allAvailableImages = [
+  ...galleryImages,
   '/lovable-uploads/e612e8f7-3f32-4c0d-a920-b83e95752820.png',
   '/lovable-uploads/a6d35b17-76d1-4a77-89b4-5760943e213b.png',
   '/lovable-uploads/1e8e3b73-0675-48f7-a578-9f204a21062c.png',

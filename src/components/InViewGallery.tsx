@@ -4,25 +4,25 @@ import { motion } from "framer-motion";
 import { Camera } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
+// Export the gallery images for reuse in other components
+export const galleryImagesWithCategories = [
+  { src: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1200', category: 'Concept shoot' },
+  { src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1200', category: 'Wedding Photography' },
+  { src: 'https://images.unsplash.com/photo-1469334031218-e382a71b716b?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1200', category: 'Fashion Photography' },
+  { src: 'https://images.unsplash.com/photo-1586495777744-4413f21062fa?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1200', category: 'Product Photography' },
+  { src: 'https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1200', category: 'Event Photography' },
+  { src: 'https://images.unsplash.com/photo-1609220136736-443140cffec6?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1200', category: 'Family Portraits' },
+  { src: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1200', category: 'Food Photography' },
+  { src: 'https://images.unsplash.com/photo-1611042553365-9b101441c135?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1200', category: 'Maternity Photography' },
+  { src: 'https://images.unsplash.com/photo-1604072366595-e75dc92d6bdc?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1200', category: 'Matrimonial Portfolios' },
+  { src: 'https://images.unsplash.com/photo-1543342384-1f1350e27861?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1200', category: 'New Born Baby Shoot' },
+  { src: 'https://images.unsplash.com/photo-1602662407321-6e13c2e1c101?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1200', category: 'Toddler & Children' },
+  { src: 'https://images.unsplash.com/photo-1604079628040-94301bb21b91?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1200', category: 'Special Services' },
+];
+
 export function InViewGallery() {
   const navigate = useNavigate();
   
-  // Updated gallery images with their corresponding service categories
-  const galleryImagesWithCategories = [
-    { src: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1200', category: 'Concept shoot' },
-    { src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1200', category: 'Wedding Photography' },
-    { src: 'https://images.unsplash.com/photo-1469334031218-e382a71b716b?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1200', category: 'Fashion Photography' },
-    { src: 'https://images.unsplash.com/photo-1586495777744-4413f21062fa?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1200', category: 'Product Photography' },
-    { src: 'https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1200', category: 'Event Photography' },
-    { src: 'https://images.unsplash.com/photo-1609220136736-443140cffec6?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1200', category: 'Family Portraits' },
-    { src: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1200', category: 'Food Photography' },
-    { src: 'https://images.unsplash.com/photo-1611042553365-9b101441c135?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1200', category: 'Maternity Photography' },
-    { src: 'https://images.unsplash.com/photo-1604072366595-e75dc92d6bdc?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1200', category: 'Matrimonial Portfolios' },
-    { src: 'https://images.unsplash.com/photo-1543342384-1f1350e27861?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1200', category: 'New Born Baby Shoot' },
-    { src: 'https://images.unsplash.com/photo-1602662407321-6e13c2e1c101?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1200', category: 'Toddler & Children' },
-    { src: 'https://images.unsplash.com/photo-1604079628040-94301bb21b91?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1200', category: 'Special Services' },
-  ];
-
   const handleImageClick = (category: string) => {
     // Navigate to the Services page with the selected service category
     navigate('/services', { state: { selectedService: category } });
