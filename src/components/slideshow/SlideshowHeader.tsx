@@ -56,18 +56,6 @@ const SlideshowHeader = ({ onToggleFullscreen }: SlideshowHeaderProps) => {
           transition={{ duration: 1.2, ease: "easeOut" }}
           viewport={{ once: true }}
         ></motion.div>
-        
-        <motion.p 
-          className="text-slate-600 max-w-2xl mx-auto font-akaya text-lg leading-relaxed relative"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1.2 }}
-          viewport={{ once: true }}
-        >
-          <span className="relative inline-block">
-            Extraordinary masterpieces from our exclusive fine art collection, where every meticulously crafted frame captures the essence of unparalleled luxury and artistic excellence
-          </span>
-        </motion.p>
       </div>
     </div>
   );

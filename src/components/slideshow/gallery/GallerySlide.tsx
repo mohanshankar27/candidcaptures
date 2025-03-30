@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import CardFlip from '../../gallery/CardFlip';
 import CardBack from '../../gallery/CardBack';
@@ -148,41 +147,10 @@ const GallerySlide = ({
               <div className="absolute bottom-3 left-3 w-6 h-6 border-b border-l border-amber-300/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="absolute bottom-3 right-3 w-6 h-6 border-b border-r border-amber-300/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
-              {/* Luxury content overlay */}
-              <div className="absolute bottom-0 left-0 w-full p-6 text-white z-20">
-                <div
-                  className="slide-caption-3d"
-                  style={{
-                    opacity: isActive ? 1 : 0.7,
-                    transform: isActive ? 'translateY(0) translateZ(20px)' : 'translateY(5px)',
-                    transition: 'opacity 0.7s ease-out, transform 0.7s ease-out'
-                  }}
-                >
-                  <div className="flex items-center space-x-3 mb-2">
-                    <div className="w-8 h-[1px] bg-gradient-to-r from-amber-200 to-amber-400"></div>
-                    <h3 className="text-2xl font-serif italic font-light tracking-wide">
-                      <span className="bg-gradient-to-r from-amber-200 to-amber-400 bg-clip-text text-transparent">{image.alt}</span>
-                    </h3>
-                  </div>
-                  
-                  <div className="flex items-center space-x-2 mt-3">
-                    <div className="h-[1px] w-2 bg-amber-300/80"></div>
-                    <p className="text-xs uppercase tracking-widest text-amber-100/80 font-light">Premium Collection</p>
-                  </div>
-                  
-                  <div className="mt-4 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 delay-100">
-                    <p className="text-sm text-white/90 backdrop-blur-sm font-light italic">
-                      "Exquisitely crafted to captivate your senses"
-                    </p>
-                  </div>
-                </div>
-              </div>
-              
-              {/* View indicator */}
+              {/* View indicator for active slide - keeping minimal indicator without text */}
               {isActive && (
                 <div className="absolute top-4 right-4 flex items-center space-x-1 bg-black/40 backdrop-blur-sm py-1 px-2 rounded-full z-20">
                   <div className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></div>
-                  <span className="text-[10px] text-white/90 uppercase tracking-wider">Featured</span>
                 </div>
               )}
             </div>

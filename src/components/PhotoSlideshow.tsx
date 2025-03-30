@@ -127,29 +127,6 @@ const PhotoSlideshow = () => {
               <SlideshowGallery images={galleryImages} />
             </StyleProvider>
           </motion.div>
-          
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.5 }}
-            viewport={{ once: true }}
-            className="mt-20 text-center"
-          >
-            <motion.p 
-              className="text-lg text-slate-700 italic max-w-2xl mx-auto font-serif"
-              whileInView={{ 
-                textShadow: ['0px 0px 0px rgba(251,191,36,0)', '0px 0px 10px rgba(251,191,36,0.3)', '0px 0px 0px rgba(251,191,36,0)'] 
-              }}
-              transition={{ duration: 5, repeat: Infinity, repeatType: "reverse" }}
-            >
-              "Photography is the story I fail to put into words"
-            </motion.p>
-            <motion.div 
-              className="h-0.5 w-16 bg-orange-300 mx-auto mt-6"
-              whileInView={{ width: ['0px', '64px', '40px', '64px'] }}
-              transition={{ duration: 5, repeat: Infinity, repeatType: "reverse" }}
-            ></motion.div>
-          </motion.div>
         </div>
         
         {/* Add Elementor-style swiper styles with enhanced 3D effects */}
