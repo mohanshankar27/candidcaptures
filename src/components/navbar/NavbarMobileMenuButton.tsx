@@ -23,15 +23,15 @@ const NavbarMobileMenuButton = ({ isOpen, setIsOpen }: NavbarMobileMenuButtonPro
           <motion.div
             initial={false}
             animate={{ 
-              rotate: isOpen ? 180 : 0,
-              scale: isOpen ? 0.8 : 1
+              rotate: isOpen ? 90 : 0, // Reduced animation complexity
+              scale: isOpen ? 0.9 : 1
             }}
-            transition={{ duration: 0.3, type: "spring", stiffness: 260, damping: 20 }}
+            transition={{ duration: 0.2, type: "tween" }} // Simplified animation for better performance
             className="absolute inset-0 flex items-center justify-center"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </motion.div>
-          <div className="absolute inset-0 rounded-md bg-gradient-to-r from-transparent via-amber-100/40 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
+          <div className="absolute inset-0 rounded-md bg-gradient-to-r from-transparent via-amber-100/40 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
         </Button>
       </motion.div>
     </div>

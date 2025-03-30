@@ -1,9 +1,9 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Service } from '@/data/servicesList';
 import ServiceCard from './ServiceCard';
 import { getServiceImage } from './serviceImages';
-import { preloadImages } from './ImagePreloader';
+import { preloadImages, preloadCriticalImages } from './ImagePreloader';
 import { motion } from 'framer-motion';
 import { useIsMobile } from '@/hooks/use-mobile';
 
@@ -17,21 +17,42 @@ const ServicesGrid: React.FC<ServicesGridProps> = ({ services, onServiceClick })
   const [clickedService, setClickedService] = useState<Service | null>(null);
   const [preloadedImages, setPreloadedImages] = useState<Set<string>>(new Set());
   const isMobile = useIsMobile();
+  const isInitialRender = useRef(true);
 
-  // Preload critical images for faster display
+  // Preload critical images immediately for faster display
   useEffect(() => {
-    const preloadInitialImages = async () => {
-      // Only preload the first 8 images to speed up initial load
-      const imagesToPreload = services.slice(0, 8).map(
+    if (isInitialRender.current) {
+      // Get just the first few images for initial visible cards
+      const initialVisibleImages = services.slice(0, isMobile ? 4 : 8).map(
         service => getServiceImage(service.name)
       );
       
-      const newPreloadedImages = await preloadImages(imagesToPreload, preloadedImages);
-      setPreloadedImages(newPreloadedImages);
+      // Preload these critical images immediately via link tags
+      preloadCriticalImages(initialVisibleImages);
+      
+      // Mark first render complete
+      isInitialRender.current = false;
+    }
+  }, [services, isMobile]);
+  
+  // Preload remaining images with lower priority
+  useEffect(() => {
+    const preloadRemainingImages = async () => {
+      // Preload remaining images after a short delay to prioritize initial render
+      const timeoutId = setTimeout(async () => {
+        const imagesToPreload = services.map(
+          service => getServiceImage(service.name)
+        );
+        
+        const newPreloadedImages = await preloadImages(imagesToPreload, preloadedImages);
+        setPreloadedImages(newPreloadedImages);
+      }, 1000); // Delay preloading non-critical images
+      
+      return () => clearTimeout(timeoutId);
     };
     
-    preloadInitialImages();
-  }, [services]);
+    preloadRemainingImages();
+  }, [services, preloadedImages]);
 
   // Function to determine if a service should be highlighted based on hover
   const isHighlighted = (index: number): boolean => {
@@ -56,14 +77,14 @@ const ServicesGrid: React.FC<ServicesGridProps> = ({ services, onServiceClick })
     setTimeout(() => {
       onServiceClick(service);
       setClickedService(null);
-    }, 300); // Reduced from 3000ms to 300ms for faster response
+    }, 150); // Reduced from 300ms to 150ms for faster response
   };
 
   return (
     <motion.div 
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.3 }} // Faster animation
       className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4 w-full"
     >
       {services.map((service, index) => {

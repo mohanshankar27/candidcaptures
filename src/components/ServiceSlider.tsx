@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -44,24 +44,38 @@ const ServiceSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
   const [imagesPreloaded, setImagesPreloaded] = useState(false);
+  const [isInitialRender, setIsInitialRender] = useState(true);
+  const autoplayTimerRef = useRef<NodeJS.Timeout | null>(null);
   const navigate = useNavigate();
   const isMobile = useIsMobile();
 
+  // Preload images immediately on component mount
   useEffect(() => {
-    const preloadImages = async () => {
-      const imagePromises = serviceItems.map((item) => {
-        return new Promise((resolve) => {
-          const img = new Image();
-          img.src = item.image;
-          img.onload = resolve;
-        });
+    // Preload critical initial image
+    const img = new Image();
+    img.onload = () => setImagesPreloaded(true);
+    img.src = serviceItems[0].image;
+    
+    // Preload other images after a small delay
+    const preloadRemainingImages = () => {
+      serviceItems.slice(1).forEach((item) => {
+        const img = new Image();
+        img.src = item.image;
       });
-      
-      await Promise.all(imagePromises);
-      setImagesPreloaded(true);
     };
     
-    preloadImages();
+    // Delay non-critical images
+    const timer = setTimeout(preloadRemainingImages, 1000);
+    
+    // Set initial render complete after short delay
+    const initialRenderTimer = setTimeout(() => {
+      setIsInitialRender(false);
+    }, 100);
+    
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(initialRenderTimer);
+    };
   }, []);
 
   const currentService = serviceItems[currentIndex];
@@ -81,9 +95,10 @@ const ServiceSlider = () => {
     navigate('/services', { state: { selectedService: serviceName } });
   };
 
+  // Simplified animation variants for better performance
   const slideVariants = {
     enter: (direction: number) => ({
-      x: direction > 0 ? 300 : -300,
+      x: direction > 0 ? 200 : -200, // Reduced from 300
       opacity: 0
     }),
     center: {
@@ -91,17 +106,26 @@ const ServiceSlider = () => {
       opacity: 1
     },
     exit: (direction: number) => ({
-      x: direction < 0 ? 300 : -300,
+      x: direction < 0 ? 200 : -200, // Reduced from 300
       opacity: 0
     })
   };
 
+  // Setup autoplay with cleanup
   useEffect(() => {
-    const timer = setInterval(() => {
-      nextSlide();
-    }, 5000);
+    if (autoplayTimerRef.current) {
+      clearInterval(autoplayTimerRef.current);
+    }
     
-    return () => clearInterval(timer);
+    autoplayTimerRef.current = setInterval(() => {
+      nextSlide();
+    }, 6000); // Increased from 5000 to reduce CPU usage
+    
+    return () => {
+      if (autoplayTimerRef.current) {
+        clearInterval(autoplayTimerRef.current);
+      }
+    };
   }, [currentIndex]);
 
   return (
@@ -116,6 +140,13 @@ const ServiceSlider = () => {
         
         <div className="relative h-[400px] md:h-[500px] w-full flex items-center justify-center">
           <div className="w-full max-w-5xl relative overflow-hidden rounded-xl shadow-2xl bg-white">
+            {/* Show loading skeleton during initial render */}
+            {isInitialRender && (
+              <div className="absolute inset-0 bg-slate-100 flex items-center justify-center">
+                <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+              </div>
+            )}
+            
             <AnimatePresence initial={false} custom={direction} mode="wait">
               <motion.div
                 key={currentIndex}
@@ -125,7 +156,7 @@ const ServiceSlider = () => {
                 animate="center"
                 exit="exit"
                 transition={{
-                  x: { type: "spring", stiffness: 500, damping: 30 },
+                  x: { type: "tween", duration: 0.3 }, // Simplified from spring animation
                   opacity: { duration: 0.1 }
                 }}
                 className="absolute inset-0"
@@ -136,6 +167,7 @@ const ServiceSlider = () => {
                       src={currentService.image}
                       alt={currentService.name}
                       className="w-full h-full object-cover md:object-contain"
+                      loading="eager"
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent"></div>
                     <div className="absolute bottom-0 left-0 p-4 md:p-6 text-white">
