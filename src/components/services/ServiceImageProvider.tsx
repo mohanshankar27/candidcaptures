@@ -48,7 +48,8 @@ const allAvailableImages = [
   '/lovable-uploads/9c986aa2-6da0-4710-b9f7-c6195506ba38.png', // Food photography image
   '/lovable-uploads/d3ea53b8-be87-48d7-bfab-5846b813948e.png', // Wedding photography image
   '/lovable-uploads/fb13bae7-33ad-4972-b884-47d4f113d139.png', // Concept shoot image
-  '/lovable-uploads/9bc16cc2-a103-4803-a922-903bd674693c.png'  // New corporate team image
+  '/lovable-uploads/9bc16cc2-a103-4803-a922-903bd674693c.png',  // New corporate team image
+  '/lovable-uploads/cad21907-840a-459a-8e84-261e5dd02084.png'  // New makeup shoot image
 ];
 
 // Map of service names to 6 unique images per service using indices from allAvailableImages
@@ -160,6 +161,18 @@ export const getServiceImages = (service: Service): string[] => {
       '/lovable-uploads/9bc16cc2-a103-4803-a922-903bd674693c.png', // New thumbnail image first
       '/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png', // Previous thumbnail
       '/lovable-uploads/53584cdb-e83c-4e6f-8b99-37ba6c8fc6b8.png',
+      '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png',
+      '/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png',
+      '/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png'
+    ];
+  }
+  
+  // For Makeup shoot, use specific working images including the new bridal makeup image
+  if (service.name === 'Makeup shoot') {
+    return [
+      '/lovable-uploads/cad21907-840a-459a-8e84-261e5dd02084.png', // New thumbnail image first
+      '/lovable-uploads/e612e8f7-3f32-4c0d-a920-b83e95752820.png', // Previous thumbnail
+      '/lovable-uploads/507c487a-ec87-4401-ace4-4b27d7bcd2e0.png',
       '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png',
       '/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png',
       '/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png'
