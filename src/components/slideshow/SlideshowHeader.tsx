@@ -17,14 +17,14 @@ const SlideshowHeader = ({ onToggleFullscreen }: SlideshowHeaderProps) => {
               initial={{ x: "100%" }}
               animate={{ x: "-100%" }}
               transition={{
-                duration: 20,
+                duration: 30, // Increased from 20 to 30 to slow down the animation
                 repeat: Infinity,
                 ease: "linear",
                 repeatType: "loop",
               }}
               className="whitespace-nowrap inline-block"
             >
-              <span className="text-white font-semibold text-lg tracking-wider font-akaya">
+              <span className="text-white font-semibold text-lg tracking-wider font-arjulian">
                 🎉 Avail Festival offer 10% off on the packages of your choice 🎉 • 
                 🎉 Avail Festival offer 10% off on the packages of your choice 🎉 • 
                 🎉 Avail Festival offer 10% off on the packages of your choice 🎉 • 
