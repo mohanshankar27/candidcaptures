@@ -1,139 +1,170 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { Button } from '@/components/ui/button';
 import { ParticleButton } from '@/components/ui/particle-button';
-import { Camera, Heart, Party, Building } from 'lucide-react';
-import RunningScrawl from '@/components/gallery/RunningScrawl';
 import { motion } from 'framer-motion';
-import { InView } from '@/components/ui/in-view';
+import { Camera, Gift } from 'lucide-react';
+import RunningScrawl from '@/components/gallery/RunningScrawl';
+
+// Define a type for category items
+interface CategoryItem {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  route: string;
+}
+
+// Category data
+const categories: CategoryItem[] = [
+  {
+    id: 'wedding',
+    title: 'Wedding Photography',
+    description: 'Capturing your special day with elegance and emotion.',
+    image: '/lovable-uploads/38c938f6-27b6-4b7c-80c8-02a42c8cf9d3.png',
+    route: '/categories/wedding'
+  },
+  {
+    id: 'portrait',
+    title: 'Portrait Photography',
+    description: 'Professional portraits that showcase personality and character.',
+    image: '/lovable-uploads/0e3af22f-eb15-463b-80be-159d6b53f595.png',
+    route: '/categories/portrait'
+  },
+  {
+    id: 'event',
+    title: 'Event Photography',
+    description: 'Preserving the moments that matter at your events.',
+    image: '/lovable-uploads/8b3e3260-20a8-4a51-ac28-59e1f1b41bb2.png',
+    route: '/categories/event'
+  },
+  {
+    id: 'commercial',
+    title: 'Commercial Photography',
+    description: 'High-quality images for your business and brand.',
+    image: '/lovable-uploads/d5af9480-02f6-4601-98cd-5bd10840f0c8.png',
+    route: '/categories/commercial'
+  }
+];
+
+// Animation variants for the cards
+const cardVariants = {
+  offscreen: {
+    y: 50,
+    opacity: 0
+  },
+  onscreen: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      bounce: 0.4,
+      duration: 0.8
+    }
+  }
+};
 
 const Categories = () => {
   const navigate = useNavigate();
+  const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
 
-  const categories = [
-    {
-      title: "Wedding Photography",
-      description: "Capturing the magic and emotions of your special day with elegant and timeless photography.",
-      icon: <Heart className="w-8 h-8 text-primary/80" />,
-      path: "/categories/wedding",
-      image: "/lovable-uploads/e612e8f7-3f32-4c0d-a920-b83e95752820.png"
-    },
-    {
-      title: "Portrait Photography",
-      description: "Professional portraits that capture personality and character for individuals, families, and businesses.",
-      icon: <Camera className="w-8 h-8 text-primary/80" />,
-      path: "/categories/portrait",
-      image: "/lovable-uploads/9bc16cc2-a103-4803-a922-903bd674693c.png"
-    },
-    {
-      title: "Event Photography",
-      description: "Comprehensive coverage of your special events, from corporate functions to private celebrations.",
-      icon: <Party className="w-8 h-8 text-primary/80" />,
-      path: "/categories/event",
-      image: "/lovable-uploads/0abd204c-da72-4a05-87ae-39929aeedd9f.png"
-    },
-    {
-      title: "Commercial Photography",
-      description: "High-quality commercial photography for products, real estate, food, and corporate branding.",
-      icon: <Building className="w-8 h-8 text-primary/80" />,
-      path: "/categories/commercial",
-      image: "/lovable-uploads/469e56bd-78fb-4a44-b55c-04dfba69656b.png"
-    }
-  ];
+  // Scroll to top on page load
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      
-      <RunningScrawl message="Photography Services • Wedding • Portrait • Event • Commercial • Family • Fashion" />
 
-      <main className="flex-1 py-8 md:py-12">
+      <RunningScrawl message="Explore Our Photography Categories • Premium Photo Services • Book Your Session Today" />
+
+      <main className="flex-1 py-12">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <InView
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0 }
-              }}
-              transition={{ duration: 0.6 }}
-            >
-              <h1 className="text-3xl md:text-4xl font-bold text-primary mb-4 font-serif">Photography Categories</h1>
-              <p className="text-muted-foreground max-w-3xl mx-auto">
-                Explore our range of professional photography services tailored to meet your specific needs and capture your special moments.
-              </p>
-            </InView>
-          </div>
+          <motion.div 
+            className="text-center mb-10"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+          >
+            <h1 className="text-3xl md:text-4xl font-bold text-primary mb-4 font-serif">Photography Categories</h1>
+            <p className="text-muted-foreground max-w-3xl mx-auto">
+              Explore our range of specialized photography services, each crafted with attention to detail and artistic vision.
+            </p>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {categories.map((category, index) => (
-              <InView
-                key={category.title}
-                variants={{
-                  hidden: { opacity: 0, y: 30 },
-                  visible: { opacity: 1, y: 0 }
-                }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
-                viewOptions={{ once: true, threshold: 0.2 }}
+              <motion.div
+                key={category.id}
+                className="rounded-lg overflow-hidden border border-gray-200 shadow-md hover:shadow-xl transition-shadow duration-300"
+                initial="offscreen"
+                whileInView="onscreen"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={cardVariants}
+                onMouseEnter={() => setHoveredCategory(category.id)}
+                onMouseLeave={() => setHoveredCategory(null)}
               >
-                <motion.div 
-                  className="group relative bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all"
-                  whileHover={{ y: -5 }}
-                >
-                  <div className="h-48 overflow-hidden">
-                    <img 
-                      src={category.image} 
-                      alt={category.title} 
-                      className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60"></div>
+                <div className="relative h-60 overflow-hidden">
+                  <motion.img
+                    src={category.image}
+                    alt={category.title}
+                    className="w-full h-full object-cover"
+                    animate={{
+                      scale: hoveredCategory === category.id ? 1.05 : 1
+                    }}
+                    transition={{ duration: 0.5 }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent pointer-events-none" />
+                  <div className="absolute bottom-0 left-0 p-4 text-white">
+                    <h2 className="text-2xl font-bold">{category.title}</h2>
                   </div>
-                  <div className="absolute top-4 right-4 bg-white/90 dark:bg-gray-800/90 rounded-full p-2">
-                    {category.icon}
-                  </div>
-                  <div className="p-6 relative z-10 -mt-12 bg-white dark:bg-gray-800 rounded-t-3xl">
-                    <h2 className="text-2xl font-bold text-primary mb-3">{category.title}</h2>
-                    <p className="text-muted-foreground mb-5">{category.description}</p>
+                </div>
+                <div className="p-5 bg-white">
+                  <p className="text-muted-foreground mb-5">{category.description}</p>
+                  <div className="flex justify-between items-center">
                     <ParticleButton
                       variant="default"
                       size="sm"
-                      className="w-full"
-                      successDuration={800}
-                      onSuccess={() => navigate(category.path)}
+                      className="text-sm"
+                      successDuration={500}
+                      onSuccess={() => navigate(category.route)}
                     >
-                      Explore {category.title}
+                      Explore {category.title.split(' ')[0]}
                     </ParticleButton>
+                    
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => navigate('/services')}
+                      className="text-sm text-muted-foreground"
+                    >
+                      {index % 2 === 0 ? <Camera className="h-4 w-4 mr-1" /> : <Gift className="h-4 w-4 mr-1" />}
+                      View Services
+                    </Button>
                   </div>
-                </motion.div>
-              </InView>
+                </div>
+              </motion.div>
             ))}
           </div>
 
-          <div className="text-center">
-            <InView
-              variants={{
-                hidden: { opacity: 0, scale: 0.95 },
-                visible: { opacity: 1, scale: 1 }
-              }}
-              transition={{ delay: 0.4, duration: 0.5 }}
+          <div className="text-center mt-16">
+            <ParticleButton
+              variant="outline"
+              size="lg"
+              className="mx-auto"
+              successDuration={800}
+              onSuccess={() => navigate('/services')}
             >
-              <p className="mb-6 text-muted-foreground">
-                Looking for a comprehensive overview of all our services?
-              </p>
-              <ParticleButton
-                variant="outline"
-                size="lg"
-                successDuration={800}
-                onSuccess={() => navigate('/services')}
-              >
-                View All Services
-              </ParticleButton>
-            </InView>
+              View All Photography Services
+            </ParticleButton>
           </div>
         </div>
       </main>
-      
+
       <Footer />
     </div>
   );
