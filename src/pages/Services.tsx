@@ -9,6 +9,7 @@ import MobileServiceMenu from '@/components/MobileServiceMenu';
 import servicesList, { Service } from '@/data/services';
 import { Grid, List, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { ParticleButton } from '@/components/ui/particle-button';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { motion, AnimatePresence } from 'framer-motion';
 import RunningScrawl from '@/components/gallery/RunningScrawl';
@@ -130,15 +131,16 @@ const Services = () => {
                     whileTap={{ scale: 0.9 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <Button
+                    <ParticleButton
                       variant="ghost"
                       size="icon"
                       onClick={backToGrid}
                       className="mr-1"
                       aria-label="Back to grid"
+                      successDuration={500}
                     >
                       <ArrowLeft className="h-5 w-5 text-primary" />
-                    </Button>
+                    </ParticleButton>
                   </motion.div>
                 )}
                 <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#003c72] font-arjulian">
@@ -147,15 +149,16 @@ const Services = () => {
               </div>
               <div className="flex items-center gap-2">
                 <motion.div whileTap={{ scale: 0.9 }}>
-                  <Button 
+                  <ParticleButton 
                     variant="outline" 
                     size="icon" 
                     onClick={toggleViewMode}
                     className="ml-auto shadow-sm"
                     aria-label={viewMode === 'detailed' ? "Switch to grid view" : "Switch to detailed view"}
+                    successDuration={500}
                   >
                     {viewMode === 'detailed' ? <Grid className="h-5 w-5" /> : <List className="h-5 w-5" />}
-                  </Button>
+                  </ParticleButton>
                 </motion.div>
               </div>
             </motion.div>

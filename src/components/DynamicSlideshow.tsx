@@ -1,3 +1,4 @@
+
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { galleryImages } from './gallery/GalleryData';
@@ -5,6 +6,7 @@ import { ChevronLeft, ChevronRight, Package } from 'lucide-react';
 import StyleProvider from './gallery/StyleProvider';
 import ElementorStyles from './slideshow/ElementorStyles';
 import GalleryAnimationStyles from './slideshow/gallery/GalleryAnimationStyles';
+import { ParticleButton } from '@/components/ui/particle-button';
 
 const DynamicSlideshow = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -143,23 +145,29 @@ const DynamicSlideshow = () => {
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full border border-amber-400/30 animate-[spin_180s_linear_infinite_reverse]"></div>
             </div>
             
-            <button 
+            <ParticleButton 
               onClick={prevSlide}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-white/20 hover:bg-white/40 text-white p-2 rounded-full backdrop-blur-sm transition-all duration-300 border border-white/30 shadow-lg"
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-white/20 hover:bg-white/40 text-white p-2 rounded-full backdrop-blur-sm transition-all duration-300 border border-white/30 shadow-lg h-10 w-10 p-0"
               aria-label="Previous slide"
+              variant="ghost"
+              size="icon"
               style={{ transform: 'translateY(-50%) translateZ(20px)' }}
+              successDuration={500}
             >
               <ChevronLeft size={24} />
-            </button>
+            </ParticleButton>
             
-            <button 
+            <ParticleButton 
               onClick={nextSlide}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-white/20 hover:bg-white/40 text-white p-2 rounded-full backdrop-blur-sm transition-all duration-300 border border-white/30 shadow-lg"
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-white/20 hover:bg-white/40 text-white p-2 rounded-full backdrop-blur-sm transition-all duration-300 border border-white/30 shadow-lg h-10 w-10 p-0"
               aria-label="Next slide"
+              variant="ghost"
+              size="icon"
               style={{ transform: 'translateY(-50%) translateZ(20px)' }}
+              successDuration={500}
             >
               <ChevronRight size={24} />
-            </button>
+            </ParticleButton>
             
             <AnimatePresence mode="wait">
               <motion.div
@@ -222,6 +230,17 @@ const DynamicSlideshow = () => {
                 </div>
               </motion.div>
             </AnimatePresence>
+          </div>
+          
+          <div className="mt-10 text-center">
+            <ParticleButton 
+              variant="default" 
+              size="lg"
+              className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold px-8"
+              onSuccess={() => window.location.href = '/services'}
+            >
+              View All Photos
+            </ParticleButton>
           </div>
         </div>
         <ElementorStyles />

@@ -1,6 +1,6 @@
 
 import { ExternalLink, Camera } from "lucide-react";
-import { Button } from "./ui/button";
+import { ParticleButton } from "./ui/particle-button";
 
 const WeddingPhotos = () => {
   const photoGalleries = [
@@ -39,17 +39,18 @@ const WeddingPhotos = () => {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <Button asChild variant="default" size="lg" className="flex items-center gap-2 text-base">
-                      <a 
-                        href={gallery.link} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2"
-                      >
+                    <ParticleButton 
+                      asChild 
+                      variant="default" 
+                      size="lg" 
+                      className="flex items-center gap-2 text-base"
+                      onSuccess={() => window.open(gallery.link, '_blank', 'noopener noreferrer')}
+                    >
+                      <a className="flex items-center gap-2">
                         View Gallery
                         <ExternalLink className="w-4 h-4" />
                       </a>
-                    </Button>
+                    </ParticleButton>
                   </div>
                 </div>
                 <div className="p-4 bg-white dark:bg-gray-800">
