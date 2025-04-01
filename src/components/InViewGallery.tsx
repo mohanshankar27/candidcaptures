@@ -15,7 +15,7 @@ export function InViewGallery() {
     { src: '/lovable-uploads/702c4c46-bfdd-4ecf-a98c-37ccd7b5f7b4.png', category: 'Fashion Photography' },
     { src: '/lovable-uploads/fd7df534-2749-42ba-bfa7-6188fb3daf76.png', category: 'Product Photography' },
     { src: '/lovable-uploads/365286f1-0e48-4fbc-99df-71eae1704b72.png', category: 'Event Photography' },
-    { src: '/lovable-uploads/9a29c088-c19b-4147-bb38-58aaafa0d9f7.png', category: 'Family Portraits' },
+    { src: '/lovable-uploads/944206cf-acec-4d0e-88cf-b2a20851be6a.png', category: 'Family Portraits' },
     { src: '/lovable-uploads/9c986aa2-6da0-4710-b9f7-c6195506ba38.png', category: 'Food Photography' },
     { src: '/lovable-uploads/8b3e3260-20a8-4a51-ac28-59e1f1b41bb2.png', category: 'Maternity Photography' },
     { src: '/lovable-uploads/0ef8c636-5a0e-4fe4-aedb-03f82bc3c8d4.png', category: 'Matrimonial Portfolios' },

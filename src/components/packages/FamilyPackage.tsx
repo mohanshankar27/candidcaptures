@@ -10,11 +10,11 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 const FamilyPackage: React.FC = () => {
   // Images for the family package carousel
   const familyImages = [
-    '/lovable-uploads/9a29c088-c19b-4147-bb38-58aaafa0d9f7.png',
-    '/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png',
-    '/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png',
-    '/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png',
-    '/lovable-uploads/bd4be06c-5fbf-4f77-81a2-aef9e161d516.png'
+    '/lovable-uploads/944206cf-acec-4d0e-88cf-b2a20851be6a.png',
+    '/lovable-uploads/395ab6f6-5a91-46b8-bdf3-44499d8493c4.png',
+    '/lovable-uploads/ee93278b-e620-468b-b539-46e8f10a87cd.png',
+    '/lovable-uploads/6d887d9c-2c78-4713-8ccb-e9e0692fdbeb.png',
+    '/lovable-uploads/fc003ada-77fe-4a80-9cad-6cee492da608.png'
   ];
 
   return (
