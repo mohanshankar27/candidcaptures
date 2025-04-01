@@ -3,8 +3,11 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Calendar, Camera, PaintRoller, Package } from "lucide-react";
 import "./WorkflowStyles.css";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const WorkflowPipeline = () => {
+  const isMobile = useIsMobile();
+  
   const stages = [{
     id: "planning",
     name: "Pre-Planning",
@@ -36,7 +39,7 @@ const WorkflowPipeline = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-primary mb-4">Workflow Matters A Lot</h2>
+            <h2 className={`text-3xl font-bold text-primary mb-4 ${isMobile ? 'px-4' : ''}`}>Workflow Matters A Lot</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">We provide high quality services since 2018</p>
           </div>
 
