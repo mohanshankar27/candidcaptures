@@ -7,6 +7,7 @@ import ContactForm from "@/components/contact/ContactForm";
 import ContactInfo from "@/components/contact/ContactInfo";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import CommunicationSidebar from "@/components/CommunicationSidebar";
+import { Toaster } from "@/components/ui/toaster";
 
 const Contact = () => {
   return (
@@ -25,6 +26,7 @@ const Contact = () => {
       </main>
       <WhatsAppButton />
       <CommunicationSidebar />
+      <Toaster />
       <Footer />
     </>
   );
