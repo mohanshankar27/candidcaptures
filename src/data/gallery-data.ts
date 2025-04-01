@@ -1,4 +1,3 @@
-
 // This file contains the data for the different gallery components
 
 export const weddingGalleryItems = [
@@ -179,4 +178,56 @@ export const commercialGalleryItems = [
     url: "/lovable-uploads/0da1d025-7654-4fe8-928f-c4b58b4f6a2c.png",
     span: "md:col-span-1 md:row-span-3 sm:col-span-1 sm:row-span-2",
   },
+];
+
+// Demo gallery items for the BentoGridGalleryDemo component
+export const demoGalleryItems = [
+  {
+    id: 1,
+    type: "image",
+    title: "Wedding Ceremony",
+    desc: "Capturing the emotional exchange of vows",
+    url: "/lovable-uploads/d3ea53b8-be87-48d7-bfab-5846b813948e.png",
+    span: "md:col-span-2 md:row-span-2 sm:col-span-2 sm:row-span-2",
+  },
+  {
+    id: 2,
+    type: "image",
+    title: "Bridal Portrait",
+    desc: "Elegant bridal photography with natural light",
+    url: "/lovable-uploads/ab48c040-6ad9-45cd-8b7d-be0c150875cd.png",
+    span: "md:col-span-1 md:row-span-3 sm:col-span-1 sm:row-span-2",
+  },
+  {
+    id: 3,
+    type: "image",
+    title: "First Dance",
+    desc: "The magical first dance as a married couple",
+    url: "/lovable-uploads/c564d2e1-cf57-4560-aedd-4c9d12a5ba2b.png",
+    span: "md:col-span-1 md:row-span-3 sm:col-span-2 sm:row-span-2",
+  },
+  {
+    id: 4,
+    type: "image",
+    title: "Product Photography",
+    desc: "High-quality product images for e-commerce",
+    url: "/lovable-uploads/fd7df534-2749-42ba-bfa7-6188fb3daf76.png",
+    span: "md:col-span-1 md:row-span-3 sm:col-span-1 sm:row-span-2",
+  },
+  {
+    id: 5,
+    type: "image",
+    title: "Event Photography",
+    desc: "Dynamic coverage of live performances",
+    url: "/lovable-uploads/a564c3a2-4602-4fb5-bdda-403ea9a78318.png",
+    span: "md:col-span-1 md:row-span-3 sm:col-span-2 sm:row-span-2",
+  },
+  {
+    id: 6,
+    type: "image",
+    title: "Portrait Photography",
+    desc: "Natural and candid lifestyle photography",
+    url: "/lovable-uploads/0e3af22f-eb15-463b-80be-159d6b53f595.png",
+    span: "md:col-span-1 md:row-span-3 sm:col-span-1 sm:row-span-2",
+  }
 ];
