@@ -3,6 +3,7 @@ import { InView } from "@/components/ui/in-view";
 import { motion } from "framer-motion";
 import { Camera } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { ParticleButton } from "@/components/ui/particle-button";
 
 export function InViewGallery() {
   const navigate = useNavigate();
@@ -26,6 +27,11 @@ export function InViewGallery() {
   const handleImageClick = (category: string) => {
     // Navigate to the Services page with the selected service category
     navigate('/services', { state: { selectedService: category } });
+  };
+
+  const handleClickMoreButton = () => {
+    // Navigate to the Services page
+    navigate('/services');
   };
 
   return (
@@ -78,6 +84,18 @@ export function InViewGallery() {
               ))}
             </div>
           </InView>
+        </div>
+        
+        {/* Click More Button */}
+        <div className="mt-10 text-center">
+          <ParticleButton 
+            variant="default" 
+            size="lg"
+            className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold px-8"
+            onSuccess={handleClickMoreButton}
+          >
+            View More Services
+          </ParticleButton>
         </div>
       </div>
     </div>
