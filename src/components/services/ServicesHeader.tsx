@@ -1,7 +1,6 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Grid, List, ArrowLeft, Layers } from 'lucide-react';
+import { Grid, List, ArrowLeft } from 'lucide-react';
 import { ParticleButton } from '@/components/ui/particle-button';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -55,17 +54,6 @@ const ServicesHeader: React.FC<ServicesHeaderProps> = ({
           </h1>
         </div>
         <div className="flex items-center gap-2">
-          <Link to="/categories">
-            <ParticleButton
-              variant="outline"
-              size="sm"
-              className="mr-2 hidden sm:flex"
-              successDuration={500}
-            >
-              <Layers className="h-4 w-4 mr-2" />
-              View Categories
-            </ParticleButton>
-          </Link>
           <motion.div whileTap={{ scale: 0.9 }}>
             <ParticleButton 
               variant="outline" 
