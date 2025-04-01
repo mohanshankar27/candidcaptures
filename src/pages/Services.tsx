@@ -1,13 +1,13 @@
 
 import { useState, useEffect, lazy, Suspense } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { ResizablePanelGroup, ResizableHandle, ResizablePanel } from '@/components/ui/resizable';
 import ServiceSidebar from '@/components/ServiceSidebar';
 import MobileServiceMenu from '@/components/MobileServiceMenu';
 import servicesList, { Service } from '@/data/services';
-import { Grid, List, ArrowLeft } from 'lucide-react';
+import { Grid, List, ArrowLeft, Layers } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ParticleButton } from '@/components/ui/particle-button';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -148,6 +148,17 @@ const Services = () => {
                 </h1>
               </div>
               <div className="flex items-center gap-2">
+                <Link to="/categories">
+                  <ParticleButton
+                    variant="outline"
+                    size="sm"
+                    className="mr-2 hidden sm:flex"
+                    successDuration={500}
+                  >
+                    <Layers className="h-4 w-4 mr-2" />
+                    View Categories
+                  </ParticleButton>
+                </Link>
                 <motion.div whileTap={{ scale: 0.9 }}>
                   <ParticleButton 
                     variant="outline" 
