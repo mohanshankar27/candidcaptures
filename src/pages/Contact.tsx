@@ -5,8 +5,6 @@ import Footer from "@/components/Footer";
 import ContactHero from "@/components/contact/ContactHero";
 import ContactForm from "@/components/contact/ContactForm";
 import ContactInfo from "@/components/contact/ContactInfo";
-import WhatsAppButton from "@/components/WhatsAppButton";
-import CommunicationSidebar from "@/components/CommunicationSidebar";
 import { Toaster } from "@/components/ui/toaster";
 
 const Contact = () => {
@@ -24,8 +22,6 @@ const Contact = () => {
           </div>
         </div>
       </main>
-      <WhatsAppButton />
-      <CommunicationSidebar />
       <Toaster />
       <Footer />
     </>

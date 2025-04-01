@@ -5,6 +5,7 @@ import Gallery from "@/components/Gallery";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import CommunicationSidebar from "@/components/CommunicationSidebar";
+import WhatsAppButton from "@/components/WhatsAppButton";
 import OurServices from "@/components/OurServices";
 import WorkflowPipeline from "@/components/workflow/WorkflowPipeline";
 import { InViewGallery } from "@/components/InViewGallery";
@@ -15,6 +16,7 @@ const Index = () => {
     <div className="min-h-screen">
       <Navbar />
       <CommunicationSidebar />
+      <WhatsAppButton />
       <Hero />
       <Gallery />
       <OurServices />
