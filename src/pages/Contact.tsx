@@ -6,7 +6,6 @@ import ContactHero from "@/components/contact/ContactHero";
 import ContactForm from "@/components/contact/ContactForm";
 import ContactInfo from "@/components/contact/ContactInfo";
 import { Toaster } from "@/components/ui/toaster";
-import GoogleReviewButton from "@/components/GoogleReviewButton";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 const Contact = () => {
@@ -24,7 +23,6 @@ const Contact = () => {
           </div>
         </div>
       </main>
-      <GoogleReviewButton />
       <WhatsAppButton />
       <Toaster />
       <Footer />
