@@ -1,5 +1,5 @@
 
-import { ExternalLink, Star } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { Button } from "./ui/button";
 
 const GoogleReviewButton = () => {
@@ -29,28 +29,6 @@ const GoogleReviewButton = () => {
               </svg>
             </div>
             <span className="font-medium text-xs whitespace-nowrap">Leave a Review</span>
-            <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-          </Button>
-        </a>
-
-        {/* Google Ratings Button - NEW */}
-        <a 
-          href="https://www.google.com/search?q=Candid+Capture+bangalore&sca_esv=84558b4239d0d7dc&sxsrf=AHTn8zpcyDBoKrE7z6aS3mKNYOIU0wTNrA%3A1743497771765&ei=K6rrZ8exLqad4-EP3t-F2Qs&ved=0ahUKEwiH8-iqu7aMAxWmzjgGHd5vIbsQ4dUDCBA&uact=5&oq=Candid+Capture+bangalore&gs_lp=Egxnd3Mtd2l6LXNlcnAiGENhbmRpZCBDYXB0dXJlIGJhbmdhbG9yZTICECYyCBAAGIAEGKIEMggQABiABBiiBDIIEAAYgAQYogQyBRAAGO8FMgUQABjvBUjUGFB8WIoXcAF4AJABAZgB9wSgAZgTqgELMC42LjIuMS4wLjG4AQPIAQD4AQGYAgqgArsOwgIHECMYsAMYJ8ICDRAAGIAEGLADGEMYigXCAgkQABiwAxgHGB7CAggQABiABBiwA8ICBBAjGCfCAgoQABiABBgUGIcCwgIFEAAYgATCAgYQABgWGB7CAgsQABiABBiGAxiKBcICCBAAGAgYDRgemAMAiAYBkAYKkgcHMS42LjIuMaAHsDQ&sclient=gws-wiz-serp&lqi=ChhDYW5kaWQgQ2FwdHVyZSBiYW5nYWxvcmVIw4XR9aqxgIAIWiQQABABGAAYARgCIhhjYW5kaWQgY2FwdHVyZSBiYW5nYWxvcmWSARR3ZWRkaW5nX3Bob3RvZ3JhcGhlcqoBXwoIL20vMDljMTcQASoSIg5jYW5kaWQgY2FwdHVyZSgAMh8QASIbnhkg3LSR6UcIv9O5dBZsbAVxvb1zgEgQysRIMhwQAiIYY2FuZGlkIGNhcHR1cmUgYmFuZ2Fsb3Jl#rlimm=9088005409797166387" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="inline-block"
-        >
-          <Button
-            className="group flex flex-col items-center gap-2 px-3 py-6 bg-white shadow-lg hover:bg-yellow-50 text-primary rounded-full transition-all duration-300 hover:scale-105"
-          >
-            <div className="flex items-center">
-              <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
-              <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
-              <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
-              <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
-              <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
-            </div>
-            <span className="font-medium text-xs whitespace-nowrap">4.9 Rating</span>
             <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
           </Button>
         </a>
