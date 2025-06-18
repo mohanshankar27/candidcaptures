@@ -1,5 +1,5 @@
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -17,8 +17,8 @@ const serviceItems: ServiceItem[] = [
   {
     id: 1,
     name: "Product Photography",
-    image: "/lovable-uploads/fd7df534-2749-42ba-bfa7-6188fb3daf76.png",
-    description: "Professional studio setup for pharmaceutical and healthcare product photography"
+    image: "/lovable-uploads/8d5e6443-143d-4c94-be94-b1e0b3cc76b2.png",
+    description: "Professional studio setup for capturing high-quality product images"
   },
   {
     id: 2,
@@ -34,9 +34,9 @@ const serviceItems: ServiceItem[] = [
   },
   {
     id: 4,
-    name: "Special Services",
-    image: "/lovable-uploads/43b3b2f5-3919-44f7-8575-f1e18682bf73.png",
-    description: "Traditional and cultural photography showcasing Indian heritage and customs"
+    name: "Cultural Photography",
+    image: "/lovable-uploads/fb019637-e8cb-4a43-9303-075fd194e2b8.png",
+    description: "Authentic and vibrant photography capturing traditional cultural elements"
   }
 ];
 
@@ -44,33 +44,24 @@ const ServiceSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
   const [imagesPreloaded, setImagesPreloaded] = useState(false);
-  const [isInitialRender, setIsInitialRender] = useState(true);
-  const autoplayTimerRef = useRef<NodeJS.Timeout | null>(null);
   const navigate = useNavigate();
   const isMobile = useIsMobile();
 
   useEffect(() => {
-    const img = new Image();
-    img.onload = () => setImagesPreloaded(true);
-    img.src = serviceItems[0].image;
-    
-    const preloadRemainingImages = () => {
-      serviceItems.slice(1).forEach((item) => {
-        const img = new Image();
-        img.src = item.image;
+    const preloadImages = async () => {
+      const imagePromises = serviceItems.map((item) => {
+        return new Promise((resolve) => {
+          const img = new Image();
+          img.src = item.image;
+          img.onload = resolve;
+        });
       });
+      
+      await Promise.all(imagePromises);
+      setImagesPreloaded(true);
     };
     
-    const timer = setTimeout(preloadRemainingImages, 1000);
-    
-    const initialRenderTimer = setTimeout(() => {
-      setIsInitialRender(false);
-    }, 100);
-    
-    return () => {
-      clearTimeout(timer);
-      clearTimeout(initialRenderTimer);
-    };
+    preloadImages();
   }, []);
 
   const currentService = serviceItems[currentIndex];
@@ -92,7 +83,7 @@ const ServiceSlider = () => {
 
   const slideVariants = {
     enter: (direction: number) => ({
-      x: direction > 0 ? 200 : -200,
+      x: direction > 0 ? 300 : -300,
       opacity: 0
     }),
     center: {
@@ -100,25 +91,17 @@ const ServiceSlider = () => {
       opacity: 1
     },
     exit: (direction: number) => ({
-      x: direction < 0 ? 200 : -200,
+      x: direction < 0 ? 300 : -300,
       opacity: 0
     })
   };
 
   useEffect(() => {
-    if (autoplayTimerRef.current) {
-      clearInterval(autoplayTimerRef.current);
-    }
-    
-    autoplayTimerRef.current = setInterval(() => {
+    const timer = setInterval(() => {
       nextSlide();
-    }, 6000);
+    }, 5000);
     
-    return () => {
-      if (autoplayTimerRef.current) {
-        clearInterval(autoplayTimerRef.current);
-      }
-    };
+    return () => clearInterval(timer);
   }, [currentIndex]);
 
   return (
@@ -133,12 +116,6 @@ const ServiceSlider = () => {
         
         <div className="relative h-[400px] md:h-[500px] w-full flex items-center justify-center">
           <div className="w-full max-w-5xl relative overflow-hidden rounded-xl shadow-2xl bg-white">
-            {isInitialRender && (
-              <div className="absolute inset-0 bg-slate-100 flex items-center justify-center">
-                <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
-              </div>
-            )}
-            
             <AnimatePresence initial={false} custom={direction} mode="wait">
               <motion.div
                 key={currentIndex}
@@ -148,7 +125,7 @@ const ServiceSlider = () => {
                 animate="center"
                 exit="exit"
                 transition={{
-                  x: { type: "tween", duration: 0.3 },
+                  x: { type: "spring", stiffness: 500, damping: 30 },
                   opacity: { duration: 0.1 }
                 }}
                 className="absolute inset-0"
@@ -159,7 +136,6 @@ const ServiceSlider = () => {
                       src={currentService.image}
                       alt={currentService.name}
                       className="w-full h-full object-cover md:object-contain"
-                      loading="eager"
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent"></div>
                     <div className="absolute bottom-0 left-0 p-4 md:p-6 text-white">

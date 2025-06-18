@@ -15,7 +15,6 @@ interface GallerySlideProps {
   handleCardFlip: (index: number) => void;
   totalSlides: number;
   showFullSize?: boolean;
-  isLoaded?: boolean;
 }
 
 const GallerySlide = ({ 
@@ -25,8 +24,7 @@ const GallerySlide = ({
   flippedIndex, 
   handleCardFlip,
   totalSlides,
-  showFullSize = false,
-  isLoaded = true
+  showFullSize = false
 }: GallerySlideProps) => {
   // Calculate if this is the active slide
   const isActive = activeIndex === index;
@@ -44,8 +42,8 @@ const GallerySlide = ({
     const y = e.clientY - rect.top;
     
     // Calculate rotation based on mouse position (more subtle)
-    const rotateY = ((x / rect.width) * 4) - 2; // -2 to 2 degrees (reduced from -3 to 3)
-    const rotateX = (((y / rect.height) * 4) - 2) * -1; // -2 to 2 degrees (reduced from -3 to 3)
+    const rotateY = ((x / rect.width) * 6) - 3; // -3 to 3 degrees
+    const rotateX = (((y / rect.height) * 6) - 3) * -1; // -3 to 3 degrees, inverted
     
     setHoverRotate({ x: rotateX, y: rotateY });
   };
@@ -59,7 +57,7 @@ const GallerySlide = ({
   const cardVariants = {
     initial: { 
       opacity: 0, 
-      y: 20, // Reduced from 40
+      y: 40,
       scale: 0.95
     },
     animate: {
@@ -69,7 +67,7 @@ const GallerySlide = ({
       rotateY: isActive ? hoverRotate.y : 0,
       rotateX: isActive ? hoverRotate.x : 0,
       transition: { 
-        duration: 0.5, // Reduced from 0.7
+        duration: 0.7, 
         ease: [0.22, 1, 0.36, 1]
       }
     }
@@ -100,31 +98,25 @@ const GallerySlide = ({
               {/* Golden border glow effect */}
               <div className="absolute inset-0 z-20 golden-border-glow rounded-lg"></div>
               
-              {/* Simplified luxury gold border frame */}
+              {/* Luxury gold border frame */}
               <div className="absolute inset-2 z-20 border-[1px] border-amber-300/40 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute inset-[7px] z-20 border-[1px] border-amber-400/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100"></div>
               
-              {/* Loading state placeholder */}
-              {!isLoaded && (
-                <div className="absolute inset-0 flex items-center justify-center bg-slate-100 z-30">
-                  <div className="w-12 h-12 border-4 border-orange-400 border-t-transparent rounded-full animate-spin"></div>
-                </div>
-              )}
+              {/* 3D card shadow effect */}
+              {isActive && <div className="card-3d-shadow"></div>}
               
-              {/* Image with loading attributes */}
+              {/* Dynamic light effects */}
+              <div className="absolute -inset-full z-10 bg-gradient-to-tr from-amber-300/10 via-white/20 to-amber-300/10 translate-x-[100%] skew-x-12 animate-shine"></div>
+              <div className="absolute inset-0 bg-gradient-to-tr from-black/10 to-black/20 mix-blend-overlay z-10 opacity-60"></div>
+              
               <img 
                 src={image.url} 
                 alt={image.alt} 
-                loading={index < 2 ? "eager" : "lazy"}
-                decoding={index < 2 ? "sync" : "async"}
-                className={`${showFullSize ? 'w-full h-full object-contain' : 'w-full h-full object-contain'} mx-auto ${!isLoaded ? 'opacity-0' : 'opacity-100'}`}
-                style={{ 
-                  willChange: 'transform',
-                  transition: 'opacity 0.3s ease'
-                }}
+                className={`${showFullSize ? 'w-full h-full object-contain' : 'w-full h-full object-contain'} mx-auto`}
               />
               
-              {/* Simplified gradient overlays */}
-              <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 opacity-40"></div>
+              {/* Premium gradient overlays */}
+              <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/80 opacity-40"></div>
               <div className="absolute inset-0 bg-gradient-to-tr from-amber-700/20 via-transparent to-amber-300/20 opacity-40 group-hover:opacity-80 transition-opacity duration-700"></div>
               
               {/* Create reflective effect at bottom of card for 3D look */}
@@ -150,7 +142,7 @@ const GallerySlide = ({
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.4 }} // Reduced from 0.6
+            transition={{ duration: 0.6 }}
             className="absolute inset-0 border-2 border-amber-300/30 rounded-xl pointer-events-none shadow-[0_0_40px_rgba(251,191,36,0.3)]"
             style={{
               transform: 'translateZ(5px)'

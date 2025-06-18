@@ -26,36 +26,9 @@ const GalleryCarousel = ({ images, autoplay = true }: GalleryCarouselProps) => {
   // State to track which card is flipped
   const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [prevIndex, setPrevIndex] = useState(0);
   const [isInteracting, setIsInteracting] = useState(false);
-  const [imagesLoaded, setImagesLoaded] = useState(false);
   const autoplayTimerRef = useRef<number | null>(null);
-  
-  // Preload critical images
-  useEffect(() => {
-    const preloadInitialImages = () => {
-      // Only preload the first 2 images for faster initial render
-      const imagePromises = images.slice(0, 2).map((image) => {
-        return new Promise<void>((resolve) => {
-          const img = new Image();
-          img.src = image.url;
-          img.onload = () => resolve();
-          img.onerror = () => resolve();
-        });
-      });
-      
-      // Set a timeout to prevent blocking rendering
-      const timeoutPromise = new Promise<void>(resolve => setTimeout(resolve, 1000));
-      
-      Promise.race([
-        Promise.all(imagePromises),
-        timeoutPromise
-      ]).then(() => {
-        setImagesLoaded(true);
-      });
-    };
-    
-    preloadInitialImages();
-  }, [images]);
   
   // Function to handle auto-sliding with cleanup for timer
   const startAutoplay = useCallback(() => {
@@ -68,7 +41,7 @@ const GalleryCarousel = ({ images, autoplay = true }: GalleryCarouselProps) => {
     if (!isInteracting && emblaApi) {
       autoplayTimerRef.current = window.setTimeout(() => {
         emblaApi.scrollNext();
-      }, 5000); // Extended to 5 seconds per slide for better performance
+      }, 4000); // Set to 4 seconds per slide
     }
   }, [emblaApi, isInteracting, autoplay]);
   
@@ -77,9 +50,10 @@ const GalleryCarousel = ({ images, autoplay = true }: GalleryCarouselProps) => {
     if (!emblaApi) return;
     
     const current = emblaApi.selectedScrollSnap();
+    setPrevIndex(activeIndex);
     setActiveIndex(current);
     startAutoplay();
-  }, [emblaApi, startAutoplay]);
+  }, [emblaApi, activeIndex, startAutoplay]);
   
   // Handle user interactions
   const onPointerDown = useCallback(() => {
@@ -145,8 +119,8 @@ const GalleryCarousel = ({ images, autoplay = true }: GalleryCarouselProps) => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 1.2, ease: "easeOut" }}
       viewport={{ once: true, margin: "-100px" }}
       className="w-full mx-auto elementor-main-swiper carousel-3d-container"
     >
@@ -166,7 +140,6 @@ const GalleryCarousel = ({ images, autoplay = true }: GalleryCarouselProps) => {
               handleCardFlip={handleCardFlip}
               totalSlides={images.length}
               showFullSize={true}
-              isLoaded={imagesLoaded || index < 2}
             />
           ))}
         </div>
@@ -176,12 +149,12 @@ const GalleryCarousel = ({ images, autoplay = true }: GalleryCarouselProps) => {
         onPrev={() => {
           emblaApi?.scrollPrev();
           setIsInteracting(true);
-          setTimeout(() => setIsInteracting(false), 800);
+          setTimeout(() => setIsInteracting(false), 1000);
         }}
         onNext={() => {
           emblaApi?.scrollNext();
           setIsInteracting(true);
-          setTimeout(() => setIsInteracting(false), 800);
+          setTimeout(() => setIsInteracting(false), 1000);
         }}
         activeIndex={activeIndex}
         totalSlides={images.length}

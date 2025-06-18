@@ -52,16 +52,26 @@ const portraitServices: Service[] = [
   },
   { 
     name: 'Toddler & Children',
-    description: 'Magical photography sessions for toddlers and children that capture their personality, joy, and milestone moments in beautiful settings with creative themes.',
+    description: 'Playful and natural photography sessions for toddlers and children that capture their personality, joy, and milestone moments.',
     benefits: [
       'Child-friendly environment',
-      'Patience and expertise with young children',
-      'Themed photography options',
-      'Activity-based candid shots',
-      'Family inclusion possibilities',
+      'Patience and experience with kids',
+      'Activity-based photography',
+      'Family inclusion options',
       'Growth timeline packages'
     ],
     pricing: 'Starting at ₹5,000 per session'
+  },
+  { 
+    name: 'Naming Ceremony',
+    description: "Document your child's naming ceremony with professional photography that captures all the meaningful moments and traditions of this important celebration.",
+    benefits: [
+      'Ceremony coverage',
+      'Family group photos',
+      'Detail shots of decorations and rituals',
+      'Quick preview delivery'
+    ],
+    pricing: 'Starting at ₹12,000 for full ceremony coverage'
   }
 ];
 

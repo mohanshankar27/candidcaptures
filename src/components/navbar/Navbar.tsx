@@ -19,13 +19,12 @@ const Navbar = () => {
   // Keep services array for mobile menu
   const services = [
     { name: 'Wedding Photography', href: '/services#wedding' },
-    { name: 'Product Photography', href: '/services#product' },
+    { name: 'Product shoot', href: '/services#product' },
     { name: 'Makeup shoot', href: '/services#makeup' },
     { name: 'Concept shoot', href: '/services#concept' },
-    { name: 'Maternity Photography', href: '/services#maternity' },
-    { name: 'New Born Baby Shoot', href: '/services#newborn' },
-    { name: 'Toddler & Children', href: '/services#toddler' },
-    { name: 'Special Services', href: '/services#special' },
+    { name: 'Maternity shoot', href: '/services#maternity' },
+    { name: 'Newborn shoot', href: '/services#newborn' },
+    { name: 'Naming Ceremony', href: '/services#naming' },
   ];
 
   const navItems = [
@@ -33,7 +32,7 @@ const Navbar = () => {
     { name: 'Services', href: '/services' },
     { name: 'Package', href: '/pricing' },
     { name: 'About', href: '/about' },
-    { name: 'Contact', href: '/contact' },
+    { name: 'Contact Us', href: '/#contact' },
   ];
 
   return (

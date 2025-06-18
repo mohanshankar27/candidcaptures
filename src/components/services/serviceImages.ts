@@ -1,22 +1,24 @@
 
 // Map service names to appropriate images 
 const serviceImages: Record<string, string> = {
-  'Concept shoot': "/lovable-uploads/fb13bae7-33ad-4972-b884-47d4f113d139.png", // Updated to new goddess concept image
-  'Corporate & Short Videos': "/lovable-uploads/9bc16cc2-a103-4803-a922-903bd674693c.png", // Updated to new corporate team image
-  'Corporate Headshots': "/lovable-uploads/c61284f0-f6ce-4fe3-a1a0-c41bcc09469e.png", // Updated to new professional headshot image
-  'E-Commerce & Catalogues': "/lovable-uploads/432982f3-f8c4-40d8-b5da-0c55198c9d7b.png", // Updated to new red blouse image
-  'Event Photography': "/lovable-uploads/365286f1-0e48-4fbc-99df-71eae1704b72.png",
-  'Family Portraits': "/lovable-uploads/9a29c088-c19b-4147-bb38-58aaafa0d9f7.png",
-  'Fashion Photography': "/lovable-uploads/702c4c46-bfdd-4ecf-a98c-37ccd7b5f7b4.png", // Updated to new image
-  'Food Photography': "/lovable-uploads/9c986aa2-6da0-4710-b9f7-c6195506ba38.png", // Updated to new curry dish image
-  'Makeup shoot': "/lovable-uploads/cad21907-840a-459a-8e84-261e5dd02084.png", // Updated to new bridal makeup image
-  'Maternity Photography': "/lovable-uploads/8b3e3260-20a8-4a51-ac28-59e1f1b41bb2.png", // Updated to new family maternity image
-  'Matrimonial Portfolios': "/lovable-uploads/0ef8c636-5a0e-4fe4-aedb-03f82bc3c8d4.png", // Updated to new matrimonial portrait image
-  'New Born Baby Shoot': "/lovable-uploads/6066b255-5f3a-4f05-b2b7-f144098189da.png", // Updated to new baby image in red wrap
-  'Product Photography': "/lovable-uploads/fd7df534-2749-42ba-bfa7-6188fb3daf76.png", // Updated to new pharmaceutical product image
-  'Special Services': "/lovable-uploads/43b3b2f5-3919-44f7-8575-f1e18682bf73.png", // Traditional cultural diorama image
-  'Toddler & Children': "/lovable-uploads/fe26bc26-2a66-4dfb-aeb8-db5490eeaea9.png", // Updated to new girl in blue dress image
-  'Wedding Photography': "/lovable-uploads/d3ea53b8-be87-48d7-bfab-5846b813948e.png" // Updated to new mandap image
+  'Concept shoot': "/lovable-uploads/4a67f538-ecc9-41af-87e5-08ddea7ba4f6.png",
+  'Corporate & Short Videos': "/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png",
+  'Corporate Headshots': "/lovable-uploads/53584cdb-e83c-4e6f-8b99-37ba6c8fc6b8.png",
+  'E-Commerce & Catalogues': "/lovable-uploads/3346c7fa-c327-4873-a6e2-35da082a7f6e.png",
+  'Event Photography': "/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png",
+  'Family Portraits': "/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png",
+  'Fashion Photography': "/lovable-uploads/63234086-83f0-42c2-89ed-b8f4bfd7512e.png",
+  'Food Photography': "/lovable-uploads/615d3ac6-4345-48d6-9ed9-b794c68b0307.png",
+  'Makeup shoot': "/lovable-uploads/e612e8f7-3f32-4c0d-a920-b83e95752820.png",
+  'Maternity Photography': "/lovable-uploads/f046c9be-865f-4636-94e3-1ddf71ca3039.png",
+  'Matrimonial Portfolios': "/lovable-uploads/f981f530-98b4-46e6-8063-68406ae598e1.png",
+  'Naming Ceremony': "/lovable-uploads/a3bc1529-edae-4409-8b04-c96378625e25.png",
+  'New Born Baby Shoot': "/lovable-uploads/53584cdb-e83c-4e6f-8b99-37ba6c8fc6b8.png",
+  'Product Photography': "/lovable-uploads/8d5e6443-143d-4c94-be94-b1e0b3cc76b2.png",
+  'Product shoot': "/lovable-uploads/9f2ac349-a655-4b65-aeee-a9025b3d7b17.png",
+  'Special Services': "/lovable-uploads/2d3cd7f7-c670-4f54-9c52-629af45c0f3e.png",
+  'Toddler & Children': "/lovable-uploads/44fdad37-1724-4cad-a878-bb2baf05b83b.png",
+  'Wedding Photography': "/lovable-uploads/615d3ac6-4345-48d6-9ed9-b794c68b0307.png"
 };
 
 export const getServiceImage = (serviceName: string): string => {

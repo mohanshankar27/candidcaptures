@@ -38,6 +38,18 @@ const specialtyServices: Service[] = [
       'Portfolio-ready images'
     ],
     pricing: 'Starting at ₹7,000 per session'
+  },
+  { 
+    name: 'Special Services',
+    description: 'Custom photography solutions for unique requirements and specialized projects beyond our standard service offerings.',
+    benefits: [
+      'Personalized consultation',
+      'Custom project planning',
+      'Specialized equipment when needed',
+      'Flexible scheduling options',
+      'Tailored to your unique needs'
+    ],
+    pricing: 'Custom quotes based on project scope'
   }
 ];
 

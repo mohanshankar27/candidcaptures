@@ -9,7 +9,6 @@ import GalleryIndicators from './gallery/GalleryIndicators';
 import ImageModal from './gallery/ImageModal';
 import StyleProvider from './gallery/StyleProvider';
 import PremiumGalleryEffects from './gallery/PremiumGalleryEffects';
-import RunningScrawl from './gallery/RunningScrawl';
 
 const Gallery = () => {
   const [current, setCurrent] = useState(0);
@@ -64,11 +63,6 @@ const Gallery = () => {
       <PremiumGalleryEffects />
       
       <div className="container mx-auto px-4 relative z-10">
-        {/* Festival Offer Running Scrawl */}
-        <div className="mb-8 -mx-4">
-          <RunningScrawl message="🎉 Avail Festival offer 10% off on the packages of your choice 🎉" />
-        </div>
-
         <GalleryHeader />
 
         <div className="max-w-5xl mx-auto">

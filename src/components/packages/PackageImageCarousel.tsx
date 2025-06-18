@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { 
   Carousel, 
   CarouselContent, 
@@ -20,33 +20,6 @@ const PackageImageCarousel: React.FC<PackageImageCarouselProps> = ({
   altPrefix = "Package image" 
 }) => {
   const [enlargedImageIndex, setEnlargedImageIndex] = useState<number | null>(null);
-  const [imagesLoaded, setImagesLoaded] = useState(false);
-  
-  // Preload carousel images for faster display
-  useEffect(() => {
-    const preloadImages = () => {
-      const imagePromises = images.slice(0, 3).map((src) => {
-        return new Promise<void>((resolve) => {
-          const img = new Image();
-          img.src = src;
-          img.onload = () => resolve();
-          img.onerror = () => resolve();
-        });
-      });
-      
-      // Mark images as loaded after first 3 are ready or after 1 second, whichever comes first
-      const timeoutPromise = new Promise<void>(resolve => setTimeout(resolve, 1000));
-      
-      Promise.race([
-        Promise.all(imagePromises),
-        timeoutPromise
-      ]).then(() => {
-        setImagesLoaded(true);
-      });
-    };
-    
-    preloadImages();
-  }, [images]);
 
   const openImageView = (index: number) => {
     setEnlargedImageIndex(index);
@@ -80,16 +53,13 @@ const PackageImageCarousel: React.FC<PackageImageCarouselProps> = ({
             <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
               <div className="p-1">
                 <div 
-                  className={`overflow-hidden rounded-xl h-52 md:h-64 lg:h-72 shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer ${!imagesLoaded && index > 2 ? 'opacity-0' : 'opacity-100'}`}
+                  className="overflow-hidden rounded-xl h-52 md:h-64 lg:h-72 shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer"
                   onClick={() => openImageView(index)}
                 >
                   <img 
                     src={image} 
                     alt={`${altPrefix} ${index + 1}`}
-                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                    loading={index < 3 ? "eager" : "lazy"}
-                    width="400"
-                    height="300"
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                   />
                 </div>
               </div>

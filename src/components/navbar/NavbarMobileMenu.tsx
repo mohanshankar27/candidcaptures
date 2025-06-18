@@ -1,7 +1,6 @@
 
 import { ChevronDown } from 'lucide-react';
 import { cn } from "@/lib/utils";
-import { motion, AnimatePresence } from 'framer-motion';
 
 interface NavItem {
   name: string;
@@ -36,39 +35,64 @@ const NavbarMobileMenu = ({
   if (!isOpen) return null;
 
   return (
-    <AnimatePresence>
-      {isOpen && (
-        <motion.div 
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          transition={{ duration: 0.2 }}
-          className="lg:hidden pb-4 shadow-lg bg-white/95 backdrop-blur-sm border-b border-amber-100"
-        >
-          <div className="py-4 px-5 space-y-2">
-            {navItems.map((item) => (
-              <div key={item.name} className="border-b border-amber-50 last:border-0">
-                {/* For mobile, treat Services like a direct navigation link instead of a dropdown */}
-                <motion.a
-                  href={item.href}
+    <div className="lg:hidden pb-6 animate-fadeIn shadow-lg bg-white">
+      <div className="py-4 px-6 space-y-4">
+        {navItems.map((item) => (
+          <div key={item.name}>
+            {item.name === 'Services' ? (
+              <div className="space-y-2">
+                <button
                   className={cn(
-                    "block py-3 transition-colors text-base font-arjulian touch-action-manipulation",
+                    "flex items-center justify-between w-full py-2 transition-colors text-base font-serif italic",
                     isActive(item.href) ? "text-[#003c72] font-bold" : "hover:text-primary"
                   )}
-                  onClick={(e) => {
-                    handleNavClick(e, item);
+                  onClick={() => {
                     setIsOpen(false);
+                    handleNavClick(
+                      { preventDefault: () => {} } as React.MouseEvent<HTMLAnchorElement>, 
+                      item
+                    );
                   }}
-                  whileTap={{ scale: 0.98 }}
                 >
-                  {item.name}
-                </motion.a>
+                  <span>{item.name}</span>
+                  <ChevronDown size={16} />
+                </button>
+                <div className="pl-4 space-y-2 border-l-2 border-gray-200">
+                  {services.map((service) => (
+                    <a
+                      key={service.name}
+                      href={service.href}
+                      className="block py-1 text-sm hover:text-primary"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleServiceClick(service);
+                        setIsOpen(false);
+                      }}
+                    >
+                      {service.name}
+                    </a>
+                  ))}
+                </div>
               </div>
-            ))}
+            ) : (
+              <a
+                href={item.href}
+                className={cn(
+                  "block py-2 transition-colors text-base font-serif italic",
+                  isActive(item.href) ? "text-[#003c72] font-bold" : "hover:text-primary"
+                )}
+                onClick={(e) => {
+                  handleNavClick(e, item);
+                  setIsOpen(false);
+                }}
+              >
+                {item.name}
+              </a>
+            )}
           </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+        ))}
+      </div>
+    </div>
   );
 };
 
