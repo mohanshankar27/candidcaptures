@@ -1,75 +1,123 @@
 
 import React from 'react';
+import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { Baby, Users, Camera, CalendarDays } from 'lucide-react';
+import { Camera, Heart, Users, Briefcase, Baby } from 'lucide-react';
 
-interface PackageButtonProps {
-  title: string;
+interface PackageButton {
   icon: React.ReactNode;
+  label: string;
+  description: string;
   path: string;
-  className?: string;
+  color: string;
 }
 
-const PackageButton = ({ title, icon, path, className = "" }: PackageButtonProps) => {
+const PackageNavButtons = () => {
   const navigate = useNavigate();
-  
-  return (
-    <button
-      onClick={() => navigate(path)}
-      className={`relative flex items-center justify-center h-16 px-8 py-3 text-indigo-800 bg-white rounded-full hover:shadow-lg transition-all duration-300 ${className}`}
-      style={{
-        boxShadow: '0 2px 10px rgba(0, 0, 0, 0.08)',
-        borderWidth: '1px',
-        borderColor: 'rgba(0, 0, 0, 0.05)'
-      }}
-    >
-      <div className="flex items-center gap-3">
-        <span className="text-[#ea384c]">{icon}</span>
-        <span className="text-lg font-serif font-medium">{title}</span>
-      </div>
-    </button>
-  );
-};
 
-const PackageNavButtons: React.FC = () => {
-  const packages = [
+  const packages: PackageButton[] = [
     {
-      title: "Wedding Photography",
-      icon: <Camera size={20} />,
-      path: "/packages/wedding",
+      icon: <Camera className="w-6 h-6" />,
+      label: "Wedding Photography",
+      description: "Complete wedding day coverage",
+      path: "/services",
+      color: "from-rose-500 to-pink-600"
     },
     {
-      title: "Event Coverage", 
-      icon: <CalendarDays size={20} />,
-      path: "/packages/event",
+      icon: <Heart className="w-6 h-6" />,
+      label: "Pre-Wedding Sessions",
+      description: "Romantic couple shoots",
+      path: "/services", 
+      color: "from-purple-500 to-indigo-600"
     },
     {
-      title: "Family Portraits",
-      icon: <Users size={20} />,
-      path: "/packages/family",
+      icon: <Baby className="w-6 h-6" />,
+      label: "Maternity Photography",
+      description: "Beautiful pregnancy portraits",
+      path: "/pricing",
+      color: "from-pink-500 to-rose-600"
     },
     {
-      title: "Maternity Photography",
-      icon: <Baby size={20} />,
-      path: "/packages/maternity",
+      icon: <Users className="w-6 h-6" />,
+      label: "Family Portraits",
+      description: "Timeless family memories",
+      path: "/services",
+      color: "from-green-500 to-emerald-600"
     },
     {
-      title: "New Born & Children",
-      icon: <Baby size={20} />,
-      path: "/packages/new-born",
+      icon: <Briefcase className="w-6 h-6" />,
+      label: "Corporate Events",
+      description: "Professional event coverage",
+      path: "/services",
+      color: "from-blue-500 to-cyan-600"
     }
   ];
-  
+
+  const handlePackageClick = (pkg: PackageButton) => {
+    if (pkg.label === "Maternity Photography") {
+      // Scroll to maternity tab or trigger tab change
+      navigate('/pricing');
+      // You could add state management here to auto-select the maternity tab
+    } else {
+      navigate(pkg.path, { 
+        state: { selectedService: pkg.label } 
+      });
+    }
+  };
+
   return (
-    <div className="flex flex-wrap justify-center gap-4 mt-12 mb-20">
-      {packages.map((pkg, index) => (
-        <PackageButton 
-          key={index}
-          title={pkg.title}
-          icon={pkg.icon}
-          path={pkg.path}
-        />
-      ))}
+    <div className="mb-12">
+      <motion.div 
+        className="text-center mb-8"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <h2 className="text-2xl md:text-3xl font-semibold text-slate-800 mb-4">
+          Choose Your Photography Package
+        </h2>
+        <p className="text-slate-600 max-w-2xl mx-auto">
+          Select from our specialized photography services designed to capture your most precious moments
+        </p>
+      </motion.div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 max-w-6xl mx-auto">
+        {packages.map((pkg, index) => (
+          <motion.button
+            key={pkg.label}
+            onClick={() => handlePackageClick(pkg)}
+            className="group relative overflow-hidden bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 text-left border border-slate-200 hover:border-slate-300"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            whileHover={{ y: -5, scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            {/* Background gradient on hover */}
+            <div className={`absolute inset-0 bg-gradient-to-br ${pkg.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
+            
+            {/* Icon */}
+            <div className={`inline-flex p-3 rounded-lg bg-gradient-to-br ${pkg.color} text-white mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+              {pkg.icon}
+            </div>
+            
+            {/* Content */}
+            <h3 className="font-semibold text-slate-800 mb-2 group-hover:text-slate-900 transition-colors">
+              {pkg.label}
+            </h3>
+            <p className="text-sm text-slate-600 group-hover:text-slate-700 transition-colors">
+              {pkg.description}
+            </p>
+            
+            {/* Arrow indicator */}
+            <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <svg className="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </div>
+          </motion.button>
+        ))}
+      </div>
     </div>
   );
 };

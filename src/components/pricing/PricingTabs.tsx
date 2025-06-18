@@ -4,6 +4,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { WeddingPackage } from './WeddingPackage';
 import { PreWeddingPackage } from './PreWeddingPackage';
 import { CorporatePackage } from './CorporatePackage';
+import MaternityPackage from './MaternityPackage';
 
 export const PricingTabs = () => {
   return (
@@ -15,9 +16,10 @@ export const PricingTabs = () => {
         </p>
       </div>
       
-      <TabsList className="grid w-full grid-cols-3 max-w-md mx-auto mb-8">
+      <TabsList className="grid w-full grid-cols-4 max-w-lg mx-auto mb-8">
         <TabsTrigger value="wedding">Wedding</TabsTrigger>
         <TabsTrigger value="pre-wedding">Pre-Wedding</TabsTrigger>
+        <TabsTrigger value="maternity">Maternity</TabsTrigger>
         <TabsTrigger value="corporate">Corporate</TabsTrigger>
       </TabsList>
       
@@ -27,6 +29,10 @@ export const PricingTabs = () => {
 
       <TabsContent value="pre-wedding" className="space-y-8">
         <PreWeddingPackage />
+      </TabsContent>
+
+      <TabsContent value="maternity" className="space-y-8">
+        <MaternityPackage />
       </TabsContent>
 
       <TabsContent value="corporate" className="space-y-8">
