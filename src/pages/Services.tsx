@@ -8,6 +8,7 @@ import { useIsMobile } from '@/hooks/use-mobile';
 import RunningScrawl from '@/components/gallery/RunningScrawl';
 import ServicesHeader from '@/components/services/ServicesHeader';
 import ServicesContentWrapper from '@/components/services/ServicesContentWrapper';
+import RateCards from '@/components/services/RateCards';
 
 const Services = () => {
   const location = useLocation();
@@ -122,6 +123,9 @@ const Services = () => {
           />
         </div>
       </div>
+
+      {/* Rate Cards Section - Added above footer */}
+      <RateCards />
       
       <Footer />
     </div>
